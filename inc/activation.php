@@ -1,0 +1,562 @@
+<?php
+
+/**
+ * attivazione del Tema
+ */
+function dci_theme_activation() {
+    // inserisco i termini di tassonomia
+    insertCustomTaxonomyTerms();
+
+    //inserisco le descrizioni di default per la tassonomia Argomenti
+    updateArgomentiDescription();
+
+    //inserisco le descrizioni di default per la tassonomia Categorie di Servizio
+    updateCategorieServizio();
+
+    //creo le pagine
+    insertPages($pagine = dci_get_pagine_obj());
+
+    //
+    updatePagesDescription();
+
+    //creo i permessi e le capabilites
+    createCapabilities();
+
+    //creo i menu
+    createMenu();
+
+    // controllo se è una prima installazione
+    $dci_has_installed = get_option("dci_has_installed");
+    if(!$dci_has_installed){
+    }
+
+    global $wp_rewrite;
+    $wp_rewrite->init(); //important...
+    //TODO:? associazione tag - tassonomia
+    $wp_rewrite->set_tag_base("argomenti" );
+    $wp_rewrite->flush_rules();
+
+    update_option("dci_has_installed", true);
+
+    createForms();
+
+}
+add_action( 'after_switch_theme', 'dci_theme_activation' );
+
+function dci_reload_theme_option_page() {
+    if(isset($_GET["action"]) && $_GET["action"] == "reload"){
+        dci_theme_activation();
+    }
+
+    echo "<div class='wrap'>";
+    echo '<h1>Ricarica i dati di attivazione del tema</h1>';
+
+    echo '<a href="themes.php?page=reload-data-theme-options&action=reload" class="button button-primary">Ricarica i dati di attivazione (menu, tipologie, etc)</a>';
+    echo "</div>";
+}
+function dci_add_update_theme_page() {
+    add_theme_page( 'Ricarica i dati', 'Ricarica i dati', 'edit_theme_options', 'reload-data-theme-options', 'dci_reload_theme_option_page' );
+}
+add_action( 'admin_menu', 'dci_add_update_theme_page' );
+
+
+/**
+ * inserimento ricorsivo dei termini di tassonomia
+ * @param $array
+ * @param $tax_name
+ * @param null $parent_id
+ */
+function recursionInsertTaxonomy($array, $tax_name, $parent_id = null) {
+    foreach ($array as $key => $value) {
+        if (!is_numeric($key)) { //se NON è numerico, ha dei figli
+            if (!term_exists( $key , $tax_name)) {
+                $parent = $parent_id !== null ? wp_insert_term( $key, $tax_name, array("parent" => $parent_id)) : wp_insert_term( $key, $tax_name );
+                if(is_array($parent)){
+                    recursionInsertTaxonomy($value, $tax_name, $parent['term_taxonomy_id']);
+                }
+            } else {
+                //se il padre esiste già ma il figlio no (get id del padre in base al termine...)
+            }
+        } else {
+            $parent_id !== null ? wp_insert_term( $value, $tax_name, array("parent" => $parent_id)) : wp_insert_term( $value, $tax_name);
+        }
+    }
+}
+
+/**
+ * inserimento termini di tasssonomia
+ */
+function insertCustomTaxonomyTerms() {
+
+    /**
+     * inserimento termini di tassonomia
+     */
+
+    /**
+     * Argomenti
+     */
+    $argomenti_array = dci_argomenti_array();
+    recursionInsertTaxonomy($argomenti_array, 'argomenti');
+
+    /**
+     * Tipi di Luogo
+     */
+    $tipi_luogo_array = dci_luoghi_array();
+    recursionInsertTaxonomy($tipi_luogo_array, 'tipi_luogo');
+
+    /**
+     * Tipi di Notizia
+     */
+    $tipi_notizia_array = dci_tipi_notizia_array();
+    recursionInsertTaxonomy($tipi_notizia_array, 'tipi_notizia');
+
+    /**
+     * Tipi di Evento
+     */
+    $tipi_evento_array = dci_tipi_evento_array();
+    recursionInsertTaxonomy($tipi_evento_array, 'tipi_evento');
+
+    /**
+     * Tipi di Unità organizzativa
+     */
+    $tipi_unita_organizzativa_array = dci_tipi_unita_organizzativa_array();
+    recursionInsertTaxonomy($tipi_unita_organizzativa_array, 'tipi_unita_organizzativa');
+
+    /**
+     * Categorie di Servizio
+     */
+    $categorie_servizio_array = dci_categorie_servizio_array();
+    recursionInsertTaxonomy($categorie_servizio_array, 'categorie_servizio');
+
+    /**
+     * Tipi di Incarico
+     */
+    $tipi_incarico_array = dci_tipi_incarico_array();
+    recursionInsertTaxonomy($tipi_incarico_array, 'tipi_incarico');
+
+    /**
+     * Licenze
+     */
+    $licenze_array = dci_licenze_array();
+    recursionInsertTaxonomy($licenze_array, 'licenze');
+
+    /**
+     * Temi di un Dataset
+     */
+    $temi_dataset_array = dci_temi_dataset_array();
+    recursionInsertTaxonomy($temi_dataset_array, 'temi_dataset');
+
+    /**
+     * Tipi di Punto di contatto
+     */
+    $tipi_punto_contatto_array = dci_tipi_punto_contatto_array();
+    recursionInsertTaxonomy($tipi_punto_contatto_array, 'tipi_punto_contatto');
+
+    /**
+     * Frequenza di aggiornamento
+     */
+    $frequenze_aggiornamento_array = dci_frequenze_aggiornamento_array();
+    recursionInsertTaxonomy($frequenze_aggiornamento_array, 'frequenze_aggiornamento');
+
+    /**
+     * Tipologia Documento Albo Pretorio
+     */
+    $tipi_doc_albo_pretorio_array = dci_tipi_doc_albo_pretorio_array();
+    recursionInsertTaxonomy($tipi_doc_albo_pretorio_array, 'tipi_doc_albo_pretorio');
+
+    /**
+     * Eventi della vita delle Persone
+     */
+    $eventi_vita_persone_array = dci_eventi_vita_persone_array();
+    recursionInsertTaxonomy($eventi_vita_persone_array, 'eventi_vita_persone');
+
+    /**
+     * Eventi della vita di un'Impresa
+     */
+    $eventi_vita_impresa_array = dci_eventi_vita_impresa_array();
+    recursionInsertTaxonomy($eventi_vita_impresa_array, 'eventi_vita_impresa');
+
+    /**
+     * Stati di una Pratica
+     */
+    $stati_pratica_array = dci_stati_pratica_array();
+    recursionInsertTaxonomy($stati_pratica_array, 'stati_pratica');
+
+    /**
+     * Tipi di Documento
+     */
+    $tipi_documento_array = dci_tipi_documento_array();
+    recursionInsertTaxonomy($tipi_documento_array, 'tipi_documento');
+
+
+}
+
+/**
+ * inserimento descrizioni
+ */
+function updateArgomentiDescription() {
+    $terms =  get_terms(array(
+        'taxonomy' =>'argomenti',
+        'hide_empty' => false,
+    ));
+    foreach($terms as $term){
+        $args = array(
+            'description' => 'Servizi comunali, documenti, uffici, notizie ed eventi relativi a '.$term->name
+        );
+        wp_update_term($term->term_id,'argomenti',$args);
+    }
+}
+
+function updateCategorieServizio() {
+    $terms =  get_terms(array(
+        'taxonomy' =>'categorie_servizio',
+        'hide_empty' => false,
+    ));
+    $descriptions = dci_get_categorie_servizio_descriptions_array();
+    foreach($terms as $term){
+
+        $args = array(
+            'description' => $descriptions[$term->name]
+        );
+        wp_update_term($term->term_id,'categorie_servizio',$args);
+    }
+}
+
+function updatePagesDescription() {
+/**
+    //primo livello
+    updatePageDescription('Amministrazione','Tutte le informazioni sulla struttura amministrativa del Comune. Scopri gli organi politici, gli uffici e il personale e consulta i documenti pubblici, le statistiche e i bandi di gara.');
+    updatePageDescription('Servizi','Tutti i servizi comunali per i cittadini, disponibili online o a sportello, per richiedere documenti e permessi, iscriversi a graduatorie ed effettuare pagamenti.');
+    updatePageDescription('Argomenti','Gli argomenti rispondono a un\'esigenza di organizzazione dei contenuti del sito istituzionale per temi e rappresentano le principali categorie di contenuti, informazioni e documenti specifici.');
+    updatePageDescription('Vivere il Comune','Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.');
+    updatePageDescription('Documenti e Dati','Bandi di concorso, avvisi, graduatorie, statistiche e documenti pubblici.');
+
+    //secondo livello (Amministrazione)
+    $amministrazione_pages = dci_get_pages_descriptions_array('Amministrazione');
+    foreach($amministrazione_pages as $title => $desc){
+        updatePageDescription($title,$desc);
+    }
+*/
+
+}
+function updatePageDescription($page_title, $description) {
+    $page= get_page_by_title( $page_title);
+    if (dci_get_meta('descrizione','_dci_page_',$page->ID)==''){
+        update_post_meta( $page->ID, '_dci_page_descrizione', $description );
+    }
+}
+
+
+
+/**
+ * inserimento pagine (ricorsivo)
+ */
+function insertPages($pagine, $parent_id = 0) {
+
+    foreach ($pagine as $pagina) {
+
+        $page_id = dci_create_page_template(__($pagina['title'],'design_comuni_italia'), $pagina['slug'], $pagina['template_name'], $parent_id );
+        if (!empty($pagina['description'])){
+            updatePageDescription($pagina['title'],$pagina['description']);
+        }
+
+        if (!empty($pagina['children'])){
+            insertPages($pagina['children'],$page_id);
+        }
+    }
+    /**
+    $page_amministrazione = dci_create_page_template(__( 'Amministrazione', 'design_comuni_italia'), 'page-templates/amministrazione.php','amministrazione' );
+    dci_create_page_template(__( 'Luoghi', 'design_comuni_italia'),'page-templates/luoghi.php','luoghi', $page_amministrazione);
+    dci_create_page_template(__( 'Organi di governo', 'design_comuni_italia'),'page-templates/organi-di-governo.php','organi-di-governo', $page_amministrazione);
+    dci_create_page_template(__( 'Aree amministrative', 'design_comuni_italia'),'page-templates/aree-amministrative.php','aree-amministrative', $page_amministrazione);
+    dci_create_page_template(__( 'Uffici', 'design_comuni_italia'),'page-templates/uffici.php','uffici', $page_amministrazione);
+    dci_create_page_template(__( 'Enti e fondazioni', 'design_comuni_italia'),'page-templates/enti-e-fondazioni.php','enti-e-fondazioni', $page_amministrazione);
+    dci_create_page_template(__( 'Politici', 'design_comuni_italia'),'page-templates/politici.php','politici', $page_amministrazione);
+    dci_create_page_template(__( 'Personale amministrativo', 'design_comuni_italia'),'page-templates/personale-amministrativo.php','personale-amministrativo', $page_amministrazione);
+
+
+    $page_servizi = dci_create_page_template(__( 'Servizi', 'design_comuni_italia'), 'page-templates/servizi.php','servizi' );
+    dci_create_page_template(__( 'Pagamenti', 'design_comuni_italia'),'page-templates/pagamenti.php','pagamenti', $page_servizi);
+    dci_create_page_template(__( 'Sostegno', 'design_comuni_italia'),'page-templates/sostegno.php','sostegno', $page_servizi);
+    dci_create_page_template(__( 'Domande e iscrizioni', 'design_comuni_italia'),'page-templates/domande-e-iscrizioni.php','domande-e-iscrizioni', $page_servizi);
+    dci_create_page_template(__( 'Segnalazioni', 'design_comuni_italia'),'page-templates/segnalazioni.php','segnalazioni', $page_servizi);
+    dci_create_page_template(__( 'Autorizzazioni e concessioni', 'design_comuni_italia'),'page-templates/autorizzazioni-e-concessioni.php','autorizzazioni-e-concessioni', $page_servizi);
+    dci_create_page_template(__( 'Certificati e dichiarazioni', 'design_comuni_italia'),'page-templates/autorizzazioni-e-concessioni.php','autorizzazioni-e-concessioni', $page_servizi);
+
+
+    $page_novita = dci_create_page_template(__( 'Novità', 'design_comuni_italia'), 'page-templates/novita.php','novita' );
+    dci_create_page_template(__( 'Notizie', 'design_comuni_italia'), 'page-templates/notizie.php','notizie', $page_novita );
+    dci_create_page_template(__( 'Eventi', 'design_comuni_italia'), 'page-templates/eventi.php','eventi', $page_novita );
+    dci_create_page_template(__( 'Comunicati stampa', 'design_comuni_italia'), 'page-templates/comunicati-stampa.php','comunicati-stampa', $page_novita );
+
+    $page_vivere_comune = dci_create_page_template(__( 'Vivere il Comune', 'design_comuni_italia'), 'page-templates/vivi.php','vivere-il-comune' );
+
+    $page_documenti = dci_create_page_template(__( 'Documenti e Dati', 'design_comuni_italia'), 'page-templates/documenti-e-dati.php','documenti-e-dati' );
+    dci_create_page_template(__( 'Progetti e attività', 'design_comuni_italia'), 'page-templates/progetti-e-attivita.php','progetti-e-attivita', $page_documenti );
+    dci_create_page_template(__( 'Delibere, determine e ordinanze', 'design_comuni_italia'), 'page-templates/delibere-determine-e-ordinanze.php','delibere-determine-e-ordinanze', $page_documenti );
+    dci_create_page_template(__( 'Bandi', 'design_comuni_italia'), 'page-templates/bandi.php','bandi', $page_documenti );
+    dci_create_page_template(__( 'Concorsi', 'design_comuni_italia'), 'page-templates/concorsi.php','concorsi', $page_documenti );
+    dci_create_page_template(__( 'Albo pretorio', 'design_comuni_italia'), 'page-templates/albo-pretorio.php','albo-pretorio', $page_documenti );
+
+    dci_create_page_template(__( 'Argomenti', 'design_comuni_italia'), 'page-templates/argomenti.php','argomenti' );
+
+    dci_create_page_template(__( 'Accesso', 'design_comuni_italia'), 'page-templates/accesso.php','accesso' );
+     * */
+}
+
+/**
+ * creazione capabilities utente admin
+ */
+function createCapabilities() {
+
+    $admins = get_role( 'administrator' );
+
+    $custom_types = dci_get_tipologie_capabilities(); //nomi plurali dei custom post type
+    $caps = array("edit_","edit_others_","publish_","read_private_","delete_","delete_private_","delete_published_","delete_others_","edit_private_","edit_published_");
+    foreach ($custom_types as $custom_type){
+        foreach ($caps as $cap){
+            $admins->add_cap( $cap.$custom_type);
+        }
+    }
+    $custom_tax = dci_get_tassonomie_names(); //array contenente i nomi delle tassonomie custom
+    $caps_terms = array("manage_","edit_","delete_","assign_");
+    foreach ($custom_tax as $ctax){
+        foreach ($caps_terms as $cap){
+            $admins->add_cap( $cap.$ctax);
+        }
+    }
+    // members cap for multisite
+    $admins->add_cap( "create_roles");
+    $admins->add_cap( "edit_roles");
+    $admins->add_cap( "delete_roles");
+}
+
+
+/**
+ * creazione menu
+ */
+function createMenu()
+{
+    //creo i menu
+    $menu_main = dci_create_menu(__('Main Menu', "design_comuni_italia"));
+    $menu_amministrazione = dci_create_menu(__('Amministrazione', "design_comuni_italia"));
+    $menu_servizi = dci_create_menu(__('Categorie di Servizio', "design_comuni_italia"));
+    $menu_novita = dci_create_menu(__('Novità', "design_comuni_italia"));
+    $menu_vivere_comune =  dci_create_menu(__('Vivere il Comune', "design_comuni_italia"));
+    $menu_documenti_dati = dci_create_menu(__('Tutti i documenti', "design_comuni_italia"));
+    $menu_argomenti = dci_create_menu(__('Argomenti', 'design_comuni_italia'));
+    $menu_info_1 = dci_create_menu('Info 1', 'design_comuni_italia');
+    $menu_info_2 = dci_create_menu('Info 2', 'design_comuni_italia');
+    //$menu_footer =  dci_create_menu(__('Footer bottom', 'design_comuni_italia'));
+
+    //aggiungo le voci
+
+    //Main menu
+    dci_create_page_menu_item(__( 'Amministrazione', 'design_comuni_italia'),$menu_main);
+    dci_create_page_menu_item(__( 'Servizi', 'design_comuni_italia'),$menu_main);
+    dci_create_page_menu_item(__( 'Novità', 'design_comuni_italia'),$menu_main);
+    dci_create_page_menu_item(__( 'Vivere il Comune', 'design_comuni_italia'),$menu_main);
+    //assegno menu a header main location
+    dci_add_menu_to_location($menu_main,'menu-header-main');
+
+    //menu Amministrazione
+    dci_create_page_menu_item(__( 'Organi di governo', 'design_comuni_italia'),$menu_amministrazione);
+    dci_create_page_menu_item(__( 'Aree amministrative', 'design_comuni_italia'),$menu_amministrazione);
+    dci_create_page_menu_item(__( 'Uffici', 'design_comuni_italia'),$menu_amministrazione);
+    dci_create_page_menu_item(__( 'Enti e fondazioni', 'design_comuni_italia'),$menu_amministrazione);
+    dci_create_page_menu_item(__( 'Politici', 'design_comuni_italia'),$menu_amministrazione);
+    dci_create_page_menu_item(__( 'Personale amministrativo', 'design_comuni_italia'),$menu_amministrazione);
+    dci_create_page_menu_item(__( 'Documenti e Dati', 'design_comuni_italia'),$menu_amministrazione);
+    //assegno menu prima colonna footer
+    dci_add_menu_to_location($menu_amministrazione,'menu-footer-col-1');
+
+    //menu Servizi
+    // pagine di secondo livello (corrispondenza con termini dei tassonomia)
+    foreach( dci_categorie_servizio_array() as $term_name) {
+        dci_create_term_menu_item($term_name,'categorie_servizio',$menu_servizi);
+    }
+    //assegno menu seconda colonna footer
+    dci_add_menu_to_location($menu_servizi,'menu-footer-col-2');
+
+    //voici menu Novità
+    //dci_create_page_menu_item(__( 'Notizie', 'design_comuni_italia'), $menu_novita);
+    dci_create_term_menu_item('news','tipi_notizia',$menu_novita, 'Notizie');
+    dci_create_term_menu_item('comunicato stampa','tipi_notizia',$menu_novita, 'Comunicati');
+    //assegno menu terza colonna footer (sopra)
+    dci_add_menu_to_location($menu_novita,'menu-footer-col-3-1');
+
+    //voci menu Vivere il Comune
+    //dci_create_page_menu_item(__( 'Luoghi', 'design_comuni_italia'), $menu_vivere_comune);
+    //dci_create_page_menu_item(__( 'Eventi', 'design_comuni_italia'), $menu_vivere_comune);
+    dci_create_archive_menu_item('luogo', $menu_vivere_comune, __( 'Luoghi', 'design_comuni_italia'));
+    dci_create_archive_menu_item('evento', $menu_vivere_comune, __( 'Eventi', 'design_comuni_italia'));
+    //assegno menu terza colonna footer (sotto)
+    dci_add_menu_to_location($menu_vivere_comune,'menu-footer-col-3-2');
+
+    /**
+    //voci menu Documenti e Dati (compoare nella pagina di secondo livello)
+    foreach( dci_tipi_documento_plural_array() as $term_name => $term_plural) {
+        dci_create_term_menu_item($term_name,'tipi_documento', $menu_documenti_dati, $term_plural);
+    }
+    //assegno menu prima colonna footer
+    dci_add_menu_to_location($menu_documenti_dati,'menu-documenti-topright');
+     */
+
+    //voci menu Argomenti (in alto a destra)
+    dci_create_term_menu_item('Agricoltura','argomenti',$menu_argomenti); //voce tassonomia argomenti come placeholder
+    dci_create_term_menu_item('Tempo libero','argomenti',$menu_argomenti); //voce tassonomia argomenti come placeholder
+    dci_create_term_menu_item('Istruzione','argomenti',$menu_argomenti); //voce tassonomia argomenti come placeholder
+    dci_create_page_menu_item(__('Argomenti', 'design_comuni_italia'), $menu_argomenti, __('Tutti gli argomenti...','design_comuni_italia'));
+    //assegna menu a posizione topright
+    dci_add_menu_to_location($menu_argomenti,'menu-header-right');
+
+    //menu info colonna 1
+    //dci_create_custom_menu_item(__( 'Leggi le FAQ', 'design_comuni_italia'),$menu_info_1);
+    dci_create_archive_menu_item('domanda_frequente', $menu_info_1, __( 'Leggi le FAQ', 'design_comuni_italia'));
+    dci_create_custom_menu_item(__( 'Prenotazione appuntamento', 'design_comuni_italia'),$menu_info_1);
+    dci_create_custom_menu_item(__( 'Segnalazione disservizio', 'design_comuni_italia'),$menu_info_1);
+    dci_create_custom_menu_item(__( 'Richiesta assistenza', 'design_comuni_italia'),$menu_info_1);
+    //assegno menu a location
+    dci_add_menu_to_location($menu_info_1,'menu-footer-info-1');
+
+    //menu info colonna 2
+    dci_create_custom_menu_item(__( 'Amministrazione trasparente', 'design_comuni_italia'),$menu_info_2);
+    dci_create_custom_menu_item(__( 'Informativa privacy', 'design_comuni_italia'),$menu_info_2);
+    dci_create_custom_menu_item(__( 'Note legali', 'design_comuni_italia'),$menu_info_2);
+    dci_create_custom_menu_item(__( 'Dichiarazione di accessibilità', 'design_comuni_italia'),$menu_info_2);
+    //assegno menu a location
+    dci_add_menu_to_location($menu_info_2,'menu-footer-info-2');
+
+    /**
+    //menu footer bottom (media policy, mappa del sito)
+    dci_create_custom_menu_item(__( 'Media policy','design_comuni_italia'),$menu_footer);
+    dci_create_custom_menu_item(__( 'Mappa del sito','design_comuni_italia'),$menu_footer);
+    //assegno menu a posizione topright
+    dci_add_menu_to_location($menu_footer,'menu-footer-bottom');
+    */
+}
+
+/**
+ * creazione Menu
+ * @param $name
+ * @return mixed the id of the menu created
+ */
+function dci_create_menu($name) {
+
+    wp_delete_nav_menu($name);
+    $menu_object = wp_get_nav_menu_object($name);
+
+    if ($menu_object) {
+        $menu_item = $menu_object->term_id;
+    } else {
+        $menu_id = wp_create_nav_menu($name);
+        $menu = get_term_by('id', $menu_id, 'nav_menu');
+    }
+
+    return $menu_id;
+}
+
+function dci_create_custom_menu_item($item_name,  $menu_id, $link = '#') {
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>$item_name,
+        'menu-item-url' => $link,
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+        'menu-item-target' => '_blank',
+        'menu-item-attr-title' => $item_name,
+    ));
+}
+
+function dci_create_page_menu_item($page_name, $menu_id ,$label = '') {
+    $page= get_page_by_title( $page_name);
+    $item_label =  ($label !== '') ? $label : $page_name;
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' =>$item_label,
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'post_type',
+        'menu-item-object-id' => $page->ID,
+        'menu-item-object' => 'page',
+        'menu-item-attr-title' => $page->post_name
+    ));
+}
+
+function dci_create_archive_menu_item($post_type, $menu_id ,$label = '') {
+
+    $item_label =  ($label !== '') ? $label : $post_type;
+    wp_update_nav_menu_item($menu_id, 0, array(
+        'menu-item-title' => $item_label,
+        'menu-item-status' => 'publish',
+        'menu-item-object' => $post_type,
+        'menu-item-type' => 'post_type_archive',
+        'menu-item-attr-title' => $item_label
+    ));
+}
+
+function dci_create_term_menu_item($term_name, $taxonomy, $menu_id, $item_label = '') {
+    $term = get_term_by('name', $term_name, $taxonomy);
+    if ($term){
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-status' => 'publish',
+            'menu-item-type' => 'taxonomy',
+            'menu-item-object-id' => $term->term_id,
+            'menu-item-object' => $taxonomy,
+            'menu-item-attr-title' => ($item_label != '') ? $item_label : $term->slug,
+            'menu-item-title' => ($item_label != '') ? $item_label : $term->name
+        ));
+    }
+}
+
+function dci_add_menu_to_location($menu_id, $location_id) {
+    $locations_primary_arr = get_theme_mod('nav_menu_locations');
+    $locations_primary_arr[$location_id] = $menu_id;
+    set_theme_mod('nav_menu_locations', $locations_primary_arr);
+    update_option('menu_check', true);
+}
+
+function dci_create_page_template($name, $slug, $template, $parent_id = '', $content = '') {
+
+    $new_page_title    = $name;
+    $new_page_content  = $content;
+    $new_page_template = 'page-templates/'.$template.'.php';
+    $page_check        = get_page_by_title( $new_page_title);
+
+    $new_page = array(
+        'post_type'    => 'page',
+        'post_title'   => $new_page_title,
+        'post_content' => $new_page_content,
+        'post_status'  => 'publish',
+        'post_author'  => 1,
+        'post_slug' => $slug,
+        'post_parent' => $parent_id
+    );
+
+    if ( ! isset( $page_check->ID ) ) {
+        $new_page_id = wp_insert_post( $new_page );
+        if ( ! empty( $new_page_template ) ) {
+            update_post_meta( $new_page_id, '_wp_page_template', $new_page_template );
+        }
+    }
+    return $new_page_id;
+}
+
+function createForms() {
+
+    $my_post = array(
+
+        'post_type' => 'wpcf7_contact_form',
+        'post_title'    => 'form-sistema-valutazione',
+        'post_status'=> "publish",
+        'meta_input' => array(
+            '_form' => 'Quanto è utile questa pagina? [checkbox* stelle exclusive "0" "1" "2" "3" "4" "5"]\ Cosa ha funzionato meglio? [radio motivazione use_label_element "Alcune indicazioni non erano chiare" "Alcune indicazioni non erano corrette" "Non capivo se quello che facevo era corretto" "Ho avuto problemi tecnici"]\ Vuoi aggiungere altri dettagli? [text dettagli]\ [text page-id] \[submit "Avanti"]',
+            '_mail' => array(
+                'subject' => '[_site_title] "[your-subject]"',
+                'sender' => '<wordpress@'.$_SERVER['SERVER_NAME'].'>',
+                'body' => 'this form is used to store user input in db (no mail is sent)',
+            ),
+            '_additional_settings' =>'skip_mail: on'
+        )
+    );
+
+    wp_insert_post( $my_post );
+
+}

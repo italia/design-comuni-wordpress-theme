@@ -1,0 +1,239 @@
+/**
+* admin bar
+*/
+
+#wpadminbar #wp-admin-bar-design-comuni>.ab-item .dci-icon:before {
+    content: "\f120";
+    top: 2px;
+}
+
+#wpadminbar .dci-icon{
+    position: relative;
+    float: left;
+    font: normal 20px/1 dashicons;
+    speak: none;
+    padding: 0px 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: none!important;
+    margin-right: 6px;
+}
+
+/*****************/
+
+
+.manuale ul{
+    list-style-type: circle;
+    margin-left:20px;
+
+}
+
+.manuale li{
+    padding:0px;
+}
+.manuale h2,.manuale h3, .manuale h4, .manuale h5 {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.manuale p{
+    margin-top:0px;
+    margin-bottom:10px;
+}
+
+.manuale .notice, .manuale .updated{
+    display:none;
+}
+
+
+/******************/
+
+.attached-posts-wrap ul{
+    height: 10em !important;
+}
+
+.cmb-type-custom-attached-posts .cmb-th{
+    width: 100% !important;
+
+}
+
+.cmb-type-custom-attached-posts .cmb-th{
+    font-size:18px;
+}
+
+
+/* cmb2 */
+.cmb2_textarea{
+    width:90% !important;
+    height:120px;
+}
+.cmb-row .regular-text{
+    width:90% !important;
+}
+
+/* Style the caret/arrow */
+.cmb-type-taxonomy-multicheck-hierarchy-child .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+.cmb-type-taxonomy-multicheck-hierarchy-child .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.cmb-type-taxonomy-multicheck-hierarchy-child .caret-down::before {
+    transform: rotate(90deg);
+}
+
+/* Hide the nested list */
+.cmb-type-taxonomy-multicheck-hierarchy-child .nested {
+    display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.cmb-type-taxonomy-multicheck-hierarchy-child .active {
+    display: block;
+}
+
+
+
+
+
+.cmb-repeatable-group .cmb2-metabox-description{
+    font-weight:normal;
+    font-size:14px;
+    padding-bottom: 0px;
+}
+
+/** cmb generico **/
+
+.cmb-row .move-up, .cmb-row .move-down{
+    border: solid 1px #0073aa;
+    padding:2px 5px 0px 4px;
+    color: #0073aa;
+}
+
+.cmb-row .cmb-remove-group-row{
+    text-transform:uppercase;
+    background-color:#be4441;
+    font-weight:bold;
+    color:#fff;
+    border:none;
+    padding:2px 12px 2px 12px;
+}
+
+.cmb2-options-box {
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #e9e9e9;;
+}
+
+.cmb2-options-box .nav-tab-wrapper {
+    width: 15%;
+    overflow: hidden;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+.cmb2-options-box .nav-tab-wrapper a{
+    width: 100%;
+    display: inline-block;
+    padding: 0.5em 0 0.5em 0.5em;
+    margin: 0;
+}
+
+.cmb2-options-box .form-content {
+    width: 85%;
+    float: right;
+}
+
+.cmb2-options-box .cmb-type-title {
+    margin-top: 0!important;
+}
+
+.cmb2-options-box .select2-search,
+.cmb2-options-box .select2-search input {
+    width: 100%!important;
+}
+
+.cmb2-options-box .form-footer {
+    width: 85%;
+    float: right;
+}
+
+.cmb2-options-box .submit-box {
+    text-align: center;
+    padding: 2em 0;
+    border-left: 1px solid #e9e9e9;
+}
+
+.cmb2-options-box .nav-tab:last-child {
+    border-bottom: 0 none;
+}
+.cmb2-options-box .clear-form {
+    width: 100%;
+    clear: both;
+}
+
+.cmb2-options-box .cmb2-metabox>.cmb-row {
+    border-right: 0 none!important;
+}
+
+.cmb2-options-box .radio-color {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.cmb2-options-box .radio-color.red {
+    background-color: #D1344C;
+}
+.cmb2-options-box .radio-color.purple {
+    background-color: #B21DD0;
+}
+.cmb2-options-box .radio-color.green {
+    background-color: #0E8A5F;
+}
+.cmb2-options-box .radio-color.blue {
+    background-color: #0D00FF;
+}
+.cmb2-options-box .radio-color.yellow {
+    background-color: #FFCC00;
+}
+
+#spinner-overlayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) url(images/spinner.gif) center center no-repeat;
+}
+
+
+.cmb2-option.error {
+    border-color: #D8000C;
+}
+
+
+.highlighted_missing_field{
+    padding-left: 5px !important;
+
+    background: #FFFFFF !important;
+    border: 2px solid #FFCC00 !important;
+}
+
+.field-required-msg {
+    padding: 5px;
+    color:#D8000C;
+}

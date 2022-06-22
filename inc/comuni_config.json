@@ -1,0 +1,323 @@
+{
+  "configurazione" : {
+    "tipologie" :{
+      "evento" : {},
+      "luogo" : {},
+      "notizia" : {},
+      "unita_organizzativa" : {},
+      "servizio" : {},
+      "documento_pubblico" : {},
+      "documento_privato" : {},
+      "dataset" : {},
+      "punto_contatto" : {},
+      "pratica" : {},
+      "pagamento" : {},
+      "messaggio" : {},
+      "incarico" : {},
+      "appuntamento" : {},
+      "fase" : {},
+      "sito_tematico" : {}
+    },
+    "tassonomie" : {    
+      "categorie_servizio" : {} ,
+      "tipi_evento" : {},
+      "tipi_notizia" : {},
+      "tipi_luogo" : {},
+      "argomenti" : {
+        "name" : "argomenti",
+        "terms" : [
+          "Accesso all\"informazione",
+          "Acqua",
+          "Agricoltura",
+          "Animale domestico",
+          "Aria",
+          "Assistenza agli invalidi",
+          "Assistenza sociale",
+          "Associazioni",
+          "Bilancio",
+          "Commercio all\"ingrosso",
+          "Commercio al minuto",
+          "Commercio ambulante",
+          "Comunicazione istituzionale",
+          "Comunicazione politica",
+          "Concorsi",
+          "Covid-19",
+          "Elezioni",
+          "Estero",
+          "Energie rinnovabili",
+          "Foreste",
+          "Formazione professionale",
+          "Gemellaggi",
+          "Gestione rifiuti",
+          "Giustizia",
+          "Igiene pubblica",
+          "Immigrazione",
+          "Sport",
+          "Imposte",
+          "Imprese",
+          "Inquinamento" ,
+          "Integrazione sociale",
+          "Isolamento termico" ,
+          "Istruzione",
+          "Lavoro",
+          "Matrimonio",
+          "Mercato",
+          "Mobilità sostenibile" ,
+          "Morte",
+          "Nascita",
+          "Parcheggi",
+          "Patrimonio culturale",
+          "Pesca",
+          "Piano di sviluppo",
+          "Pista ciclabile",
+          "Politica commerciale",
+          "Polizia",
+          "Prodotti alimentari",
+          "Protezione civile" ,
+          "Residenza" ,
+          "Risposta alle emergenze",
+          "Sistema giuridico",
+          "Spazio Verde",
+          "Sviluppo sostenibile",
+          "Tassa sui servizi",
+          "Tempo libero",
+          "Trasparenza amministrativa",
+          "Trasporto pubblico",
+          "Turismo",
+          "Urbanizzazione",
+          "Viaggi",
+          "Zone pedonali",
+          "ZTL"
+        ]
+      },
+      "tipi_unita_organizzativa" : {},
+      "licenze" : {},
+      "frequenze_aggiornamento" : {},
+      "temi_dataset" : {} ,
+      "tipi_punto_contatto" : {},
+      "tipi_doc_albo_pretorio" : {},
+      "eventi_vita_persone" : {},
+      "eventi_vita_impresa" : {},
+      "tipi_incarico" : {},
+      "stati_pratica" : {},
+      "tipi_documento" : {}
+    },
+    "pagine" : {
+      "Amministrazione" :{
+        "title" : "Amministrazione",
+        "slug" : "amministrazione",
+        "description" : "Tutte le informazioni sulla struttura amministrativa del Comune. Scopri gli organi politici, gli uffici e il personale e consulta i documenti pubblici, le statistiche e i bandi di gara.",
+        "template_name" : "amministrazione",
+        "children" : {
+          "Aree amministrative" : {
+            "title" : "Aree amministrative",
+            "slug" : "aree-amministrative",
+            "description" : "La struttura organizzativa è suddivisa in aree di competenze che gestiscono i servizi erogati alla comunità.",
+            "template_name": "",
+            "children" : {}
+          },
+          "Enti e Fondazioni" : {
+            "title" : "Enti e Fondazioni",
+            "slug" : "enti-e-fondazioni",
+            "description" : "I consorzi, gli enti e le società partecipate di cui il Comune fa parte per rappresentare al meglio gli interessi della comunità.",
+            "template_name": "",
+            "children" : {}
+          },
+          "Luoghi" : {
+            "title" : "Luoghi",
+            "slug" : "luoghi",
+            "description" : "Luoghi d'interesse del Comune.",
+            "template_name": "",
+            "children" : {}
+          },
+          "Organi di Governo" : {
+            "title" : "Organi di Governo",
+            "slug" : "organi-di-governo",
+            "description" : "Le informazioni sulla Giunta e il Consiglio comunale, incluse le convocazioni, le registrazioni delle sedute e i verbali.",
+            "template_name": "",
+            "children" : {}
+          },
+          "Personale amministrativo" : {
+            "title" : "Personale amministrativo",
+            "slug" : "personale-amministrativo",
+            "description" : "Personale da contattare per informazioni e supporto ai servizi erogati dagli uffici.",
+            "template_name": "",
+            "children" : {}
+          },
+          "Politici" : {
+            "title" : "Politici",
+            "slug" : "politici",
+            "description" : "Tutti i rappresentanti dei cittadini che compongono gli organi di indirizzo politico del Comune.",
+            "template_name": "",
+            "children" : {}
+          },
+          "Uffici" : {
+            "title" : "Uffici",
+            "slug" : "uffici",
+            "description" : "Le informazioni e i contatti degli Uffici di Città, gli uffici aperti al pubblico e gli uffici assistenziali.",
+            "template_name": "",
+            "children" : {}
+          }
+        }
+      },
+      "Novità" :{
+        "title" : "Novità",
+        "slug" : "novita",
+        "description" : "",
+        "template_name": "novita",
+        "children" : {
+          "Comunicati stampa" : {
+            "title" : "Comunicati stampa",
+            "slug" : "comunicati-stampa",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          },
+          "Eventi" : {
+            "title" : "Eventi",
+            "slug" : "eventi",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          },
+          "Notizie" : {
+            "title" : "Notizie",
+            "slug" : "notizie",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          }
+        }
+      },
+      "Servizi":{
+        "title" : "Servizi",
+        "slug" : "servizi",
+        "description" : "Tutti i servizi comunali per i cittadini, disponibili online o a sportello, per richiedere documenti e permessi, iscriversi a graduatorie ed effettuare pagamenti.",
+        "template_name": "servizi",
+        "children" : {
+          "Pagamenti" : {
+            "title" : "Pagamenti",
+            "slug" : "pagamenti",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          },
+          "Sostegno" : {
+            "title" : "Sostegno",
+            "slug" : "sostegno",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          },
+          "Domande e iscrizioni" : {
+            "title" : "Domande e iscrizioni",
+            "slug" : "domande-e-iscrizioni",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          },
+          "Segnalazioni" : {
+            "title" : "Segnalazioni",
+            "slug" : "segnalazioni",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          },
+          "Autorizzazioni e concessioni" : {
+            "title" : "Autorizzazioni e concessioni",
+            "slug" : "autorizzazioni-e-concessioni",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          },
+          "Certificati e dichiarazioni" : {
+            "title" : "Certificati e dichiarazioni",
+            "slug" : "certificati-e-dichiarazioni",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          }
+        }
+      },
+      "Documenti e Dati":{
+        "title" : "Documenti e Dati",
+        "slug" : "documenti-e-dati",
+        "description" : "Bandi di concorso, avvisi, graduatorie, statistiche e documenti pubblici.",
+        "template_name": "documenti-e-dati",
+        "children" : {
+          "Documenti":{
+            "title" : "Documenti",
+            "slug" : "documenti",
+            "description" : "",
+            "template_name": "",
+            "children" : {
+              "Albo Pretorio":{
+                "title" : "Albo Pretorio",
+                "slug" : "albo-pretorio",
+                "description" : "",
+                "template_name": "",
+                "children" : {}
+              },
+              "Bandi":{
+                "title" : "Bandi",
+                "slug" : "bandi",
+                "description" : "",
+                "template_name": "",
+                "children" : {}
+              },
+              "Concorsi":{
+                "title" : "Concorsi",
+                "slug" : "concorsi",
+                "description" : "",
+                "template_name": "",
+                "children" : {}
+              },
+              "Delibere, determine e ordinanze":{
+                "title" : "Delibere, determine e ordinanze",
+                "slug" : "Delibere-determine-ordinanze",
+                "description" : "",
+                "template_name": "",
+                "children" : {}
+              },
+              "Progetti e attività":{
+                "title" : "Progetti e attività",
+                "slug" : "progetti-e-attivita",
+                "description" : "",
+                "template_name": "",
+                "children" : {}
+              }
+            }
+          },
+          "Dati":{
+            "title" : "Dati",
+            "slug" : "dati",
+            "description" : "",
+            "template_name": "",
+            "children" : {}
+          }
+        }
+      },
+      "Vivere il Comune":{
+        "title" : "Vivere il Comune",
+        "slug" : "vivere-il-comune",
+        "description" : "Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.",
+        "template_name": "vivere-il-comune",
+        "children" : {}
+      },
+      "Argomenti" : {
+        "title" : "Argomenti",
+        "slug" : "argomenti",
+        "description" : "Gli argomenti rispondono a un'esigenza di organizzazione dei contenuti del sito istituzionale per temi e rappresentano le principali categorie di contenuti, informazioni e documenti specifici.",
+        "template_name": "argomenti",
+        "children" : {}
+      },
+      "Accesso" : {
+        "title" : "Accesso",
+        "slug" : "accesso",
+        "description" : "",
+        "template_name": "accesso",
+        "children" : {}
+      }
+    }
+  }
+}

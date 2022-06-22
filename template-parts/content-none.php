@@ -1,0 +1,1 @@
+<p><?php _e("Nessun risultato", "design_comuni_italia"); ?></p>

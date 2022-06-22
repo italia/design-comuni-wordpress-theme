@@ -1,0 +1,21 @@
+{
+    "name": "serkanalgur/cmb2-field-faiconselect",
+    "description": "Font Awesome icon selector for powerful custom metabox generator CMB2",
+    "license": "GPL-3.0-or-later",
+    "type": "wordpress-plugin",
+    "homepage": "https://github.com/serkanalgur/cmb2-field-faiconselect",
+    "authors": [
+        {
+            "name": "Serkan Algur",
+            "homepage": "https://wpadami.com",
+            "email": "info@wpadami.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">5.6"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.3.0"
+    }
+}
