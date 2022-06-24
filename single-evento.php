@@ -237,11 +237,11 @@ get_header();
                         $luogo = $luogo_evento->post_title;
                         ?>
                         <div class="mt-5">
-                            <a target="_blank" href="https://calendar.google.com/calendar/r/eventedit?text=<?php echo urlencode(get_the_title()); ?>&dates=<?php echo $data_inizio; ?>/<?php echo $data_fine; ?>&details=<?php echo urlencode($descrizione_breve); ?>:+<?php echo urlencode(get_permalink()); ?>&location=<?php echo urlencode($luogo); ?>" class="btn btn-outline-primary btn-icon" aria-label="aggiungi al calendario eventi" title="Aggiungi al calendario eventi">
+                            <a target="_blank" href="https://calendar.google.com/calendar/r/eventedit?text=<?php echo urlencode(get_the_title()); ?>&dates=<?php echo $data_inizio; ?>/<?php echo $data_fine; ?>&details=<?php echo urlencode($descrizione_breve); ?>:+<?php echo urlencode(get_permalink()); ?>&location=<?php echo urlencode($luogo); ?>" class="btn btn-outline-primary btn-icon" aria-label="aggiungi al calendario" title="Aggiungi al calendario">
                                 <svg class="icon icon-primary">
                                 <use xlink:href="#it-plus-circle"></use>
                                 </svg>
-                                <span>Aggiungi al calendario eventi</span>
+                                <span>Aggiungi al calendario</span>
                             </a>
                         </div>
                     </article>

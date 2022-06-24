@@ -4,25 +4,25 @@
     $posts = dci_get_grouped_posts_by_term( 'amministrazione' , 'argomenti', $argomento->slug, 3 );
 ?>
 <section id="amministrazione">
-    <div class="section pb-40 pt-40 pt-lg-80">
+    <div class="pb-40 pt-40 pt-lg-80">
         <div class="container">
-            <div class="row row-title border-bottom border-semi-dark">
-                <div class="col-12 d-lg-flex justify-content-between">
-                    <h3 class="u-grey-light mb-lg-3 title-large-semi-bold">
+            <div class="row row-title">
+                <div class="col-12">
+                    <h3 class="u-grey-light border-bottom border-semi-dark pb-2 pb-lg-3 title-large-semi-bold">
                         Amministrazione
                     </h3>
                 </div>
             </div>
         <div>
-            <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3 py-2 py-lg-3">
+            <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3 py-2 py-lg-3 d-flex d-md-block d-lg-flex">
                 <?php foreach ($posts as $post) { 
                     $description = dci_get_meta('descrizione_breve');
                     $img = dci_get_meta('immagine');    
                     $tipo_amministrazione = get_the_terms($post->ID, 'tipi_unita_organizzativa')[0];
                 ?>
                     <div class="card card-teaser rounded border border-light <?php echo $img ?'card-teaser-image card-flex' : '' ?> ">
-                        <div class="card-body d-flex">
-                            <div class="col py-4 ps-4">
+                        <div class="card-body d-flex justify-content-between">
+                            <div class="py-4 ps-4">
                                 <div class="category-top">
                                     <a class="u-grey-light fw-semibold" href="<?php echo get_term_link($tipo_amministrazione->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_amministrazione->name; ?>" title="Vai alla sezione <?php echo $tipo_amministrazione->name; ?>">
                                 <?php echo $tipo_amministrazione->name; ?>

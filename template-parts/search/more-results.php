@@ -15,7 +15,7 @@ if ($the_query->found_posts > $max_posts ) {
     </button>
 </div>
 <?php } else { ?>
-    <p class="text-center text-paragraph-regular-medium mb-0">
+    <p class="text-center text-paragraph-regular-medium mt-4 mb-0">
         Nessun altro risultato
     </p>
 <?php } 

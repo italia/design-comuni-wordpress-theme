@@ -16,7 +16,7 @@ $assessorati_riferimento = dci_get_term_meta('assessorato_riferimento', "dci_ter
 get_header();
 ?>
 <main>
-    <div class="it-hero-wrapper it-wrapped-container">
+    <div class="it-hero-wrapper it-wrapped-container" id="main-container">
       <?php if ($img) { ?>
       <div class="img-responsive-wrapper">
         <div class="img-responsive">
@@ -28,32 +28,31 @@ get_header();
       <?php } ?>
       <div class="container">
         <div class="row">
-          <div class="col-12 px-lg-5">
+          <div class="col-12 px-0 px-lg-2 drop-shadow">
             <div
-              class="it-hero-card it-hero-bottom-overlapping px-2 px-md-5 py-2 py-md-5 rounded"
+              class="it-hero-card it-hero-bottom-overlapping rounded hero-p pb-lg-80"
             >
   
-                <div class="row">
-                  <div class="col">
+                <div class="row justify-content-center">
+                  <div class="col-12 col-lg-10">
                     <?php get_template_part("template-parts/common/breadcrumb"); ?>
                   </div>
                 </div>
-                <div class="row sport-wrapper">
-                  <div class="col-lg-6">
+                <div class="row sport-wrapper justify-content-between mt-lg-2">
+                  <div class="col-12 col-lg-5 offset-lg-1">
                     <h1 class="mb-3 mb-lg-4 title-xxlarge">
                       <?php echo $argomento->name; ?>
                     </h1>
-                    <p class="u-main-black text-paragraph-regular-medium">
+                    <h2 class="visually-hidden" id="news-details">Dettagli dell'argomento</h2>
+                    <p class="u-main-black text-paragraph-regular-medium mb-60">
                         <?php echo $argomento->description; ?>
                     </p>
                   </div>
-                  <div class="col-lg-4 offset-lg-2">
+                  <div class="col-12 col-lg-5 me-lg-5">
                     <div class="card-wrapper card-column">
                     <?php 
                         if ((is_array($aree_appartenenza) && count($aree_appartenenza)) || (is_array($assessorati_riferimento) && count($assessorati_riferimento))) { ?>
-                    <p class="description-small">
-                      Questo argomento è gestito da:
-                    </p>
+                    <h3 class="title-xsmall-semi-bold">Questo argomento è gestito da:</h3>
                     <?php } ?>
                     <?php 
                         if (is_array($aree_appartenenza) && count($aree_appartenenza)) {

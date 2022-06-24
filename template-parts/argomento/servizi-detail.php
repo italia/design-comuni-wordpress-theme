@@ -5,17 +5,17 @@
 ?>
 
 <section id="servizi">
-    <div class="section pb-40 pt-40 pt-lg-80">
+    <div class="pb-40 pt-40 pt-lg-80">
         <div class="container">
-            <div class="row row-title border-bottom border-semi-dark">
-                <div class="col-12 d-lg-flex justify-content-between">
-                    <h3 class="u-grey-light mb-lg-3 title-large-semi-bold">
+            <div class="row row-title">
+                <div class="col-12">
+                    <h3 class="u-grey-light border-bottom border-semi-dark pb-2 pb-lg-3 title-large-semi-bold">
                         Servizi
                     </h3>
                 </div>
             </div>
         <div>
-            <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3 py-2 py-lg-3">
+            <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3 py-2 py-lg-3 justify-content-between">
                 <?php foreach ($posts as $post) { 
                     $description = dci_get_meta('descrizione_breve');
                     $categoria_servizio = get_the_terms($post->ID, 'categorie_servizio')[0];

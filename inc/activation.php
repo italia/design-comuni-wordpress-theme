@@ -340,8 +340,8 @@ function createMenu()
     //creo i menu
     $menu_main = dci_create_menu(__('Main Menu', "design_comuni_italia"));
     $menu_amministrazione = dci_create_menu(__('Amministrazione', "design_comuni_italia"));
-    $menu_servizi = dci_create_menu(__('Categorie di Servizio', "design_comuni_italia"));
     $menu_novita = dci_create_menu(__('Novità', "design_comuni_italia"));
+    $menu_servizi = dci_create_menu(__('Categorie di Servizio', "design_comuni_italia"));
     $menu_vivere_comune =  dci_create_menu(__('Vivere il Comune', "design_comuni_italia"));
     $menu_documenti_dati = dci_create_menu(__('Tutti i documenti', "design_comuni_italia"));
     $menu_argomenti = dci_create_menu(__('Argomenti', 'design_comuni_italia'));
@@ -353,8 +353,8 @@ function createMenu()
 
     //Main menu
     dci_create_page_menu_item(__( 'Amministrazione', 'design_comuni_italia'),$menu_main);
-    dci_create_page_menu_item(__( 'Servizi', 'design_comuni_italia'),$menu_main);
     dci_create_page_menu_item(__( 'Novità', 'design_comuni_italia'),$menu_main);
+    dci_create_page_menu_item(__( 'Servizi', 'design_comuni_italia'),$menu_main);
     dci_create_page_menu_item(__( 'Vivere il Comune', 'design_comuni_italia'),$menu_main);
     //assegno menu a header main location
     dci_add_menu_to_location($menu_main,'menu-header-main');
@@ -381,7 +381,8 @@ function createMenu()
     //voici menu Novità
     //dci_create_page_menu_item(__( 'Notizie', 'design_comuni_italia'), $menu_novita);
     dci_create_term_menu_item('news','tipi_notizia',$menu_novita, 'Notizie');
-    dci_create_term_menu_item('comunicato stampa','tipi_notizia',$menu_novita, 'Comunicati');
+    dci_create_term_menu_item('comunicato stampa','tipi_notizia',$menu_novita, 'Comunicati'); 
+    dci_create_term_menu_item('avviso','tipi_notizia',$menu_novita, 'Avvisi');
     //assegno menu terza colonna footer (sopra)
     dci_add_menu_to_location($menu_novita,'menu-footer-col-3-1');
 

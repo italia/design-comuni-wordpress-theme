@@ -4,7 +4,7 @@ $argomenti = get_the_terms($post, 'argomenti');
 $post_url = get_permalink();
 ?>
 
-<div class="dropdown d-inline">
+<div class="dropdown">
     <button
         class="btn btn-dropdown dropdown-toggle"
         type="button"
@@ -65,7 +65,7 @@ $post_url = get_permalink();
         </div>
     </div>
 </div>
-<div class="dropdown d-inline">
+<div class="dropdown">
     <button
         class="btn btn-dropdown dropdown-toggle"
         type="button"

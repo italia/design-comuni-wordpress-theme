@@ -37,6 +37,7 @@ get_header();
 			</div>
 			<?php get_template_part("template-parts/amministrazione/evidenza"); ?>
 			<?php get_template_part("template-parts/amministrazione/cards-list"); ?>
+			<?php get_template_part("template-parts/common/valuta-servizio"); ?>
 			<?php get_template_part("template-parts/common/assistenza-contatti"); ?>
 							
 		<?php 

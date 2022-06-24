@@ -15,9 +15,9 @@
         $img = dci_get_meta('immagine');
         if ($img) {
 ?>
-    <div class="col-12 col-lg-6 col-xl-4">
-        <div class="card-wrapper border border-light rounded shadow-sm">
-            <div class="card no-after">
+    <div class="col-md-6 col-xl-4">
+        <div class="card-wrapper border border-light rounded shadow-sm cmp-list-card-img cmp-list-card-img-hr">
+            <div class="card no-after rounded">
             <div class="row g-2 g-md-0 flex-md-column">
                 <div class="col-4 order-2 order-md-1">
                 <?php dci_get_img($img, 'rounded-top img-fluid img-responsive'); ?>
@@ -45,19 +45,19 @@
         </div>
     </div>
     <?php } else { ?>
-    <div class="col-12 col-lg-6 col-xl-4">
-        <div class="card-wrapper border border-light rounded shadow-sm">
-            <div class="card no-after">
+    <div class="col-md-6 col-xl-4">
+        <div class="card-wrapper border border-light rounded shadow-sm cmp-list-card-img cmp-list-card-img-hr">
+            <div class="card no-after rounded">
                 <div class="row g-2 g-md-0 flex-md-column">
                     <div class="col-12 order-1 order-md-2">
-                        <div class="card-img-none">
+                        <div class="card-img-none rounded-top">
                             <div class="category-top cmp-list-card-img__body">
                             <?php if ($tipo) { ?> 
                                 <a class="category cmp-list-card-img__body-heading-title underline"
                                     href="<?php echo get_term_link($tipo->term_id); ?>" aria-label="<?php echo $tipo->name; ?>" title="<?php echo $tipo->name; ?>"
-                                ><?php echo $tipo->name; ?></a>
+                                ><?php echo strtoupper($tipo->name); ?></a>
                             <?php } ?>           
-                                <span class="data"><?php echo $arrdata[0].' '.$monthName.' '.$arrdata[2] ?></span>
+                                <span class="data"><?php echo $arrdata[0].' '.strtoupper($monthName).' '.$arrdata[2] ?></span>
                             </div>
                             <a href="<?php echo get_permalink(); ?>" aria-label="vai al documento <?php echo the_title(); ?>" title="vai al documento <?php echo the_title(); ?>">
                                 <h3 class="h5 card-title u-grey-light"><?php echo the_title(); ?></h3>

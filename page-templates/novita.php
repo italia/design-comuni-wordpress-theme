@@ -27,7 +27,7 @@ get_header();
 						<div class="cmp-hero">
 							<section class="it-hero-wrapper bg-white align-items-start">
 								<div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
-									<h1 class="text-black title-xxxlarge mb-2">Notizie</h1>
+									<h1 class="text-black title-xxxlarge mb-2">Novità</h1>
 									<p class="text-black titillium text-paragraph">
 										<?php echo $description; ?>
 									</p>

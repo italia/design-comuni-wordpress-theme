@@ -160,6 +160,7 @@ get_header();
                         <div class="col-12 col-sm-8">
                             <h6><small>Questa pagina è gestita da</small></h6>
                             <?php foreach ($a_cura_di as $uo_id) {
+                                $with_border = true;
                                 get_template_part("template-parts/unita-organizzativa/card");
                             } ?>
                         </div>

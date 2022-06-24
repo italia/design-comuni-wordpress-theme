@@ -9,9 +9,9 @@
         $tipo = get_the_terms($post->term_id, 'tipi_notizia')[0];
         if ($img) {
 ?>
-    <div class="col-12 col-lg-6 col-xl-4">
-        <div class="card-wrapper border border-light rounded shadow-sm">
-            <div class="card no-after">
+    <div class="col-md-6 col-xl-4">
+        <div class="card-wrapper border border-light rounded shadow-sm cmp-list-card-img cmp-list-card-img-hr">
+            <div class="card no-after rounded">
             <div class="row g-2 g-md-0 flex-md-column">
                 <div class="col-4 order-2 order-md-1">
                     <?php dci_get_img($img, 'rounded-top img-fluid img-responsive'); ?>
@@ -22,8 +22,8 @@
                     <a
                         class="category cmp-list-card-img__body-heading-title underline"
                         href="<?php echo get_term_link($tipo->term_id); ?>" aria-label="Categoria <?php echo $tipo->name; ?>" title="Categoria <?php echo $tipo->name; ?>"
-                    ><?php echo $tipo->name; ?></a>
-                    <span class="data"><?php echo $arrdata[0].' '.$monthName.' '.$arrdata[2] ?></span>
+                    ><?php echo strtoupper($tipo->name); ?></a>
+                    <span class="data"><?php echo $arrdata[0].' '.strtoupper($monthName).' '.$arrdata[2] ?></span>
                     </div>
                     <a href="<?php echo get_permalink(); ?>" aria-label="vai alla notizia <?php echo the_title(); ?>" title="vai alla notizia <?php echo the_title(); ?>">
                         <h3 class="h5 card-title u-grey-light"><?php echo the_title(); ?></h3>
@@ -38,17 +38,17 @@
         </div>
     </div>
     <?php } else { ?>
-    <div class="col-12 col-lg-6 col-xl-4">
-        <div class="card-wrapper border border-light rounded shadow-sm">
-            <div class="card no-after">
+    <div class="col-md-6 col-xl-4">
+        <div class="card-wrapper border border-light rounded shadow-sm cmp-list-card-img cmp-list-card-img-hr">
+            <div class="card no-after rounded">
                 <div class="row g-2 g-md-0 flex-md-column">
                     <div class="col-12 order-1 order-md-2">
-                        <div class="card-img-none">
+                        <div class="card-img-none rounded-top">
                             <div class="category-top cmp-list-card-img__body">
                                 <a class="category cmp-list-card-img__body-heading-title underline" href="<?php echo get_term_link($tipo->term_id); ?>" aria-label="Categoria <?php echo $tipo->name; ?>" title="Categoria <?php echo $tipo->name; ?>">
-                                    <?php echo $tipo->name; ?>
+                                    <?php echo strtoupper($tipo->name); ?>
                                 </a>
-                                <span class="data"><?php echo $arrdata[0].' '.$monthName.' '.$arrdata[2] ?></span>
+                                <span class="data"><?php echo $arrdata[0].' '.strtoupper($monthName).' '.$arrdata[2] ?></span>
                             </div>
                             <a href="<?php echo get_permalink(); ?>" aria-label="vai alla notizia <?php echo the_title(); ?>" title="vai alla notizia <?php echo the_title(); ?>">
                                 <h3 class="h5 card-title u-grey-light"><?php echo the_title(); ?></h3>

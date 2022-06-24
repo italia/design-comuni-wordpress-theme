@@ -5,11 +5,11 @@
 ?>
 
 <section id="documenti">
-    <div class="section pb-80 pt-40">
+    <div class="pb-80 pt-40">
         <div class="container">
-        <div class="row row-title border-bottom border-semi-dark">
-            <div class="col-12 d-lg-flex justify-content-between">
-            <h3 class="u-grey-light mb-3 title-large-semi-bold">
+        <div class="row row-title ">
+            <div class="col-12 ">
+            <h3 class="u-grey-light border-bottom border-semi-dark pb-2 pb-lg-3 title-large-semi-bold">
                 Documenti
             </h3>
             </div>
