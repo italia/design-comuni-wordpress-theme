@@ -10,7 +10,7 @@ if ($the_query->found_posts > $max_posts ) {
     $new_posts = intval($max_posts) + $load_posts;    
 ?> 
 <div class="d-flex justify-content-center">
-    <button type="submit" class="btn btn-outline-primary pt-15 pb-15 pl-90 pr-90 mb-30 mb-lg-50 full-mb text-button" name="max_posts" value="<?php echo $new_posts; ?>">
+    <button type="submit" class="btn btn-outline-primary pt-15 pb-15 pl-90 pr-90 mb-30 mb-lg-50 full-mb text-button" name="max_posts" value="<?php echo $new_posts; ?>" aria-label="Carica altri risultati">
     <span class="">Carica altri risultati</span>
     </button>
 </div>

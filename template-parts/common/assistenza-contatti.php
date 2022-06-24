@@ -11,15 +11,14 @@
               <h2 class="title-medium-2-semi-bold">Contatta il comune</h2>
               <ul class="contact-list p-0">
                 <li>
-                  <a class="list-item" href="#"
-                    ><svg class="icon icon-primary icon-sm">
+                  <a class="list-item" href="<?php echo '/domande-frequenti'; ?>" aria-label="Vai alla pagina: Leggi le domande frequenti" title="Vai alla pagina: Leggi le domande frequenti"><svg class="icon icon-primary icon-sm">
                       <use
                         href="#it-help-circle"
                       ></use></svg><span>Leggi le domande frequenti</span></a
                   >
                 </li>
                 <li>
-                  <a class="list-item" href="#"
+                  <a class="list-item" href="#" aria-label="Vai alla pagina: Richiedi assistenza" title="Vai alla pagina: Richiedi assistenza"
                     ><svg class="icon icon-primary icon-sm">
                       <use
                         href="#it-mail"
@@ -27,7 +26,7 @@
                   >
                 </li>
                 <li>
-                  <a class="list-item" href="tel:<?php echo $numero_verde; ?>"
+                  <a class="list-item" href="tel:<?php echo $numero_verde; ?>" aria-label="Chiama il numero verde <?php echo $numero_verde; ?>" title="Chiama il numero verde <?php echo $numero_verde; ?>"
                     ><svg class="icon icon-primary icon-sm">
                       <use
                         href="#it-hearing"
@@ -40,7 +39,7 @@
               </h2>
               <ul class="contact-list p-0">
                 <li>
-                  <a class="list-item" href="#"
+                  <a class="list-item" href="#" aria-label="Vai alla pagina: Segnala disservizio" title="Vai alla pagina: Segnala disservizio"
                     ><svg class="icon icon-primary icon-sm">
                       <use
                         href="#it-map-marker-circle"
