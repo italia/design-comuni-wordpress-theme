@@ -25,8 +25,8 @@ get_header();
             $sottotitolo = dci_get_meta("sottotitolo");
             $descrizione_breve = dci_get_meta("descrizione_breve");
             $destinatari = dci_get_meta("a_chi_e_rivolto");
-            $destinatari_intro = dci_get_meta("destinatari_introduzione");
-            $destinatari_list = dci_get_meta("destinatari_list");
+            // $destinatari_intro = dci_get_meta("destinatari_introduzione");
+            // $destinatari_list = dci_get_meta("destinatari_list");
             $descrizione = dci_get_meta("descrizione_estesa");
             $copertura_geografica = dci_get_meta("copertura_geografica");
             $come_fare = dci_get_meta("come_fare");
@@ -35,10 +35,15 @@ get_header();
             $output = dci_get_meta("output");
             $fasi_scadenze = dci_get_meta("fasi_scadenze");
             $costi = dci_get_meta("costi");
-            $canale_digitale = dci_get_meta("canale_digitale");
+            //canali di prenotazione
+            $canale_digitale_text = dci_get_meta("canale_digitale_text");
+            $canale_digitale_label = dci_get_meta("canale_digitale_label");
+            $canale_digitale_link = dci_get_meta("canale_digitale_link");
+            $canale_fisico_text = dci_get_meta("canale_fisico_text");
+            $canale_fisico_label = dci_get_meta("canale_fisico_label");
             $canale_fisico_prenotazione = dci_get_meta("canale_fisico_prenotazione");
-            $canale_fisico_id = dci_get_meta("canale_fisico");
-            $canale_fisico = get_post($canale_fisico_id); 
+            $canale_fisico_uffici = dci_get_meta("canale_fisico_uffici");
+
             $more_info = dci_get_meta("ulteriori_informazioni");
             $condizioni_servizio = dci_get_meta("condizioni_servizio");
             $contatti_ids = dci_get_meta("punti_contatto");     
@@ -49,7 +54,6 @@ get_header();
             }       
             $uo_id = intval(dci_get_meta("unita_responsabile"));
             $argomenti = get_the_terms($post, 'argomenti');
-
             ?>
             <div class="container" id="main-container">
                 <div class="row justify-content-center">
@@ -118,7 +122,7 @@ get_header();
                                         </div>
                                     </a>
                                     <ul class="link-sublist collapse show" id="collapseOne" data-element="index-link-list">
-                                    <?php if ($destinatari || is_array($destinatari_list)) { ?>
+                                    <?php if ($destinatari ) { ?>
                                         <li>
                                             <a class="list-item" href="#who-needs" aria-label="Vai alla sezione A chi è rivolto" title="Vai alla sezione A chi è rivolto"
                                             ><span class="title-medium">A chi è rivolto</span></a
@@ -198,19 +202,14 @@ get_header();
                     <div class="col-12 col-lg-8 offset-lg-1">
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="who-needs">A chi è rivolto</h2>
-                            <p class="lora">
-                                <?php echo $destinatari_intro ?>
-                                <ul class="list-wrapper lora">
-                                    <?php foreach ($destinatari_list as $destinatario) { ?>
-                                        <li class="list-item"><span><?php echo $destinatario ?></span</li>
-                                    <?php } ?>
-                                </ul>
-                            </p>
+                            <?php echo $destinatari ?>
                         </section>
+                        <?php if ($descrizione) { ?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="description">Descrizione</h2>
                             <p class="text-paragraph lora"><?php echo $descrizione ?></p>
                         </section>
+                        <?php } ?>
                         <?php #if ( $copertura_geografica ) { }?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="how-to">Come fare</h2>
@@ -233,6 +232,7 @@ get_header();
                             <h2 class="title-xxlarge mb-3" id="obtain">Cosa si ottiene</h2>
                             <p class="text-paragraph lora"><?php echo $output ?></p>
                         </section>
+                        <?php if ( is_array($fasi_scadenze) ) { ?>
                         <section class="mb-30">
                             <div class="cmp-timeline">
                                 <h2 class="title-xxlarge mb-3" id="deadlines">Tempi e scadenze</h2>
@@ -260,6 +260,8 @@ get_header();
                                 </div>
                             </div>
                         </section>
+                        <?php } ?>
+                        <?php if ( $costi ) { ?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="costs">Quanto costa</h2>
                             <p class="text-paragraph lora"><?php echo $costi ?></p>
@@ -274,21 +276,22 @@ get_header();
                                 </a>
                             </div>
                         </section>
+                        <?php } ?>
                         <section class="mb-30 has-bg-grey p-4">
                             <h2 class="title-xxlarge mb-3" id="submit-request">Dove presentare la domanda</h2>
-                            <p class="text-paragraph lora mb-4">Puoi presentare la domanda di iscrizione online, attraverso il servizio
-                                digitale Invio domanda di iscrizione, oppure, su appuntamento, presso gli uffici Asili nido.</p>
+                            <p class="text-paragraph lora mb-4"><?php echo $canale_digitale_text; ?></p>
                     
-                            <button type="button" aria-label="Vai alla pagina richiedi iscrizione online alla Scuola dell'infanzia " class="btn btn-primary mobile-full mb-4">
-                                <span>Richiesta di iscrizione online</span>
+                            <button type="button" aria-label="Vai alla pagina richiedi iscrizione online alla Scuola dell'infanzia " class="btn btn-primary mobile-full mb-4" onclick="window.open('<?php echo $canale_digitale_link; ?>', '_blank').focus();">
+                                <span><?php echo $canale_digitale_label; ?></span>
                             </button>
-                            <p class="text-paragraph lora mb-4">Uffici dove presentare la domanda su appuntamento</p>
+                            <p class="text-paragraph lora mb-4"><?php echo $canale_fisico_text; ?></p>
+                            <?php foreach ($canale_fisico_uffici as $uo_id) { 
+                                $ufficio = get_post($uo_id);    
+                            ?>
                             <p class="text-paragraph t-primary mb-4">
-                                <a href="#" aria-label="Vai a Pranota appuntamento presso Ufficio via C.Benso Conte di Cavour" title="Vai a Pranota appuntamento presso Ufficio via C.Benso Conte di Cavour">Ufficio via C. Benso Conte di Cavour [prenota]</a>
+                                <a href="<?php echo $canale_fisico_prenotazione; ?>" aria-label="Vai a Pranota appuntamento presso <?php echo $ufficio->post_title; ?>" title="Vai a Pranota appuntamento presso <?php echo $ufficio->post_title; ?>"><?php echo $ufficio->post_title; ?> <?php echo $canale_fisico_label; ?></a>
                             </p>
-                            <p class="text-paragraph t-primary mb-0">
-                                <a href="#" aria-label="Vai a Pranota appuntamento presso Ufficio largo Michelangelo Buonarroti" title="Vai a Pranota appuntamento presso Ufficio largo Michelangelo Buonarroti">Ufficio largo Michelangelo Buonarroti [prenota]</a>
-                            </p>
+                            <?php } ?>
                         </section>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="more-info">Ulteriori informazioni</h2>

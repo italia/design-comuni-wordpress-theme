@@ -1,4 +1,4 @@
-<section id="novita">
+<section class="useful-links-section">
     <div class="section section-muted pt-35 pb-35 pt-lg-45 pb-lg-45">
         <div class="container">
             <div class="row">
@@ -21,9 +21,9 @@
                     >
                     Link utili
                     </div>
-                    <ul class="link-list">
-                    <li>
-                        <a class="list-item mb-3 active ps-0" href="#"
+                    <ul class="link-list" role="list">
+                    <li role="listitem">
+                        <a class="list-item mb-3 active ps-0" href="#" title="vai alla sezione - ________" aria-label="vai alla sezione - ________"
                         ><span class="text-button-normal"
                             >Rilascio Carta Identità Elettronica (CIE)</span
                         ></a
