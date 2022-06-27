@@ -15,18 +15,25 @@
         <?php foreach ($contenuti_evidenza as $post_id) { 
             $post = get_post($post_id);
             $description = dci_get_meta('descrizione_breve'); 
-            $tipo_documento = get_the_terms($post->ID, 'tipi_documento')[0];
+            if ($post->post_type == "documento_pubblico") {
+                $tipo_documento = get_the_terms($post->ID, 'tipi_documento')[0];
+            } 
         ?>
             <div class="col-12 col-md-4">
                 <div class="card-wrapper rounded shadow-sm border border-light">
                     <div class="card bg-none">
                         <div class="card-body">
                             <div class="categoryicon-top">
-                            <svg class="icon icon-sm">
-                                <use href="#it-file"></use>
-                            </svg>
-                            <span class="text fw-semibold">
-                                <a href="<?php echo get_term_link($tipo_documento->term_id); ?>" aria-label="Vai a categoria <?php echo $tipo_documento->name; ?>" title="Vai a categoria <?php echo $tipo_documento->name; ?>"><?php echo $tipo_documento->name; ?></a></span>
+                                <svg class="icon icon-sm">
+                                    <use href="#it-file"></use>
+                                </svg>
+                                <span class="text fw-semibold">
+                                <?php if ($post->post_type == "documento_pubblico") { ?>
+                                    <a href="<?php echo get_term_link($tipo_documento->term_id); ?>" aria-label="Vai alla categoria <?php echo $tipo_documento->name; ?>" title="Vai appa categoria <?php echo $tipo_documento->name; ?>"><?php echo $tipo_documento->name; ?></a>
+                                <?php } else { ?>
+                                    <a href="<?php echo get_post_type_archive_link( 'dataset' ); ?>" aria-label="Vai alla pagina Dataset" title="Vai alla pagina Dataset">Dataset</a>
+                                <?php } ?>
+                                </span>
                             </div>
                             <a href="<?php echo get_permalink(); ?>" aria-label="Vai a <?php echo the_title(); ?>" title="Vai a <?php echo the_title(); ?>">
                             <h3 class="card-title h5"><?php echo the_title(); ?></h3>
