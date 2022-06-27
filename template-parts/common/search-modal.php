@@ -1,4 +1,5 @@
 <?php 
+  $links = dci_get_option('link','link_utili');
 ?>
 <!-- Search Modal -->
 <div
@@ -83,36 +84,15 @@
                 <div class="searches-list-wrapper">
                   <div class="other-link-title">FORSE STAVI CERCANDO</div>
                   <ul class="searches-list">
-                    <li>
-                      <a href="#" aria-label="I numeri della scuola"
-                        >Rilascio Carta Identità Elettronica (CIE)</a
-                      >
-                    </li>
-                    <li>
-                      <a href="#" aria-label="Organigramma"
-                        >Cambio di residenza</a
-                      >
-                    </li>
-                    <li>
-                      <a href="#" aria-label="Trasporto scolastico"
-                        >Tributi online</a
-                      >
-                    </li>
-                    <li>
-                      <a href="#" aria-label="Festività natalizie"
-                        >Prenotazione appuntamenti</a
-                      >
-                    </li>
-                    <li>
-                      <a href="#" aria-label="Meccanica quantistica"
-                        >Rilascio tessera elettorale</a
-                      >
-                    </li>
-                    <li>
-                      <a href="#" aria-label="Matematica for dummies"
-                        >Voucher connettività</a
-                      >
-                    </li>
+                    <?php foreach ($links as $link) { ?>
+                      <li>
+                          <a class="list-item mb-3 active ps-0" href="<?php echo $link['url']; ?>" aria-label="Vai alla pagina <?php echo $link['testo']; ?>" title="Vai alla pagina <?php echo $link['testo']; ?>"
+                          ><span class="text-button-normal"
+                              ><?php echo $link['testo']; ?></span
+                          ></a
+                          >
+                      </li>
+                  <?php } ?>
                   </ul>
                 </div>
               </div>

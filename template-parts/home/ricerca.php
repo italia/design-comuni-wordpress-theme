@@ -1,3 +1,7 @@
+<?php
+    $links = dci_get_option('link','link_utili');
+?>
+
 <section id="novita">
     <div class="section section-muted pt-35 pb-35 pt-lg-45 pb-lg-45">
         <div class="container">
@@ -22,48 +26,15 @@
                     Link utili
                     </div>
                     <ul class="link-list">
-                    <li>
-                        <a class="list-item mb-3 active ps-0" href="#"
-                        ><span class="text-button-normal"
-                            >Rilascio Carta Identità Elettronica (CIE)</span
-                        ></a
-                        >
-                    </li>
-                    <li>
-                        <a class="list-item mb-3 active ps-0" href="#"
-                        ><span class="text-button-normal"
-                            >Cambio di residenza</span
-                        ></a
-                        >
-                    </li>
-                    <li>
-                        <a class="list-item mb-3 active ps-0" href="#"
-                        ><span class="text-button-normal"
-                            >Tributi online</span
-                        ></a
-                        >
-                    </li>
-                    <li>
-                        <a class="list-item mb-3 active ps-0" href="#"
-                        ><span class="text-button-normal"
-                            >Prenotazione appuntamenti</span
-                        ></a
-                        >
-                    </li>
-                    <li>
-                        <a class="list-item mb-3 active ps-0" href="#"
-                        ><span class="text-button-normal"
-                            >Rilascio tessera elettorale</span
-                        ></a
-                        >
-                    </li>
-                    <li>
-                        <a class="list-item active ps-0" href="#"
-                        ><span class="text-button-normal"
-                            >Voucher connettività</span
-                        ></a
-                        >
-                    </li>
+                        <?php foreach ($links as $link) { ?>
+                            <li>
+                                <a class="list-item mb-3 active ps-0" href="<?php echo $link['url']; ?>" aria-label="Vai alla pagina <?php echo $link['testo']; ?>" title="Vai alla pagina <?php echo $link['testo']; ?>"
+                                ><span class="text-button-normal"
+                                    ><?php echo $link['testo']; ?></span
+                                ></a
+                                >
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
                 </div>
