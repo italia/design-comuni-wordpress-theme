@@ -88,9 +88,9 @@ get_header();
                                     <p class="subtitle-small mb-3">
                                         <?php echo $sottotitolo ?>
                                     </p>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#" aria-label="Richiesta di iscrizione online a: <?php the_title(); ?>" class="btn btn-primary fw-bold">
-                                        <span class="">Richiesta di iscrizione online</span>
-                                    </button>
+                                    <a href="<?php echo $canale_digitale_link; ?>" aria-label="Vai alla pagina <?php echo $canale_digitale_label; ?> " class="btn btn-primary mobile-full mb-4">
+                                        <span><?php echo $canale_digitale_label; ?></span>
+                                    </a>
                                 </div>
                                 <div class="col-lg-3 offset-lg-1 mt-5 mt-lg-0">
                                     <?php get_template_part('template-parts/single/actions'); ?>
@@ -264,26 +264,16 @@ get_header();
                         <?php if ( $costi ) { ?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="costs">Quanto costa</h2>
-                            <p class="text-paragraph lora"><?php echo $costi ?></p>
-                            <div class="cmp-icon-link">
-                                <a class="list-item icon-left d-inline-block" href="#" aria-label="Scarica Tabella rette in base al reddito " title="Scarica Tabella rette in base al reddito ">
-                                <span class="list-item-title-icon-wrapper">
-                                    <svg class="icon icon-primary icon-sm me-1">
-                                    <use href="#it-clip"></use>
-                                    </svg>
-                                    <span class="list-item t-primary">Tabella rette in base al reddito </span>
-                                </span>
-                                </a>
-                            </div>
+                            <div class="richtext-wrapper lora"><?php echo $costi ?></div>
                         </section>
                         <?php } ?>
                         <section class="mb-30 has-bg-grey p-4">
                             <h2 class="title-xxlarge mb-3" id="submit-request">Dove presentare la domanda</h2>
                             <p class="text-paragraph lora mb-4"><?php echo $canale_digitale_text; ?></p>
-                    
-                            <button type="button" aria-label="Vai alla pagina richiedi iscrizione online alla Scuola dell'infanzia " class="btn btn-primary mobile-full mb-4" onclick="window.open('<?php echo $canale_digitale_link; ?>', '_blank').focus();">
+                            
+                            <a href="<?php echo $canale_digitale_link; ?>" aria-label="Vai alla pagina <?php echo $canale_digitale_label; ?> " class="btn btn-primary mobile-full mb-4">
                                 <span><?php echo $canale_digitale_label; ?></span>
-                            </button>
+                            </a>
                             <p class="text-paragraph lora mb-4"><?php echo $canale_fisico_text; ?></p>
                             <?php foreach ($canale_fisico_uffici as $uo_id) { 
                                 $ufficio = get_post($uo_id);    
