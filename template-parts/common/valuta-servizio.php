@@ -20,7 +20,6 @@
                                 id="<?php echo 'star'.$c.'a' ?>"
                                 name="ratingA"
                                 value="<?php echo $c; ?>"
-                                onclick="setStarsValue(<?php echo $c; ?>)"
                             />
                             <label class="full rating-star" for="<?php echo 'star'.$c.'a' ?>">
                                 <svg class="icon icon-sm" role="img" aria-labelledby="<?php echo $c; ?>-star">
@@ -35,8 +34,8 @@
                 </div>
                 <div class="cmp-rating__card-second d-none" data-step="3">
                 <div class="card-header border-0">
-                    <h2 class="title-medium-2-bold mb-0">
-                    Grazie, il tuo parere ci aiuterà a migliorare il
+                    <h2 class="title-medium-2-bold mb-0" id="rating-feedback">
+                    radioResponsezie, il tuo parere ci aiuterà a migliorare il
                     servizio!
                     </h2>
                 </div>
@@ -65,7 +64,6 @@
                                     name="rating"
                                     type="radio"
                                     id="radio-1"
-                                    onclick="setRadioValue('Alcune indicazioni non erano chiare')"
                                 />
                                 <label for="radio-1"
                                     >Alcune indicazioni non erano chiare</label
@@ -78,7 +76,6 @@
                                     name="rating"
                                     type="radio"
                                     id="radio-2"
-                                    onclick="setRadioValue('Alcune indicazioni non erano corrette')"
                                 />
                                 <label for="radio-2"
                                     >Alcune indicazioni non erano corrette</label
@@ -91,7 +88,6 @@
                                     name="rating"
                                     type="radio"
                                     id="radio-3"
-                                    onclick="setRadioValue('Non capivo se quello che facevo era corretto')"
                                 />
                                 <label for="radio-3"
                                     >Non capivo se quello che facevo era corretto</label
@@ -104,7 +100,6 @@
                                     name="rating"
                                     type="radio"
                                     id="radio-4"
-                                    onclick="setRadioValue('Ho avuto problemi tecnici')"
                                 />
                                 <label for="radio-4"
                                     >Ho avuto problemi tecnici</label
@@ -138,7 +133,6 @@
                             id="formGroupExampleInputWithHelp"
                             aria-describedby="formGroupExampleInputWithHelpDescription"
                             maxlength="200"
-                            onkeyup="setCommentValue(event)"
                             type="text"
                         />
                         <small
@@ -156,7 +150,6 @@
                     <button
                     class="btn btn-outline-primary fw-bold me-4 btn-back"
                     type="button"
-                    onclick="decreaseStep()"
                     >
                     Indietro
                     </button>
@@ -164,7 +157,6 @@
                     class="btn btn-primary fw-bold btn-next"
                     type="submit"
                     form="rating"
-                    onclick="saveAnswers()"
                     >
                     Avanti
                     </button>
@@ -176,41 +168,3 @@
         </div>
     </div>
 </div>
-<script>
-    const answers = {};
-    let step = 1;
-
-    const setStarsValue = (value) => {
-        answers.stars = value;
-        if (step ===1 ) step ++;
-    }; 
-
-    const setRadioValue = (value) => {
-        answers.radio = value;
-    }; 
-
-    const setCommentValue = (event) => {
-        answers.comment = event.target.value;
-    }; 
-
-    const decreaseStep = () => {
-        step --;
-    };
-
-    const saveAnswers = () => {
-        step ++;
-        if (step === 4) {
-            // const strValue = JSON.stringify(answers);
-            // document.cookie = `answers=${strValue}`;
-            // setTimeout(() => {
-            //     <?php
-            //         $ans_obj = json_decode(str_replace('\\', '', $_COOKIE['answers']) );
-            //     ?>
-            //     console.log('stars', "<?php echo $ans_obj->stars ?>");
-            //     console.log('radio', "<?php echo $ans_obj->radio ?>");  
-            //     console.log('comment', "<?php echo $ans_obj->comment ?>");
-            // }, 250);
-            console.log('answers',answers);
-        }
-    };
-</script>

@@ -188,6 +188,8 @@
         if (activeStep == steps.length) {
           formWrapper.classList.add("d-none");
           cardRating.classList.add("d-none");
+          var event = new Event("feedback-submit");
+          document.dispatchEvent(event);
         }
       }
 
@@ -248,29 +250,48 @@
         return (
           _arrayWithoutHoles(arr) ||
           _iterableToArray(arr) ||
+          _unsupportedIterableToArray(arr) ||
           _nonIterableSpread()
         );
       }
 
       function _nonIterableSpread() {
-        throw new TypeError("Invalid attempt to spread non-iterable instance");
+        throw new TypeError(
+          "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+        );
+      }
+
+      function _unsupportedIterableToArray(o, minLen) {
+        if (!o) return;
+        if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+        var n = Object.prototype.toString.call(o).slice(8, -1);
+        if (n === "Object" && o.constructor) n = o.constructor.name;
+        if (n === "Map" || n === "Set") return Array.from(o);
+        if (
+          n === "Arguments" ||
+          /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
+        )
+          return _arrayLikeToArray(o, minLen);
       }
 
       function _iterableToArray(iter) {
         if (
-          Symbol.iterator in Object(iter) ||
-          Object.prototype.toString.call(iter) === "[object Arguments]"
+          (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null) ||
+          iter["@@iterator"] != null
         )
           return Array.from(iter);
       }
 
       function _arrayWithoutHoles(arr) {
-        if (Array.isArray(arr)) {
-          for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-            arr2[i] = arr[i];
-          }
-          return arr2;
+        if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+      }
+
+      function _arrayLikeToArray(arr, len) {
+        if (len == null || len > arr.length) len = arr.length;
+        for (var i = 0, arr2 = new Array(len); i < len; i++) {
+          arr2[i] = arr[i];
         }
+        return arr2;
       }
 
       /* eslint-disable */
@@ -304,29 +325,48 @@
         return (
           _arrayWithoutHoles(arr) ||
           _iterableToArray(arr) ||
+          _unsupportedIterableToArray(arr) ||
           _nonIterableSpread()
         );
       }
 
       function _nonIterableSpread() {
-        throw new TypeError("Invalid attempt to spread non-iterable instance");
+        throw new TypeError(
+          "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+        );
+      }
+
+      function _unsupportedIterableToArray(o, minLen) {
+        if (!o) return;
+        if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+        var n = Object.prototype.toString.call(o).slice(8, -1);
+        if (n === "Object" && o.constructor) n = o.constructor.name;
+        if (n === "Map" || n === "Set") return Array.from(o);
+        if (
+          n === "Arguments" ||
+          /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
+        )
+          return _arrayLikeToArray(o, minLen);
       }
 
       function _iterableToArray(iter) {
         if (
-          Symbol.iterator in Object(iter) ||
-          Object.prototype.toString.call(iter) === "[object Arguments]"
+          (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null) ||
+          iter["@@iterator"] != null
         )
           return Array.from(iter);
       }
 
       function _arrayWithoutHoles(arr) {
-        if (Array.isArray(arr)) {
-          for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-            arr2[i] = arr[i];
-          }
-          return arr2;
+        if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+      }
+
+      function _arrayLikeToArray(arr, len) {
+        if (len == null || len > arr.length) len = arr.length;
+        for (var i = 0, arr2 = new Array(len); i < len; i++) {
+          arr2[i] = arr[i];
         }
+        return arr2;
       }
 
       /* eslint-disable */
@@ -368,7 +408,7 @@
               if (!cleanBtn) {
                 input.insertAdjacentHTML(
                   "afterend",
-                  '\n          <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">\n            <svg class="icon">\n              <use xlink:href="./assets/bootstrap-italia/dist/svg/sprite.svg#it-close"></use>\n            </svg>\n          </button>\n          '
+                  '\n          <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">\n            <svg class="icon">\n              <use xlink:href="#it-close"></use>\n            </svg>\n          </button>\n          '
                 );
                 var clean = input.parentElement.querySelector(".clean-input");
                 var label =
@@ -400,6 +440,7 @@
     /* 7 */
     /***/ function (module, __webpack_exports__, __webpack_require__) {
       "use strict";
+      // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
 
       // CONCATENATED MODULE: ../node_modules/@splidejs/splide/dist/js/splide.esm.js
@@ -422,7 +463,7 @@
 
       /*!
        * Splide.js
-       * Version  : 4.0.1
+       * Version  : 4.0.4
        * License  : MIT
        * Copyright: 2022 Naotoshi Fujita
        */
@@ -1166,7 +1207,8 @@
       var ARIA_ORIENTATION = ARIA_PREFIX + "orientation";
       var ARIA_ROLEDESCRIPTION = ARIA_PREFIX + "roledescription";
       var ARIA_LIVE = ARIA_PREFIX + "live";
-      var ARIA_RELEVANT = ARIA_PREFIX + "relevant";
+      var ARIA_BUSY = ARIA_PREFIX + "busy";
+      var ARIA_ATOMIC = ARIA_PREFIX + "atomic";
       var ALL_ATTRIBUTES = [
         ROLE,
         TAB_INDEX,
@@ -1247,7 +1289,7 @@
       var LOG_INTERVAL = 200;
       var POINTER_DOWN_EVENTS = "touchstart mousedown";
       var POINTER_MOVE_EVENTS = "touchmove mousemove";
-      var POINTER_UP_EVENTS = "touchend touchcancel mouseup";
+      var POINTER_UP_EVENTS = "touchend touchcancel mouseup click";
 
       function Elements(Splide2, Components2, options) {
         var _EventInterface = EventInterface(Splide2),
@@ -2014,10 +2056,12 @@
 
         function move(dest, index, prev, callback) {
           var position = getPosition();
+          var crossing =
+            sign(dest - prev) * orient(toPosition(dest) - position) < 0;
 
-          if (dest !== index && canShift(dest > index)) {
+          if ((dest !== index || crossing) && canShift(dest > prev)) {
             cancel();
-            translate(shift(position, dest > index), true);
+            translate(shift(position, dest > prev), true);
           }
 
           set(MOVING);
@@ -2132,8 +2176,7 @@
           return backwards
             ? shifted >= 0
             : shifted <=
-                list["scroll" + resolve("Width")] -
-                  rect(track)[resolve("width")];
+                list[resolve("scrollWidth")] - rect(track)[resolve("width")];
         }
 
         function exceededLimit(max, position) {
@@ -2754,7 +2797,7 @@
                 getLimit(exceededLimit(true)),
                 BOUNCE_DURATION,
                 false,
-                void 0,
+                callback,
                 true
               );
             }
@@ -3525,28 +3568,41 @@
         };
       }
 
+      var SR_REMOVAL_DELAY = 90;
+
       function Live(Splide2, Components2, options) {
         var _EventInterface14 = EventInterface(Splide2),
           on = _EventInterface14.on;
 
         var track = Components2.Elements.track;
-        var live = options.live;
-        var enabled = live && !options.isNavigation;
+        var enabled = options.live && !options.isNavigation;
         var sr = create("span", CLASS_SR);
+        var interval = RequestInterval(SR_REMOVAL_DELAY, apply(toggle, false));
 
         function mount() {
           if (enabled) {
             disable(!Components2.Autoplay.isPaused());
-            setAttribute(track, ARIA_RELEVANT, "additions");
+            setAttribute(track, ARIA_ATOMIC, true);
             sr.textContent = "\u2026";
             on(EVENT_AUTOPLAY_PLAY, apply(disable, true));
             on(EVENT_AUTOPLAY_PAUSE, apply(disable, false));
-            on([EVENT_MOVED, EVENT_SCROLLED], apply(append, track, sr));
+            on([EVENT_MOVED, EVENT_SCROLLED], apply(toggle, true));
+          }
+        }
+
+        function toggle(active) {
+          setAttribute(track, ARIA_BUSY, active);
+
+          if (active) {
+            append(track, sr);
+            interval.start();
+          } else {
+            remove(sr);
           }
         }
 
         function destroy() {
-          removeAttribute(track, [ARIA_LIVE, ARIA_RELEVANT]);
+          removeAttribute(track, [ARIA_LIVE, ARIA_ATOMIC, ARIA_BUSY]);
           remove(sr);
         }
 
@@ -4650,10 +4706,9 @@
         carouselContenuti.mount();
       }
 
-      var errorWrapper = document.querySelector("#errorMsgContainer");
-      var formValidate = document.querySelector("#justValidateForm");
-
-      function validateForm() {
+      function validateFormAssistenza() {
+        var errorWrapper = document.querySelector("#errorMsgContainer");
+        var formValidate = document.querySelector("#justValidateForm");
         if (!formValidate) return;
         var validate = new bootstrap.FormValidate("#justValidateForm", {
           errorFieldCssClass: "is-invalid",
@@ -4662,7 +4717,7 @@
           focusInvalidField: false,
         });
         validate
-          .addField("#name", [
+          .addField(".form-control", [
             {
               rule: "required",
               errorMessage: "Questo campo è richiesto",
@@ -4722,7 +4777,40 @@
           });
       }
 
-      validateForm();
+      validateFormAssistenza();
+
+      function validateFormMulta() {
+        var errorWrapper = document.querySelector("#errorMsgContainer");
+        var formValidate = document.querySelector("#justValidateMulta");
+        if (!formValidate) return;
+        var validate = new bootstrap.FormValidate("#justValidateMulta", {
+          errorFieldCssClass: "is-invalid",
+          errorLabelCssClass: "form-feedback",
+          errorLabelStyle: "",
+          focusInvalidField: false,
+        });
+        validate
+          .addField("#code", [
+            {
+              rule: "required",
+              errorMessage: "Questo campo è richiesto",
+            },
+          ])
+          .addField("#dateStandard", [
+            {
+              rule: "required",
+              errorMessage: "Questo campo è richiesto",
+            },
+          ])
+          .onFail(function (fields) {
+            if (errorWrapper) {
+              errorWrapper.innerHTML = "";
+              errorWrapper.innerHTML = errorMessage;
+            }
+          });
+      }
+
+      validateFormMulta();
 
       /***/
     },

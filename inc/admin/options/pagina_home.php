@@ -319,20 +319,4 @@ function dci_register_pagina_home_options(){
         'remove_default' => 'true',
     ) );
 
-    //sezione Ricerca
-    $home_options->add_field( array(
-        'id' => $prefix . 'ricerca_title',
-        'name'        => __( 'Sezione Ricerca', 'design_comuni_italia' ),
-        'desc' => __( 'Configurazione sezione ricerca in homepage.' , 'design_comuni_italia' ),
-        'type' => 'title',
-    ) );
-
-    $home_options->add_field( array(
-            'id'    => $prefix . 'banner',
-            'name' => __('Banner', 'design_comuni_italia' ),
-            'desc' => __( 'Seleziona il banner da mostrare come immagine di sfondo nella sezione di Ricerca.' , 'design_comuni_italia' ),
-            'type' => 'file',
-            'query_args' => array( 'type' => 'image' ),
-        )
-    );
 }
