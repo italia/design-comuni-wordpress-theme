@@ -93,12 +93,4 @@ function dci_add_sito_tematico_metaboxes() {
         )
     );
 
-    $cmb_dati->add_field( array(
-        'name'    => 'Colore Card',
-        'desc' => __( 'Seleziona il colore della Card del Sito Tematico (visualizzata in homepage)', 'design_comuni_italia' ),
-        'id'      => $prefix . 'colore',
-        'type'    => 'colorpicker',
-        'default' => '#ffffff',
-    ) );
-
 }

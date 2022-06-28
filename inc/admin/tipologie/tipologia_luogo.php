@@ -99,21 +99,6 @@ function dci_add_luogo_metaboxes() {
         'remove_default' => 'true',
     ) );
 
-    $cmb_evidenza = new_cmb2_box( array(
-        'id'           => $prefix . 'box_evidenza',
-        'title'        => __( 'In evidenza' ),
-        'object_types' => array( 'luogo' ),
-        'context'      => 'side',
-        'priority'     => 'high',
-    ) );
-
-    $cmb_evidenza->add_field( array(
-        'desc' => 'Se selezionato il contenuto comparirà in evidenza nelle pagine degli Argomenti collegati',
-        'id' => 'in_evidenza',
-        'type' => 'checkbox'
-    ) );
-
-
     //APERTURA
     $cmb_apertura = new_cmb2_box( array(
         'id'           => $prefix . 'box_apertura',

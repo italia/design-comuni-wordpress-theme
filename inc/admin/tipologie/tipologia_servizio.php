@@ -302,7 +302,7 @@ function dci_add_servizi_metaboxes() {
     $cmb_accesso->add_field( array(
         'id' => $prefix . 'canale_fisico_text',
         'name'        => __( 'Introduzione canale fisico', 'design_comuni_italia' ),
-        'desc' => __( 'Label introduttiva al canale fisico/ sezione "Accesso agli uffici"' , 'design_comuni_italia' ),
+        'desc' => __( 'Label introduttiva al canale fisico' , 'design_comuni_italia' ),
         'type' => 'text',
         'default' => 'Oppure, puoi prenotare un appuntamento e presentarti presso gli uffici.'
     ) );
@@ -313,22 +313,6 @@ function dci_add_servizi_metaboxes() {
         'desc' => __( 'Uffici che erogano il servizio ' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
-
-    ) );
-
-    $cmb_accesso->add_field( array(
-        'id' => $prefix . 'canale_fisico_label',
-        'name'        => __( 'Canale fisico label', 'design_comuni_italia' ),
-        'desc' => __( 'Label del bottone associato al link che segue ' , 'design_comuni_italia' ),
-        'type' => 'text',
-        'default' => 'Prenota'
-    ) );
-
-    $cmb_accesso->add_field( array(
-        'id' => $prefix . 'canale_fisico_prenotazione',
-        'name'        => __( 'Canale fisico (Accedi al servizio) *', 'design_comuni_italia' ),
-        'desc' => __( 'Link per la prenotazione dell\'appuntamento', 'design_comuni_italia' ),
-        'type'    => 'text_url'
     ) );
 
     //COSTI E VINCOLI
@@ -375,8 +359,6 @@ function dci_add_servizi_metaboxes() {
 
     $cmb_tempi->add_field( array(
         'id' => $prefix . 'tempi_text',
-        //'name'        => __( 'Tempi introduzione', 'design_comuni_italia' ),
-        //'desc' => __( '' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
@@ -418,20 +400,6 @@ function dci_add_servizi_metaboxes() {
         'show_option_none' => false,
         'remove_default' => 'true',
         ) );
-
-    $cmb_evidenza = new_cmb2_box( array(
-        'id'           => $prefix . 'box_evidenza',
-        'title'        => __( 'In evidenza' ),
-        'object_types' => array( 'servizio' ),
-        'context'      => 'side',
-        'priority'     => 'high',
-    ) );
-
-    $cmb_evidenza->add_field( array(
-        'desc' => 'Se selezionato il contenuto comparirà in evidenza nelle pagine degli Argomenti collegati',
-        'id' => 'in_evidenza',
-        'type' => 'checkbox'
-    ) );
 
     $cmb_events = new_cmb2_box( array(
         'id'           => $prefix . 'box_events',
