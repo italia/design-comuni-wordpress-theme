@@ -1,8 +1,7 @@
 <?php
-/**
- * The template for displaying archive
+/* Template Name: domande-frequenti
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ * Domande frequenti template file
  *
  * @package Design_Comuni_Italia
  */
@@ -20,6 +19,8 @@ $args = array(
 $the_query = new WP_Query( $args );
 $faqs = $the_query->posts;
 
+$description = dci_get_meta('descrizione','_dci_page_',$post->ID);
+
 get_header();
 ?>
    <main>
@@ -31,7 +32,9 @@ get_header();
                         <?php get_template_part("template-parts/common/breadcrumb"); ?>
                     <div class="cmp-heading pb-3 pb-lg-4">
                         <h1 class="title-xxxlarge">Domande frequenti</h1>              
-                        <p class="subtitle-small">Elenco di risposte alle domande più frequenti raccolte dalle richieste di assistenza dei cittadini.</p>
+                        <p class="subtitle-small">
+                            <?php echo $description; ?>
+                        </p>
                     </div>
                     </div>
                 </div>
