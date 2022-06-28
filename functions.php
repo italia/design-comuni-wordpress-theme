@@ -1,6 +1,6 @@
 <?php
 /**
- * Design Scuole Italia functions and definitions
+ * Design Comuni Italia functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -11,6 +11,11 @@
  * Define
  */
 //require get_template_directory() . '/inc/define.php';
+
+/**
+ * Funzionalità Trasversali
+ */
+require get_template_directory() . '/inc/funzionalita_trasversali.php';
 
 /**
  * Vocabolario

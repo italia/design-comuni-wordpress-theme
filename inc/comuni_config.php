@@ -221,10 +221,12 @@ function dci_get_admin_menu_order() {
         'edit.php?post_type=appuntamento',
         'edit.php?post_type=messaggio',
         'edit.php?post_type=pagamento',
-        'edit.php?post_type=domanda_frequente',
         'edit.php?post_type=page',
+        'separator2',
+        'edit.php?post_type=domanda_frequente',
+        'edit.php?post_type=rating',
+        'separator3',
         'upload.php',
-        'separator2'
     );
 }
 

@@ -38,8 +38,6 @@ function dci_theme_activation() {
 
     update_option("dci_has_installed", true);
 
-    createForms();
-
 }
 add_action( 'after_switch_theme', 'dci_theme_activation' );
 
@@ -188,6 +186,10 @@ function insertCustomTaxonomyTerms() {
     $tipi_documento_array = dci_tipi_documento_array();
     recursionInsertTaxonomy($tipi_documento_array, 'tipi_documento');
 
+    /**
+     * sistema di valutazione (stars)
+     */
+    recursionInsertTaxonomy(array(0,1,2,3,4,5), 'stars');
 
 }
 
@@ -312,6 +314,8 @@ function createCapabilities() {
     $admins = get_role( 'administrator' );
 
     $custom_types = dci_get_tipologie_capabilities(); //nomi plurali dei custom post type
+    $custom_types [] = 'ratings'; //aggiungo post type sistema di valutazione
+
     $caps = array("edit_","edit_others_","publish_","read_private_","delete_","delete_private_","delete_published_","delete_others_","edit_private_","edit_published_");
     foreach ($custom_types as $custom_type){
         foreach ($caps as $cap){
@@ -319,6 +323,9 @@ function createCapabilities() {
         }
     }
     $custom_tax = dci_get_tassonomie_names(); //array contenente i nomi delle tassonomie custom
+    $custom_tax [] = 'stars'; //aggiungo tassonomia sistema di valutazione
+    $custom_tax [] = 'page_urls'; //aggiungo tassonomia sistema di valutazione
+
     $caps_terms = array("manage_","edit_","delete_","assign_");
     foreach ($custom_tax as $ctax){
         foreach ($caps_terms as $cap){
@@ -537,26 +544,4 @@ function dci_create_page_template($name, $slug, $template, $parent_id = '', $con
         }
     }
     return $new_page_id;
-}
-
-function createForms() {
-
-    $my_post = array(
-
-        'post_type' => 'wpcf7_contact_form',
-        'post_title'    => 'form-sistema-valutazione',
-        'post_status'=> "publish",
-        'meta_input' => array(
-            '_form' => 'Quanto è utile questa pagina? [checkbox* stelle exclusive "0" "1" "2" "3" "4" "5"]\ Cosa ha funzionato meglio? [radio motivazione use_label_element "Alcune indicazioni non erano chiare" "Alcune indicazioni non erano corrette" "Non capivo se quello che facevo era corretto" "Ho avuto problemi tecnici"]\ Vuoi aggiungere altri dettagli? [text dettagli]\ [text page-id] \[submit "Avanti"]',
-            '_mail' => array(
-                'subject' => '[_site_title] "[your-subject]"',
-                'sender' => '<wordpress@'.$_SERVER['SERVER_NAME'].'>',
-                'body' => 'this form is used to store user input in db (no mail is sent)',
-            ),
-            '_additional_settings' =>'skip_mail: on'
-        )
-    );
-
-    wp_insert_post( $my_post );
-
 }
