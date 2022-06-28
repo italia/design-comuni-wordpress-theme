@@ -12,10 +12,11 @@ if(count($argomenti)) {
 	foreach ( $argomenti as $item ) {
 		$arr_ids[] = $item->slug;
 	}
-	$amministrazione = dci_get_grouped_posts_by_term('amministrazione', 'argomenti', $arr_ids);
-	$servizi = dci_get_grouped_posts_by_term('servizi', 'argomenti', $arr_ids);
-	$documenti = dci_get_grouped_posts_by_term('documenti-e-dati', 'argomenti', $arr_ids);
-	$notizie = dci_get_grouped_posts_by_term('novita', 'argomenti', $arr_ids);
+  $amount = 4;
+	$amministrazione = dci_get_grouped_posts_by_term('amministrazione', 'argomenti', $arr_ids, $amount);
+	$servizi = dci_get_grouped_posts_by_term('servizi', 'argomenti', $arr_ids, $amount);
+	$documenti = dci_get_grouped_posts_by_term('documenti-e-dati', 'argomenti', $arr_ids, $amount);
+	$notizie = dci_get_grouped_posts_by_term('novita', 'argomenti', $arr_ids, $amount);
 
 	$posts_found = count($amministrazione) + count($servizi) + count($documenti) + count($notizie);
 

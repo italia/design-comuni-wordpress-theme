@@ -9,11 +9,12 @@
  * @package Design_Comuni_Italia
  */
 ?>
-<footer class="it-footer">
+<footer class="it-footer" id="footer">
     <div class="it-footer-main">
         <div class="container">
             <div class="row">
-                <div class="col-12 footer-items-wrapper">
+                <div class="col-12 footer-items-wrapper logo-wrapper">
+                <img class="ue-logo" src="<?php echo esc_url( get_template_directory_uri()); ?>/assets/img/logo-eu-inverted.svg" alt="logo Unione Europea">
                     <div class="it-brand-wrapper">
                         <a href="<?php echo home_url() ?>" aria-label="Vai alla homepage" title="Vai alla homepage">
                             <?php get_template_part("template-parts/common/logo");?>

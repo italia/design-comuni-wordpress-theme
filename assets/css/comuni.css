@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .mt-10 {
   margin-top: 10px !important;
 }
@@ -2340,13 +2339,31 @@ body {
     border-right: 1px solid #e5e5e5;
   }
 }
-.list-wrapper .list-item {
+.richtext-wrapper ul li {
   margin-left: 1.75rem;
   list-style-type: disc !important;
 }
 @media (min-width: 576px) {
-  .list-wrapper .list-item {
+  .richtext-wrapper ul li {
     margin-left: 1.55rem;
+  }
+}
+.richtext-wrapper p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+@media (max-width: 991.8px) {
+  .map-wrapper.map-column {
+    margin: 0;
+  }
+}
+.figure.img-full img {
+  min-height: 300px;
+}
+@media (min-width: 992px) {
+  .figure.img-full img {
+    height: 600px;
   }
 }
 .drop-shadow {
@@ -2919,6 +2936,25 @@ a.read-more {
     padding-top: 1.5rem;
     border-top: 1px solid hsla(0, 0%, 100%, 0.5);
   }
+}
+.it-footer .it-brand-wrapper {
+  padding: 0;
+}
+.it-footer .logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+@media (min-width: 576px) {
+  .it-footer .logo-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+.it-footer .logo-wrapper .ue-logo {
+  max-width: 50%;
 }
 .it-footer a {
   font-size: 1rem;
@@ -3514,15 +3550,9 @@ a.read-more {
   }
 }
 @media (min-width: 576px) {
-  .cmp-modal .modal .modal-dialog {
-    margin: auto;
-    max-width: 38.89rem;
-  }
-}
-@media (min-width: 576px) {
+  .cmp-modal .modal .modal-dialog,
   .cmp-modal .modal .modal-dialog.small {
     margin: auto;
-    max-width: 19.44rem;
   }
 }
 .cmp-modal__header {
@@ -3539,9 +3569,11 @@ a.read-more {
 .cmp-modal__header-title {
   width: 100%;
   margin-top: 1.5rem;
+  font-size: 1.5rem;
 }
 @media (min-width: 576px) {
   .cmp-modal__header-title {
+    font-size: 1.5555555556rem;
     margin-top: 1.33rem;
   }
 }
@@ -3575,16 +3607,10 @@ a.read-more {
 .cmp-modal .modal-footer.shadow {
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.5);
 }
-.cmp-modal #modal-vehicle-data input::-webkit-input-placeholder {
-  color: #191919;
-}
 .cmp-modal #modal-vehicle-data input::-moz-placeholder {
   color: #191919;
 }
 .cmp-modal #modal-vehicle-data input:-ms-input-placeholder {
-  color: #191919;
-}
-.cmp-modal #modal-vehicle-data input::-ms-input-placeholder {
   color: #191919;
 }
 .cmp-modal #modal-vehicle-data input::placeholder {
@@ -3715,22 +3741,12 @@ a.read-more {
     height: auto;
   }
 }
-.search-modal .form-group input::-webkit-input-placeholder {
-  font-weight: 400;
-  color: #455b71;
-  opacity: 0.4;
-}
 .search-modal .form-group input::-moz-placeholder {
   font-weight: 400;
   color: #455b71;
   opacity: 0.4;
 }
 .search-modal .form-group input:-ms-input-placeholder {
-  font-weight: 400;
-  color: #455b71;
-  opacity: 0.4;
-}
-.search-modal .form-group input::-ms-input-placeholder {
   font-weight: 400;
   color: #455b71;
   opacity: 0.4;
@@ -3796,16 +3812,10 @@ a.read-more {
 .modal-address input[type="text"]#residence {
   background-color: #e6e9f2;
 }
-.modal-address input[type="text"]::-webkit-input-placeholder {
-  color: #191919;
-}
 .modal-address input[type="text"]::-moz-placeholder {
   color: #191919;
 }
 .modal-address input[type="text"]:-ms-input-placeholder {
-  color: #191919;
-}
-.modal-address input[type="text"]::-ms-input-placeholder {
   color: #191919;
 }
 .modal-address input[type="text"]::placeholder {
@@ -4993,7 +5003,6 @@ a.read-more {
 .calendar-vertical .calendar-date .calendar-date-day small {
   font-size: 0.875rem;
   line-height: 1;
-  display: block;
 }
 @media (min-width: 576px) {
   .calendar-vertical .calendar-date .calendar-date-day small {
@@ -5190,6 +5199,10 @@ a.read-more {
 }
 .cmp-input input.form-control {
   background-size: 70px 45% !important;
+}
+.cmp-input input.is-invalid,
+.cmp-input input.just-validate-success-field {
+  background-color: #fff;
 }
 .cmp-input input.is-invalid + .d-flex .form-text {
   display: none;
@@ -5504,9 +5517,6 @@ a.read-more {
     margin-left: 0.56rem;
   }
 }
-.cmp-upload .upload-file-list .upload-file.success svg {
-  fill: #bcc0cc;
-}
 .cmp-upload span.splide__sr {
   display: none;
 }
@@ -5655,7 +5665,7 @@ a.read-more {
 }
 @media (min-width: 768px) {
   .accordion-collapse {
-    padding: 1.33rem 0;
+    padding: 1.33rem 0 0;
   }
 }
 .card .card-teaser .icon {
@@ -6075,24 +6085,24 @@ a.read-more {
 .cmp-hero .it-hero-wrapper {
   min-height: unset;
 }
-.cmp-hero .it-hero-wrapper .it-hero-text-wrapper h1 {
+.cmp-hero .it-hero-wrapper .it-hero-text-wrapper .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.3;
 }
 @media (min-width: 576px) {
-  .cmp-hero .it-hero-wrapper .it-hero-text-wrapper h1 {
+  .cmp-hero .it-hero-wrapper .it-hero-text-wrapper .hero-title {
     font-size: 2.6666666667rem;
     line-height: 1.25;
   }
 }
-.cmp-hero .it-hero-wrapper .it-hero-text-wrapper p {
+.cmp-hero .it-hero-wrapper .it-hero-text-wrapper .hero-text {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.75;
 }
 @media (min-width: 576px) {
-  .cmp-hero .it-hero-wrapper .it-hero-text-wrapper p {
+  .cmp-hero .it-hero-wrapper .it-hero-text-wrapper .hero-text {
     font-size: 1rem;
     line-height: 1.556;
   }
@@ -6498,11 +6508,6 @@ a.read-more {
     height: auto;
   }
 }
-.cmp-input-search-button.form-group input::-webkit-input-placeholder {
-  font-weight: 400;
-  color: #191919;
-  font-size: 1rem;
-}
 .cmp-input-search-button.form-group input::-moz-placeholder {
   font-weight: 400;
   color: #191919;
@@ -6513,27 +6518,16 @@ a.read-more {
   color: #191919;
   font-size: 1rem;
 }
-.cmp-input-search-button.form-group input::-ms-input-placeholder {
-  font-weight: 400;
-  color: #191919;
-  font-size: 1rem;
-}
 .cmp-input-search-button.form-group input::placeholder {
   font-weight: 400;
   color: #191919;
   font-size: 1rem;
 }
 @media (min-width: 576px) {
-  .cmp-input-search-button.form-group input::-webkit-input-placeholder {
-    font-size: 2.2222222222rem;
-  }
   .cmp-input-search-button.form-group input::-moz-placeholder {
     font-size: 2.2222222222rem;
   }
   .cmp-input-search-button.form-group input:-ms-input-placeholder {
-    font-size: 2.2222222222rem;
-  }
-  .cmp-input-search-button.form-group input::-ms-input-placeholder {
     font-size: 2.2222222222rem;
   }
   .cmp-input-search-button.form-group input::placeholder {
@@ -6541,19 +6535,11 @@ a.read-more {
   }
 }
 @media (min-width: 768px) {
-  .cmp-input-search-button.form-group input::-webkit-input-placeholder {
-    font-weight: 700;
-    color: #455a64;
-  }
   .cmp-input-search-button.form-group input::-moz-placeholder {
     font-weight: 700;
     color: #455a64;
   }
   .cmp-input-search-button.form-group input:-ms-input-placeholder {
-    font-weight: 700;
-    color: #455a64;
-  }
-  .cmp-input-search-button.form-group input::-ms-input-placeholder {
     font-weight: 700;
     color: #455a64;
   }

@@ -21,7 +21,7 @@ get_header();
 
             // prefix: _dci_servizio_
             $stato = dci_get_meta("stato");
-            $motivo_stato = dci_get_meta("motivo_stato");
+            // $motivo_stato = dci_get_meta("motivo_stato");
             $sottotitolo = dci_get_meta("sottotitolo");
             $descrizione_breve = dci_get_meta("descrizione_breve");
             $destinatari = dci_get_meta("a_chi_e_rivolto");
@@ -40,8 +40,6 @@ get_header();
             $canale_digitale_label = dci_get_meta("canale_digitale_label");
             $canale_digitale_link = dci_get_meta("canale_digitale_link");
             $canale_fisico_text = dci_get_meta("canale_fisico_text");
-            $canale_fisico_label = dci_get_meta("canale_fisico_label");
-            $canale_fisico_prenotazione = dci_get_meta("canale_fisico_prenotazione");
             $canale_fisico_uffici = dci_get_meta("canale_fisico_uffici");
 
             $more_info = dci_get_meta("ulteriori_informazioni");
@@ -82,7 +80,7 @@ get_header();
                                             <div class="cmp-tag">
                                             <a class="cmp-tag__tag title-xsmall u-main-green" href="#">Servizio non attivo</a>
                                             </div>
-                                            <div>MOTIVO: <?php echo $motivo_stato ?></div>
+                                            <!-- <div><?php #echo $motivo_stato; ?></div> -->
                                         </div>
                                     <?php } ?>
                                     <p class="subtitle-small mb-3">
@@ -178,7 +176,7 @@ get_header();
                                             </a>
                                             </li>
                                         <?php } ?>
-                                        <?php if ( $canale_digitale || $canale_fisico || $canale_fisico_prenotazione ) { ?>
+                                        <?php if ( $canale_digitale || ( is_array($canale_fisico_uffici) && count($canale_fisico_uffici)) ) { ?>
                                             <li>
                                             <a class="list-item" href="#submit-request" aria-label="Vai alla sezione Presenta la domanda" title="Vai alla sezione Presenta la domanda">
                                                 <span class="title-medium">Presenta la domanda</span>
@@ -219,14 +217,14 @@ get_header();
                         </section>
                         <section class="mb-30 has-bg-grey p-3">
                             <h2 class="title-xxlarge mb-3" id="needed">Cosa serve</h2>
-                            <p class="text-paragraph lora fw-semibold mb-0">
+                            <div class="richtext-wrapper lora">
                                 <?php echo $cosa_serve_intro ?>
-                            </p>
-                            <ul class="link-list lora">
-                                <?php foreach ($cosa_serve_list as $cosa_serve_item) { ?>
-                                    <li class="list-item"><span><?php echo $cosa_serve_item ?></span></li>
-                                <?php } ?>
-                            </ul>
+                                <ul >
+                                    <?php foreach ($cosa_serve_list as $cosa_serve_item) { ?>
+                                        <li><span><?php echo $cosa_serve_item ?></span></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
                         </section>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="obtain">Cosa si ottiene</h2>
@@ -279,7 +277,7 @@ get_header();
                                 $ufficio = get_post($uo_id);    
                             ?>
                             <p class="text-paragraph t-primary mb-4">
-                                <a href="<?php echo $canale_fisico_prenotazione; ?>" aria-label="Vai a Pranota appuntamento presso <?php echo $ufficio->post_title; ?>" title="Vai a Pranota appuntamento presso <?php echo $ufficio->post_title; ?>"><?php echo $ufficio->post_title; ?> <?php echo $canale_fisico_label; ?></a>
+                                <a href="<?php echo get_permalink($ufficio); ?>" aria-label="Vai a Pranota appuntamento presso <?php echo $ufficio->post_title; ?>" title="Vai a Pranota appuntamento presso <?php echo $ufficio->post_title; ?>"><?php echo $ufficio->post_title; ?> [prenota]</a>
                             </p>
                             <?php } ?>
                         </section>
@@ -323,7 +321,7 @@ get_header();
             </div>
         </div>
         <?php get_template_part("template-parts/common/valuta-servizio"); ?>
-        <?php get_template_part('template-parts/single/more-posts'); ?>
+        <?php get_template_part('template-parts/single/more-posts-carousel'); ?>
         <?php get_template_part("template-parts/common/assistenza-contatti"); ?>
 
         <?php
