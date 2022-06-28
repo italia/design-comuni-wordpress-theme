@@ -27,7 +27,7 @@ function dci_register_post_type_domanda_frequente() {
         'public'                => true,
         'menu_position'         => 5,
         'menu_icon'             => 'dashicons-editor-ul',
-        'has_archive'           => 'domande-frequenti',
+        'has_archive'           => false,
         'capability_type' => array('domanda_frequente', 'domande_frequenti'),
         'map_meta_cap'    => true,
         'description'    => __( "Elenco di risposte alle domande più frequenti raccolte dalle richieste di assistenza dei cittadini.", 'design_comuni_italia' ),

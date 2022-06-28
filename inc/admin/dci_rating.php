@@ -25,7 +25,7 @@ function dci_register_post_type_rating() {
         'public'                => true,
         'menu_position'         => 5,
         'menu_icon'             => 'dashicons-star-half',
-        'has_archive'           => true,
+        'has_archive'           => false,
         'capability_type' => array('rating', 'ratings'),
         'map_meta_cap'    => true,
         'description'    => __( "Struttura dei resoconti delle valutazioni degli utenti", 'design_comuni_italia' ),

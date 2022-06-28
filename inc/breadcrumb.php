@@ -335,11 +335,19 @@ class Breadcrumb_Trail {
 
 			// If viewing the home/blog page.
 			if ( is_home() ) {
-
 				$this->add_blog_items();
+				return;
 			}
 
-            elseif ( is_singular() ) {
+            if (is_page()) {
+                $slug = get_queried_object()->post_name;
+                if ($slug == 'domande-frequenti') {
+                    $this->items[] = 'Domande più frequenti';
+                    return;
+                }
+            }
+
+            if ( is_singular() ) {
 
 			    //TODO:
 			    $group_name = dci_get_group_name(get_post_type());
@@ -383,16 +391,7 @@ class Breadcrumb_Trail {
                 //if(is_post_type_archive(dci_get_post_types_grouped('vivere-il-comune')))
                     //$this->items[] =  "<a href='".home_url("vivere-il-comune")."'>".__("Vivere il Comune", "design_comuni_italia")."</a>";
 
-
-                if(is_post_type_archive(array("servizio"))){
-                    $this->items[] =  "<a href='".home_url("servizi")."' aria-label='Vai alla pagina Servizi' title='Vai alla pagina Servizi'>".__("Servizi", "design_comuni_italia")."</a>";
-
-                }
-                else if(is_post_type_archive(array("domanda_frequente"))){
-                    $this->items[] =  "<a href='".home_url("domande-frequenti")."'>".__("Domande più frequenti", "design_comuni_italia")."</a>";
-
-                }
-                else if ( is_post_type_archive() ){
+                if ( is_post_type_archive() ){
                     $this->add_post_type_archive_items();
 
                 }
