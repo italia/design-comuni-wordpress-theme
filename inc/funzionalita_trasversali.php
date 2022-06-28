@@ -56,8 +56,3 @@ function save_rating(){
     ));
     wp_die();
 }
-
-
-
-
-
