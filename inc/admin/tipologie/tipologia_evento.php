@@ -165,20 +165,6 @@ function dci_add_eventi_metaboxes() {
         ),
     ) );
 
-    $cmb_evidenza = new_cmb2_box( array(
-        'id'           => $prefix . 'box_evidenza',
-        'title'        => __( 'In evidenza' ),
-        'object_types' => array( 'evento' ),
-        'context'      => 'side',
-        'priority'     => 'high',
-    ) );
-
-    $cmb_evidenza->add_field( array(
-        'desc' => __('Se selezionato il contenuto comparirà in evidenza nelle pagine degli Argomenti collegati', 'design_comuni_italia' ),
-        'id' => 'in_evidenza',
-        'type' => 'checkbox'
-    ) );
-
     //COS'E'
     $cmb_descrizione = new_cmb2_box( array(
         'id'           => $prefix . 'box_descrizione',
