@@ -15,7 +15,7 @@
  * Plugin:
  * require_once dirname( __FILE__ ) . '/path/to/class-tgm-plugin-activation.php';
  */
-require_once get_template_directory() . '/inc/vendor/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
+require_once get_template_directory() . '/inc/lib/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
 
 add_action( 'tgmpa_register', 'dci_register_required_plugins' );
 
@@ -86,21 +86,10 @@ function dci_register_required_plugins() {
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 
-
         array(
-            'name'     => 'Contact Form 7',
-            'slug'     => 'contact-form-7',
-            'required' => false,
-        ),
-        array(
-            'name'     => 'Contact Form 7 Database Addon – CFDB7',
-            'slug'     => 'contact-form-cfdb7',
-            'required' => false,
-        ),
-        array(
-            'name'     => 'Multi Step for Contact Form 7 (Lite)',
-            'slug'     => 'cf7-multi-step',
-            'required' => false,
+            'name'     => 'Safe Svg',
+            'slug'     => 'safe-svg',
+            'required' => true,
         ),
         array(
             'name'     => 'Version Control for jQuery',
