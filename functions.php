@@ -28,10 +28,6 @@ require get_template_directory() . '/inc/vocabolario.php';
 require get_template_directory() . '/inc/extend-tax-to-user.php';
 
 /**
- * Safe SVG
- */
-require get_template_directory() .'/inc/vendor/safe-svg/safe-svg.php';
-/**
  * Implement Plugin Activations Rules
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
@@ -53,7 +49,6 @@ require get_template_directory() . '/inc/utils.php';
  * Breadcrumb class
  */
 require get_template_directory() . '/inc/breadcrumb.php';
-
 
 /**
  * Activation Hooks
@@ -85,16 +80,6 @@ require get_template_directory() . '/walkers/main-menu.php';
  * Filters
  */
 require get_template_directory() . '/inc/filters.php';
-
-
-
-/**
- * TCPDF
- */
-//require get_template_directory() . '/inc/dompdf.php';
-
-
-
 
 if ( ! function_exists( 'dci_setup' ) ) :
 	/**

@@ -1,6 +1,6 @@
 <?php
 
-require get_template_directory() . '/inc/vendor/parsedown.php';
+require get_template_directory() . '/inc/lib/parsedown.php';
 
 /**
  * Welcome page

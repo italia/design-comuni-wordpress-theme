@@ -2,20 +2,20 @@
 /**
  * cmb2 field plugins
  */
-require 'vendor/CMB2/init.php';
-require 'vendor/CMB2-conditional-logic/cmb2-conditional-logic.php';
-require 'vendor/CMB2-field-Leaflet-Geocoder/cmb-field-leaflet-map.php';
-require 'vendor/cmb2-attached-posts/cmb2-attached-posts-field.php';
-require 'vendor/CMB2-taxonomy-hierarchy-child.php';
+require 'lib/CMB2/init.php';
+require 'lib/CMB2-conditional-logic/cmb2-conditional-logic.php';
+require 'lib/CMB2-field-Leaflet-Geocoder/cmb-field-leaflet-map.php';
+require 'lib/cmb2-attached-posts/cmb2-attached-posts-field.php';
+require 'lib/CMB2-taxonomy-hierarchy-child.php';
 
 function asset_path_faiconselect() { // Fix for $asset_path issue for Icon field
-    return get_stylesheet_directory_uri(). '/inc/vendor/cmb2-field-type-font-awesome'; //Change to correct path.
+    return get_stylesheet_directory_uri(). '/inc/lib/cmb2-field-type-font-awesome'; //Change to correct path.
 }
 add_filter( 'sa_cmb2_field_faiconselect_asset_path', 'asset_path_faiconselect' );
-require 'vendor/cmb2-field-type-font-awesome/iconselect.php';
+require 'lib/cmb2-field-type-font-awesome/iconselect.php';
 
-add_filter( 'pw_cmb2_field_select2_asset_path', function ($var){return get_stylesheet_directory_uri().'/inc/vendor/cmb-field-select2-master';});
-require 'vendor/cmb-field-select2-master/cmb-field-select2.php';
+add_filter( 'pw_cmb2_field_select2_asset_path', function ($var){return get_stylesheet_directory_uri().'/inc/lib/cmb-field-select2-master';});
+require 'lib/cmb-field-select2-master/cmb-field-select2.php';
 
 //Opzioni per i campi select dei metabox cmb2
 
