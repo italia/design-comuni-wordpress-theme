@@ -1,19 +1,36 @@
 <?php
 global $servizio;
+
+$prefix = '_dci_servizio_';
+$categorie = get_the_terms($servizio->ID, 'categorie_servizio');
+$descrizione_breve = dci_get_meta('descrizione_breve', $prefix, $servizio->ID);
+
 if($servizio->post_status == "publish") {
     ?>
-    <div class="card card-bg card-icon rounded">
-        <a href="<?php echo get_permalink($servizio); ?>" aria-describedby="card-desc-<?php echo $servizio->ID; ?>">
-            <div class="card-body">
-                <svg class="icon svg-marker-simple" aria-hidden="true">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-service"></use>
-                </svg>
-                <div class="card-icon-content"  id="card-desc-<?php echo $servizio->ID; ?>">
-                    <p><strong><?php echo $servizio->post_title; ?></strong></p>
-                    <small><?php echo dci_get_meta("descrizione", '_dci_servizio_', $servizio->ID); ?></small>
-                </div><!-- /card-icon-content -->
-            </div><!-- /card-body -->
-        </a>
-    </div><!-- /card card-bg card-icon rounded -->
+        <div class="cmp-card-latest-messages mb-3 mb-30" data-bs-toggle="modal" data-bs-target="#" id="">
+            <div class="card drop-shadow px-4 pt-4 pb-4 rounded">
+                <div class="card-header border-0 p-0">
+                    <?php if (is_array($categorie) && count($categorie)) {
+                        $count = 1;
+                        foreach ($categorie as $categoria) {
+                            echo $count == 1 ? '' : ' - ';
+                            echo '<a class="title-xsmall-bold mb-2 category text-uppercase" href="'.get_term_link($categoria->term_id).'" title="'.$categoria->name.'" aria-label="'.$categoria->name.'">';
+                            echo $categoria->name ;                                    
+                            echo '</a>';
+                            ++$count;
+                        }
+                    }                        
+                    ?>
+                </div>
+                <div class="card-body p-0 my-2">
+                <h3 class="green-title-big t-primary mb-8">
+                    <a href="<?php echo get_permalink($servizio->ID); ?>" aria-label="Vai al servizio <?php echo $servizio->post_title; ?>" title="Vai al servizio <?php echo $servizio->post_title; ?>"><?php echo $servizio->post_title; ?></a>
+                </h3>
+                <p class="text-paragraph">
+                    <?php echo $descrizione_breve; ?>
+                </p>
+                </div>
+            </div>
+        </div>
     <?php
 }

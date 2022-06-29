@@ -134,6 +134,9 @@ function dci_search_filters( $query ) {
             $post_types = dci_get_post_types_grouped( $type );
             $query->set( 'post_type', $post_types );
         }
+        // Ricerca in ordine alfabetico
+        $query->set( 'orderby', 'post_title' );
+        $query->set( 'order', 'ASC' );
 
         // Seleziono solo i tipi ricercabili
         $query->set( 'post_type', dci_get_sercheable_tipologie() );
@@ -153,12 +156,6 @@ function dci_search_filters( $query ) {
             );
         
             $query->set( 'tax_query', $taxquery );
-        }
-
-        // set max number of posts per page
-        if ( isset( $_GET["max_posts"] ) ) {
-            $query->set( 'posts_per_page', $_GET["max_posts"] );
-
         }
 
     }

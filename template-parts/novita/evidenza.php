@@ -16,7 +16,9 @@
 <div class="row cmp-list-card-img cmp-list-card-img-hr g-4 align-items-stretch pb-60">
     <?php 
         $posts = $contenuti_evidenza; 
-        get_template_part('template-parts/novita/cards-list');
+        foreach ($posts as $post) {
+            get_template_part('template-parts/novita/cards-list');
+        }
     ?>
 </div>
 <?php } ?>

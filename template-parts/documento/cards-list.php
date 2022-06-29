@@ -1,7 +1,6 @@
 <?php 
     global $posts;
 
-    foreach ($posts as $post) {
         $description = dci_get_meta('descrizione_breve');
         if ($post->post_type == 'dataset') {
             $tipo = '';
@@ -71,4 +70,4 @@
             </div>
         </div>
     </div>
-<?php }} ?>
+<?php } ?>

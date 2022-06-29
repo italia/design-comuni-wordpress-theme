@@ -18,6 +18,11 @@
 require get_template_directory() . '/inc/funzionalita_trasversali.php';
 
 /**
+ * Load more posts
+ */
+require get_template_directory() . '/inc/load_more.php';
+
+/**
  * Vocabolario
  */
 require get_template_directory() . '/inc/vocabolario.php';

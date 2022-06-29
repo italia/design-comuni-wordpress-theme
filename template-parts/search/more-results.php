@@ -1,26 +1,35 @@
 
 <?php 
-global $the_query, $load_posts;
+global $the_query, $load_posts, $wp_the_query, $load_card_type;
 
 if (!$the_query) $the_query = $wp_query;
 if (!$load_posts) $load_posts = 10;
 
-$max_posts = $the_query->post_count;
-if ($the_query->found_posts > $max_posts ) { 
-    $new_posts = intval($max_posts) + $load_posts;    
+$query_params = json_encode($_GET);
+
+$query = $the_query->query;
+$post_types = $query['post_type'];
+if ( !$post_types ) $post_types = dci_get_sercheable_tipologie();
+
+$post_types = json_encode( $post_types );
+
+$query_params = '?post_count='.$the_query->post_count.'&load_posts='.$load_posts.'&search='.$_GET['search'].'&post_types='.$post_types.'&load_card_type='.$load_card_type.'&query_params='.$query_params;
+
+if($the_query->post_count < $the_query->found_posts) {
 ?> 
-<div class="d-flex justify-content-center mt-4">
-    <button type="submit" class="btn btn-outline-primary pt-15 pb-15 pl-90 pr-90 mb-30 mb-lg-50 full-mb text-button" name="max_posts" value="<?php echo $new_posts; ?>" aria-label="Carica altri risultati">
+<div class="d-flex justify-content-center mt-4" id="load-more-btn">
+    <button type="button" class="btn btn-outline-primary pt-15 pb-15 pl-90 pr-90 mb-30 mb-lg-50 full-mb text-button" aria-label="Carica altri risultati" onclick='handleOnClick(`<?php echo $query_params; ?>`)'>
     <span class="">Carica altri risultati</span>
     </button>
 </div>
+<p class="text-center text-paragraph-regular-medium mt-4 mb-0 d-none" id="no-more-results">
+    Nessun altro risultato
+</p>
 <?php } else { ?>
-    <p class="text-center text-paragraph-regular-medium mt-4 mb-0">
-        Nessun altro risultato
-    </p>
-<?php } 
-$the_query = null;
-?>
+<p class="text-center text-paragraph-regular-medium mt-4 mb-0" id="no-more-results">
+    Nessun altro risultato
+</p>
+<?php } ?>
 
 <!-- Pagination -->
 <!-- <nav class="pagination-wrapper" aria-label="Navigazione della pagina">
