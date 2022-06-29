@@ -11,9 +11,9 @@ const submitRating = () => {
   // get answers
   const star =
     document.querySelector('input[name="ratingA"]:checked')?.value || null;
-  const radioBox = document.querySelector(
-    'input[name="rating"]:checked'
-  ).parentElement;
+  const radioCheck =
+    document.querySelector('input[name="rating"]:checked' )
+  const radioBox = radioCheck ? radioCheck.parentElement : null;
   const radioResponse = radioBox?.querySelector("label")?.innerHTML || null;
   const freeText =
     document.querySelector("#formGroupExampleInputWithHelp")?.value || null;
