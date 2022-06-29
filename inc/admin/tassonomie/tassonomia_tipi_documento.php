@@ -21,6 +21,7 @@ function dci_register_taxonomy_tipi_documento() {
     $args = array(
         'hierarchical'      => true,
         'labels'            => $labels,
+        'public'            => false, //enable to get term archive page
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,

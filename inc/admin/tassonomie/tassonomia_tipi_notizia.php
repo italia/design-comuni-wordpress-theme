@@ -21,10 +21,12 @@ function dci_register_taxonomy_tipi_notizia() {
     $args = array(
         'hierarchical'      => true,
         'labels'            => $labels,
+        'public'            => false, //enable to get term archive page
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'novita' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'novita' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_tipi_notizia',
             'edit_terms'    => 'edit_tipi_notizia',

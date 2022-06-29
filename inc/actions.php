@@ -71,7 +71,7 @@ function dci_create_menu_locations() {
         'menu-footer-col-3-2' => esc_html__( 'Menu footer (colonna 3 - "Vivere il Comune")', 'design_comuni_italia' ),
         'menu-footer-info-1' => esc_html__( 'Menu footer (informazioni - colonna 1)', 'design_comuni_italia' ),
         'menu-footer-info-2' => esc_html__( 'Menu footer (informazioni - colonna 2)', 'design_comuni_italia' ),
-        //'menu-documenti-topright' => esc_html__( 'Menu pagina "Documenti e Dati" (in alto a destra)', 'design_comuni_italia' ),
+
         //'menu-footer-bottom' => esc_html__( 'Menu a piè di pagina (es: voce "privacy policy")', 'design_comuni_italia' ),
     ) );
 }
