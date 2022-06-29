@@ -32,19 +32,19 @@ function save_rating(){
         wp_die();
     }
 
-    if(array_key_exists("star", $params)) {
+    if(array_key_exists("star", $params) && $params['star'] != "null") {
         wp_set_object_terms($postId, $params['star'], "stars");
     }
 
-    if(array_key_exists("radioResponse", $params)) {
+    if(array_key_exists("radioResponse", $params) && $params['radioResponse'] != "null") {
         update_post_meta($postId, '_dci_rating_risposta_chiusa',  $params['radioResponse']);
     }
 
-    if(array_key_exists("freeText", $params)) {
+    if(array_key_exists("freeText", $params) && $params['freeText'] != "null") {
         update_post_meta($postId, '_dci_rating_risposta_aperta',  $params['freeText']);
     }
 
-    if(array_key_exists("page", $params)) {
+    if(array_key_exists("page", $params) && $params['page'] != "null") {
         update_post_meta($postId, '_dci_rating_url',  $params['page']);
         wp_set_object_terms($postId, $params['page'], "page_urls");
     }

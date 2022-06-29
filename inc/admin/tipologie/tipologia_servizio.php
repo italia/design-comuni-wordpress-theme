@@ -29,7 +29,7 @@ function dci_register_post_type_servizio() {
 		'public'           => true,
         'menu_position'    => 5,
         'menu_icon'        => 'dashicons-id-alt',
-		'has_archive'      => true,
+		'has_archive'      => false,
         'capability_type'  => array('servizio', 'servizi'),
         'map_meta_cap'     => true,
         'description'      => __( "I servizi che il comune mette a disposizione del cittadino.", 'design_comuni_italia' ),

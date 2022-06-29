@@ -27,12 +27,11 @@ function dci_register_post_type_evento() {
         'public'                => true,
         'menu_position' => 5,
         'menu_icon'             => 'dashicons-tickets-alt',
-        'has_archive'           => 'vivere-il-comune/eventi',
+        'has_archive'           => false,    //archive page
+        'rewrite' => array('slug' => 'vivere-il-comune/eventi', 'with_front' => false),
         'capability_type' => array('evento', 'eventi'),
         'map_meta_cap'    => true,
         'description'    => __( "Tipologia che struttura le informazioni relative a un evento di interesse pubblico pubblicato sul sito di un comune", 'design_comuni_italia' ),
-        'rewrite' => array('slug' => 'vivere-il-comune/eventi'),
-
     );
     register_post_type( 'evento', $args );
 

@@ -386,29 +386,28 @@ function createMenu()
     dci_add_menu_to_location($menu_servizi,'menu-footer-col-2');
 
     //voici menu Novità
-    //dci_create_page_menu_item(__( 'Notizie', 'design_comuni_italia'), $menu_novita);
-    dci_create_term_menu_item('news','tipi_notizia',$menu_novita, 'Notizie');
-    dci_create_term_menu_item('comunicato stampa','tipi_notizia',$menu_novita, 'Comunicati'); 
-    dci_create_term_menu_item('avviso','tipi_notizia',$menu_novita, 'Avvisi');
+    //placeholder
+    dci_create_custom_menu_item(__( 'Notizie', 'design_comuni_italia'),$menu_novita, '/novita' );
+    dci_create_custom_menu_item(__( 'Comunicati', 'design_comuni_italia'),$menu_novita, '/novita');
+    dci_create_custom_menu_item(__( 'Avvisi', 'design_comuni_italia'),$menu_novita, '/novita');
+    //TERMINI DI TASSONOMIA
+    //dci_create_term_menu_item('news','tipi_notizia',$menu_novita, 'Notizie');
+    //dci_create_term_menu_item('comunicato stampa','tipi_notizia',$menu_novita, 'Comunicati');
+    //dci_create_term_menu_item('avviso','tipi_notizia',$menu_novita, 'Avvisi');
+
     //assegno menu terza colonna footer (sopra)
     dci_add_menu_to_location($menu_novita,'menu-footer-col-3-1');
 
     //voci menu Vivere il Comune
+    //placeholder
+    dci_create_custom_menu_item(__( 'Luoghi', 'design_comuni_italia'),$menu_vivere_comune, '/vivere-il-comune');
+    dci_create_custom_menu_item(__( 'Eventi', 'design_comuni_italia'),$menu_vivere_comune, '/vivere-il-comune');
+    //PAGINE DI SECONDO LIVELLO
     //dci_create_page_menu_item(__( 'Luoghi', 'design_comuni_italia'), $menu_vivere_comune);
     //dci_create_page_menu_item(__( 'Eventi', 'design_comuni_italia'), $menu_vivere_comune);
-    dci_create_archive_menu_item('luogo', $menu_vivere_comune, __( 'Luoghi', 'design_comuni_italia'));
-    dci_create_archive_menu_item('evento', $menu_vivere_comune, __( 'Eventi', 'design_comuni_italia'));
+
     //assegno menu terza colonna footer (sotto)
     dci_add_menu_to_location($menu_vivere_comune,'menu-footer-col-3-2');
-
-    /**
-    //voci menu Documenti e Dati (compoare nella pagina di secondo livello)
-    foreach( dci_tipi_documento_plural_array() as $term_name => $term_plural) {
-        dci_create_term_menu_item($term_name,'tipi_documento', $menu_documenti_dati, $term_plural);
-    }
-    //assegno menu prima colonna footer
-    dci_add_menu_to_location($menu_documenti_dati,'menu-documenti-topright');
-     */
 
     //voci menu Argomenti (in alto a destra)
     dci_create_term_menu_item('Agricoltura','argomenti',$menu_argomenti); //voce tassonomia argomenti come placeholder
@@ -420,7 +419,8 @@ function createMenu()
 
     //menu info colonna 1
     //dci_create_custom_menu_item(__( 'Leggi le FAQ', 'design_comuni_italia'),$menu_info_1);
-    dci_create_archive_menu_item('domanda_frequente', $menu_info_1, __( 'Leggi le FAQ', 'design_comuni_italia'));
+    //dci_create_archive_menu_item('domanda_frequente', $menu_info_1, __( 'Leggi le FAQ', 'design_comuni_italia'));
+    dci_create_page_menu_item(__('Domande frequenti', 'design_comuni_italia'), $menu_info_1, __('Leggi le FAQ','design_comuni_italia'));
     dci_create_custom_menu_item(__( 'Prenotazione appuntamento', 'design_comuni_italia'),$menu_info_1);
     dci_create_custom_menu_item(__( 'Segnalazione disservizio', 'design_comuni_italia'),$menu_info_1);
     dci_create_custom_menu_item(__( 'Richiesta assistenza', 'design_comuni_italia'),$menu_info_1);

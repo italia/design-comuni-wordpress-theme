@@ -149,6 +149,13 @@
         "description" : "",
         "template_name": "accesso",
         "children" : {}
+      },
+      "Domande frequenti" : {
+        "title" : "Domande frequenti",
+        "slug" : "domande-frequenti",
+        "description" : "Elenco di risposte alle domande più frequenti raccolte dalle richieste di assistenza dei cittadini.",
+        "template_name": "domande-frequenti",
+        "children" : {}
       }
     }
 }

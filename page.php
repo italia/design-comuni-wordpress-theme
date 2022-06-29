@@ -1,70 +1,44 @@
 <?php
-/**
- * The template for displaying all single posts
+/*
+ * Generic Page Template
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package Design_Comuni_Italia
+ * @package Design_Scuole_Italia
  */
-
+global $post;
 get_header();
+
 ?>
-
-    <main id="main-container" class="main-container">
-
-        <?php get_template_part("template-parts/common/breadcrumb"); ?>
-
+    <main>
         <?php
         while ( have_posts() ) :
             the_post();
+            $description = dci_get_meta('descrizione','_dci_page_',$post->ID);
             ?>
-            <section class="section bg-white">
-                <div class="container">
-                    <div class="row variable-gutters">
-                        <div class="col-md-12 article-title-author-container">
-                            <div class="title-content">
-                                <h1><?php the_title(); ?></h1>
-                            </div><!-- /title-content -->
-                        </div><!-- /col-md-6 -->
-                    </div><!-- /row -->
-                </div><!-- /container -->
-            </section>
-
-            <section class="section bg-white">
-                <div class="container ">
-                    <article class="article-wrapper">
-
-
-                        <div class="row variable-gutters">
-                            <div class="col-lg-12">
-                                <?php
-                                the_content();
-                                ?>
-                            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <?php get_template_part("template-parts/common/breadcrumb"); ?>
+                        <div class="cmp-hero">
+                            <section class="it-hero-wrapper bg-white align-items-start">
+                                <div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
+                                    <h1 class="text-black title-xxxlarge mb-2">
+                                        <?php the_title()?>
+                                    </h1>
+                                    <p class="text-black titillium text-paragraph">
+                                        <?php echo $description; ?>
+                                    </p>
+                                </div>
+                            </section>
                         </div>
-                        <div class="row variable-gutters">
-                            <div class="col-lg-12">
-                                <?php
-                                if ( comments_open() || get_comments_number() ) :
-                                    comments_template();
-                                endif;
-                                ?>
-                            </div>
-                        </div>
-                        <div class="row variable-gutters">
-                            <div class="col-lg-12">
-                                <?php get_template_part( "template-parts/single/bottom" ); ?>
-                            </div><!-- /col-lg-9 -->
-                        </div><!-- /row -->
-
-                    </article>
+                    </div>
                 </div>
-            </section>
+            </div>
         <?php
         endwhile; // End of the loop.
         ?>
-    </main><!-- #main -->
-
-
+    </main>
 <?php
 get_footer();
+
+
+
