@@ -7,10 +7,10 @@
  * @package Design_Comuni_Italia
  */
 
-global $obj, $the_query, $load_posts;
+global $obj, $the_query, $load_posts, $load_card_type, $servizio, $additional_filter;
 
-$max_posts = isset($_GET['max_posts']) ? $_GET['max_posts'] : 10;
-$load_posts = 10;
+$max_posts = isset($_GET['max_posts']) ? $_GET['max_posts'] : 1;
+$load_posts = 1;
 $args = array(
     's' => $_GET['search'],
     'posts_per_page' => $max_posts,
@@ -21,6 +21,9 @@ $args = array(
 );
 $the_query = new WP_Query( $args );
 $servizi = $the_query->posts;
+
+$additional_filter = array();
+$additional_filter['categorie_servizio'] = $obj->name;
 
 $amministrazione = dci_get_related_unita_amministrative();
 $bandi = dci_get_related_bandi();
@@ -75,20 +78,12 @@ get_header();
                       <p id="autocomplete-label" class="mt-2 mt-lg-3 mb-4"><strong><?php echo $the_query->found_posts; ?> </strong>servizi trovati in ordine alfabetico</p>
                   </div>
                 </div>
-                <?php foreach ($servizi as $servizio) { 
-                  $description = dci_get_meta('descrizione_breve', '_dci_servizio_', $servizio->ID);  
-                ?>
-                <div class="cmp-card-latest-messages mb-3 mb-30" data-bs-toggle="modal" data-bs-target="#" id="">
-                  <div class="card drop-shadow px-4 pt-4 pb-4 rounded">
-                    <div class="card-header border-0 p-0">
-                    </div>
-                    <div class="card-body p-0 my-2">
-                      <h3 class="green-title-big t-primary mb-8"><a href="<?php echo get_permalink($servizio->ID); ?>" title="Vai alla pagina <?php echo $servizio->post_title; ?> " aria-label="Vai alla pagina <?php echo $servizio->post_title; ?> "><?php echo $servizio->post_title; ?> </a></h3>
-                      <p class="text-paragraph "><?php echo $description; ?></p>
-                    </div>
-                  </div>
+                <div id="load-more">
+                    <?php foreach ($servizi as $servizio) { 
+                        $load_card_type = "servizio";
+                        get_template_part("template-parts/servizio/card");    
+                    } ?>
                 </div>
-                <?php } ?>
                 <?php get_template_part("template-parts/search/more-results"); ?>
               </div>
               

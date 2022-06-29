@@ -36,6 +36,7 @@ function load_more(){
 	$load_card_type = $_POST['load_card_type'];
 	$post_types = json_decode( stripslashes( $_POST['post_types'] ), true );
 	$url_query_params =  json_decode( stripslashes( $_POST['query_params'] ), true );
+	$additional_filter =  json_decode( stripslashes( $_POST['additional_filter'] ), true );
 
 	$args = array(
         's' => $_POST['search'],
@@ -58,6 +59,7 @@ function load_more(){
 	}
 	if ( isset($url_query_params["post_types"]) ) $args['post_type'] = $url_query_params["post_types"];
 	if ( isset($url_query_params["s"]) ) $args['s'] = $url_query_params["s"];
+	if ( isset($additional_filter) ) $args = $args + $additional_filter;
  
 	// it is always better to use WP_Query but not here
 	$new_query = query_posts( $args );
