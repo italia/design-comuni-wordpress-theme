@@ -25,7 +25,6 @@
                     data-bs-toggle="modal"
                     data-bs-target="#"
                     class="btn btn-primary px-5 py-3 full-mb"
-                    onclick="location.href='<?php echo $url_eventi; ?>'"
                     label="Tutti gli eventi" 
                     buttonNext=true 
                     aria-label="Vedi tutti gli eventi"}}

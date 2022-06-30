@@ -24,7 +24,6 @@
                 data-bs-toggle="modal"
                 data-bs-target="#"
                 class="btn btn-primary px-5 py-3 full-mb"
-                onclick="location.href='<?php echo $url_luoghi; ?>'"
                 label="Tutti i luoghi" 
                 buttonNext=true 
                 aria-label="Vedi tutti i luoghi"}}
