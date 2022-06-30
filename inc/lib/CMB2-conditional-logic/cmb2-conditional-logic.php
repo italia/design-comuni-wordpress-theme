@@ -18,7 +18,7 @@ class CMB2_conditional_logic {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueues' ) );
 	}
 	public function enqueues() {
-		wp_enqueue_script('cmb2_conditional_logic',  get_template_directory_uri(). '/inc/vendor/CMB2-conditional-logic/cmb2-conditional-logic.min.js',
+		wp_enqueue_script('cmb2_conditional_logic',  get_template_directory_uri(). '/inc/lib/CMB2-conditional-logic/cmb2-conditional-logic.min.js',
 			array('jquery'),
 			$this->version,
 			true
