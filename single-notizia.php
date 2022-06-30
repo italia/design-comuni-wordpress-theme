@@ -27,7 +27,7 @@ get_header();
             $documenti = dci_get_meta("documenti", $prefix, $post->ID);
             $a_cura_di = dci_get_meta("a_cura_di", $prefix, $post->ID);    
             ?>
-            <div class="container px-4 my-4">
+            <div class="container" id="main-container">
                 <div class="row">
                     <div class="col px-lg-4">
                         <?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -36,6 +36,7 @@ get_header();
                 <div class="row">
                     <div class="col-lg-8 px-lg-4 py-lg-2">
                         <h1><?php the_title(); ?></h1>
+                        <h2 class="visually-hidden">Dettagli della notizia</h2>
                         <p>
                             <?php echo $descrizione_breve; ?>
                         </p>
@@ -48,7 +49,7 @@ get_header();
                             </div>
                             <div class="col-6">
                                 <small>Tempo di lettura:</small>
-                                <p class="fw-semibold">3 min</p>
+                                <p class="fw-semibold" id="readingTime"></p>
                             </div>
                         </div>
                     </div>
@@ -124,9 +125,9 @@ get_header();
                     <section class="col-lg-8 it-page-sections-container border-light">
                     <article id="descrizione" class="it-page-section anchor-offset">
                         <h4>Descrizione</h4>
-                        <p class="font-serif">
+                        <div class="richtext-wrapper lora">
                             <?php echo $descrizione; ?>
-                        </p>
+                        </div>
                     </article>
                     <?php if( is_array($documenti) && count($documenti) ) { ?>
                     <article id="documenti" class="it-page-section anchor-offset mt-5">
@@ -189,5 +190,12 @@ get_header();
         endwhile; // End of the loop.
         ?>
     </main>
+    <script>
+        const descText = document.querySelector('#descrizione')?.innerText;
+        const wordsNumber = descText.split(' ').length
+
+        document.querySelector('#readingTime').innerHTML = `${Math.ceil(wordsNumber / 200)} min`;
+    </script>
 <?php
 get_footer();
+
