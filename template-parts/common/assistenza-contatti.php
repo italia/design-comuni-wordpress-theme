@@ -33,6 +33,13 @@
                       ></use></svg><span>Numero verde <?php echo $numero_verde; ?></span></a
                   >
                 </li>
+                <li>
+                  <a class="list-item" href="#" title="Vai alla pagina prenota appuntamento" aria-label="Vai alla pagina prenota appuntamento" data-element="appointment-booking">
+                    <svg class="icon icon-primary icon-sm">
+                      <use href="#it-calendar"></use>
+                    </svg><span>Prenota appuntamento</span>
+                  </a>
+                </li>
               </ul>
               <h2 class="title-medium-2-semi-bold mt-4">
                 Problemi in città
