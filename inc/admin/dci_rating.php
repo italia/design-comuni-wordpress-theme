@@ -6,16 +6,16 @@ add_action( 'init', 'dci_register_post_type_rating', 100 );
 function dci_register_post_type_rating() {
 
     $labels = array(
-        'name'                  => _x( 'Ratings', 'Post Type General Name', 'design_comuni_italia' ),
-        'singular_name'         => _x( 'Rating', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'add_new'               => _x( 'Aggiungi un Rating', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'add_new_item'               => _x( 'Aggiungi un Rating', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'name'                  => _x( 'Valutazioni', 'Post Type General Name', 'design_comuni_italia' ),
+        'singular_name'         => _x( 'Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'add_new'               => _x( 'Aggiungi una Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'add_new_item'               => _x( 'Aggiungi una Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
         //'featured_image' => __( 'Logo Identificativo del Rating', 'design_comuni_italia' ),
-        'edit_item'      => _x( 'Modifica il Rating', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'view_item'      => _x( 'Visualizza il Rating', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'set_featured_image' => __( 'Seleziona Immagine Rating' ),
-        'remove_featured_image' => __( 'Rimuovi Immagine Rating' , 'design_comuni_italia' ),
-        'use_featured_image' => __( 'Usa come Immagine Rating' , 'design_comuni_italia' ),
+        'edit_item'      => _x( 'Modifica la Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'view_item'      => _x( 'Visualizza la Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'set_featured_image' => __( 'Seleziona Immagine Valutazione' ),
+        'remove_featured_image' => __( 'Rimuovi Immagine Valutazione' , 'design_comuni_italia' ),
+        'use_featured_image' => __( 'Usa come Immagine Valutazione' , 'design_comuni_italia' ),
     );
     $args = array(
         'label'                 => __( 'Rating', 'design_comuni_italia' ),
