@@ -12,7 +12,6 @@ if (!$classes) $classes = 'btn btn-outline-primary pt-15 pb-15 pl-90 pr-90 mb-30
 
 $query_params = json_encode($_GET);
 $additional_filter = json_encode($additional_filter);
-console_log($additional_filter,'$additional_filter');
 
 $query = $the_query->query;
 $post_types = $query['post_type'];
