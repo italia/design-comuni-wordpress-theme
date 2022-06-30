@@ -18,7 +18,7 @@ $descrizione = dci_get_meta('descrizione_breve');
 		</div>
 		<div class="card-body p-0 my-2">
 			<h3 class="green-title-big t-primary mb-8">
-				<a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+				<a href="<?php echo get_permalink(); ?>" aria-label="Vai alla pagina <?php echo the_title(); ?>" title="Vai alla pagina <?php echo the_title(); ?>" data-element="service-element"><?php echo the_title(); ?></a>
 			</h3>
 			<p class="text-paragraph">
 				<?php echo $descrizione; ?>

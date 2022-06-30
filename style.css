@@ -12,17 +12,13 @@ Text Domain: design_comuni_italia
 -------------------------------------------------------------- */
 .WIP {
   text-align: center;
-  padding:10px;
+  padding: 10px;
   background-color: gold;
 }
 
-#menu-argomenti > li:last-child > span > a {
-    font-weight: 700!important;
-}
-
 svg.icon > image {
-    width: inherit;
-    height: inherit;
+  width: inherit;
+  height: inherit;
 }
 
 /* required styles to display maps correctly */
@@ -758,104 +754,101 @@ svg.leaflet-image-layer.leaflet-interactive path {
   border-right-color: #fff;
 }
 
-
 .section.section-map .map-wrapper {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-  }
-  
-  @media (max-width: 991.98px) {
-    .section.section-map .map-wrapper {
-      position: relative;
-      z-index: 0;
-      top: auto;
-      left: auto;
-      height: 400px;
-      width: 100%;
-    }
-  }
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
 
+@media (max-width: 991.98px) {
+  .section.section-map .map-wrapper {
+    position: relative;
+    z-index: 0;
+    top: auto;
+    left: auto;
+    height: 400px;
+    width: 100%;
+  }
+}
 
 .section.section-map-wrapper {
-    position: relative;
-    z-index: 0;
-  }
-  
+  position: relative;
+  z-index: 0;
+}
+
+.section.section-map-wrapper .map-wrapper {
+  height: 670px;
+  padding-right: 350px;
+  position: relative;
+  z-index: 0;
+}
+
+@media (max-width: 991.98px) {
   .section.section-map-wrapper .map-wrapper {
-    height: 670px;
-    padding-right: 350px;
-    position: relative;
-    z-index: 0;
+    padding-right: 0;
   }
-  
-  @media (max-width: 991.98px) {
-    .section.section-map-wrapper .map-wrapper {
-      padding-right: 0;
-    }
-  }
-  
-  /* @media (max-width: 767.98px) {
+}
+
+/* @media (max-width: 767.98px) {
     .section.section-map-wrapper .map-wrapper {
       display: none;
     }
   } */
-  
-  .section.section-map-wrapper .map-aside {
-    position: absolute;
-    width: 350px;
-    height: 100%;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #f5f5f5;
-    padding: 15px 10px;
-  }
-  
-  @media (max-width: 991.98px) {
-    .section.section-map-wrapper .map-aside {
-      width: 300px;
-    }
-  }
-  
-  @media (max-width: 767.98px) {
-    .section.section-map-wrapper .map-aside {
-      width: 100%;
-      height: auto;
-      position: relative;
-      z-index: 0;
-      top: auto;
-      right: auto;
-    }
-  }
-  
-  .section.section-map-wrapper .map-aside h3,
-  .section.section-map-wrapper .map-aside .h3 {
-    font-size: 1.27rem;
-  }
 
+.section.section-map-wrapper .map-aside {
+  position: absolute;
+  width: 350px;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #f5f5f5;
+  padding: 15px 10px;
+}
 
 @media (max-width: 991.98px) {
-    .section.section-map .container,
-    .section.section-map .row,
-    .section.section-map .col-lg-4 {
-      margin: 0;
-      padding: 0;
-    }
-  
-    .section.section-map .card.card-bg.rounded {
-      border-radius: 0px !important;
-    }
+  .section.section-map-wrapper .map-aside {
+    width: 300px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section.section-map-wrapper .map-aside {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 0;
+    top: auto;
+    right: auto;
+  }
+}
+
+.section.section-map-wrapper .map-aside h3,
+.section.section-map-wrapper .map-aside .h3 {
+  font-size: 1.27rem;
+}
+
+@media (max-width: 991.98px) {
+  .section.section-map .container,
+  .section.section-map .row,
+  .section.section-map .col-lg-4 {
+    margin: 0;
+    padding: 0;
   }
 
-  .map-wrapper{
-    width: 100%;
+  .section.section-map .card.card-bg.rounded {
+    border-radius: 0px !important;
   }
+}
 
-  #map_all {
-    width: 100%;
-    padding-bottom: 56.25%;
-  }
+.map-wrapper {
+  width: 100%;
+}
+
+#map_all {
+  width: 100%;
+  padding-bottom: 56.25%;
+}

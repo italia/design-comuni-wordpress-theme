@@ -22,7 +22,7 @@
 <div class="card card-teaser card-teaser-info shadow-sm rounded d-flex align-items-center p-3 p-lg-4">
     <div class="card-body">
         <h4 class="u-main-black mb-1 title-small-semi-bold-medium">
-            <a href="<?php echo get_permalink($ufficio->ID); ?>" title="Vai alla pagina <?php echo $ufficio->post_title; ?>" aria-label="Vai alla pagina <?php echo $ufficio->post_title; ?>">
+            <a href="<?php echo get_permalink($ufficio->ID); ?>" title="Vai alla pagina <?php echo $ufficio->post_title; ?>" aria-label="Vai alla pagina <?php echo $ufficio->post_title; ?>" data-element="service-area">
             <?php echo $ufficio->post_title; ?>
             </a>
         </h4>

@@ -19,14 +19,22 @@
 class Main_Menu_Walker extends Walker_Nav_Menu {
 	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
 		$output .= "<li class='nav-item'>";
+		// set active tab
 		$group = $args->current_group == 'documenti-e-dati' ? 'amministrazione' : $args->current_group;
 		$active_class = '';
 		if ($item->attr_title == $group) {
 			$active_class = 'active';
 		}
+
+		// set data-element for crawler
+		$data_element = '';
+		if ($item->title == 'Amministrazione') $data_element .= 'management'; 
+		if ($item->title == 'Novità') $data_element .= 'news'; 
+		if ($item->title == 'Servizi') $data_element .= 'service'; 
+		if ($item->title == 'Vivere il comune') $data_element .= 'live'; 
  
 		if ($item->url && $item->url != '#') {
-			$output .= '<a class="nav-link '.$active_class.'" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '">';
+			$output .= '<a class="nav-link '.$active_class.'" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" data-element="'.$data_element.'">';
 		} else {
 			$output .= '<span>';
 		}
@@ -38,5 +46,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 		} else {
 			$output .= '</span>';
 		}
+
+		$output .= "</li>";
 	}
 }

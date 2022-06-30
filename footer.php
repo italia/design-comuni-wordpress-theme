@@ -37,6 +37,7 @@
                             "theme_location" => $location,
                             "depth" => 0,
                             "menu_class" => "footer-list",
+                            'walker' => new Footer_Menu_Walker()
                         ));
                     }
                     ?>
@@ -59,6 +60,7 @@
                                 "depth" => 0,
                                 "menu_class" => "footer-list",
                                 "li_slice" => array(0, ceil($menu_count / 2)),
+                                'walker' => new Footer_Menu_Walker()
                             ));?>
                             </div>
                             <div class="col-md-6">
@@ -67,6 +69,7 @@
                                 "depth" => 0,
                                 "menu_class" => "footer-list",
                                 "li_slice" => array(ceil($menu_count / 2), $menu_count),
+                                'walker' => new Footer_Menu_Walker()
                             ));?>
                             </div>
                         </div>
@@ -84,6 +87,7 @@
                             "depth" => 0,
                             "menu_class" => "footer-list",
                             "container_class" => "footer-list",
+                            'walker' => new Footer_Menu_Walker()
                         ));
                     }
                     ?>
@@ -97,6 +101,7 @@
                             "theme_location" => $location,
                             "depth" => 0,
                             "menu_class" => "footer-list",
+                            'walker' => new Footer_Menu_Walker()
                         ));
                     }
                     ?>
@@ -135,6 +140,7 @@
                                     "theme_location" => $location,
                                     "depth" => 0,
                                     "menu_class" => "footer-list",
+                                    'walker' => new Footer_Menu_Walker()
                                 ));
                             }
                             ?>
@@ -147,6 +153,7 @@
                                     "theme_location" => $location,
                                     "depth" => 0,
                                     "menu_class" => "footer-list",
+                                    'walker' => new Footer_Menu_Walker()
                                 ));
                             }
                             ?>

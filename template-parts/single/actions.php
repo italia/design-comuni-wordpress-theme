@@ -132,7 +132,7 @@ $post_url = get_permalink();
 <div class="mt-4 mb-4">
     <h6><small>Argomenti</small></h6>
     <?php foreach ($argomenti as $argomento) { ?>
-    <a href="<?php echo get_term_link($argomento->term_id); ?>" aria-label="Vai all'argomento: <?php echo $argomento->name; ?>" title="Vai all'argomento: <?php echo $argomento->name; ?>">
+    <a href="<?php echo get_term_link($argomento->term_id); ?>" aria-label="Vai all'argomento: <?php echo $argomento->name; ?>" title="Vai all'argomento: <?php echo $argomento->name; ?>" data-element="service-topic">
         <div class="chip chip-simple chip-primary">
             <span class="chip-label"><?php echo $argomento->name; ?></span>
         </div>

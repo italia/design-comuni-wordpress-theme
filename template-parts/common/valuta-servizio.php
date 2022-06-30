@@ -3,7 +3,7 @@
         <div class="row d-flex justify-content-center bg-primary">
         <div class="col-12 col-lg-6 p-lg-0 px-3">
             <div class="cmp-rating pt-lg-80 pb-lg-80" id="">
-            <div class="card shadow card-wrapper">
+            <div class="card shadow card-wrapper" data-element="feedback">
                 <div class="cmp-rating__card-first">
                 <div class="card-header border-0">
                     <h2 class="title-medium-2-semi-bold mb-0">

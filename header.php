@@ -130,6 +130,7 @@ $current_group = dci_get_current_group();
                           "theme_location" => $location, 
                           "depth" => 0,  
                           "menu_class" => "navbar-nav", 
+                          'items_wrap' => '<ul class="%2$s" id="%1$s" data-element="main-navigation">%3$s</ul>',
                           "container" => "",
                           'list_item_class'  => 'nav-item',
                           'link_class'   => 'nav-link',
@@ -146,11 +147,9 @@ $current_group = dci_get_current_group();
                           "depth" => 0,  
                           "menu_class" => "navbar-nav navbar-secondary", 
                           "container" => "",
-                          "before" => "<span class='fw-bold'>",
-                          "after" => "</span>",
                           'list_item_class'  => 'nav-item',
                           'link_class'   => 'nav-link',
-                          'last_item_class' => 'fw-bold'
+                          'walker' => new Menu_Header_Right_Walker()
                         ));
                     }
                     ?>

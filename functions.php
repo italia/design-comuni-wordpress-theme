@@ -80,6 +80,15 @@ require get_template_directory() . '/inc/welcome.php';
  */
 require get_template_directory() . '/walkers/main-menu.php';
 
+/**
+ * menu header right walker
+ */
+require get_template_directory() . '/walkers/menu-header-right.php';
+
+/**
+ * footer info walker
+ */
+require get_template_directory() . '/walkers/footer-info.php';
 
 /**
  * Filters
