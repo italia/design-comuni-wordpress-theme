@@ -18,8 +18,8 @@ get_header();
 			
 			$description = dci_get_meta('descrizione','_dci_page_',$post->ID);
 			?>
-			<div class="container px-4">
-				<div class="row justify-content-center w-100 row-shadow">
+			<div class="container" id="main-container">
+				<div class="row justify-content-center">
 					<div class="col-12 col-lg-10">
 						<?php get_template_part("template-parts/common/breadcrumb"); ?>
 						<div class="cmp-hero">
