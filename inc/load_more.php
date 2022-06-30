@@ -30,7 +30,7 @@ function load_template_part($template_name, $part_name=null) {
 add_action("wp_ajax_load_more" , "load_more");
 add_action("wp_ajax_nopriv_load_more" , "load_more");
 function load_more(){
-	global $wp_query, $servizio;
+	global $wp_query, $servizio, $i;
 	
     // prepare our arguments for the query
 	$load_card_type = $_POST['load_card_type'];
@@ -66,10 +66,12 @@ function load_more(){
 
 	$out = '';
     if( have_posts() ) :
- 
+		
+		$i = 0;
 		// run the loop
 		while( have_posts() ): the_post();
 		$post = get_post();
+		++$i;
 
 		if ($load_card_type == "servizio"){
 			$servizio = $post;
@@ -83,7 +85,10 @@ function load_more(){
 		}
 		if ($load_card_type == "global-search"){
 			$out .= load_template_part("template-parts/search/item");  
-		}		
+		}	
+		if ($load_card_type == "domanda-frequente"){
+			$out .= load_template_part("template-parts/domanda-frequente/item");  
+		}	
  
 		endwhile;
  

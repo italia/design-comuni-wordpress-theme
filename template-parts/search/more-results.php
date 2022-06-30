@@ -1,9 +1,14 @@
 
 <?php 
-global $the_query, $load_posts, $wp_the_query, $load_card_type, $additional_filter;
+global $the_query, $load_posts, $wp_the_query, $load_card_type, $additional_filter,  $label, $label_no_more, $classes;
 
 if (!$the_query) $the_query = $wp_query;
 if (!$load_posts) $load_posts = 10;
+
+//set default labels & classes
+if (!$label) $label = 'Carica altri risultati';
+if (!$label_no_more) $label_no_more = 'Nessun altro risultato';
+if (!$classes) $classes = 'btn btn-outline-primary pt-15 pb-15 pl-90 pr-90 mb-30 mb-lg-50 full-mb text-button';
 
 $query_params = json_encode($_GET);
 $additional_filter = json_encode($additional_filter);
@@ -20,16 +25,16 @@ $query_params = '?post_count='.$the_query->post_count.'&load_posts='.$load_posts
 if($the_query->post_count < $the_query->found_posts) {
 ?> 
 <div class="d-flex justify-content-center mt-4" id="load-more-btn">
-    <button type="button" class="btn btn-outline-primary pt-15 pb-15 pl-90 pr-90 mb-30 mb-lg-50 full-mb text-button" aria-label="Carica altri risultati" onclick='handleOnClick(`<?php echo $query_params; ?>`)'>
-    <span class="">Carica altri risultati</span>
+    <button type="button" class="<?php echo $classes; ?>" aria-label="Carica altri risultati" onclick='handleOnClick(`<?php echo $query_params; ?>`)'>
+    <span class=""><?php echo $label; ?></span>
     </button>
 </div>
 <p class="text-center text-paragraph-regular-medium mt-4 mb-0 d-none" id="no-more-results">
-    Nessun altro risultato
+    <?php echo $label_no_more; ?>
 </p>
 <?php } else { ?>
 <p class="text-center text-paragraph-regular-medium mt-4 mb-0" id="no-more-results">
-    Nessun altro risultato
+    <?php echo $label_no_more; ?>
 </p>
 <?php } ?>
 
