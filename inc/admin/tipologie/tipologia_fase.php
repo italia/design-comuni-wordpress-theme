@@ -56,7 +56,7 @@ function dci_add_fase_metaboxes() {
     $cmb_dati->add_field( array(
         'name'       => __('Titolo *', 'design_comuni_italia' ),
         'desc'       => __('Esempio: "Iscrizione alla gita" oppure "Pagamento della gita"', 'design_comuni_italia' ),
-        'id'         => 'titolo_fase',
+        'id'         => $prefix . 'titolo_fase',
         'type'       => 'text',
         'attributes' => array(
             'required'            => true
@@ -65,7 +65,7 @@ function dci_add_fase_metaboxes() {
     $cmb_dati->add_field( array(
         'name'       => __('Data *', 'design_comuni_italia' ),
         'desc'       => __('Data', 'design_comuni_italia' ),
-        'id'         => 'data_fase',
+        'id'         => $prefix . 'data_fase',
         'type'       => 'text_date',
         'date_format' => 'd-m-Y',
         'attributes' => array(
@@ -76,7 +76,7 @@ function dci_add_fase_metaboxes() {
 
     $cmb_dati->add_field(array(
         'name'       => __('Descrizione', 'design_comuni_italia' ),
-        'id'         => 'desc_fase',
+        'id'         => $prefix . 'desc_fase',
         'type'       => 'textarea',
     ) );
 

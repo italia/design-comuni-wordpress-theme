@@ -33,7 +33,7 @@ get_header();
             $cosa_serve_intro = dci_get_meta("cosa_serve_introduzione");
             $cosa_serve_list = dci_get_meta("cosa_serve_list");
             $output = dci_get_meta("output");
-            $fasi_scadenze = dci_get_meta("fasi_scadenze");
+            $fasi_scadenze = dci_get_meta("fasi");
             $costi = dci_get_meta("costi");
             //canali di prenotazione
             $canale_digitale_text = dci_get_meta("canale_digitale_text");
@@ -162,7 +162,7 @@ get_header();
                                             </a>
                                             </li>
                                         <?php } ?>
-                                        <?php if ( is_array($fasi_scadenze) ) { ?>
+                                        <?php if ( is_array($fasi_scadenze) && count($fasi_scadenze)) { ?>
                                             <li>
                                             <a class="list-item" href="#deadlines" aria-label="Vai alla sezione Tempi e scadenze" title="Vai alla sezione Tempi e scadenze">
                                                 <span class="title-medium">Tempi e scadenze</span>
@@ -230,29 +230,31 @@ get_header();
                             <h2 class="title-xxlarge mb-3" id="obtain">Cosa si ottiene</h2>
                             <p class="text-paragraph lora"><?php echo $output ?></p>
                         </section>
-                        <?php if ( is_array($fasi_scadenze) ) { ?>
+                        <?php if ( is_array($fasi_scadenze) && count($fasi_scadenze) ) { ?>
                         <section class="mb-30">
                             <div class="cmp-timeline">
                                 <h2 class="title-xxlarge mb-3" id="deadlines">Tempi e scadenze</h2>
                                 <p class="text-paragraph mb-3 lora">Le graduatorie verranno aggiornate ogni mese con nuove assegnazioni e trasferimenti in base ai posti disponibili.</p>
                                 <div class="calendar-vertical mb-3">
-                                    <?php foreach ($fasi_scadenze as $fase) {                                         
-                                        $arrdata =  explode("-", $fase["data_fase"]);
+                                    <?php foreach ($fasi_scadenze as $fase_id) {        
+                                        $fase = get_post($fase_id);              
+                                        $data = dci_get_meta('data_fase', '_dci_fase_', $fase_id);
+                                        $arrdata =  explode("-", $data);
                                         $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
                                         ?>
                                         <div class="calendar-date">
                                             <div class="calendar-date-day">
-                                                <small><?php echo $arrdata[2]; ?></small>
-                                                <span class="title-xxlarge-regular"><?php echo $arrdata[0];; ?></span>
-                                                <small><?php echo $monthName; ?></small>
+                                                <small class="calendar-date-day__year"><?php echo $arrdata[2]; ?></small>
+                                                <span class="title-xxlarge-regular d-flex justify-content-center"><?php echo $arrdata[0]; ?></span>
+                                                <small class="calendar-date-day__month"><?php echo $monthName; ?></small>
                                             </div>
                                             <div class="calendar-date-description rounded">
                                                 <div class="calendar-date-description-content">
-                                                <h3 class="text-purplelight title-medium-2 mb-0">
-                                                    <?php echo $fase["titolo_fase"]; ?>
-                                                </h3>
+                                                    <h3 class="title-medium-2 mb-0">
+                                                        <?php echo $fase->post_title; ?>
+                                                    </h3>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </div>
                                     <?php } ?>                            
                                 </div>
