@@ -26,7 +26,7 @@
                     >
                     <svg class="icon icon-xs right">
                     <use
-                        href="./assets/bootstrap-italia/dist/svg/sprite.svg#it-expand"
+                        href="#it-expand"
                     ></use>
                     </svg>
                 </span>

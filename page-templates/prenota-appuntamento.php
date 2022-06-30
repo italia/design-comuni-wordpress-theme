@@ -34,7 +34,7 @@ get_header();
             <div class="container">
                 <div class="row">
                     <?php get_template_part("template-parts/prenotazione/index"); ?>
-                    <?php get_template_part("template-parts/prenotazione/index"); ?>
+                    <?php get_template_part("template-parts/prenotazione/content"); ?>
                 </div>
             </div>
 
