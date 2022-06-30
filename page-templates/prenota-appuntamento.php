@@ -30,8 +30,12 @@ get_header();
                     </div>
                 </div>
             </div>
+            <?php get_template_part("template-parts/prenotazione/tabs"); ?>
             <div class="container">
-                <?php get_template_part("template-parts/prenotazione/tabs"); ?>
+                <div class="row">
+                    <?php get_template_part("template-parts/prenotazione/index"); ?>
+                    <?php get_template_part("template-parts/prenotazione/index"); ?>
+                </div>
             </div>
 
 
