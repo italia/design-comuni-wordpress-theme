@@ -470,7 +470,6 @@ function dci_create_custom_menu_item($item_name,  $menu_id, $link = '#') {
         'menu-item-url' => $link,
         'menu-item-status' => 'publish',
         'menu-item-type' => 'custom', // optional
-        'menu-item-target' => '_blank',
         'menu-item-attr-title' => $item_name,
     ));
 }

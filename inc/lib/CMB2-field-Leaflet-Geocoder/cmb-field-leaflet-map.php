@@ -103,10 +103,10 @@ class CMB2_Field_Leaflet {
     public function enqueue_scripts() {
         wp_enqueue_script( 'cmb2-leaflet-core', '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.js', [ 'jquery' ], self::VERSION );
         wp_enqueue_style( 'cmb2-leaflet-core', '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css', [], self::VERSION );
-        wp_enqueue_script( 'cmb2-leaflet-geocoder',  get_template_directory_uri(). '/inc/vendor/CMB2-field-Leaflet-Geocoder/assets/js/geocoder.js', [ 'cmb2-leaflet-core' ], self::VERSION );
-        wp_enqueue_script( 'cmb2-leaflet-main', get_template_directory_uri(). '/inc/vendor/CMB2-field-Leaflet-Geocoder/assets/js/main.js', [ 'cmb2-leaflet-geocoder' ], self::VERSION );
-        wp_enqueue_style( 'cmb2-leaflet-geocoder', get_template_directory_uri(). '/inc/vendor/CMB2-field-Leaflet-Geocoder/assets/css/geocoder.css', [ 'cmb2-leaflet-core' ], self::VERSION );
-        wp_enqueue_style( 'cmb2-leaflet-main', get_template_directory_uri(). '/inc/vendor/CMB2-field-Leaflet-Geocoder/assets/css/style.css', [ 'cmb2-leaflet-geocoder' ], self::VERSION );
+        wp_enqueue_script( 'cmb2-leaflet-geocoder',  get_template_directory_uri(). '/inc/lib/CMB2-field-Leaflet-Geocoder/assets/js/geocoder.js', [ 'cmb2-leaflet-core' ], self::VERSION );
+        wp_enqueue_script( 'cmb2-leaflet-main', get_template_directory_uri(). '/inc/lib/CMB2-field-Leaflet-Geocoder/assets/js/main.js', [ 'cmb2-leaflet-geocoder' ], self::VERSION );
+        wp_enqueue_style( 'cmb2-leaflet-geocoder', get_template_directory_uri(). '/inc/lib/CMB2-field-Leaflet-Geocoder/assets/css/geocoder.css', [ 'cmb2-leaflet-core' ], self::VERSION );
+        wp_enqueue_style( 'cmb2-leaflet-main', get_template_directory_uri(). '/inc/lib/CMB2-field-Leaflet-Geocoder/assets/css/style.css', [ 'cmb2-leaflet-geocoder' ], self::VERSION );
     }
 
     /**
