@@ -1,4 +1,4 @@
-<a class="btn btn-primary btn-icon btn-full" href="/accesso" title="Accedi all'area personale" aria-label="Accedi all'area personale">
+<a class="btn btn-primary btn-icon btn-full" href="/accesso" title="Accedi all'area personale" aria-label="Accedi all'area personale" data-element="personal-area-login">
     <span class="rounded-icon">
     <svg class="icon icon-primary">
         <use xlink:href="#it-user"></use>

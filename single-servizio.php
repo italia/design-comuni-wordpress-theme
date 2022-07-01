@@ -72,18 +72,18 @@ get_header();
                                     <?php if ( $stato == 'true' ) {?>
                                         <div class="d-flex flex-wrap gap-2 cmp-heading__tag">
                                             <div class="cmp-tag">
-                                            <a class="cmp-tag__tag title-xsmall u-main-green" href="#">Servizio attivo</a>
+                                            <a class="cmp-tag__tag title-xsmall u-main-green" href="#" data-element="service-status">Servizio attivo</a>
                                             </div>
                                         </div>
                                     <?php } else {?>
                                         <div class="d-flex flex-wrap gap-2 cmp-heading__tag">
                                             <div class="cmp-tag">
-                                            <a class="cmp-tag__tag title-xsmall u-main-green" href="#">Servizio non attivo</a>
+                                            <a class="cmp-tag__tag title-xsmall u-main-green" href="#" data-element="service-status">Servizio non attivo</a>
                                             </div>
                                             <!-- <div><?php #echo $motivo_stato; ?></div> -->
                                         </div>
                                     <?php } ?>
-                                    <p class="subtitle-small mb-3">
+                                    <p class="subtitle-small mb-3" data-element="service-description">
                                         <?php echo $sottotitolo ?>
                                     </p>
                                     <a href="<?php echo $canale_digitale_link; ?>" aria-label="Vai alla pagina <?php echo $canale_digitale_label; ?> " class="btn btn-primary mobile-full mb-4">

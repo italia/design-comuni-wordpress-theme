@@ -18,7 +18,7 @@
                   >
                 </li>
                 <li>
-                  <a class="list-item" href="#" aria-label="Vai alla pagina: Richiedi assistenza" title="Vai alla pagina: Richiedi assistenza"
+                  <a class="list-item" href="#" aria-label="Vai alla pagina: Richiedi assistenza" title="Vai alla pagina: Richiedi assistenza" data-element="contacts"
                     ><svg class="icon icon-primary icon-sm">
                       <use
                         href="#it-mail"

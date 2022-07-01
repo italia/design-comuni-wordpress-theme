@@ -28,7 +28,7 @@ $categorie_servizio_names = dci_categorie_servizio_array();
             <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <a  href="<?php echo $url; ?>" aria-label="Vai all'argomento <?php echo $categoria->name; ?>" title="Vai all'argomento <?php echo $categoria->name; ?>"><h3 class="card-title t-primary title-xlarge"><?php echo $categoria->name; ?></h3></a>
+                        <a  href="<?php echo $url; ?>" aria-label="Vai all'argomento <?php echo $categoria->name; ?>" title="Vai all'argomento <?php echo $categoria->name; ?>" data-element="service-page"><h3 class="card-title t-primary title-xlarge"><?php echo $categoria->name; ?></h3></a>
                         <p class="titillium text-paragraph mb-0">
                             <?php echo $categoria->description; ?>
                         </p>
