@@ -32,9 +32,9 @@ get_header();
             </div>
             <?php get_template_part("template-parts/prenotazione/tabs"); ?>
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
                     <?php get_template_part("template-parts/prenotazione/index"); ?>
-                    <div class="col-12 col-lg-8 offset-lg-1">
+                    <div class="col-12 col-lg-8 offset-lg-1 section-wrapper">
                          <div class="steppers-content" aria-live="polite">
                             <?php get_template_part("template-parts/prenotazione/content"); ?>
                             <?php get_template_part("template-parts/prenotazione/buttons-bar"); ?>
@@ -42,7 +42,6 @@ get_header();
                     </div>
                 </div>
             </div>
-            <?php get_template_part("template-parts/prenotazione/review"); ?>
 
 
 			<?php get_template_part("template-parts/common/assistenza-contatti"); ?>
