@@ -34,7 +34,9 @@ function dci_register_post_type_servizio() {
         'map_meta_cap'     => true,
         'description'      => __( "I servizi che il comune mette a disposizione del cittadino.", 'design_comuni_italia' ),
         //'rewrite' => array('slug' => 'servizi'),
-
+        'show_in_rest'       => true,
+        'rest_base'          => 'servizi',
+        'rest_controller_class' => 'WP_REST_Posts_Controller',
 	);
 
 	register_post_type( 'servizio', $args );
