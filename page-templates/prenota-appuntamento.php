@@ -34,9 +34,15 @@ get_header();
             <div class="container">
                 <div class="row">
                     <?php get_template_part("template-parts/prenotazione/index"); ?>
-                    <?php get_template_part("template-parts/prenotazione/content"); ?>
+                    <div class="col-12 col-lg-8 offset-lg-1">
+                         <div class="steppers-content" aria-live="polite">
+                            <?php get_template_part("template-parts/prenotazione/content"); ?>
+                            <?php get_template_part("template-parts/prenotazione/buttons-bar"); ?>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <?php get_template_part("template-parts/prenotazione/review"); ?>
 
 
 			<?php get_template_part("template-parts/common/assistenza-contatti"); ?>

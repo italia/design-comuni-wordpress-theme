@@ -60,7 +60,79 @@
                         </a>
                     </li>
                 </ul>
-                <!-- Step 2 qui sotto -->
+                <!-- Step 2 -->
+                <ul
+                class="link-sublist collapse show"
+                id="collapse-one"
+                data-element="index-link-list"
+                >
+                    <li>
+                        <a
+                        class="list-item"
+                        href="#appointment-available"
+                        aria-label="Vai alla sezione Appuntamenti disponibili"
+                        title="Vai alla sezione Appuntamenti disponibili"
+                        >
+                        <span class="title-medium"
+                            >Appuntamenti disponibili</span
+                        >
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                        class="list-item"
+                        href="#office-2"
+                        aria-label="Vai alla sezione Ufficio"
+                        title="Vai alla sezione Ufficio"
+                        >
+                        <span class="title-medium">Ufficio</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Step 3 -->
+                <ul
+                class="link-sublist collapse show"
+                id="collapse-one"
+                data-element="index-link-list"
+                >
+                    <li>
+                        <a
+                        class="list-item"
+                        href="#reason"
+                        aria-label="Vai alla sezione Motivo"
+                        title="Vai alla sezione Motivo"
+                        >
+                        <span class="title-medium">Motivo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                        class="list-item"
+                        href="#details"
+                        aria-label="Vai alla sezione Dettagli"
+                        title="Vai alla sezione Dettagli"
+                        >
+                        <span class="title-medium">Dettagli</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Step 4 -->
+                <ul
+                    class="link-sublist collapse show"
+                    id="collapse-one"
+                    data-element="index-link-list"
+                >
+                    <li>
+                    <a
+                        class="list-item"
+                        href="#applicant"
+                        aria-label="Vai alla sezione Richiedente"
+                        title="Vai alla sezione Richiedente"
+                    >
+                        <span class="title-medium">Richiedente</span>
+                    </a>
+                    </li>
+                </ul>
             </li>
             </ul>
         </div>

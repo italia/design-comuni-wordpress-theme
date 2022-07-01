@@ -2,27 +2,47 @@
 <div class="container">
     <div class="cmp-info-progress d-flex">
         <!-- Desktop -->
-        <div class="info-progress-wrapper d-none d-lg-flex w-100 px-3 flex-column justify-content-end step-active">
+        <div class="info-progress-wrapper d-none d-lg-flex w-100 px-3 flex-column justify-content-end completed">
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
                 <span class="d-block h-100 title-medium text-uppercase">Luogo</span>
+                <svg class="d-block icon icon-primary icon-sm">
+                    <use
+                    href="#it-check"
+                    ></use>
+                </svg>
             </div>
         </div>
         <!-- Desktop -->
-        <div class="info-progress-wrapper d-none d-lg-flex w-100 px-3 flex-column justify-content-end">
+        <div class="info-progress-wrapper d-none d-lg-flex w-100 px-3 flex-column justify-content-end step-active">
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
                 <span class="d-block h-100 title-medium text-uppercase">Data e orario</span>
+                <svg class="d-block icon icon-primary icon-sm">
+                    <use
+                    href="#it-check"
+                    ></use>
+                </svg>
             </div>
         </div>
         <!-- Desktop -->
         <div class="info-progress-wrapper d-none d-lg-flex w-100 px-3 flex-column justify-content-end">
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
                 <span class="d-block h-100 title-medium text-uppercase">Dettagli appuntamento</span>
+                <svg class="d-block icon icon-primary icon-sm">
+                    <use
+                    href="#it-check"
+                    ></use>
+                </svg>
             </div>
         </div>
         <!-- Desktop -->
         <div class="info-progress-wrapper d-none d-lg-flex w-100 px-3 flex-column justify-content-end">
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
                 <span class="d-block h-100 title-medium text-uppercase">Richiedente</span>
+                <svg class="d-block icon icon-primary icon-sm">
+                    <use
+                    href="#it-check"
+                    ></use>
+                </svg>
             </div>
         </div>
         <!-- Desktop -->
