@@ -126,4 +126,18 @@ pageSteps();
 const officeSelect = document.getElementById("office-choice");
 officeSelect.addEventListener("change", () => {
   console.log("office", officeSelect?.value);
+
+  fetch(`/wp-json/wp/v2/servizi?categorie_servizio=515`, {
+    method: "GET",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "no-cache",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((err) => {
+      console.log("err", err);
+    });
 });
