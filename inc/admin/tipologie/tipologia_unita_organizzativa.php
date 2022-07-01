@@ -28,7 +28,10 @@ function dci_register_post_type_unita_organizzativa() {
         'capability_type' => array('unita_orgnaizzativa', 'unita_organizzative'),
         'map_meta_cap'    => true,
         'description'    => __( 'Questa Tipologia descrive la struttura di un\'organizzazione comunale funzionale alla creazione di contenuti come uffici o altre unità organizzative (content type "organizzazione")', 'design_comuni_italia' ),
-    );
+        'show_in_rest'       => true,
+        'rest_base'          => 'unita_organizzative',
+        'rest_controller_class' => 'WP_REST_Posts_Controller',
+        );
     register_post_type('unita_organizzativa', $args );
 
     remove_post_type_support( 'unita_organizzativa', 'editor');

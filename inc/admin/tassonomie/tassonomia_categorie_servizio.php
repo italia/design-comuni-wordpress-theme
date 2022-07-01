@@ -30,7 +30,10 @@ function dci_register_taxonomy_categorie_servizio() {
             'edit_terms'    => 'edit_categorie_servizio',
             'delete_terms'  => 'delete_categorie_servizio',
             'assign_terms'  => 'assign_categorie_servizio'
-        )
+        ),
+        'show_in_rest'          => true,
+        'rest_base'             => 'categorie_servizio',
+        'rest_controller_class' => 'WP_REST_Terms_Controller',
     );
 
     register_taxonomy( 'categorie_servizio', array( 'servizio' ), $args );

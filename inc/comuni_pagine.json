@@ -75,7 +75,7 @@
       "Novità" :{
         "title" : "Novità",
         "slug" : "novita",
-        "description" : "",
+        "description" : "Tutte le novità comunali per i cittadini per restare aggiornati.",
         "template_name": "novita",
         "children" : {}
       },

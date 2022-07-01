@@ -6,13 +6,14 @@ const submitRating = () => {
   //get current url & title
   const urlPieces = [location.protocol, "//", location.host, location.pathname];
   const page = urlPieces.join("");
-  const title = document.querySelector("title").innerText;
+  let title = document.querySelector("title").innerText;
+  if (title?.includes("Risultati della ricerca per"))
+    title = "Risultati di ricerca";
 
   // get answers
   const star =
     document.querySelector('input[name="ratingA"]:checked')?.value || null;
-  const radioCheck =
-    document.querySelector('input[name="rating"]:checked' )
+  const radioCheck = document.querySelector('input[name="rating"]:checked');
   const radioBox = radioCheck ? radioCheck.parentElement : null;
   const radioResponse = radioBox?.querySelector("label")?.innerHTML || null;
   const freeText =
