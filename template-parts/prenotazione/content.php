@@ -32,44 +32,7 @@
                 } ?>
             </select>
             </div>
-            <div class="cmp-info-radio radio-card">
-                <div class="card p-3 p-lg-4">
-                    <div class="card-header mb-0 p-0">
-                    <div class="form-check m-0">
-                        <input
-                        class="radio-input"
-                        name="beneficiaries"
-                        type="radio"
-                        id="first"
-                        />
-                        <label for="first">
-                        <h3 class="big-title mb-0 pb-0">
-                            Municipalità 1 - Chiaia, Posillipo, S.
-                            Ferdinando
-                        </h3></label
-                        >
-                    </div>
-                    </div>
-                    <div class="card-body p-0">
-                    <div class="info-wrapper">
-                        <span class="info-wrapper__label">Sportello</span>
-                        <p class="info-wrapper__value">CIE</p>
-                    </div>
-                    <div class="info-wrapper">
-                        <span class="info-wrapper__label">Indirizzo</span>
-                        <p class="info-wrapper__value">
-                        via S. Caterina a Chiaia, 76
-                        </p>
-                    </div>
-                    <div class="info-wrapper">
-                        <span class="info-wrapper__label">Apertura</span>
-                        <p class="info-wrapper__value">
-                        lun, mar, mer ore 9:00 – 12:00
-                        </p>
-                    </div>
-                    </div>
-                </div>
-            </div>
+            <div class="cmp-info-radio radio-card" id="place-cards-wrapper"></div>
         </div>
         </div>
     </div>
