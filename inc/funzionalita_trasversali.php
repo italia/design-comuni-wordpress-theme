@@ -189,3 +189,60 @@ add_action("wp_ajax_save_rating" , "dci_save_rating");
 add_action("wp_ajax_nopriv_save_rating" , "dci_save_rating");
 
 
+/**
+ * crea contenuto di tipo Richiesta Assistenza
+ */
+function dci_save_richiesta_assistenza(){
+
+    $params = json_decode(json_encode($_POST), true);
+
+    if((array_key_exists("title", $params)) && ($params['title']!= null)) {
+        $postId = wp_insert_post(array(
+            'post_type' => 'richiesta_assistenza',
+            'post_title' =>  $params['title']
+        ));
+    }
+
+    if($postId == 0) {
+        echo json_encode(array(
+            "success" => false,
+            "error" => array(
+                "code" =>  400,
+                "message" => "Oops, qualcosa è andato storto!"
+            )));
+        wp_die();
+    }
+
+    if(array_key_exists("nome", $params) && $params['nome'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_nome',  $params['nome']);
+    }
+
+    if(array_key_exists("cognome", $params) && $params['cognome'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_cognome',  $params['cognome']);
+    }
+
+    if(array_key_exists("email", $params) && $params['email'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_email',  $params['email']);
+    }
+
+    if(array_key_exists("categoria_servizio", $params) && $params['categoria_servizio'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_categoria_servizio',  $params['categoria_servizio']);
+    }
+
+    if(array_key_exists("servizio", $params) && $params['servizio'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_servizio',  $params['servizio']);
+    }
+
+    if(array_key_exists("dettagli", $params) && $params['dettagli'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_dettagli',  $params['dettagli']);
+    }
+
+    echo json_encode(array(
+        "success" => true,
+        "richiesta_assistenza" => array(
+            "id" => $postId)
+        ));
+    wp_die();
+}
+add_action("wp_ajax_save_richiesta_assistenza" , "dci_save_richiesta_assistenza");
+add_action("wp_ajax_nopriv_save_richiesta_assistenza" , "dci_save_richiesta_assistenza");
