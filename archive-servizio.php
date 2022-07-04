@@ -38,7 +38,7 @@ get_header();
           <div class="cmp-hero">
             <section class="it-hero-wrapper bg-white align-items-start">
               <div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
-                <h1 class="text-black title-xxxlarge mb-2" data-element="service-name">
+                <h1 class="text-black title-xxxlarge mb-2" data-element="page-name">
                   <?php 
                     if($obj) echo $obj->name; 
                     else echo "Tutti i servizi";
