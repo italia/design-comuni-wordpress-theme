@@ -12,7 +12,7 @@ function dci_register_sedi_route() {
 add_action('rest_api_init', 'dci_register_sedi_route');
 
 /**
- * restituisce i luoghi che sono referenxiati come sedi dell'Unità Organizzativa passata come parametro (id o title)
+ * restituisce i luoghi che sono referenziati come sedi dell'Unità Organizzativa passata come parametro (id o title)
  * @param WP_REST_Request $request
  * @return array[]
  */
@@ -70,23 +70,77 @@ function dci_get_sedi_ufficio(WP_REST_Request $request) {
     return $sedi;
 }
 
+
 /**
- * script dci-rating
+ * Estendo Wordpress Rest Api
  */
-function enqueue_my_frontend_script() {
+function dci_register_servizi_ufficio_route() {
+    register_rest_route('wp/v2', '/servizi/ufficio/', array(
+        'methods' => 'GET',
+        'callback' => 'dci_get_servizi_ufficio'
+    ));
+}
+add_action('rest_api_init', 'dci_register_servizi_ufficio_route');
+
+/**
+ * restituisce i luoghi che sono referenziati come sedi dell'Unità Organizzativa passata come parametro (id o title)
+ * @param WP_REST_Request $request
+ * @return array[]
+ */
+function dci_get_servizi_ufficio(WP_REST_Request $request) {
+
+    $params = $_GET;
+    if (array_key_exists('title', $params)) {
+        $ufficio  = get_page_by_title($params['title'], OBJECT, 'unita_organizzativa');
+        $id = $ufficio -> ID;
+    }
+    else if (array_key_exists('id', $params)) {
+        $id = $params['id'];
+    }
+
+    if (!isset($id)) {
+        return array(
+            "error" => array(
+                "code" =>  400,
+                "message" => "Oops, qualcosa è andato storto!"
+            ));
+    }
+
+    $servizi_ids = array();
+    $servizi_ids = dci_get_meta('elenco_servizi_offerti','_dci_unita_organizzativa_', $id);
+
+    $servizi = array();
+
+    if (!empty($servizi_ids)) {
+        $servizi = get_posts([
+            'post_type' => 'servizio',
+            'post_status' => 'publish',
+            'numberposts' => -1,
+            'post__in' => $servizi_ids,
+            'order_by' => 'post__in'
+        ]);
+    }
+
+    return $servizi;
+}
+
+
+/**
+ * enqueue script dci-rating
+ */
+function dci_enqueue_dci_rating_script() {
     wp_enqueue_script( 'dci-rating', get_template_directory_uri() . '/assets/js/rating.js', array('jquery'), null, true );
     $variables = array(
         'ajaxurl' => admin_url( 'admin-ajax.php' )
     );
     wp_localize_script('dci-rating', "data", $variables);
 }
-add_action( 'wp_enqueue_scripts', 'enqueue_my_frontend_script' );
-
+add_action( 'wp_enqueue_scripts', 'dci_enqueue_dci_rating_script' );
 
 /**
  * crea contenuto di tipo Rating
  */
-function save_rating(){
+function dci_save_rating(){
 
     $params = json_decode(json_encode($_POST), true);
 
@@ -131,5 +185,7 @@ function save_rating(){
     ));
     wp_die();
 }
-add_action("wp_ajax_save_rating" , "save_rating");
-add_action("wp_ajax_nopriv_save_rating" , "save_rating");
+add_action("wp_ajax_save_rating" , "dci_save_rating");
+add_action("wp_ajax_nopriv_save_rating" , "dci_save_rating");
+
+
