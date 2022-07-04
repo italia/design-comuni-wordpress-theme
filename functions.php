@@ -179,6 +179,7 @@ function dci_scripts() {
 	wp_enqueue_script( 'dci-comuni', get_template_directory_uri() . '/assets/js/comuni.js', array(), false, true);
 	wp_enqueue_script( 'dci-booking', get_template_directory_uri() . '/assets/js/booking.js', array(), false, true);
     wp_localize_script('dci-booking', "url", get_template_directory_uri() . '/assets/json/calendar.json');
+    wp_localize_script('dci-booking', "urlConfirm", get_template_directory_uri() . '/assets/json/confirm-appointment.json');
 	
     /*TODO: da definire se minifizzare*/
 	wp_enqueue_script( 'dci-jquery-easing', get_template_directory_uri() . '/assets/js/components/jquery-easing/jquery.easing.js', array(), false, true);

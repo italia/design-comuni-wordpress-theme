@@ -47,7 +47,7 @@ function openNext() {
   progressBar.classList.add("d-none");
 
   if (currentStep == steps.length) {
-    console.log("payload", answers);
+    confirmAppointment();
     return;
   } else {
     stepWrapper.classList.add("d-none");
@@ -406,4 +406,24 @@ const checkMandatoryFields = () => {
     default:
       break;
   }
+};
+
+/* confirm appointment - Submit */
+const confirmAppointment = () => {
+  fetch(urlConfirm, {
+    method: "POST",
+    body: JSON.stringify(answers),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("HTTP error " + response.status);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data?.message);
+    })
+    .catch((err) => {
+      console.log("err", err);
+    });
 };
