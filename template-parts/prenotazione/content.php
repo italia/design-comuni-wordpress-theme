@@ -79,7 +79,7 @@
             <div class="cmp-card-radio-list mt-4">
             <div class="card p-3">
                 <div class="card-body p-0">
-                    <div class="form-check m-0 d-none" id="radio-appointment"></div>
+                    <div class="form-check m-0" id="radio-appointment">Nessunn appuntamento disponibile.</div>
                 </div>
             </div>
             </div>
@@ -88,51 +88,13 @@
     </div>
 
     <div class="cmp-card">
-        <div class="card has-bkg-grey shadow-sm p-big">
-        <div class="card-header border-0 p-0 mb-lg-30">
-            <div class="d-flex">
-            <h2 class="title-xxlarge mb-0" id="office-2">Ufficio</h2>
+        <div class="card has-bkg-grey shadow-sm p-big" >
+            <div class="card-header border-0 p-0 mb-lg-30">
+                <div class="d-flex">
+                <h2 class="title-xxlarge mb-0" id="office-2">Ufficio</h2>
+                </div>
             </div>
-        </div>
-        <div class="card-body p-0">
-            <div class="cmp-info-summary bg-white mb-4 mb-lg-30 p-4">
-            <div class="card">
-                <div
-                class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-between d-flex justify-content-end"
-                >
-                <h3 class="title-large-semi-bold mb-3">
-                    Municipalità 1 - Chiaia, Posillipo, S. Ferdinando
-                </h3>
-                </div>
-
-                <div class="card-body p-0">
-                <div class="single-line-info border-light">
-                    <div class="text-paragraph-small">Sportello</div>
-                    <div class="border-light">
-                    <p class="data-text">CIE</p>
-                    </div>
-                </div>
-                <div class="single-line-info border-light">
-                    <div class="text-paragraph-small">Indirizzo</div>
-                    <div class="border-light">
-                    <p class="data-text">
-                        via S. Caterina a Chiaia, 76
-                    </p>
-                    </div>
-                </div>
-                <div class="single-line-info border-light">
-                    <div class="text-paragraph-small">Apertura</div>
-                    <div class="border-light">
-                    <p class="data-text">
-                        lun, mar, mer ore 9:00 – 12:00
-                    </p>
-                    </div>
-                </div>
-                </div>
-                <div class="card-footer p-0"></div>
-            </div>
-            </div>
-        </div>
+            <div class="card-body p-0" id="selected-place-card"></div>
         </div>
     </div>
 </section>
@@ -154,23 +116,7 @@
             <label for="motivo-appuntamento" class="visually-hidden"
                 >Motivo dell&#x27;appuntamento</label
             >
-            <select id="motivo-appuntamento" class="">
-                <option selected="selected" value="">
-                Seleziona opzione
-                </option>
-                <option value="Cambio residenza">
-                Cambio residenza
-                </option>
-                <option value="Cambio residenza">
-                Cambio residenza
-                </option>
-                <option value="Cambio residenza">
-                Cambio residenza
-                </option>
-                <option value="Cambio residenza">
-                Cambio residenza
-                </option>
-            </select>
+            <select id="motivo-appuntamento" class=""></select>
             </div>
         </div>
         </div>

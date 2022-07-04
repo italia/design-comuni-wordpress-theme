@@ -122,19 +122,34 @@ function backPrevious() {
 
 pageSteps();
 
+/* Define an empty object to collect answers */
+const answers = {};
+
+const saveAnswerByValue = (key, value) => {
+  answers[key] = value;
+  console.log("ans", answers);
+};
+const saveAnswerById = (key, id, callback) => {
+  const value = document.getElementById(id)?.value;
+  answers[key] = value;
+  console.log("ans", answers);
+  if (typeof callback == "function") callback();
+};
+
 /* Get Luoghi by Unità organizzativa - Step 1 */
 const officeSelect = document.getElementById("office-choice");
+let selectedOffice;
 officeSelect.addEventListener("change", () => {
-  console.log("office", officeSelect?.value);
+  saveAnswerByValue("office", officeSelect?.value);
 
   if (officeSelect?.value) {
+    selectedOffice = officeSelect?.value;
     const urlParam = new URLSearchParams({ title: officeSelect.value });
     fetch(`/wp-json/wp/v2/sedi/ufficio/?${urlParam}`)
       .then((response) => response.json())
       .then((data) => {
         document.querySelector("#place-cards-wrapper").innerHTML = "";
         for (const place of data) {
-          console.log("place", place);
           document.querySelector("#place-cards-wrapper").innerHTML += `
           <div class="cmp-info-radio radio-card">
             <div class="card p-3 p-lg-4">
@@ -145,6 +160,9 @@ officeSelect.addEventListener("change", () => {
                     name="beneficiaries"
                     type="radio"
                     id=${place?.ID}
+                    value='${JSON.stringify(place)}'
+                    onclick="saveAnswerById('place', ${place?.ID}, ${() =>
+            setSelectedPlace()})"
                     />
                     <label for=${place?.ID}>
                     <h3 class="big-title mb-0 pb-0">
@@ -179,21 +197,38 @@ officeSelect.addEventListener("change", () => {
       .catch((err) => {
         console.log("err", err);
       });
+
+    /* Get Servizi by Unità organizzativa - Step 3 */
+    fetch(`/wp-json/wp/v2/servizi/ufficio?${urlParam}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("servizi", data);
+        document.querySelector("#motivo-appuntamento").innerHTML =
+          '<option selected="selected" value="">Seleziona opzione</option>';
+        for (const place of data) {
+          document.querySelector("#motivo-appuntamento").innerHTML += `
+          
+          `;
+        }
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
   } else {
     document.querySelector("#place-cards-wrapper").innerHTML = "";
   }
 });
 
 /* Step 2 */
-/* Get selected office */
-// document.querySelector("");
-// office-choice
-
+/* Get appointments calendar */
 const appointment = document.getElementById("appointment");
 appointment.addEventListener("change", () => {
-  console.log("appointment", appointment?.value);
-
-  fetch(url + `?month=${appointment?.value}`)
+  fetch(
+    url +
+      `?month=${appointment?.value}&office=${encodeURIComponent(
+        selectedOffice
+      )}`
+  )
     .then((response) => {
       if (!response.ok) {
         throw new Error("HTTP error " + response.status);
@@ -203,20 +238,75 @@ appointment.addEventListener("change", () => {
     .then((data) => {
       document.querySelector("#radio-appointment").innerHTML = "";
       for (const dates of data) {
-        console.log("dates", dates);
+        const { startDate, endDate } = dates;
+        const startDay = startDate.split("T")[0];
+        const startDayStr = new Date(startDay).toLocaleString([], {
+          weekday: "long",
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        });
+        const id = startDate + "/" + endDate;
+
         document.querySelector("#radio-appointment").innerHTML += `
         <div
         class="radio-body border-bottom border-light"
         >
-        <input name="radio" type="radio" id="radio-1" />
-        <label for="radio-1"
-            >Giovedì 11 Marzo 2022 ore 10:00</label
-        >
+        <input name="radio" type="radio" id="${id}" onclick="saveAnswerByValue('appointment', '${id}')"/>
+        <label for="${id}" class="text-capitalize">${startDayStr} ore ${
+          startDate.split("T")[1]
+        }</label>
         </div>
         `;
       }
     })
-    .catch(function () {
-      this.dataError = true;
+    .catch((err) => {
+      console.log("err", err);
     });
 });
+
+/* Get selected office */
+const setSelectedPlace = () => {
+  const place = JSON.parse(answers?.place);
+  console.log("selectedplace", place);
+  document.querySelector("#selected-place-card").innerHTML = `  
+  <div class="cmp-info-summary bg-white mb-4 mb-lg-30 p-4">
+  <div class="card">
+      <div
+      class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-between d-flex justify-content-end"
+      >
+      <h3 class="title-large-semi-bold mb-3">
+        ${place?.post_title}
+      </h3>
+      </div>
+
+      <div class="card-body p-0">
+      <div class="single-line-info border-light">
+          <div class="text-paragraph-small">Sportello</div>
+          <div class="border-light">
+          <p class="data-text">CIE</p>
+          </div>
+      </div>
+      <div class="single-line-info border-light">
+          <div class="text-paragraph-small">Indirizzo</div>
+          <div class="border-light">
+          <p class="data-text">
+            ${place?.indirizzo}
+          </p>
+          </div>
+      </div>
+      <div class="single-line-info border-light">
+          <div class="text-paragraph-small">Apertura</div>
+          <div class="border-light">
+          <p class="data-text">
+            ${place?.apertura}
+          </p>
+          </div>
+      </div>
+      </div>
+      <div class="card-footer p-0"></div>
+  </div>
+  </div>
+</div>
+  `;
+};
