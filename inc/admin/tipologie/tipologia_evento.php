@@ -188,49 +188,6 @@ function dci_add_eventi_metaboxes() {
         ),
     ) );
 
-    /**
-    $cmb_descrizione->add_field( array(
-        'id'         => $prefix . 'gallery',
-        'name'       => __( 'Galleria di immagini', 'design_comuni_italia' ),
-        'desc'       => __( 'Una o più immagini corredate da didascalie', 'design_comuni_italia' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        'query_args' => array( 'type' => 'image' ), // Only images attachment
-    ) );
-
-    $cmb_descrizione->add_field( array(
-        'id'         => $prefix . 'video_gallery',
-        'name'       => __( 'Galleria di video', 'design_comuni_italia' ),
-        'desc'       => __( 'Una o più video corredate da didascalie', 'design_comuni_italia' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        'query_args' => array( 'type' => 'video' ), // Only images attachment
-    ) );*/
-
-    /**
-    $cmb_descrizione->add_field( array(
-        'id' => $prefix . 'destinatari_introduzione',
-        'name'        => __( 'A chi è rivolto (testo introduttivo) * ', 'design_comuni_italia' ),
-        'desc' => __( 'Descrizione testuale dei principali interlocutori dell\'Evento', 'design_comuni_italia' ),
-        'type'    => 'wysiwyg',
-        'attributes'    => array(
-            'required'    => 'required'
-        ),
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
-        ),
-    ) );
-    $cmb_descrizione->add_field( array(
-        'id' => $prefix . 'destinatari_list',
-        'name'        => __( 'A chi è rivolto (lista) *', 'design_comuni_italia' ),
-        'desc' => __( 'la lista dei destinatari' , 'design_comuni_italia' ),
-        'type' => 'textarea',
-        'repeatable'  => true
-    ) );
-    */
-
     $cmb_descrizione->add_field( array(
         'id' => $prefix . 'a_chi_e_rivolto',
         'name'        => __( 'A chi è rivolto *', 'design_comuni_italia' ),
@@ -246,7 +203,6 @@ function dci_add_eventi_metaboxes() {
         ),
     ) );
 
-
     $cmb_descrizione->add_field( array(
             'id' => $prefix . 'persone',
             'name'       => __('Persone dell\'amministrazione * ', 'design_comuni_italia' ),
@@ -258,7 +214,6 @@ function dci_add_eventi_metaboxes() {
             ),
         )
     );
-
 
     $cmb_gallerie_multimediali = new_cmb2_box( array(
         'id'           => $prefix . 'box_gallerie_multimediali',
@@ -291,40 +246,6 @@ function dci_add_eventi_metaboxes() {
         'type' => 'textarea'
     ) );
 
-    /**
-    // repeater Gallerie Multimediali
-    $group_field_id = $cmb_gallerie_multimediali->add_field( array(
-        'id'          => $prefix . 'gallerie_multimediali',
-        //'name'        => __('<h1>Fasi e Scadenze</h1>', 'design_comuni_italia' ),
-        'type'        => 'group',
-        'description' => __( 'E\' possibile inserire più gallerie multimediali' , 'design_comuni_italia' ),
-        'options'     => array(
-            'group_title'    => __( 'Galleria {#}', 'design_comuni_italia' ), // {#} gets replaced by row number
-            'add_button'     => __( 'Aggiungi una gallery', 'design_comuni_italia' ),
-            'remove_button'  => __( 'Rimuovi la gallery', 'design_comuni_italia' ),
-            'sortable'       => true,
-            // 'closed'      => true, // true to have the groups closed by default
-            //'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-        ),
-    ) );
-
-    $cmb_gallerie_multimediali->add_group_field( $group_field_id, array(
-        'name'       => __('Titolo gallery', 'design_comuni_italia' ),
-        //'desc'       => __('Esempio: ".."', 'design_comuni_italia' ),
-        'id'         => 'titolo_gallery',
-        'type'       => 'text',
-    ) );
-    $cmb_gallerie_multimediali->add_group_field( $group_field_id, array(
-        'name'       => __('Media', 'design_comuni_italia' ),
-        'desc'       => __('contenuti della gallery (immagini o video)', 'design_comuni_italia' ),
-        'id'         => 'contenuti_gallery',
-        'type'       => 'file_list',
-        'query_args' => array( 'type' => array('image','video') )
-    ) );
-
-    /*** fine repeater gallerie **/
-
-
     //LUOGO
     $cmb_luogo = new_cmb2_box( array(
         'id'           => $prefix . 'box_luogo',
@@ -346,61 +267,7 @@ function dci_add_eventi_metaboxes() {
         ),
     ) );
 
-
-    /**mappa field GPS
-    /**
-    $cmb_luogo->add_field( array(
-    'id'         => $prefix . 'posizione_gps',
-    'name'       => __( 'Posizione GPS <br><small>NB: clicca sulla lente d\'ingrandimento e cerca l\'indirizzo, anche se lo hai già inserito nel campo precedente.<br>Questo permetterà una corretta georeferenziazione del luogo</small>', 'design_comuni_italia' ),
-    'desc' => __( 'Georeferenziazione del luogo dell\'evento. Se l\'evento è un micro evento. Se l\'evento è un macro evento potrebbe essere difficile classificarlo tramite coordinate specifiche.' , 'design_comuni_italia' ),
-    'type'       => 'leaflet_map',
-    'attributes' => array(
-    'searchbox_position'  => 'topleft', // topright, bottomright, topleft, bottomleft,
-    'search'              => __( 'Digita l\'indirizzo della Sede' , 'design_comuni_italia' ),
-    'not_found'           => __( 'Indirizzo non trovato' , 'design_comuni_italia' ),
-    'initial_coordinates' => [
-    'lat' => 41.894802, // Go Italy!
-    'lng' => 12.4853384  // Go Italy!
-    ],
-    'initial_zoom'        => 5, // Zoomlevel when there's no coordinates set,
-    'default_zoom'        => 12, // Zoomlevel after the coordinates have been set & page saved
-    )
-    ) );
-     */
-
-
-    //"paragraph" date dell'evento
-    /**
-    $group_field_id = $cmb_undercontent->add_field( array(
-    'id'          => $prefix . 'date',
-    'name'        => __('<h1>Date</h1>' , 'design_comuni_italia' ),
-    'type'        => 'group',
-    'description' => __( 'Se l\'evento si svolge in più giorni o fasi indica qui di seguito i diversi appuntamenti. Es: inizo attività, pausa pranzo, seconda sessione, etc', 'design_comuni_italia' ),
-    'options'     => array(
-    'group_title'    => __( 'Fase {#}', 'design_comuni_italia' ), // {#} gets replaced by row number
-    'add_button'     => __( 'Aggiungi una data evento', 'design_comuni_italia' ),
-    'remove_button'  => __( 'Rimuovi', 'design_comuni_italia' ),
-    'sortable'       => true,
-    'closed'      => false, // true to have the groups closed by default
-    //'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-    ),
-    ) );
-    $cmb_undercontent->add_group_field( $group_field_id,  array(
-    'id'      => 'data',
-    'after'    => __( '<br>Data / orario ', 'design_comuni_italia' ),
-    'type' => 'text_datetime_timestamp',
-    'date_format' => 'd-m-Y',
-    ) );
-    $cmb_undercontent->add_group_field( $group_field_id,  array(
-    'id'      => 'descrizione',
-    'desc'    => __( 'Descrizione', 'design_comuni_italia' ),
-    'type'             => 'textarea_small',
-    'attributes'  => array(
-    'rows'        => 3,
-    ),
-    ) );*/
-
-    //COSTI
+  //COSTI
     $cmb_costi = new_cmb2_box( array(
         'id'           => $prefix . 'box_costi',
         'title'        => __( 'Costi', 'design_comuni_italia' ),
@@ -409,17 +276,38 @@ function dci_add_eventi_metaboxes() {
         'priority'     => 'high',
     ) );
 
-    $cmb_costi->add_field( array(
-        'id' => $prefix . 'costo',
-        'name'        => __( 'Costo', 'design_comuni_italia' ),
-        'desc' => __( 'Eventuale costo dell\'Evento (se ci sono uno o più biglietti), con link all\'acquisto se disponibile' , 'design_comuni_italia' ),
-        'type' => 'wysiwyg',
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
-        ),
+    // repeater Costi
+    $group_field_id = $cmb_costi->add_field( array(
+    'id'          => $prefix . 'costi',
+    'type'        => 'group',
+    'options'     => array(
+    'group_title'    => __( 'Costo {#}', 'design_comuni_italia' ), // {#} gets replaced by row number
+    'add_button'     => __( 'Aggiungi un costo', 'design_comuni_italia' ),
+    'remove_button'  => __( 'Rimuovi il costo', 'design_comuni_italia' ),
+    'sortable'       => true,
+    ),
     ) );
+
+    $cmb_costi->add_group_field( $group_field_id, array(
+    'name'       => __('Titolo', 'design_comuni_italia' ),
+     'description' => __( 'Es: il tipo di biglietto ("Intero","Ridotto"...)' , 'design_comuni_italia' ),
+    'id'         => 'titolo_costo',
+    'type'       => 'text',
+    ) );
+
+    $cmb_costi->add_group_field( $group_field_id, array(
+    'name'       => __('Prezzo', 'design_comuni_italia' ),
+    'id'         => 'prezzo_costo',
+    'type'       => 'text',
+    ) );
+
+    $cmb_costi->add_group_field( $group_field_id, array(
+    'name'       => __('Descrizione', 'design_comuni_italia' ),
+    'id'         => 'descrizione_costo',
+    'type'       => 'textarea',
+    ) );
+
+    /*** fine repeater Costi **/
 
     //DOCUMENTI
     $cmb_documenti= new_cmb2_box( array(
@@ -510,15 +398,6 @@ function dci_add_eventi_metaboxes() {
         ),
     ) );
 }
-
-/**
- * Aggiungo testo prima del content
-
-add_action( 'edit_form_after_title', 'sdi_evento_add_content_before_editor', 100 );
-function sdi_evento_add_content_before_editor($post) {
-    if($post->post_type == "evento")
-        _e('<h1>Descrizione Estesa dell\'evento</h1>', 'design_comuni_italia' );
-}*/
 
 /**
  * aggiungo js per controllo compilazione campi
