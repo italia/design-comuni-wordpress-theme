@@ -4,6 +4,7 @@
         type="button"
         class="btn btn-sm steppers-btn-prev p-0 btn-back-step"
         aria-label="Torna indietro allo step precedente"
+        disabled
         >
         <svg class="icon icon-primary icon-sm">
             <use
@@ -36,6 +37,7 @@
         class="btn btn-primary btn-sm steppers-btn-confirm btn-next-step"
         data-bs-validate="validate"
         aria-label="Vai avanti allo step successivo"
+        disabled
         >
         <span class="text-button-sm">Avanti</span>
         <svg class="icon icon-white icon-sm">

@@ -11,7 +11,7 @@
         <div class="card has-bkg-grey shadow-sm p-big">
         <div class="card-header border-0 p-0 mb-lg-30">
             <div class="d-flex">
-            <h2 class="title-xxlarge mb-0" id="office">Ufficio</h2>
+            <h2 class="title-xxlarge mb-0" id="office">Ufficio*</h2>
             </div>
             <p class="subtitle-small mb-0">
             Scegli l’ufficio a cui vuoi richiedere l’appuntamento
@@ -276,7 +276,7 @@
                         Tipologia ufficio
                     </div>
                     <div class="border-light">
-                        <p class="data-text">Ufficio anagrafe</p>
+                        <p class="data-text" id="review-office"></p>
                     </div>
                     </div>
                     <div class="single-line-info border-light">
@@ -284,10 +284,7 @@
                         Municipalità
                     </div>
                     <div class="border-light">
-                        <p class="data-text">
-                        Municipalità 1 - Chiaia, Posillipo, S.
-                        Ferdinando
-                        </p>
+                        <p class="data-text" id="review-place"></p>
                     </div>
                     </div>
                 </div>
@@ -319,13 +316,13 @@
                     <div class="single-line-info border-light">
                     <div class="text-paragraph-small">Data</div>
                     <div class="border-light">
-                        <p class="data-text">Giovedì 11 Marzo 2022</p>
+                        <p class="data-text" id="review-date"></p>
                     </div>
                     </div>
                     <div class="single-line-info border-light">
                     <div class="text-paragraph-small">Ora</div>
                     <div class="border-light">
-                        <p class="data-text">10:00 - 10:30</p>
+                        <p class="data-text" id="review-hour"></p>
                     </div>
                     </div>
                 </div>
@@ -357,16 +354,13 @@
                     <div class="single-line-info border-light">
                     <div class="text-paragraph-small">Motivo</div>
                     <div class="border-light">
-                        <p class="data-text">Cambio residenza</p>
+                        <p class="data-text" id="review-service"></p>
                     </div>
                     </div>
                     <div class="single-line-info border-light">
                     <div class="text-paragraph-small">Dettagli</div>
                     <div class="border-light">
-                        <p class="data-text">
-                        Avrei bisogno di capire come spostare la mia
-                        residenza da un altro comune.
-                        </p>
+                        <p class="data-text" id="review-details"></p>
                     </div>
                     </div>
                 </div>
@@ -396,21 +390,19 @@
                     <div class="single-line-info border-light">
                     <div class="text-paragraph-small">Nome</div>
                     <div class="border-light">
-                        <p class="data-text">Giulia</p>
+                        <p class="data-text" id="review-name"></p>
                     </div>
                     </div>
                     <div class="single-line-info border-light">
                     <div class="text-paragraph-small">Cognome</div>
                     <div class="border-light">
-                        <p class="data-text">Bianchi</p>
+                        <p class="data-text" id="review-surname"></p>
                     </div>
                     </div>
                     <div class="single-line-info border-light">
                     <div class="text-paragraph-small">Email</div>
                     <div class="border-light">
-                        <p class="data-text">
-                        giulia-bianchi@gmail.com
-                        </p>
+                        <p class="data-text" id="review-email"></p>
                     </div>
                     </div>
                 </div>

@@ -8,12 +8,13 @@ var navscroll = document.querySelector(
 var progressBar = document.querySelector(
   '[data-progress="'.concat(currentStep, '"]')
 );
+// need to define btns globally
+var btnNext = content.querySelector(".btn-next-step");
+var btnBack = content.querySelector(".btn-back-step");
 
 function pageSteps() {
   if (!content) return;
   var btnSave = content.querySelectorAll(".saveBtn");
-  var btnNext = content.querySelector(".btn-next-step");
-  var btnBack = content.querySelector(".btn-back-step");
   navscroll.classList.add("d-lg-block");
   progressBar.classList.remove("d-none");
   btnSave.forEach(function (element) {
@@ -34,6 +35,7 @@ function pageSteps() {
 }
 
 function openNext() {
+  btnBack.disabled = false;
   var btnSave = content.querySelectorAll(".saveBtn");
   var steps = content.querySelectorAll("[data-steps]");
   var nextStep = content.querySelector(
@@ -45,6 +47,7 @@ function openNext() {
   progressBar.classList.add("d-none");
 
   if (currentStep == steps.length) {
+    console.log("payload", answers);
     return;
   } else {
     stepWrapper.classList.add("d-none");
@@ -52,6 +55,7 @@ function openNext() {
     nextStep.classList.add("active");
     nextStep.classList.remove("d-none");
     currentStep = currentStep + 1;
+    checkMandatoryFields();
     progressBar = document.querySelector(
       '[data-progress="'.concat(currentStep, '"]')
     );
@@ -70,16 +74,19 @@ function openNext() {
     }
 
     if (currentStep == steps.length) {
+      btnNext.disabled = false;
       content.querySelector(".steppers-btn-confirm span").innerHTML = "Invia";
       btnSave.forEach(function (element) {
         element.classList.remove("invisible");
         element.classList.add("visible");
+        setReviews();
       });
     }
   }
 }
 
 function backPrevious() {
+  btnNext.disabled = false;
   var btnSave = content.querySelectorAll(".saveBtn");
   var steps = content.querySelectorAll("[data-steps]");
   var stepWrapper = content.querySelector("[data-steps].active");
@@ -117,6 +124,10 @@ function backPrevious() {
         element.classList.add("invisible");
       });
     }
+
+    if (currentStep == 1) {
+      btnBack.disabled = true;
+    }
   }
 }
 
@@ -127,13 +138,14 @@ const answers = {};
 
 const saveAnswerByValue = (key, value) => {
   answers[key] = value;
-  console.log("ans", answers);
+  if (key == "office") answers.place = null;
+  checkMandatoryFields();
 };
 const saveAnswerById = (key, id, callback) => {
   const value = document.getElementById(id)?.value;
-  answers[key] = value;
-  console.log("ans", answers);
+  answers[key] = JSON.parse(value);
   if (typeof callback == "function") callback();
+  checkMandatoryFields();
 };
 
 /* Get Luoghi by Unità organizzativa - Step 1 */
@@ -150,6 +162,11 @@ officeSelect.addEventListener("change", () => {
       .then((data) => {
         document.querySelector("#place-cards-wrapper").innerHTML = "";
         for (const place of data) {
+          const reducedPlace = {
+            post_title: place.post_title,
+            indirizzo: place.indirizzo,
+            apertura: place.apertura,
+          };
           document.querySelector("#place-cards-wrapper").innerHTML += `
           <div class="cmp-info-radio radio-card">
             <div class="card p-3 p-lg-4">
@@ -160,7 +177,7 @@ officeSelect.addEventListener("change", () => {
                     name="beneficiaries"
                     type="radio"
                     id=${place?.ID}
-                    value='${JSON.stringify(place)}'
+                    value='${JSON.stringify(reducedPlace)}'
                     onclick="saveAnswerById('place', ${place?.ID}, ${() =>
             setSelectedPlace()})"
                     />
@@ -202,12 +219,11 @@ officeSelect.addEventListener("change", () => {
     fetch(`/wp-json/wp/v2/servizi/ufficio?${urlParam}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("servizi", data);
         document.querySelector("#motivo-appuntamento").innerHTML =
           '<option selected="selected" value="">Seleziona opzione</option>';
-        for (const place of data) {
+        for (const service of data) {
           document.querySelector("#motivo-appuntamento").innerHTML += `
-          
+          <option value="${service?.post_title}">${service?.post_title}</option>
           `;
         }
       })
@@ -267,8 +283,7 @@ appointment.addEventListener("change", () => {
 
 /* Get selected office */
 const setSelectedPlace = () => {
-  const place = JSON.parse(answers?.place);
-  console.log("selectedplace", place);
+  const place = answers?.place;
   document.querySelector("#selected-place-card").innerHTML = `  
   <div class="cmp-info-summary bg-white mb-4 mb-lg-30 p-4">
   <div class="card">
@@ -309,4 +324,86 @@ const setSelectedPlace = () => {
   </div>
 </div>
   `;
+};
+
+/* Step 3 */
+const serviceSelect = document.getElementById("motivo-appuntamento");
+serviceSelect.addEventListener("change", () => {
+  saveAnswerByValue("service", serviceSelect?.value);
+});
+
+const moreDetailsText = document.getElementById("form-details");
+moreDetailsText.addEventListener("input", () => {
+  saveAnswerByValue("moreDetails", moreDetailsText?.value);
+});
+
+/* Step 4 */
+const nameInput = document.getElementById("name");
+nameInput.addEventListener("input", () => {
+  saveAnswerByValue("name", nameInput?.value);
+});
+
+const surnameInput = document.getElementById("surname");
+surnameInput.addEventListener("input", () => {
+  saveAnswerByValue("surname", surnameInput?.value);
+});
+
+const emailInput = document.getElementById("email");
+emailInput.addEventListener("input", () => {
+  saveAnswerByValue("email", emailInput?.value);
+});
+
+/* Step 5 */
+
+const setReviews = () => {
+  const dates = answers?.appointment?.split("/");
+  const day = dates[0]?.split("T")[0];
+  const formatDay = new Date(day).toLocaleString([], {
+    weekday: "long",
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+  const hour = dates[0]?.split("T")[1] + " - " + dates[1]?.split("T")[1];
+
+  //set all values
+  document.getElementById("review-office").innerHTML = answers?.office;
+  document.getElementById("review-place").innerHTML =
+    answers?.place?.post_title;
+  document.getElementById("review-date").innerHTML = formatDay;
+  document.getElementById("review-hour").innerHTML = hour;
+  document.getElementById("review-service").innerHTML = answers?.service;
+  document.getElementById("review-details").innerHTML = answers?.moreDetails;
+  document.getElementById("review-name").innerHTML = answers?.name;
+  document.getElementById("review-surname").innerHTML = answers?.surname;
+  document.getElementById("review-email").innerHTML = answers?.email;
+};
+
+/* Check mandatory fields */
+const checkMandatoryFields = () => {
+  switch (currentStep) {
+    case 1:
+      if (answers?.office && answers?.place) btnNext.disabled = false;
+      else btnNext.disabled = true;
+      break;
+
+    case 2:
+      if (answers?.appointment) btnNext.disabled = false;
+      else btnNext.disabled = true;
+      break;
+
+    case 3:
+      if (answers?.service && answers?.moreDetails) btnNext.disabled = false;
+      else btnNext.disabled = true;
+      break;
+
+    case 4:
+      if (answers?.name && answers?.surname && answers?.email)
+        btnNext.disabled = false;
+      else btnNext.disabled = true;
+      break;
+
+    default:
+      break;
+  }
 };

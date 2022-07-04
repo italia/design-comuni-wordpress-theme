@@ -370,7 +370,7 @@
               if (!cleanBtn) {
                 input.insertAdjacentHTML(
                   "afterend",
-                  '\n          <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">\n            <svg class="icon">\n              <use xlink:href="./assets/bootstrap-italia/dist/svg/sprite.svg#it-close"></use>\n            </svg>\n          </button>\n          '
+                  '\n          <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">\n            <svg class="icon">\n              <use xlink:href="#it-close"></use>\n            </svg>\n          </button>\n          '
                 );
                 var clean = input.parentElement.querySelector(".clean-input");
                 var label =
