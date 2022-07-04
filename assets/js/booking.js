@@ -183,3 +183,40 @@ officeSelect.addEventListener("change", () => {
     document.querySelector("#place-cards-wrapper").innerHTML = "";
   }
 });
+
+/* Step 2 */
+/* Get selected office */
+// document.querySelector("");
+// office-choice
+
+const appointment = document.getElementById("appointment");
+appointment.addEventListener("change", () => {
+  console.log("appointment", appointment?.value);
+
+  fetch(url + `?month=${appointment?.value}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("HTTP error " + response.status);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      document.querySelector("#radio-appointment").innerHTML = "";
+      for (const dates of data) {
+        console.log("dates", dates);
+        document.querySelector("#radio-appointment").innerHTML += `
+        <div
+        class="radio-body border-bottom border-light"
+        >
+        <input name="radio" type="radio" id="radio-1" />
+        <label for="radio-1"
+            >Giovedì 11 Marzo 2022 ore 10:00</label
+        >
+        </div>
+        `;
+      }
+    })
+    .catch(function () {
+      this.dataError = true;
+    });
+});

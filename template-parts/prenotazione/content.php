@@ -38,7 +38,7 @@
     </div>
 </section>
 
-<!-- Step 1 -->
+<!-- Step 2 -->
 <section class="d-none page-step" data-steps="2">
     <div class="cmp-card mb-40">
         <div class="card has-bkg-grey shadow-sm p-big">
@@ -79,32 +79,7 @@
             <div class="cmp-card-radio-list mt-4">
             <div class="card p-3">
                 <div class="card-body p-0">
-                <div class="form-check m-0">
-                    <div
-                    class="radio-body border-bottom border-light"
-                    >
-                    <input name="radio" type="radio" id="radio-1" />
-                    <label for="radio-1"
-                        >Giovedì 11 Marzo 2022 ore 10:00</label
-                    >
-                    </div>
-                    <div
-                    class="radio-body border-bottom border-light"
-                    >
-                    <input name="radio" type="radio" id="radio-2" />
-                    <label for="radio-2"
-                        >Venerdì 12 Marzo 2022 ore 11:15</label
-                    >
-                    </div>
-                    <div
-                    class="radio-body border-bottom border-light"
-                    >
-                    <input name="radio" type="radio" id="radio-3" />
-                    <label for="radio-3"
-                        >Lunedì 15 Marzo 2022 ore 09:00</label
-                    >
-                    </div>
-                </div>
+                    <div class="form-check m-0 d-none" id="radio-appointment"></div>
                 </div>
             </div>
             </div>
