@@ -350,7 +350,7 @@ function createMenu()
     $menu_novita = dci_create_menu(__('Novità', "design_comuni_italia"));
     $menu_servizi = dci_create_menu(__('Categorie di Servizio', "design_comuni_italia"));
     $menu_vivere_comune =  dci_create_menu(__('Vivere il Comune', "design_comuni_italia"));
-    $menu_documenti_dati = dci_create_menu(__('Tutti i documenti', "design_comuni_italia"));
+    //$menu_documenti_dati = dci_create_menu(__('Tutti i documenti', "design_comuni_italia"));
     $menu_argomenti = dci_create_menu(__('Argomenti', 'design_comuni_italia'));
     $menu_info_1 = dci_create_menu('Info 1', 'design_comuni_italia');
     $menu_info_2 = dci_create_menu('Info 2', 'design_comuni_italia');
