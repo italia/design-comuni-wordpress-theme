@@ -6,6 +6,12 @@
  * @package Design_Comuni_Italia
  */
 
+wp_enqueue_script( 'dci-assistenza', get_template_directory_uri() . '/assets/js/assistenza.js', array('jquery'), null, true );
+    $variables = array(
+        'url' => admin_url( 'admin-ajax.php' )
+    );
+wp_localize_script('dci-assistenza', "data_assistenza", $variables);
+
 get_header();
 ?>
 	<main>
@@ -14,8 +20,12 @@ get_header();
 			the_post();
 			
 			$description = dci_get_meta('descrizione','_dci_page_',$post->ID);
-            $categorie_servizio_names = dci_categorie_servizio_array();
-            console_log($categorie_servizio_names,'categs');
+            $categorie_servizio = get_terms(array (
+                'taxonomy' => 'categorie_servizio',
+                'orderby' => 'name',
+                'order' => 'ASC',
+                'hide_empty' => true,
+            ));
 			?>
             <div class="container" id="main-container">
                 <div class="row justify-content-center">
@@ -47,7 +57,7 @@ get_header();
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container container-assistenza">
                 <div class="row mt-lg-50">
                 <div class="col-12 col-lg-3 d-lg-block mb-4 d-none">
                     <aside
@@ -219,8 +229,8 @@ get_header();
                                     <option selected="selected" value="">
                                         Seleziona categoria
                                     </option>
-                                    <?php foreach ($categorie_servizio_names as $categoria) {
-                                        echo '<option value="'.$categoria.'">'.$categoria.'</option>';
+                                    <?php foreach ($categorie_servizio as $categoria) {
+                                        echo '<option value="'.$categoria->term_id.'">'.$categoria->name.'</option>';
                                     } ?>
                                 </select>
                                 <div class="d-flex">
