@@ -154,12 +154,10 @@ const saveAnswerById = (key, id, callback) => {
 
 /* Get Luoghi by Unità organizzativa - Step 1 */
 const officeSelect = document.getElementById("office-choice");
-let selectedOffice;
 officeSelect.addEventListener("change", () => {
   saveAnswerByValue("office", officeSelect?.value);
 
   if (officeSelect?.value) {
-    selectedOffice = officeSelect?.value;
     const urlParam = new URLSearchParams({ title: officeSelect.value });
     fetch(`/wp-json/wp/v2/sedi/ufficio/?${urlParam}`)
       .then((response) => response.json())
@@ -170,6 +168,7 @@ officeSelect.addEventListener("change", () => {
             nome: place.post_title,
             indirizzo: place.indirizzo,
             apertura: place.apertura,
+            id: place.identificativo,
           };
           document.querySelector("#place-cards-wrapper").innerHTML += `
           <div class="cmp-info-radio radio-card">
@@ -245,12 +244,7 @@ const appointment = document.getElementById("appointment");
 appointment.addEventListener("change", () => {
   answers.appointment = null;
   checkMandatoryFields();
-  fetch(
-    url +
-      `?month=${appointment?.value}&office=${encodeURIComponent(
-        selectedOffice
-      )}`
-  )
+  fetch(url + `?month=${appointment?.value}&office=${answers?.place?.id}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("HTTP error " + response.status);

@@ -3,6 +3,13 @@
         'posts_per_page' => -1,
         'post_type' => 'unita_organizzativa'
     ));
+
+    $months = array();
+    $currentMonth = intval(date('m'));
+
+    for ($i=$currentMonth; $i < $currentMonth + 12; $i++) { 
+        if ($i <= 12) array_push($months, $i);
+    }
 ?>
 
 <!-- Step 1 -->
@@ -61,18 +68,9 @@
                 <option selected="selected" value="">
                 Seleziona un mese
                 </option>
-                <option value="Gennaio">Gennaio</option>
-                <option value="Febbraio">Febbraio</option>
-                <option value="Marzo">Marzo</option>
-                <option value="Aprile">Aprile</option>
-                <option value="Maggio">Maggio</option>
-                <option value="Giugno">Giugno</option>
-                <option value="Luglio">Luglio</option>
-                <option value="Agosto">Agosto</option>
-                <option value="Settembre">Settembre</option>
-                <option value="Ottobre">Ottobre</option>
-                <option value="Novembre">Novembre</option>
-                <option value="Dicembre">Dicembre</option>
+                <?php foreach ($months as $month) {
+                    echo '<option value="'.$month.'">'.date_i18n('F', mktime(0, 0, 0, $month, 10)).'</option>';
+                } ?>
             </select>
             </div>
 
