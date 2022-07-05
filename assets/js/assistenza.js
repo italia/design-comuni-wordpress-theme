@@ -25,6 +25,7 @@
       const categoria_servizio = $wrapper.querySelector("#category").value;
       const servizio = $wrapper.querySelector("#service").value;
       const dettagli = $wrapper.querySelector("#description").value;
+      const privacyChecked = $wrapper.querySelector("#privacy").checked;
 
       const node = {
         title: `ticket_${new Date().toISOString()}`,
@@ -34,7 +35,14 @@
         categoria_servizio,
         servizio,
         dettagli,
+        privacyChecked,
       };
+
+      // check invalid values
+      const EMAIL_REGEXP =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const emptyFields = Object.values(node)?.filter((v) => !v);
+      if (emptyFields?.length > 0 || !EMAIL_REGEXP.test(email)) return false;
 
       const res = await fetch(data_assistenza.url, {
         method: "POST",

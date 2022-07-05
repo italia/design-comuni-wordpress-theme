@@ -248,16 +248,9 @@ get_header();
                                 class="bg-transparent form-control"
                                 required
                                 >
-                                <option selected="selected" value="">
-                                    Scegli il servizio
-                                </option>
-                                <option value="Iscrizione alla Scuola dell’infanzia">
-                                    Iscrizione alla Scuola dell’infanzia
-                                </option>
-                                <option value="Permessi ZTL">Permessi ZTL</option>
-                                <option value="Assegno di maternità">
-                                    Assegno di maternità
-                                </option>
+                                    <option selected="selected" value="">
+                                        Scegli il servizio
+                                    </option>
                                 </select>
                                 <div class="d-flex">
                                 <span class="form-text cmp-input__text">
