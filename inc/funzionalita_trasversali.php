@@ -234,7 +234,8 @@ function dci_save_richiesta_assistenza(){
     }
 
     if(array_key_exists("categoria_servizio", $params) && $params['categoria_servizio'] != "null") {
-        update_post_meta($postId, '_dci_richiesta_assistenza_categoria_servizio',  $params['categoria_servizio']);
+        $categoria = get_term_by('term_id', $params['categoria_servizio'], 'categorie_servizio');
+        update_post_meta($postId, '_dci_richiesta_assistenza_categoria_servizio', $categoria->name );
     }
 
     if(array_key_exists("servizio", $params) && $params['servizio'] != "null") {

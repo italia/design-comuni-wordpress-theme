@@ -31,7 +31,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 		if ($item->title == 'Amministrazione') $data_element .= 'management'; 
 		if ($item->title == 'Novità') $data_element .= 'news'; 
 		if ($item->title == 'Servizi') $data_element .= 'service'; 
-		if ($item->title == 'Vivere il comune') $data_element .= 'live'; 
+		if ($item->title == 'Vivere il Comune') $data_element .= 'live'; 
  
 		if ($item->url && $item->url != '#') {
 			$output .= '<a class="nav-link '.$active_class.'" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" data-element="'.$data_element.'">';

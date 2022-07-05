@@ -81,14 +81,6 @@ function dci_register_taxonomy_metabox() {
         'options' => dci_get_posts_options('unita_organizzativa'),
     ) );
 
-    $cmb_term->add_field( array(
-        'id' => $prefix . 'icona',
-        'name' => 'Icona Argomento',
-        'desc' => __( 'Seleziona una Icona Bootstrap Italia. Comparirà nelle card associate all\'argomento.' , 'design_comuni_italia' ),
-        'type' => 'faiconselect',
-        'options' =>dci_get_bootstrap_icon_options('all'),
-    ) );
-
 }
 
 add_action('current_screen', 'dci_current_screen_callback');

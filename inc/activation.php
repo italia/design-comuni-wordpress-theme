@@ -351,7 +351,7 @@ function createMenu()
     $menu_novita = dci_create_menu(__('Novità', "design_comuni_italia"));
     $menu_servizi = dci_create_menu(__('Categorie di Servizio', "design_comuni_italia"));
     $menu_vivere_comune =  dci_create_menu(__('Vivere il Comune', "design_comuni_italia"));
-    $menu_documenti_dati = dci_create_menu(__('Tutti i documenti', "design_comuni_italia"));
+    //$menu_documenti_dati = dci_create_menu(__('Tutti i documenti', "design_comuni_italia"));
     $menu_argomenti = dci_create_menu(__('Argomenti', 'design_comuni_italia'));
     $menu_info_1 = dci_create_menu('Info 1', 'design_comuni_italia');
     $menu_info_2 = dci_create_menu('Info 2', 'design_comuni_italia');
@@ -424,7 +424,7 @@ function createMenu()
     dci_create_page_menu_item(__('Domande frequenti', 'design_comuni_italia'), $menu_info_1, __('Leggi le FAQ','design_comuni_italia'));
     dci_create_page_menu_item(__( 'Prenota appuntamento', 'design_comuni_italia'),$menu_info_1, __( 'Prenotazione appuntamento', 'design_comuni_italia'));
     dci_create_custom_menu_item(__( 'Segnalazione disservizio', 'design_comuni_italia'),$menu_info_1);
-    dci_create_custom_menu_item(__( 'Richiesta assistenza', 'design_comuni_italia'),$menu_info_1);
+    dci_create_page_menu_item(__( 'Assistenza', 'design_comuni_italia'), $menu_info_1, __( 'Richiesta assistenza', 'design_comuni_italia'));
     //assegno menu a location
     dci_add_menu_to_location($menu_info_1,'menu-footer-info-1');
 
