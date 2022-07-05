@@ -30,7 +30,7 @@ get_header();
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10">
                         <div class="cmp-heading pb-3 pb-lg-4">
-                            <h1><?php echo the_title(); ?></h1>
+                            <h1>Prenotazione appuntamento</h1>
                         </div>
                     </div>
                 </div>
