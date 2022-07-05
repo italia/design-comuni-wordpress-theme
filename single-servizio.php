@@ -119,7 +119,7 @@ get_header();
                                         <div class="progress-bar" role="progressbar" aria-label="Progress bar dell'indice della pagina" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </a>
-                                    <ul class="link-sublist collapse show" id="collapseOne" data-element="index-link-list">
+                                    <ul class="link-sublist collapse show" id="collapseOne" data-element="page-index">
                                     <?php if ($destinatari ) { ?>
                                         <li>
                                             <a class="list-item" href="#who-needs" aria-label="Vai alla sezione A chi è rivolto" title="Vai alla sezione A chi è rivolto"

@@ -30,7 +30,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 		$data_element = '';
 		if ($item->title == 'Amministrazione') $data_element .= 'management'; 
 		if ($item->title == 'Novità') $data_element .= 'news'; 
-		if ($item->title == 'Servizi') $data_element .= 'service'; 
+		if ($item->title == 'Servizi') $data_element .= 'all-services'; 
 		if ($item->title == 'Vivere il Comune') $data_element .= 'live'; 
  
 		if ($item->url && $item->url != '#') {

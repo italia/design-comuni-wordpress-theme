@@ -106,7 +106,7 @@ get_header();
                             <ul
                                 class="link-sublist collapse show"
                                 id="collapse-one"
-                                data-element="index-link-list"
+                                data-element="page-index"
                             >
                                 <li>
                                 <a
