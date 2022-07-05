@@ -136,8 +136,12 @@ pageSteps();
 /* Define an empty object to collect answers */
 const answers = {};
 
-const saveAnswerByValue = (key, value) => {
-  answers[key] = value;
+const saveAnswerByValue = (key, value, toBeDecoded = false) => {
+  if (toBeDecoded) {
+    const decodedvalue = decodeURIComponent(value);
+    const newValue = JSON.parse(decodedvalue);
+    answers[key] = newValue;
+  } else answers[key] = value;
   if (key == "office") answers.place = null;
   checkMandatoryFields();
 };
@@ -163,7 +167,7 @@ officeSelect.addEventListener("change", () => {
         document.querySelector("#place-cards-wrapper").innerHTML = "";
         for (const place of data) {
           const reducedPlace = {
-            post_title: place.post_title,
+            nome: place.post_title,
             indirizzo: place.indirizzo,
             apertura: place.apertura,
           };
@@ -239,6 +243,8 @@ officeSelect.addEventListener("change", () => {
 /* Get appointments calendar */
 const appointment = document.getElementById("appointment");
 appointment.addEventListener("change", () => {
+  answers.appointment = null;
+  checkMandatoryFields();
   fetch(
     url +
       `?month=${appointment?.value}&office=${encodeURIComponent(
@@ -263,12 +269,15 @@ appointment.addEventListener("change", () => {
           year: "numeric",
         });
         const id = startDate + "/" + endDate;
+        const value = encodeURIComponent(
+          JSON.stringify({ startDate, endDate })
+        );
 
         document.querySelector("#radio-appointment").innerHTML += `
         <div
         class="radio-body border-bottom border-light"
         >
-        <input name="radio" type="radio" id="${id}" onclick="saveAnswerByValue('appointment', '${id}')"/>
+        <input name="radio" type="radio" id="${id}" onclick="saveAnswerByValue('appointment', '${value}', true)"/>
         <label for="${id}" class="text-capitalize">${startDayStr} ore ${
           startDate.split("T")[1]
         }</label>
@@ -291,7 +300,7 @@ const setSelectedPlace = () => {
       class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-between d-flex justify-content-end"
       >
       <h3 class="title-large-semi-bold mb-3">
-        ${place?.post_title}
+        ${place?.nome}
       </h3>
       </div>
 
@@ -356,20 +365,20 @@ emailInput.addEventListener("input", () => {
 /* Step 5 */
 
 const setReviews = () => {
-  const dates = answers?.appointment?.split("/");
-  const day = dates[0]?.split("T")[0];
+  const dates = answers?.appointment;
+  const day = dates?.startDate?.split("T")[0];
   const formatDay = new Date(day).toLocaleString([], {
     weekday: "long",
     day: "2-digit",
     month: "long",
     year: "numeric",
   });
-  const hour = dates[0]?.split("T")[1] + " - " + dates[1]?.split("T")[1];
+  const hour =
+    dates?.startDate?.split("T")[1] + " - " + dates?.endDate?.split("T")[1];
 
   //set all values
   document.getElementById("review-office").innerHTML = answers?.office;
-  document.getElementById("review-place").innerHTML =
-    answers?.place?.post_title;
+  document.getElementById("review-place").innerHTML = answers?.place?.nome;
   document.getElementById("review-date").innerHTML = formatDay;
   document.getElementById("review-hour").innerHTML = hour;
   document.getElementById("review-service").innerHTML = answers?.service;
@@ -421,7 +430,7 @@ const confirmAppointment = () => {
       return response.json();
     })
     .then((data) => {
-      console.log(data?.message);
+      alert(data?.message);
     })
     .catch((err) => {
       console.log("err", err);
