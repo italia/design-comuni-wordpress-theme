@@ -26,18 +26,24 @@ global $the_query, $load_posts, $load_card_type;
             <div>
                 <div class="cmp-input-search">
                     <div class="form-group autocomplete-wrapper mb-0">
+                        <div class="input-group">
                         <label for="autocomplete-two" class="visually-hidden"
                         >Cerca per parola chiave</label
                         >
                         <input
                         type="search"
-                        class="autocomplete"
+                        class="autocomplete form-control"
                         placeholder="Cerca per parola chiave"
                         id="autocomplete-two"
                         name="search"
                         value="<?php echo $_GET['search']; ?>"
                         data-bs-autocomplete="[]"
                         />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit" id="button-3">
+                                Invio
+                            </button>
+                        </div>
                         <span class="autocomplete-icon" aria-hidden="true"
                         ><svg
                             class="icon icon-sm icon-primary"
@@ -47,6 +53,7 @@ global $the_query, $load_posts, $load_card_type;
                             <use
                             href="#it-search"
                             ></use></svg></span>
+                        </div>
                         <p
                         id="autocomplete-label"
                         class="u-grey-light text-paragraph-card mt-2 mb-4 mt-lg-3 mb-lg-40"

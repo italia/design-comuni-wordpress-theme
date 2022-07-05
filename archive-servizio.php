@@ -63,19 +63,25 @@ get_header();
               <div class="col-12 col-lg-8 pt-30 pt-lg-50 pb-lg-50">
                 <div class="cmp-input-search">
                   <div class="form-group autocomplete-wrapper mb-0">
+                  <div class="input-group">
                   <label for="autocomplete-two" class="visually-hidden">Cerca una parola chiave</label>
                   <input type="search" 
-                    class="autocomplete" 
+                    class="autocomplete form-control" 
                     placeholder="Cerca una parola chiave"
                     id="autocomplete-two"
                     name="search"
                     value="<?php echo $_GET['search']; ?>"
                     data-bs-autocomplete="[]">
+                  <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit" id="button-3">
+                          Invio
+                      </button>
+                  </div>
                   <span class="autocomplete-icon" aria-hidden="true">
                     <svg class="icon icon-sm icon-primary" role="img" aria-labelledby="autocomplete-label"><use href="#it-search"></use></svg>
                   </span>
-                
-                      <p id="autocomplete-label" class="mt-2 mt-lg-3 mb-4"><strong><?php echo $the_query->found_posts; ?> </strong>servizi trovati in ordine alfabetico</p>
+                  </div>
+                  <p id="autocomplete-label" class="mt-2 mt-lg-3 mb-4"><strong><?php echo $the_query->found_posts; ?> </strong>servizi trovati in ordine alfabetico</p>
                   </div>
                 </div>
                 <div id="load-more">
