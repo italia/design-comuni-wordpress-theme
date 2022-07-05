@@ -85,46 +85,18 @@
         "description" : "Tutti i servizi comunali per i cittadini, disponibili online o a sportello, per richiedere documenti e permessi, iscriversi a graduatorie ed effettuare pagamenti.",
         "template_name": "servizi",
         "children" : {
-          "Pagamenti" : {
-            "title" : "Pagamenti",
-            "slug" : "pagamenti",
-            "description" : "",
-            "template_name": "",
+          "Assistenza" : {
+            "title" : "Assistenza",
+            "slug" : "assistenza",
+            "description" : "I campi contraddistinti dal simbolo asterisco sono obbligatori.",
+            "template_name": "assistenza",
             "children" : {}
           },
-          "Sostegno" : {
-            "title" : "Sostegno",
-            "slug" : "sostegno",
+          "Prenotazioni" : {
+            "title" : "Prenotazioni",
+            "slug" : "prenotazioni",
             "description" : "",
-            "template_name": "",
-            "children" : {}
-          },
-          "Domande e iscrizioni" : {
-            "title" : "Domande e iscrizioni",
-            "slug" : "domande-e-iscrizioni",
-            "description" : "",
-            "template_name": "",
-            "children" : {}
-          },
-          "Segnalazioni" : {
-            "title" : "Segnalazioni",
-            "slug" : "segnalazioni",
-            "description" : "",
-            "template_name": "",
-            "children" : {}
-          },
-          "Autorizzazioni e concessioni" : {
-            "title" : "Autorizzazioni e concessioni",
-            "slug" : "autorizzazioni-e-concessioni",
-            "description" : "",
-            "template_name": "",
-            "children" : {}
-          },
-          "Certificati e dichiarazioni" : {
-            "title" : "Certificati e dichiarazioni",
-            "slug" : "certificati-e-dichiarazioni",
-            "description" : "",
-            "template_name": "",
+            "template_name": "prenota-appuntamento",
             "children" : {}
           }
         }
