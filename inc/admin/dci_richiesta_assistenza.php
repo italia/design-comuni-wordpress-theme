@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Definisce post type Richiesta Assistenza (per memorizzare le richieste di assistenza da parte degli utenti)
  */
@@ -113,7 +114,11 @@ function dci_add_richiesta_assistenza_metaboxes()
 }
 
 
-add_filter( 'manage_richiesta_assistenza_posts_columns', 'dci_filter_richiesta_assistenza_columns' );
+/**
+ * Aggiungo colonne custom
+ * @param $columns
+ * @return mixed
+ */
 function dci_filter_richiesta_assistenza_columns( $columns ) {
 
     $columns['richiedente'] = __( 'Richiedente','design_comuni_italia' );
@@ -124,15 +129,19 @@ function dci_filter_richiesta_assistenza_columns( $columns ) {
 
     return $columns;
 }
+add_filter( 'manage_richiesta_assistenza_posts_columns', 'dci_filter_richiesta_assistenza_columns' );
 
-add_action( 'manage_richiesta_assistenza_posts_custom_column', 'dci_manage_richiesta_assistenza_posts_custom_column', 10, 2);
+/**
+ * Valorizzo le colonne custom
+ * @param $column
+ * @param $post_id
+ */
 function dci_manage_richiesta_assistenza_posts_custom_column( $column, $post_id ) {
-    console_log(get_post_meta($post_id, '_dci_richiesta_assistenza_nome', true ));
 
     if ( 'richiedente' === $column ) {
        $nome = get_post_meta($post_id, '_dci_richiesta_assistenza_nome', true );
        $cognome =  get_post_meta($post_id, '_dci_richiesta_assistenza_cognome', true );
-       echo  $nome.' '.$cognome;
+       echo  $cognome.' '.$nome;
     }
 
     if ( 'email' === $column ) {
@@ -152,3 +161,89 @@ function dci_manage_richiesta_assistenza_posts_custom_column( $column, $post_id 
     }
 
 }
+add_action( 'manage_richiesta_assistenza_posts_custom_column', 'dci_manage_richiesta_assistenza_posts_custom_column', 10, 2);
+
+/**
+ * Ordino le colonne
+ * @param $columns
+ * @return array
+ */
+function dci_save_richiesta_assistenza_columns( $columns ) {
+
+    $columns = array(
+        'cb' => $columns['cb'],
+        'title' => $columns['title'],
+        'richiedente' =>  $columns['richiedente'],
+        'email' =>  $columns['email'],
+        'categoria_servizio' =>  $columns['categoria_servizio'],
+        'servizio' => $columns['servizio'],
+        'dettagli' =>  $columns['dettagli'],
+        'date' => $columns['date'],
+    );
+
+    return $columns;
+}
+add_filter( 'manage_richiesta_assistenza_posts_columns', 'dci_save_richiesta_assistenza_columns' );
+
+/**
+ * Rendo le colonne filtrabili
+ * @param $columns
+ * @return mixed
+ */
+function dci_richiesta_assistenza_sortable_columns( $columns ) {
+
+    $columns['richiedente'] = 'richiesta_assistenza_richiedente';
+    $columns['email'] = 'richiesta_assistenza_email';
+    $columns['categoria_servizio'] = 'richiesta_assistenza_categoria_servizio';
+    $columns['servizio'] = 'richiesta_assistenza_servizio';
+
+    return $columns;
+}
+add_filter( 'manage_edit-richiesta_assistenza_sortable_columns', 'dci_richiesta_assistenza_sortable_columns');
+
+/**
+ * Filtro le colonne
+ * @param $query
+ */
+function dci_richiesta_assistenza_posts_orderby( $query ) {
+    if( ! is_admin() || ! $query->is_main_query() ) {
+        return;
+    }
+
+    if ( 'richiesta_assistenza_richiedente' === $query->get( 'orderby') ) {
+
+        $meta_query = array(
+            'relation' => 'AND',
+            'query_one' => array(
+                'key' => '_dci_richiesta_assistenza_cognome'
+            ),
+            'query_two' => array(
+                'key' => '_dci_richiesta_assistenza_nome',
+            ),
+        );
+
+       /* $order_by = array(
+            'query_one' => 'ASC',
+            'query_two' => 'ASC',
+        );*/
+
+        $query->set( 'meta_query', $meta_query );
+        $query->set( 'orderby', $meta_query );
+    }
+
+    if ( 'richiesta_assistenza_email' === $query->get( 'orderby') ) {
+        $query->set( 'orderby', 'meta_value' );
+        $query->set( 'meta_key', '_dci_richiesta_assistenza_email' );
+    }
+
+    if ( 'richiesta_assistenza_categoria_servizio' === $query->get( 'orderby') ) {
+        $query->set( 'orderby', 'meta_value' );
+        $query->set( 'meta_key', '_dci_richiesta_assistenza_categoria_servizio' );
+    }
+
+    if ( 'richiesta_assistenza_servizio' === $query->get( 'orderby') ) {
+        $query->set( 'orderby', 'meta_value' );
+        $query->set( 'meta_key', '_dci_richiesta_assistenza_servizio' );
+    }
+}
+add_action( 'pre_get_posts', 'dci_richiesta_assistenza_posts_orderby' );

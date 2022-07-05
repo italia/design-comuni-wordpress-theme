@@ -225,6 +225,7 @@ function dci_get_admin_menu_order() {
         'separator2',
         'edit.php?post_type=domanda_frequente',
         'edit.php?post_type=rating',
+        'edit.php?post_type=richiesta_assistenza',
         'separator3',
         'upload.php',
     );
