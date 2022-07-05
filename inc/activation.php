@@ -424,7 +424,7 @@ function createMenu()
     dci_create_page_menu_item(__('Domande frequenti', 'design_comuni_italia'), $menu_info_1, __('Leggi le FAQ','design_comuni_italia'));
     dci_create_custom_menu_item(__( 'Prenotazione appuntamento', 'design_comuni_italia'),$menu_info_1);
     dci_create_custom_menu_item(__( 'Segnalazione disservizio', 'design_comuni_italia'),$menu_info_1);
-    dci_create_custom_menu_item(__( 'Richiesta assistenza', 'design_comuni_italia'),$menu_info_1);
+    dci_create_page_menu_item(__( 'Assistenza', 'design_comuni_italia'), $menu_info_1, __( 'Richiesta assistenza', 'design_comuni_italia'));
     //assegno menu a location
     dci_add_menu_to_location($menu_info_1,'menu-footer-info-1');
 
