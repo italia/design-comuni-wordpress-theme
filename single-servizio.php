@@ -323,7 +323,7 @@ get_header();
             </div>
         </div>
         <?php get_template_part("template-parts/common/valuta-servizio"); ?>
-        <?php get_template_part('template-parts/single/more-posts-carousel'); ?>
+        <?php get_template_part('template-parts/single/more-posts', 'carousel'); ?>
         <?php get_template_part("template-parts/common/assistenza-contatti"); ?>
 
         <?php

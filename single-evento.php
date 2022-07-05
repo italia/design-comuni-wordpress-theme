@@ -316,7 +316,7 @@ get_header();
                     </section>
                 </div>
             </div>
-            <?php get_template_part('template-parts/single/more-posts'); ?>
+            <?php get_template_part('template-parts/single/more-posts', 'carousel'); ?>
 
         <?php
         endwhile; // End of the loop.

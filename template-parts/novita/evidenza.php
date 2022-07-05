@@ -11,7 +11,7 @@
 ?>
 
 <h2 class="title-xxlarge mt-70 mb-4 mt-lg-40 pt-lg-2 mb-lg-40">
-    Notizie in evidenza
+    In evidenza
 </h2>
 <div class="row cmp-list-card-img cmp-list-card-img-hr g-4 align-items-stretch pb-60">
     <?php 
