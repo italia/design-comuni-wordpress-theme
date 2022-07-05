@@ -32,7 +32,7 @@ get_header();
             $trascrizione = dci_get_meta("trascrizione", $prefix, $post->ID);
             $persone = dci_get_meta("persone", $prefix, $post->ID);
             $luogo_evento = get_post(dci_get_meta("luogo_evento", $prefix, $post->ID));
-            $costo = dci_get_meta("costo", $prefix, $post->ID);
+            $costi = dci_get_meta( 'costi' );            
             $documenti = dci_get_meta("allegati", $prefix, $post->ID);
             $punti_contatto = dci_get_meta("punti_contatto", $prefix, $post->ID);
             $organizzatori = dci_get_meta("organizzatore", $prefix, $post->ID);
@@ -41,7 +41,7 @@ get_header();
             $sponsor = dci_get_meta("sponsor", $prefix, $post->ID);     
             $more_info = dci_get_meta("ulteriori_informazioni", $prefix, $post->ID);
             ?>
-            <div class="container px-4 my-4">
+            <div class="container px-4 my-4" id="main-container">
                 <div class="row">
                     <div class="col px-lg-4">
                         <?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -125,7 +125,7 @@ get_header();
                                         ><span>Date e orari</span></a
                                         >
                                     </li>
-                                    <?php if( $costo ) { ?>
+                                    <?php if( is_array($costi) && count($costi) ) { ?>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#costi" aria-label="Vai alla sezione Costi " title="Vai alla sezione Costi "
                                         ><span>Costi</span></a
@@ -245,10 +245,26 @@ get_header();
                             </a>
                         </div>
                     </article>
-                    <?php if( $costo ) { ?>
+                    <?php if( is_array($costi) && count($costi) ) { ?>
                     <article id="costi" class="it-page-section anchor-offset mt-5">
                         <h4>Costi</h4>
-                        <?php echo $costo;?>
+                        <?php foreach ($costi as $costo) { ?>                            
+                        <div class="card no-after border-start mt-3">
+                            <div class="card-body">
+                                <h5>
+                                <span class="category-top">
+                                    <?php echo $costo['titolo_costo']; ?>
+                                </span>
+                                <p class="card-title big-heading">
+                                    <?php echo $costo['prezzo_costo']; ?>
+                                </p>
+                                </h5>
+                                <p class="mt-4">
+                                    <?php echo $costo['descrizione_costo']; ?>
+                                </p>
+                            </div>
+                        </div>
+                    <?php } ?>
                     </article>
                     <?php } ?>
                     <?php if( $documenti ) { 
@@ -316,7 +332,7 @@ get_header();
                     </section>
                 </div>
             </div>
-            <?php get_template_part('template-parts/single/more-posts'); ?>
+            <?php get_template_part('template-parts/single/more-posts', 'carousel'); ?>
 
         <?php
         endwhile; // End of the loop.

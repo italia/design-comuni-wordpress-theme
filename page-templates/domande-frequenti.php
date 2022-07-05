@@ -44,19 +44,26 @@ get_header();
                     <div class="col-12 col-lg-8 offset-lg-2 px-sm-3 mt-2">
                         <div class="cmp-input-search">
                             <div class="form-group autocomplete-wrapper">
+                                <div class="input-group">
                                 <label for="autocomplete-three" class="visually-hidden">
                                     Cerca nel sito
                                 </label>
                                 <input 
                                 type="search" 
-                                class="autocomplete" 
+                                class="autocomplete form-control" 
                                 placeholder="Cerca" 
                                 id="autocomplete-three" 
                                 name="search"
                                 value="<?php echo $_GET['search']; ?>"
                                 data-bs-autocomplete="[]">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit" id="button-3">
+                                        Invio
+                                    </button>
+                                </div>
                                 <span class="autocomplete-icon" aria-hidden="true">
                                 <svg class="icon icon-sm"><use href="#it-search"></use></svg>
+                                </div>
                                 </span>              
                             </div>
                         </div>

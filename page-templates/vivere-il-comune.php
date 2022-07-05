@@ -18,7 +18,7 @@ get_header();
 			$img = dci_get_option('immagine', 'vivi');
 			$didascalia = dci_get_option('didascalia', 'vivi');
 			?>
-			<div class="container">
+			<div class="container" id="main-container">
 				<div class="row justify-content-center">
 					<div class="col-12 col-lg-10">
 						<?php get_template_part("template-parts/common/breadcrumb"); ?>
