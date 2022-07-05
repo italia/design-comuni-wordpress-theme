@@ -65,6 +65,7 @@ function dci_get_sedi_ufficio(WP_REST_Request $request) {
     foreach ($sedi as $sede) {
         $sede -> indirizzo = dci_get_meta('indirizzo','_dci_luogo_', $sede ->ID);
         $sede -> apertura = dci_get_meta('orario_pubblico','_dci_luogo_', $sede ->ID);
+        $sede -> identificativo = dci_get_meta('id','_dci_luogo_', $sede ->ID);
     }
 
     return $sedi;
@@ -83,7 +84,7 @@ function dci_register_servizi_ufficio_route() {
 add_action('rest_api_init', 'dci_register_servizi_ufficio_route');
 
 /**
- * restituisce i luoghi che sono referenziati come sedi dell'Unità Organizzativa passata come parametro (id o title)
+ * restituisce i servizi che sono disponibili presso l'Unità Organizzativa passata come parametro (id o title)
  * @param WP_REST_Request $request
  * @return array[]
  */
@@ -163,6 +164,8 @@ function dci_save_rating(){
 
     if(array_key_exists("star", $params) && $params['star'] != "null") {
         wp_set_object_terms($postId, $params['star'], "stars");
+        update_post_meta($postId, '_dci_rating_stelle',  $params['star']);
+
     }
 
     if(array_key_exists("radioResponse", $params) && $params['radioResponse'] != "null") {
@@ -196,10 +199,15 @@ function dci_save_richiesta_assistenza(){
 
     $params = json_decode(json_encode($_POST), true);
 
-    if((array_key_exists("title", $params)) && ($params['title']!= null)) {
+    date_default_timezone_set('Europe/Rome');
+    $start = date('Y-m-d H:i:s');
+    $timestamp = date_create($start,new DateTimeZone('Z'))->format('Y-m-d\TH:i:s.ve');
+
+    if(array_key_exists("nome", $params) && array_key_exists("cognome", $params) && array_key_exists("email", $params) && array_key_exists("servizio", $params) ) {
+        $ticket_title = 'ticket_'.$timestamp;
         $postId = wp_insert_post(array(
             'post_type' => 'richiesta_assistenza',
-            'post_title' =>  $params['title']
+            'post_title' =>  $ticket_title
         ));
     }
 
@@ -240,7 +248,8 @@ function dci_save_richiesta_assistenza(){
     echo json_encode(array(
         "success" => true,
         "richiesta_assistenza" => array(
-            "id" => $postId)
+            "id" => $postId),
+            "title" => $ticket_title
         ));
     wp_die();
 }
