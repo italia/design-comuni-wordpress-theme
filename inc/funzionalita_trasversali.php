@@ -65,6 +65,7 @@ function dci_get_sedi_ufficio(WP_REST_Request $request) {
     foreach ($sedi as $sede) {
         $sede -> indirizzo = dci_get_meta('indirizzo','_dci_luogo_', $sede ->ID);
         $sede -> apertura = dci_get_meta('orario_pubblico','_dci_luogo_', $sede ->ID);
+        $sede -> identificativo = dci_get_meta('id','_dci_luogo_', $sede ->ID);
     }
 
     return $sedi;
@@ -83,7 +84,7 @@ function dci_register_servizi_ufficio_route() {
 add_action('rest_api_init', 'dci_register_servizi_ufficio_route');
 
 /**
- * restituisce i luoghi che sono referenziati come sedi dell'Unità Organizzativa passata come parametro (id o title)
+ * restituisce i servizi che sono disponibili presso l'Unità Organizzativa passata come parametro (id o title)
  * @param WP_REST_Request $request
  * @return array[]
  */
@@ -163,6 +164,8 @@ function dci_save_rating(){
 
     if(array_key_exists("star", $params) && $params['star'] != "null") {
         wp_set_object_terms($postId, $params['star'], "stars");
+        update_post_meta($postId, '_dci_rating_stelle',  $params['star']);
+
     }
 
     if(array_key_exists("radioResponse", $params) && $params['radioResponse'] != "null") {
@@ -189,3 +192,66 @@ add_action("wp_ajax_save_rating" , "dci_save_rating");
 add_action("wp_ajax_nopriv_save_rating" , "dci_save_rating");
 
 
+/**
+ * crea contenuto di tipo Richiesta Assistenza
+ */
+function dci_save_richiesta_assistenza(){
+
+    $params = json_decode(json_encode($_POST), true);
+
+    date_default_timezone_set('Europe/Rome');
+    $start = date('Y-m-d H:i:s');
+    $timestamp = date_create($start,new DateTimeZone('Z'))->format('Y-m-d\TH:i:s.ve');
+
+    if(array_key_exists("nome", $params) && array_key_exists("cognome", $params) && array_key_exists("email", $params) && array_key_exists("servizio", $params) ) {
+        $ticket_title = 'ticket_'.$timestamp;
+        $postId = wp_insert_post(array(
+            'post_type' => 'richiesta_assistenza',
+            'post_title' =>  $ticket_title
+        ));
+    }
+
+    if($postId == 0) {
+        echo json_encode(array(
+            "success" => false,
+            "error" => array(
+                "code" =>  400,
+                "message" => "Oops, qualcosa è andato storto!"
+            )));
+        wp_die();
+    }
+
+    if(array_key_exists("nome", $params) && $params['nome'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_nome',  $params['nome']);
+    }
+
+    if(array_key_exists("cognome", $params) && $params['cognome'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_cognome',  $params['cognome']);
+    }
+
+    if(array_key_exists("email", $params) && $params['email'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_email',  $params['email']);
+    }
+
+    if(array_key_exists("categoria_servizio", $params) && $params['categoria_servizio'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_categoria_servizio',  $params['categoria_servizio']);
+    }
+
+    if(array_key_exists("servizio", $params) && $params['servizio'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_servizio',  $params['servizio']);
+    }
+
+    if(array_key_exists("dettagli", $params) && $params['dettagli'] != "null") {
+        update_post_meta($postId, '_dci_richiesta_assistenza_dettagli',  $params['dettagli']);
+    }
+
+    echo json_encode(array(
+        "success" => true,
+        "richiesta_assistenza" => array(
+            "id" => $postId),
+            "title" => $ticket_title
+        ));
+    wp_die();
+}
+add_action("wp_ajax_save_richiesta_assistenza" , "dci_save_richiesta_assistenza");
+add_action("wp_ajax_nopriv_save_richiesta_assistenza" , "dci_save_richiesta_assistenza");
