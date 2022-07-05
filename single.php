@@ -17,7 +17,7 @@ get_header();
             $user_can_view_post = dci_members_can_user_view_post(get_current_user_id(), $post->ID);
             $descrizione_breve = dci_get_meta("descrizione_breve");
             ?>
-            <div class="container px-4 my-4">
+            <div class="container px-4 my-4" id="main-container">
                 <div class="row">
                     <div class="col px-lg-4">
                         <?php get_template_part("template-parts/common/breadcrumb"); ?>
