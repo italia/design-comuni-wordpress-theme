@@ -107,6 +107,9 @@ function dci_add_rating_metaboxes()
         'name'  => __( 'URL', 'design_comuni_italia' ),
         'desc'  => __( 'URL della pagina o del contenuto valutato', 'design_comuni_italia' ),
         'type' => 'text',
+        'attributes' => array(
+            'readonly' => 1
+        )
     ) );
 
     $cmb_dati->add_field( array(
@@ -114,6 +117,10 @@ function dci_add_rating_metaboxes()
         'name'  => __( 'Valutazioni (stelle)', 'design_comuni_italia' ),
         'desc'  => __( 'Valutazione fornita dall\'utente', 'design_comuni_italia' ),
         'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'readonly' => true
+        )
     ) );
     
     $cmb_dati->add_field( array(
@@ -209,17 +216,17 @@ function dci_rating_posts_orderby( $query ) {
         return;
     }
 
-    if ( 'taxonomy-page_urls' === $query->get( 'orderby') ) {
+    if ( 'rating_taxonomy-page_urls' === $query->get( 'orderby') ) {
         $query->set( 'orderby', 'meta_value' );
         $query->set( 'meta_key', '_dci_rating_url' );
     }
 
-    if ( 'taxonomy-stars' === $query->get( 'orderby') ) {
+    if ( 'rating_taxonomy-stars' === $query->get( 'orderby') ) {
         $query->set( 'orderby', 'meta_value' );
         $query->set( 'meta_key', '_dci_rating_stelle' );
     }
 
-    if ( 'risposta_multipla' === $query->get( 'orderby') ) {
+    if ( 'rating_risposta_multipla' === $query->get( 'orderby') ) {
         $query->set( 'orderby', 'meta_value' );
         $query->set( 'meta_key', '_dci_rating_risposta_chiusa' );
     }

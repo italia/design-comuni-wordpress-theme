@@ -212,6 +212,8 @@ function dci_richiesta_assistenza_posts_orderby( $query ) {
 
     if ( 'richiesta_assistenza_richiedente' === $query->get( 'orderby') ) {
 
+        $order = ($query->query['order'] == 'asc')? 'ASC' : 'DESC';
+
         $meta_query = array(
             'relation' => 'AND',
             'query_one' => array(
@@ -222,13 +224,13 @@ function dci_richiesta_assistenza_posts_orderby( $query ) {
             ),
         );
 
-       /* $order_by = array(
-            'query_one' => 'ASC',
-            'query_two' => 'ASC',
-        );*/
+        $order_by = array(
+            'query_one' => $order,
+            'query_two' => $order,
+        );
 
         $query->set( 'meta_query', $meta_query );
-        $query->set( 'orderby', $meta_query );
+        $query->set( 'orderby', $order_by);
     }
 
     if ( 'richiesta_assistenza_email' === $query->get( 'orderby') ) {
