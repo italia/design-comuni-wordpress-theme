@@ -30,7 +30,10 @@ function dci_register_taxonomy_tipi_unita_organizzativa() {
             'edit_terms'    => 'edit_tipi_unita_organizzativa',
             'delete_terms'  => 'delete_tipi_unita_organizzativa',
             'assign_terms'  => 'assign_tipi_unita_organizzativa'
-        )
+        ),
+        'show_in_rest'          => true,
+        'rest_base'             => 'tipi_unita_organizzativa',
+        'rest_controller_class' => 'WP_REST_Terms_Controller',
     );
 
     register_taxonomy( 'tipi_unita_organizzativa', array( 'unita_organizzativa' ), $args );

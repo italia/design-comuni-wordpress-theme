@@ -314,7 +314,8 @@ function createCapabilities() {
     $admins = get_role( 'administrator' );
 
     $custom_types = dci_get_tipologie_capabilities(); //nomi plurali dei custom post type
-    $custom_types [] = 'ratings'; //aggiungo post type sistema di valutazione
+    $custom_types [] = 'ratings'; //aggiungo capability post type sistema di valutazione
+    $custom_types [] = 'richieste_assistenza'; //aggiungo capability post type richiesta assistenza
 
     $caps = array("edit_","edit_others_","publish_","read_private_","delete_","delete_private_","delete_published_","delete_others_","edit_private_","edit_published_");
     foreach ($custom_types as $custom_type){
