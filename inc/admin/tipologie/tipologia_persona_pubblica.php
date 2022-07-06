@@ -1,10 +1,11 @@
 <?php
+
 /**
  * Definisce post type Persona pubblica
  */
 add_action( 'init', 'dci_register_post_type_persona_pubblica', 60 );
 function dci_register_post_type_persona_pubblica() {
-    /** scheda **/
+
     $labels = array(
         'name'          => _x( 'Persone Pubbliche', 'Post Type General Name', 'design_comuni_italia' ),
         'singular_name' => _x( 'Persona Pubblica', 'Post Type Singular Name', 'design_comuni_italia' ),
@@ -17,8 +18,7 @@ function dci_register_post_type_persona_pubblica() {
     $args   = array(
         'label'         => __( 'Persona pubblica', 'design_comuni_italia' ),
         'labels'        => $labels,
-        'supports'      => array( 'title', 'editor', 'author', 'thumbnail'),
-        //'taxonomies'    => array( 'post_tag' ),
+        'supports'      => array( 'editor'),
         'hierarchical'  => false,
         'public'        => true,
         'menu_position' => 5,
@@ -37,7 +37,7 @@ function dci_register_post_type_persona_pubblica() {
 /**
  * Aggiungo label sotto il titolo
  */
-add_action( 'edit_form_after_title', 'dci_persona_pubblica_add_content_after_title' );
+//add_action( 'edit_form_after_title', 'dci_persona_pubblica_add_content_after_title' );
 function dci_persona_pubblica_add_content_after_title($post) {
     if($post->post_type == "persona_pubblica")
         _e('<span><i>il <b>Titolo</b> è il <b>Nome della Persona Pubblica</b>.</i></span><br><br>', 'design_comuni_italia' );
@@ -87,7 +87,6 @@ function dci_add_persona_pubblica_metaboxes() {
         ),
     ) );
 
-
     $cmb_user->add_field( array(
         'name'    => __( 'Tipologia', 'design_comuni_italia' ),
         'desc'    => __( 'tipologia Persona (es: Persona Politica )', 'design_comuni_italia' ),
@@ -120,9 +119,6 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Le organizzazioni di cui fa parte (es. Consiglio Comunale; es. Sistemi informativi)' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
-        'attributes'    => array(
-            //'required'    => 'required'
-        ),
     ) );
 
     $cmb_user->add_field( array(
@@ -146,8 +142,8 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Se Persona Politica, descrizione testuale del ruolo, comprensiva delle deleghe <br> OPPURE se Persona Amministrativa, descrizione dei compiti di cui si occupa la persona.' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 
@@ -157,8 +153,8 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Elenco delle deleghe a capo della persona' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 
@@ -168,8 +164,8 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Solo per Persona Politica: testo descrittivo che riporta la biografia della persona.' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 
@@ -178,8 +174,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Solo per Persona Politica: gallery dell attività politica e istituzionale della persona.' , 'design_comuni_italia' ),
         'id'             => $prefix . 'gallery',
         'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        'query_args' => array( 'type' => 'image' ), // Only images attachment
+        'query_args' => array( 'type' => 'image' ),
         'attributes'    => array(
             'data-conditional-id'     => $prefix.'tipologia_persona',
             'data-conditional-value'  => "Persona Politica",
@@ -209,8 +204,8 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Solo per Persona Politica: situazione patrimoniale della persona' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 
@@ -248,10 +243,40 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Ulteriori informazioni relative alla persona.' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 
 }
 
+/**
+ * Valorizzo il post title in base ai campi Nome e Cognome
+ * @param $data
+ * @return mixed
+ */
+function dci_persona_pubblica_set_post_title( $data ) {
+
+    if($data['post_type'] == 'persona_pubblica' && isset($_POST['_dci_persona_pubblica_nome'])  && isset($_POST['_dci_persona_pubblica_cognome']) ) {
+
+        $nome = $_POST['_dci_persona_pubblica_nome'];
+        $cognome = $_POST['_dci_persona_pubblica_cognome'];
+        $title = $nome.' '.$cognome;
+        $data['post_title'] =  $title ;
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data' , 'dci_persona_pubblica_set_post_title' , '99', 1 );
+
+/**
+ * aggiungo js per controllo campi opzionali
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dci_persona_pubblica_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dci_persona_pubblica_admin_script', 11 );
+
+function dci_persona_pubblica_admin_script() {
+    global $post_type;
+    if( 'persona_pubblica' == $post_type )
+        wp_enqueue_script( 'persona_pubblica-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/persona_pubblica.js' );
+}
