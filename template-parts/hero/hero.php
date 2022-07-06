@@ -1,11 +1,8 @@
 <?php
     global $title, $description, $with_shadow, $data_element;
-    console_log($title.': '.$description,'1');
 
     if (!$title) $title = get_the_title();
     if (!$description) $description = dci_get_meta('descrizione','_dci_page_',$post->ID);
-
-    console_log($title.': '.$description,'2');
 ?>
 
 <div class="container" id="main-container">
