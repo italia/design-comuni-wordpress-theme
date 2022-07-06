@@ -123,7 +123,9 @@ function dci_get_sercheable_tipologie() {
         'luogo',
         'documento_pubblico',
         'notizia',
-        'servizio'
+        'servizio',
+        'persona_pubblica',
+        'dataset'
     );
 }
 

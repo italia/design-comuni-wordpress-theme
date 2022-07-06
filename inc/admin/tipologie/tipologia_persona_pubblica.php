@@ -78,6 +78,17 @@ function dci_add_persona_pubblica_metaboxes() {
     ) );
 
     $cmb_user->add_field( array(
+        'id'         => $prefix . 'descrizione_breve',
+        'name'       => __( 'Descrizione breve', 'design_comuni_italia' ),
+        'desc' => __( 'Breve descrizione della Persona Pubblica. Comparirà all\'interno delle card di presentazione del contenuto.' , 'design_comuni_italia' ),
+        'type'       => 'textarea',
+        'attributes'    => array(
+            'maxlength'  => '255',
+        ),
+    ) );
+
+
+    $cmb_user->add_field( array(
         'name'    => __( 'Tipologia', 'design_comuni_italia' ),
         'desc'    => __( 'tipologia Persona (es: Persona Politica )', 'design_comuni_italia' ),
         'id'      => $prefix . 'tipologia_persona',
@@ -243,3 +254,4 @@ function dci_add_persona_pubblica_metaboxes() {
     ) );
 
 }
+
