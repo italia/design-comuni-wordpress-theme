@@ -7,7 +7,7 @@
  * @package Design_Comuni_Italia
  */
 
-global $show_calendar, $gallery, $video, $trascrizione, $luogo, $pc_id, $uo_id, $appuntamento;
+global $show_calendar, $gallery, $video, $trascrizione, $luogo, $pc_id, $uo_id, $appuntamento, $inline;
 
 get_header();
 ?>
@@ -56,7 +56,10 @@ get_header();
                         </p>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
-                        <?php get_template_part('template-parts/single/actions'); ?>
+                        <?php 
+                            $inline = true;
+                            get_template_part('template-parts/single/actions'); 
+                        ?>
                         <?php                     
                         $data_inizio = date_i18n("Ymd\THi00", date($start_timestamp));
                         $data_fine = date_i18n("Ymd\THi00", date($end_timestamp));

@@ -9,16 +9,17 @@
 
     if (is_array($contenuti_evidenza) && count($contenuti_evidenza)) {
 ?>
-
-<h2 class="title-xxlarge mt-70 mb-4 mt-lg-40 pt-lg-2 mb-lg-40">
-    In evidenza
-</h2>
-<div class="row cmp-list-card-img cmp-list-card-img-hr g-4 align-items-stretch pb-60">
-    <?php 
-        $posts = $contenuti_evidenza; 
-        foreach ($posts as $post) {
-            get_template_part('template-parts/novita/cards-list');
-        }
-    ?>
+<div class="container py-5">
+    <h2 class="title-xxlarge mb-4">
+        In evidenza
+    </h2>
+    <div class="row g-4">
+        <?php 
+            $posts = $contenuti_evidenza; 
+            foreach ($posts as $post) {
+                get_template_part('template-parts/novita/cards-list');
+            }
+        ?>
+    </div>
 </div>
 <?php } ?>

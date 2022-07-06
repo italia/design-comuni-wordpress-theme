@@ -1,10 +1,10 @@
 <?php
-global $post;
+global $post, $inline;
 $argomenti = get_the_terms($post, 'argomenti');
 $post_url = get_permalink();
 ?>
 
-<div class="dropdown">
+<div class="dropdown <?php echo $inline ? 'd-inline' : '' ?>">
     <button
         class="btn btn-dropdown dropdown-toggle"
         type="button"
@@ -12,6 +12,7 @@ $post_url = get_permalink();
         data-bs-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
+        aria-label="condividi sui social"
     >
         <svg class="icon">
             <use xlink:href="#it-share"></use>
@@ -65,7 +66,7 @@ $post_url = get_permalink();
         </div>
     </div>
 </div>
-<div class="dropdown">
+<div class="dropdown <?php echo $inline ? 'd-inline' : '' ?>">
     <button
         class="btn btn-dropdown dropdown-toggle"
         type="button"
@@ -130,13 +131,15 @@ $post_url = get_permalink();
 </div>
 <?php if (is_array($argomenti) && count($argomenti) ) { ?>
 <div class="mt-4 mb-4">
-    <h6><small>Argomenti</small></h6>
-    <?php foreach ($argomenti as $argomento) { ?>
-    <a href="<?php echo get_term_link($argomento->term_id); ?>" aria-label="Vai all'argomento: <?php echo $argomento->name; ?>" title="Vai all'argomento: <?php echo $argomento->name; ?>" data-element="service-topic">
-        <div class="chip chip-simple chip-primary">
-            <span class="chip-label"><?php echo $argomento->name; ?></span>
-        </div>
-    </a>
-    <?php } ?>
+    <span class="subtitle-small">Argomenti</span>
+    <div class="chip-wrapper mt-2">
+        <?php foreach ($argomenti as $argomento) { ?>
+        <a href="<?php echo get_term_link($argomento->term_id); ?>" aria-label="Vai all'argomento: <?php echo $argomento->name; ?>" title="Vai all'argomento: <?php echo $argomento->name; ?>" data-element="service-topic">
+            <div class="chip chip-simple chip-primary">
+                <span class="chip-label"><?php echo $argomento->name; ?></span>
+            </div>
+        </a>
+        <?php } ?>
+    </div>
 </div>
 <?php } ?>

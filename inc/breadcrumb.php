@@ -182,7 +182,7 @@ class Breadcrumb_Trail {
 
 			// Open the unordered list.
 			$breadcrumb .= sprintf(
-				'<%s class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">',
+				'<%s class="breadcrumb p-0" itemscope itemtype="http://schema.org/BreadcrumbList">',
 				tag_escape( $this->args['list_tag'] )
 			);
 
@@ -235,7 +235,7 @@ class Breadcrumb_Trail {
 
 			// Wrap the breadcrumb trail.
 			$breadcrumb = sprintf(
-				'<%1$s role="navigation" aria-label="%2$s" class="breadcrumb-container" itemprop="breadcrumb">%3$s%4$s%5$s</%1$s>',
+				'<%1$s aria-label="%2$s" class="breadcrumb-container" >%3$s%4$s%5$s</%1$s>',
 				tag_escape( $this->args['container'] ),
 				esc_attr( $this->labels['aria_label'] ),
 				$this->args['before'],

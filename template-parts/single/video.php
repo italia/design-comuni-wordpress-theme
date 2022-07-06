@@ -3,7 +3,15 @@ global $video, $trascrizione;
 ?>
 
 <div class="ratio ratio-16x9 my-4">
-    <?php echo wp_oembed_get ($video); ?>
+    <?php 
+    if (wp_oembed_get($video) ) {
+        echo wp_oembed_get($video); 
+    } else { ?>
+    <video width="320" height="240" controls>
+        <source src="<?php echo $video;?>" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <?php } ?>
 </div>
 <?php if ($trascrizione) { ?>
 <div class="accordion border-0 mb-4" id="videoTranscription">

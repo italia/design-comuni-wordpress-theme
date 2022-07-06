@@ -25,29 +25,27 @@ $altri_argomenti = dci_get_option('argomenti_altri','homepage');
     </div>
     <div class="row pt-30">
         <div class="l-lg-10 col-xl-6 offset-lg-1 offset-xl-2">
-        <div class="row d-lg-inline-flex">
-            <div class="col-lg-3">
-                <h3 class="text-uppercase mb-3 title-xsmall-bold text u-grey-light">
-                    Altri argomenti
-                </h3>
-            </div>
-            <div class="col-lg-9 argomenti">
-                <?php if (is_array($altri_argomenti)) {
-                    foreach ($altri_argomenti as $arg_id) {
-                        $argomento = get_term_by('term_taxonomy_id', $arg_id);
-                        $url = get_term_link(intval($arg_id),'argomenti');
-                ?>
-                <div class="chip chip-simple chip-primary bg-primary rounded-3 pb-0 mb-2">
-                    <a href="<?php echo $url ?>" class="chip-label text-white" aria-label="Vai all'argomento <?php echo $argomento->name; ?>" title="Vai all'argomento <?php echo $argomento->name; ?>"><?php echo $argomento->name ?></a>
+            <div class="row d-lg-inline-flex">
+                <div class="col-lg-3">
+                    <h3 class="text-uppercase mb-3 title-xsmall-bold text u-grey-light">
+                        Altri argomenti
+                    </h3>
                 </div>
-                <?php } } ?>
+                <div class="col-lg-9 argomenti">
+                    <?php if (is_array($altri_argomenti)) {
+                        foreach ($altri_argomenti as $arg_id) {
+                            $argomento = get_term_by('term_taxonomy_id', $arg_id);
+                            $url = get_term_link(intval($arg_id),'argomenti');
+                    ?>
+                    <div class="chip chip-simple chip-primary bg-primary rounded-3 pb-0 mb-2">
+                        <a href="<?php echo $url ?>" class="chip-label text-white" aria-label="Vai all'argomento <?php echo $argomento->name; ?>" title="Vai all'argomento <?php echo $argomento->name; ?>"><?php echo $argomento->name ?></a>
+                    </div>
+                    <?php } } ?>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col text-center">
+        <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 text-center">
             <a href="<?php echo dci_get_template_page_url("page-templates/argomenti.php"); ?>" class="btn btn-primary mt-5" aria-label="Vai alla pagina argomenti" title="Vai alla pagina argomenti">Vedi tutti</a>
-            </div>
-        </div>
         </div>
     </div>
 </div>

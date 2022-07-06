@@ -7,7 +7,7 @@
  * @package Design_Comuni_Italia
  */
 
-global $uo_id;
+global $uo_id, $inline;
 
 get_header();
 ?>
@@ -54,7 +54,10 @@ get_header();
                         </div>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
-                        <?php get_template_part('template-parts/single/actions'); ?>
+                        <?php 
+                        $inline = true;
+                        get_template_part('template-parts/single/actions'); 
+                        ?>
                     </div>
                 </div>
             </div>
