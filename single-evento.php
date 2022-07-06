@@ -20,6 +20,7 @@ get_header();
 
             $prefix= '_dci_evento_';    
             $descrizione_breve = dci_get_meta("descrizione_breve", $prefix, $post->ID);
+            //dates
             $start_timestamp = dci_get_meta("data_orario_inizio", $prefix, $post->ID);
             $start_date = date_i18n('d F Y', date($start_timestamp));
             $start_date_arr = explode('-', date_i18n('d-M-Y-H-i', date($start_timestamp)));
@@ -27,6 +28,7 @@ get_header();
             $end_date = date_i18n('d F Y', date($end_timestamp));
             $end_date_arr = explode('-', date_i18n('d-M-Y-H-i', date($end_timestamp)));
             $descrizione = dci_get_meta("descrizione_completa", $prefix, $post->ID);
+            //media
             $gallery = dci_get_meta("gallery", $prefix, $post->ID);
             $video = dci_get_meta("video", $prefix, $post->ID);
             $trascrizione = dci_get_meta("trascrizione", $prefix, $post->ID);
@@ -50,7 +52,9 @@ get_header();
                 <div class="row">
                     <div class="col-lg-8 px-lg-4 py-lg-2">
                         <h1><?php the_title(); ?></h1>
-                        <h2 class="h4 py-2">dal <?php echo $start_date; ?> al <?php echo $end_date; ?></h2>
+                        <?php if ($start_timestamp && $end_timestamp) { ?>
+                            <h2 class="h4 py-2">dal <?php echo $start_date; ?> al <?php echo $end_date; ?></h2>
+                        <?php } ?>
                         <p>
                             <?php echo $descrizione_breve; ?>
                         </p>
@@ -59,11 +63,6 @@ get_header();
                         <?php 
                             $inline = true;
                             get_template_part('template-parts/single/actions'); 
-                        ?>
-                        <?php                     
-                        $data_inizio = date_i18n("Ymd\THi00", date($start_timestamp));
-                        $data_fine = date_i18n("Ymd\THi00", date($end_timestamp));
-                        $luogo = $luogo_evento->post_title;
                         ?>
                         <div class="mt-5">
                             <a target="_blank" href="https://calendar.google.com/calendar/r" class="btn btn-outline-primary btn-icon" aria-label="vai al calendario eventi" title="vai al calendario eventi">
@@ -123,11 +122,13 @@ get_header();
                                         >
                                     </li>
                                     <?php } ?>
+                                    <?php if ($start_timestamp && $end_timestamp) { ?>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#date-e-orari" aria-label="Vai alla sezione Date e orari " title="Vai alla sezione Date e orari "
                                         ><span>Date e orari</span></a
                                         >
                                     </li>
+                                    <?php } ?>
                                     <?php if( is_array($costi) && count($costi) ) { ?>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#costi" aria-label="Vai alla sezione Costi " title="Vai alla sezione Costi "
@@ -196,6 +197,7 @@ get_header();
                             ?>
                         </article>
                     <?php } ?>
+                    <?php if ($start_timestamp && $end_timestamp) { ?>
                     <article id="date-e-orari" class="it-page-section anchor-offset">
                         <h4>Date e orari</h4>
                         <div class="point-list-wrapper my-4">
@@ -248,6 +250,7 @@ get_header();
                             </a>
                         </div>
                     </article>
+                    <?php } ?>
                     <?php if( is_array($costi) && count($costi) ) { ?>
                     <article id="costi" class="it-page-section anchor-offset mt-5">
                         <h4>Costi</h4>
