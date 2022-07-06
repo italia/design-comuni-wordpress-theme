@@ -28,7 +28,7 @@ get_header();
             // $destinatari_intro = dci_get_meta("destinatari_introduzione");
             // $destinatari_list = dci_get_meta("destinatari_list");
             $descrizione = dci_get_meta("descrizione_estesa");
-            $copertura_geografica = dci_get_meta("copertura_geografica");
+            // $copertura_geografica = dci_get_meta("copertura_geografica");
             $come_fare = dci_get_meta("come_fare");
             $cosa_serve_intro = dci_get_meta("cosa_serve_introduzione");
             $cosa_serve_list = dci_get_meta("cosa_serve_list");
@@ -70,15 +70,15 @@ get_header();
                                         <?php the_title(); ?>
                                     </h1>
                                     <?php if ( $stato == 'true' ) {?>
-                                        <div class="d-flex flex-wrap gap-2 cmp-heading__tag">
+                                        <div class="d-flex flex-wrap cmp-heading__tag">
                                             <div class="cmp-tag">
-                                            <a class="cmp-tag__tag title-xsmall u-main-green" href="#" data-element="service-status">Servizio attivo</a>
+                                            <span class="cmp-tag__tag title-xsmall text-decoration-none text-button" data-element="service-status">Servizio attivo</span>
                                             </div>
                                         </div>
                                     <?php } else {?>
                                         <div class="d-flex flex-wrap gap-2 cmp-heading__tag">
                                             <div class="cmp-tag">
-                                            <a class="cmp-tag__tag title-xsmall u-main-green" href="#" data-element="service-status">Servizio non attivo</a>
+                                            <span class="cmp-tag__tag title-xsmall text-decoration-none text-button" data-element="service-status">Servizio non attivo</span>
                                             </div>
                                             <!-- <div><?php #echo $motivo_stato; ?></div> -->
                                         </div>
@@ -132,13 +132,6 @@ get_header();
                                                 <a class="list-item" href="#description" aria-label="Vai alla sezione Descrizione" title="Vai alla sezione Descrizione">
                                                 <span class="title-medium">Descrizione</span>
                                                 </a>
-                                            </li>
-                                        <?php } ?>
-                                        <?php if ( $copertura_geografica ) { ?>
-                                            <li>
-                                                <a class="list-item" href="#art-par-copertura_geografica"
-                                                ><span>Copertura geografica</span></a
-                                                >
                                             </li>
                                         <?php } ?>
                                         <?php if ( $come_fare ) { ?>
@@ -208,7 +201,6 @@ get_header();
                             <p class="text-paragraph lora"><?php echo $descrizione ?></p>
                         </section>
                         <?php } ?>
-                        <?php #if ( $copertura_geografica ) { }?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="how-to">Come fare</h2>
                             <p class="text-paragraph lora"> 

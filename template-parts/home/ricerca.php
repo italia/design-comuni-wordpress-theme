@@ -10,11 +10,16 @@
                 <form role="search" id="search-form" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <div class="cmp-input-search">
                         <div class="form-group autocomplete-wrapper mb-2 mb-lg-4">
-                        <label for="autocomplete-three" class="visually-hidden">Cerca una parola chiave</label>
-                        <input type="search" class="autocomplete" placeholder="Cerca una parola chiave" id="autocomplete-three" name="s" value="<?php echo get_search_query(); ?>" data-bs-autocomplete="[]">
-                        <span class="autocomplete-icon" aria-hidden="true">
-                            <svg class="icon icon-sm icon-primary"><use href="#it-search"></use></svg>
-                        </span>
+                            <div class="input-group">
+                                <label for="autocomplete-three" class="visually-hidden">Cerca una parola chiave</label>
+                                <input type="search" class="autocomplete form-control" placeholder="Cerca una parola chiave" id="autocomplete-three" name="s" value="<?php echo get_search_query(); ?>" data-bs-autocomplete="[]">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit" id="button-3">Invio</button>
+                                </div>
+                                <span class="autocomplete-icon" aria-hidden="true">
+                                    <svg class="icon icon-sm icon-primary"><use href="#it-search"></use></svg>
+                                </span>
+                            </div>
                         
                         </div>
                     </div>
