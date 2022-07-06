@@ -70,16 +70,23 @@
     select_servizio.disabled = true;
   }
 
-  function createSuccessFeedback() {
-    const feedbackHeading = document.createElement("h2");
-    feedbackHeading.classList.add("title-xxlarge", "mb-0");
-    feedbackHeading.innerText = "Richiesta inviata correttamente";
-    const feedbackDetails = document.createElement("p");
-    feedbackDetails.classList.add("text-paragraph", "mb-3");
-    feedbackDetails.innerText = "Riceverai risposta entro breve.";
-    const feedback = document.createElement("div");
-    feedback.append(feedbackHeading, feedbackDetails);
-    return feedback;
+  // function createSuccessFeedback() {
+  //   const feedbackHeading = document.createElement("h2");
+  //   feedbackHeading.classList.add("title-xxlarge", "mb-0");
+  //   feedbackHeading.innerText = "Richiesta inviata correttamente";
+  //   const feedbackDetails = document.createElement("p");
+  //   feedbackDetails.classList.add("text-paragraph", "mb-3");
+  //   feedbackDetails.innerText = "Riceverai risposta entro breve.";
+  //   const feedback = document.createElement("div");
+  //   feedback.append(feedbackHeading, feedbackDetails);
+  //   return feedback;
+  // }
+
+  function successFeedback() {
+    document.getElementById("first-step").classList.add("d-none");
+    document.getElementById("email-recap").innerText =
+      $wrapper.querySelector('[name="email"]').value;
+    document.getElementById("second-step").classList.remove("d-none");
   }
 
   function createFailureFeedback() {
@@ -134,10 +141,8 @@
       /* API call */
       const success = await postNode();
       if (success) {
-        /* replace form with success message */
-        const successFeedback = createSuccessFeedback();
-        form.innerHTML = "";
-        form.appendChild(successFeedback);
+        /* show success message */
+        successFeedback();
         /* scroll to top of page */
         const navbar = document.querySelector(".menu-wrapper");
         if (navbar) navbar.scrollIntoView({ behavior: "smooth" });
