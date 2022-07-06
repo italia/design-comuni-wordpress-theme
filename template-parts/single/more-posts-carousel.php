@@ -7,10 +7,10 @@ global $post;
 $oldpost = $post;
 $argomenti = dci_get_argomenti_of_post();
 if(count($argomenti)) {
-	// estraggo gli slugs
+	// estraggo i nomi
 	$arr_ids = array();
 	foreach ( $argomenti as $item ) {
-		$arr_ids[] = $item->slug;
+		$arr_ids[] = $item->name;
 	}
   $amount = 10;
 	$amministrazione = dci_get_grouped_posts_by_term('amministrazione', 'argomenti', $arr_ids, $amount);
