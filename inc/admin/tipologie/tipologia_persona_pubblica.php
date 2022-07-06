@@ -88,17 +88,6 @@ function dci_add_persona_pubblica_metaboxes() {
     ) );
 
     $cmb_user->add_field( array(
-        'name'    => __( 'Tipologia', 'design_comuni_italia' ),
-        'desc'    => __( 'tipologia Persona (es: Persona Politica )', 'design_comuni_italia' ),
-        'id'      => $prefix . 'tipologia_persona',
-        'type'    => 'pw_select',
-        'options' => array(
-            'default' => null,
-            'Persona Politica' => 'Persona Politica',
-        )
-    ) );
-
-    $cmb_user->add_field( array(
         'name'    => __( 'Foto della Persona', 'design_comuni_italia' ),
         'desc'    => __( 'Inserire una fotografia che ritrae il soggetto descritto nella scheda', 'design_comuni_italia' ),
         'id'      => $prefix . 'foto',
@@ -111,6 +100,9 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Collegamenti con gli incarichi' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('incarico'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona gli incarichi', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_user->add_field( array(
@@ -119,6 +111,9 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Le organizzazioni di cui fa parte (es. Consiglio Comunale; es. Sistemi informativi)' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_user->add_field( array(
@@ -127,6 +122,9 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Organizzazione di cui è responsabile.' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('unita_organizzativa'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_user->add_field( array(
@@ -188,7 +186,8 @@ function dci_add_persona_pubblica_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('punto_contatto'),
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'placeholder' =>  __( ' Seleziona i punti di contatto', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -268,15 +267,3 @@ function dci_persona_pubblica_set_post_title( $data ) {
     return $data;
 }
 add_filter( 'wp_insert_post_data' , 'dci_persona_pubblica_set_post_title' , '99', 1 );
-
-/**
- * aggiungo js per controllo campi opzionali
- */
-add_action( 'admin_print_scripts-post-new.php', 'dci_persona_pubblica_admin_script', 11 );
-add_action( 'admin_print_scripts-post.php', 'dci_persona_pubblica_admin_script', 11 );
-
-function dci_persona_pubblica_admin_script() {
-    global $post_type;
-    if( 'persona_pubblica' == $post_type )
-        wp_enqueue_script( 'persona_pubblica-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/persona_pubblica.js' );
-}

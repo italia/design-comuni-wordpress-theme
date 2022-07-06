@@ -6,7 +6,6 @@
 add_action( 'init', 'dci_register_post_type_domanda_frequente', 60 );
 function dci_register_post_type_domanda_frequente() {
 
-    /** evento **/
     $labels = array(
         'name'                  => _x( 'Domande frequenti', 'Post Type General Name', 'design_comuni_italia' ),
         'singular_name'         => _x( 'Domanda Frequente', 'Post Type Singular Name', 'design_comuni_italia' ),
@@ -22,7 +21,7 @@ function dci_register_post_type_domanda_frequente() {
     $args = array(
         'label'                 => __( 'Domanda Frequente', 'design_comuni_italia' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
+        'supports'              => array( 'title', 'editor' ),
         'hierarchical'          => false,
         'public'                => true,
         'menu_position'         => 5,
@@ -48,7 +47,7 @@ function dci_domanda_frequente_add_content_after_title($post) {
 }
 
 /**
- * Crea i metabox del post type Sito Tematico
+ * Crea i metabox del post type Domanda Frequente
  */
 add_action( 'cmb2_init', 'dci_add_domanda_frequente_metaboxes' );
 function dci_add_domanda_frequente_metaboxes() {
@@ -56,15 +55,14 @@ function dci_add_domanda_frequente_metaboxes() {
 
     $cmb_risposta = new_cmb2_box( array(
         'id'           => $prefix . 'box_risposta',
-        'title'        => __( 'Risposta' ),
+        'title'        => __( 'Risposta *' ),
         'object_types' => array( 'domanda_frequente' ),
         'context'      => 'normal',
         'priority'     => 'high',
     ) );
 
     $cmb_risposta->add_field( array(
-
-        'desc'       => __('Inserisci qui la risposta alla domanda', 'design_comuni_italia' ),
+        'desc'       => __('Inserisci qui la risposta alla domanda.', 'design_comuni_italia' ),
         'id'         => $prefix . 'risposta',
         'type'       => 'textarea',
         'attributes'    => array(
@@ -72,6 +70,5 @@ function dci_add_domanda_frequente_metaboxes() {
             'maxlength'  => '255',
         ),
     ) );
-
 
 }

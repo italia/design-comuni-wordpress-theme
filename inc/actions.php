@@ -9,6 +9,11 @@ function force_post_title( $post )  {
     // List of post types that we want to require post titles for.
     $post_types = dci_get_tipologie_names();
 
+    //remove control for persona_pubblica
+    if (($key = array_search('persona_pubblica', $post_types)) !== false) {
+        unset($post_types[$key]);
+    }
+
     // If the current post is not one of the chosen post types, exit this function.
     if ( ! in_array( $post->post_type, $post_types ) ) {
         return;

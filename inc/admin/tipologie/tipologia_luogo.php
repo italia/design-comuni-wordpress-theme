@@ -167,6 +167,9 @@ function dci_add_luogo_metaboxes() {
         'desc' => __( 'Elenco di eventuali altri luoghi d\'interesse collegati' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('luogo'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona i luoghi', 'design_comuni_italia' ),
+        ),
     ) );
 
     $cmb_gallerie_multimediali = new_cmb2_box( array(
@@ -326,7 +329,7 @@ function dci_add_luogo_metaboxes() {
      */
     $cmb_dove->add_field( array(
         'id'         => $prefix . 'posizione_gps',
-        'name'       => __( 'Posizione GPS <br><small>NB: clicca sulla lente d\'ingrandimento e cerca l\'indirizzo, anche se lo hai già inserito nel campo precedente.<br>Questo permetterà una corretta georeferenziazione del luogo</small>', 'design_comuni_italia' ),
+        'name'       => __( 'Posizione GPS *<br><small>NB: clicca sulla lente d\'ingrandimento e cerca l\'indirizzo, anche se lo hai già inserito nel campo precedente.<br>Questo permetterà una corretta georeferenziazione del luogo</small>', 'design_comuni_italia' ),
         'desc'       => __( 'Georeferenziazione del luogo e link a posizione in mappa', 'design_comuni_italia' ),
         'type'       => 'leaflet_map',
         'attributes' => array(
@@ -390,7 +393,8 @@ function dci_add_luogo_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('punto_contatto'),
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'placeholder' =>  __( ' Seleziona i punti di contatto', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -410,6 +414,9 @@ function dci_add_luogo_metaboxes() {
         'desc' => __( 'Unità organizzativa che ha la responsabilità del luogo' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_informazioni->add_field( array(
@@ -418,6 +425,9 @@ function dci_add_luogo_metaboxes() {
         'desc' => __( 'Link alle strutture (segreteria, scuola, dirigenza) presenti nel luogo' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_informazioni->add_field( array(
@@ -426,9 +436,9 @@ function dci_add_luogo_metaboxes() {
         'desc'       => __( 'Ulteriori informazioni sul Luogo, FAQ ed eventuali riferimenti normativi', 'design_comuni_italia' ),
         'type'       => 'wysiwyg',
         'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'media_buttons' => false,
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 

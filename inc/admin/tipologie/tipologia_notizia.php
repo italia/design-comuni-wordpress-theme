@@ -1,10 +1,11 @@
 <?php
+
 /**
  * Definisce post type Notizia
  */
 add_action( 'init', 'dci_register_post_type_notizia');
 function dci_register_post_type_notizia() {
-    /** scheda **/
+
     $labels = array(
         'name'          => _x( 'Notizie', 'Post Type General Name', 'design_comuni_italia' ),
         'singular_name' => _x( 'Notizia', 'Post Type Singular Name', 'design_comuni_italia' ),
@@ -17,7 +18,6 @@ function dci_register_post_type_notizia() {
         'label'         => __( 'Notizia', 'design_comuni_italia' ),
         'labels'        => $labels,
         'supports'      => array( 'title', 'editor', 'author', 'thumbnail'),
-        //'taxonomies'    => array( 'post_tag' ),
         'hierarchical'  => false,
         'public'        => true,
         'menu_position' => 5,
@@ -55,6 +55,7 @@ function dci_add_notizia_metaboxes() {
         'context'      => 'side',
         'priority'     => 'high',
     ) );
+
     $cmb_argomenti->add_field( array(
         'id' => $prefix . 'argomenti',
         'type'             => 'taxonomy_multicheck_hierarchical',
@@ -71,6 +72,7 @@ function dci_add_notizia_metaboxes() {
         'context'      => 'normal',
         'priority'     => 'high',
     ) );
+
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'tipo_notizia',
         'name'        => __( 'Tipo di notizia *', 'design_comuni_italia' ),
@@ -85,8 +87,7 @@ function dci_add_notizia_metaboxes() {
 
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'numero_comunicato',
-        'name'        => __( 'Numero progressivo comunicato stampa
-', 'design_comuni_italia' ),
+        'name'        => __( 'Numero progressivo comunicato stampa', 'design_comuni_italia' ),
         'desc' => __( 'Se è un comunicato stampa, indica un\'eventuale numero progressivo del comunicato stampa' , 'design_comuni_italia' ),
         'type' => 'text',
         'attributes'    => array(
@@ -103,17 +104,19 @@ function dci_add_notizia_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
         ),
     ) );
+
     $cmb_apertura->add_field( array(
         'name'       => __('Immagine', 'design_comuni_italia' ),
         'desc' => __( 'Immagine principale della notizia' , 'design_comuni_italia' ),
         'id'             => $prefix . 'immagine',
         'type' => 'file',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        'query_args' => array( 'type' => 'image' ), // Only images attachment
+        'query_args' => array( 'type' => 'image' ),
     ) );
+
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'descrizione_breve',
         'name'        => __( 'Descrizione breve *', 'design_comuni_italia' ),
@@ -128,7 +131,7 @@ function dci_add_notizia_metaboxes() {
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'data_pubblicazione',
         'name'    => __( 'Data della notizia', 'design_comuni_italia' ),
-        'desc' => __( 'Data di pubblicazione della notizia' , 'design_comuni_italia' ),
+        'desc' => __( 'Data di pubblicazione della notizia. Se non compilato a front end viene mostrata la data di pubblicazione del post.' , 'design_comuni_italia' ),
         'type'    => 'text_date_timestamp',
     ) );
 
@@ -145,6 +148,9 @@ function dci_add_notizia_metaboxes() {
         'desc' => __( 'Link a schede persone dell\'amminsitrazione citate nella notizia' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('persona_pubblica'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona le persone pubbliche', 'design_comuni_italia' ),
+        ),
     ) );
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'luoghi',
@@ -190,6 +196,7 @@ function dci_add_notizia_metaboxes() {
         'context'      => 'normal',
         'priority'     => 'high',
     ) );
+
     // repeater Gallerie Multimediali
     $group_field_id = $cmb_gallerie_multimediali->add_field( array(
         'id'          => $prefix . 'gallerie_multimediali',
@@ -200,17 +207,15 @@ function dci_add_notizia_metaboxes() {
             'add_button'     => __( 'Aggiungi una gallery', 'design_comuni_italia' ),
             'remove_button'  => __( 'Rimuovi la gallery', 'design_comuni_italia' ),
             'sortable'       => true,
-            // 'closed'      => true, // true to have the groups closed by default
-            //'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
         ),
     ) );
 
     $cmb_gallerie_multimediali->add_group_field( $group_field_id, array(
         'name'       => __('Titolo gallery', 'design_comuni_italia' ),
-        //'desc'       => __('Esempio: ".."', 'design_comuni_italia' ),
         'id'         => 'titolo_gallery',
         'type'       => 'text',
     ) );
+
     $cmb_gallerie_multimediali->add_group_field( $group_field_id, array(
         'name'       => __('Media', 'design_comuni_italia' ),
         'desc'       => __('contenuti della gallery (immagini o video)', 'design_comuni_italia' ),
@@ -218,8 +223,8 @@ function dci_add_notizia_metaboxes() {
         'type'       => 'file_list',
         'query_args' => array( 'type' => array('image','video') )
     ) );
-
     /*** fine repeater gallerie **/
+
     //DOCUMENTI
     $cmb_documenti = new_cmb2_box( array(
         'id'           => $prefix . 'box_documenti',
@@ -235,6 +240,9 @@ function dci_add_notizia_metaboxes() {
         'desc' => __( 'Link a schede di Documenti' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_pubblico'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona i documenti pubblici', 'design_comuni_italia' ),
+        ),
     ) );
 
     $cmb_documenti->add_field( array(
@@ -259,6 +267,9 @@ function dci_add_notizia_metaboxes() {
         'desc' => __( 'Lista schede Dataset collegate alla notizia' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('dataset'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona i dataset', 'design_comuni_italia' ),
+        ),
     ) );
 
 }
