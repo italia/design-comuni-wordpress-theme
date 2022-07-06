@@ -12,9 +12,9 @@ function dci_register_post_type_evento() {
         'singular_name'         => _x( 'Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'add_new'               => _x( 'Aggiungi un Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'add_new_item'               => _x( 'Aggiungi un Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'featured_image' => __( 'Logo Identificativo del Evento', 'design_comuni_italia' ),
-        'edit_item'      => _x( 'Modifica il Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'view_item'      => _x( 'Visualizza il Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'featured_image' => __( 'Logo Identificativo dell\'Evento', 'design_comuni_italia' ),
+        'edit_item'      => _x( 'Modifica l\'Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'view_item'      => _x( 'Visualizza l\'Evento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'set_featured_image' => __( 'Seleziona Immagine Evento' ),
         'remove_featured_image' => __( 'Rimuovi Immagine Evento' , 'design_comuni_italia' ),
         'use_featured_image' => __( 'Usa come Immagine Evento' , 'design_comuni_italia' ),
@@ -22,12 +22,12 @@ function dci_register_post_type_evento() {
     $args = array(
         'label'                 => __( 'Evento', 'design_comuni_italia' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
+        'supports'              => array( 'title', 'editor' ),
         'hierarchical'          => false,
         'public'                => true,
         'menu_position' => 5,
         'menu_icon'             => 'dashicons-tickets-alt',
-        'has_archive'           => false,    //archive page
+        'has_archive'           => false,
         'rewrite' => array('slug' => 'vivere-il-comune/eventi', 'with_front' => false),
         'capability_type' => array('evento', 'eventi'),
         'map_meta_cap'    => true,
@@ -64,7 +64,7 @@ function dci_add_eventi_metaboxes() {
         'priority'     => 'high',
     ) );
 
-    //argomenti
+    //tipo evento
     $cmb_tipo_evento = new_cmb2_box( array(
         'id'           => $prefix . 'box_tipo_evento',
         'title'        => __( 'Tipo di evento *', 'design_comuni_italia' ),
@@ -72,10 +72,11 @@ function dci_add_eventi_metaboxes() {
         'context'      => 'side',
         'priority'     => 'high',
     ) );
+
     $cmb_tipo_evento->add_field( array(
         'id'        => $prefix . 'tipo_evento',
         //'name'      => __( 'Tipo di evento *', 'design_comuni_italia' ),
-        //'desc'      => __( 'tipologia a cui appartiene l'evento', 'design_comuni_italia' ),
+        //'desc'      => __( 'Tipologia a cui appartiene l'evento', 'design_comuni_italia' ),
         'type'           => 'taxonomy_radio_hierarchical',
         'taxonomy'       => 'tipi_evento',
         'remove_default' => 'true',
@@ -97,28 +98,25 @@ function dci_add_eventi_metaboxes() {
 
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'data_orario_inizio',
-        'name'    => __( 'Data e orario di inizio *', 'design_comuni_italia' ),
+        'name'    => __( 'Data e orario di inizio', 'design_comuni_italia' ),
         'type'    => 'text_datetime_timestamp',
-        'attributes' => array(
-            'required' => true
-        )
-    ) );
-    $cmb_apertura->add_field( array(
-        'id' => $prefix . 'data_orario_fine',
-        'name'    => __( 'Data e orario di fine *', 'design_comuni_italia' ),
-        'type'    => 'text_datetime_timestamp',
-        'attributes' => array(
-            'required' => true
-        )
     ) );
 
     $cmb_apertura->add_field( array(
-            'name'       => __('Immagine', 'design_comuni_italia' ),
+        'id' => $prefix . 'data_orario_fine',
+        'name'    => __( 'Data e orario di fine', 'design_comuni_italia' ),
+        'type'    => 'text_datetime_timestamp',
+    ) );
+
+    $cmb_apertura->add_field( array(
+            'name'       => __('Immagine *', 'design_comuni_italia' ),
             'desc' => __( 'Immagine dell\'evento' , 'design_comuni_italia' ),
             'id'             => $prefix . 'immagine',
             'type' => 'file',
-            // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-            'query_args' => array( 'type' => 'image' ), // Only images attachment
+            'query_args' => array( 'type' => 'image' ),
+            'attributes' => array(
+                'required' => true
+            )
         )
     );
 
@@ -134,7 +132,10 @@ function dci_add_eventi_metaboxes() {
         'id'           => $prefix . 'evento_genitore',
         'desc'        => __( 'Selezionare se l\'evento ha un genitore', 'design_comuni_italia' ),
         'type' => 'pw_select',
-        'options' => dci_get_posts_options('evento')
+        'options' => dci_get_posts_options('evento'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona evento genitore', 'design_comuni_italia' ),
+        ),
     ) );
 
     //argomenti
@@ -145,6 +146,7 @@ function dci_add_eventi_metaboxes() {
         'context'      => 'side',
         'priority'     => 'high',
     ) );
+
     $cmb_argomenti->add_field( array(
         'id' => $prefix . 'argomenti',
         'type'             => 'taxonomy_multicheck_hierarchical',
@@ -179,9 +181,9 @@ function dci_add_eventi_metaboxes() {
         'desc' => __( 'Introduzione e descrizione esaustiva dell\'evento' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'media_buttons' => false,
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
         'attributes'    => array(
             'required'    => 'required'
@@ -197,15 +199,15 @@ function dci_add_eventi_metaboxes() {
             'required'    => 'required'
         ),
         'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'media_buttons' => false,
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 
     $cmb_descrizione->add_field( array(
             'id' => $prefix . 'persone',
-            'name'       => __('Persone dell\'amministrazione * ', 'design_comuni_italia' ),
+            'name'       => __('Persone dell\'amministrazione', 'design_comuni_italia' ),
             'desc' => __( 'Link a persone dell\'amministrazione che interverranno all\'evento ', 'design_comuni_italia' ),
             'type'    => 'pw_multiselect',
             'options' => dci_get_posts_options('persona_pubblica'),
@@ -228,15 +230,15 @@ function dci_add_eventi_metaboxes() {
         'name'       => __( 'Galleria di immagini', 'design_comuni_italia' ),
         'desc'       => __( 'Una o più immagini corredate da didascalie', 'design_comuni_italia' ),
         'type' => 'file_list',
-        'query_args' => array( 'type' => 'image' ), // Only images attachment
+        'query_args' => array( 'type' => 'image' ),
     ) );
 
     $cmb_gallerie_multimediali->add_field( array(
         'id'         => $prefix . 'video',
         'name'       => __( 'Video', 'design_comuni_italia' ),
-        'desc'       => __( 'Un video rappresentativo dell\'evento (è possibile insirerire un url esterno))', 'design_comuni_italia' ),
+        'desc'       => __( 'Un video rappresentativo dell\'evento (è possibile insirerire un url esterno).', 'design_comuni_italia' ),
         'type' => 'file',
-        'query_args' => array( 'type' => 'video' ), // Only images attachment
+        'query_args' => array( 'type' => 'video' ),
     ) );
 
     $cmb_gallerie_multimediali->add_field( array(
@@ -341,7 +343,8 @@ function dci_add_eventi_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('punto_contatto'),
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'placeholder' =>  __( ' Seleziona i punti di contatto', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -360,6 +363,9 @@ function dci_add_eventi_metaboxes() {
         'desc' => __( 'Relazione con le unità organizzative che organizzano l\'evento, se presenti' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+        ),
     ) );
 
     $cmb_informazioni->add_field( array(
@@ -368,9 +374,9 @@ function dci_add_eventi_metaboxes() {
         'desc' => __( 'Nome dell\'ente che patrocina l\'evento. Si raccomanda di non usare sigle ma il nome esteso (es. Non "Mise" ma "Ministero dello sviluppo economico").', 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'media_buttons' => false,
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 
@@ -380,9 +386,9 @@ function dci_add_eventi_metaboxes() {
         'desc' => __( 'Lista sponsor dell\'evento', 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'media_buttons' => false,
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 
@@ -392,9 +398,9 @@ function dci_add_eventi_metaboxes() {
         'desc'       => __( 'Ulteriori informazioni sull\'evento, FAQ ed eventuali riferimenti normativi', 'design_comuni_italia' ),
         'type'       => 'wysiwyg',
         'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'media_buttons' => false,
+            'textarea_rows' => 4,
+            'teeny' => true,
         ),
     ) );
 }
