@@ -7,7 +7,7 @@
  * @package Design_Comuni_Italia
  */
 
-global $obj, $the_query, $load_posts, $load_card_type, $servizio, $additional_filter;
+global $obj, $the_query, $load_posts, $load_card_type, $servizio, $additional_filter, $title, $description, $data_element;
 
 $max_posts = isset($_GET['max_posts']) ? $_GET['max_posts'] : 3;
 $load_posts = 3;
@@ -31,28 +31,12 @@ $bandi = dci_get_related_bandi();
 get_header();
 ?>
  <main>
-    <div class="container" id="main-container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-            <?php get_template_part("template-parts/common/breadcrumb"); ?>
-          <div class="cmp-hero">
-            <section class="it-hero-wrapper bg-white align-items-start">
-              <div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
-                <h1 class="text-black title-xxxlarge mb-2" data-element="page-name">
-                  <?php 
-                    if($obj) echo $obj->name; 
-                    else echo "Tutti i servizi";
-                  ?>
-                </h1>
-                <p class="text-black titillium text-paragraph">
-                    <?php echo $obj->description; ?>
-                </p>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php 
+      $title = $obj->name;
+      $description = $obj->description;
+      $data_element = 'data-element="page-name"';
+      get_template_part("template-parts/hero/hero"); 
+    ?>
   
     <div class="bg-grey-card">
       <form role="search" id="search-form" method="get" class="search-form">
