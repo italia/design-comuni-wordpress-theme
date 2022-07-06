@@ -70,18 +70,6 @@
     select_servizio.disabled = true;
   }
 
-  // function createSuccessFeedback() {
-  //   const feedbackHeading = document.createElement("h2");
-  //   feedbackHeading.classList.add("title-xxlarge", "mb-0");
-  //   feedbackHeading.innerText = "Richiesta inviata correttamente";
-  //   const feedbackDetails = document.createElement("p");
-  //   feedbackDetails.classList.add("text-paragraph", "mb-3");
-  //   feedbackDetails.innerText = "Riceverai risposta entro breve.";
-  //   const feedback = document.createElement("div");
-  //   feedback.append(feedbackHeading, feedbackDetails);
-  //   return feedback;
-  // }
-
   function successFeedback() {
     document.getElementById("first-step").classList.add("d-none");
     document.getElementById("email-recap").innerText =

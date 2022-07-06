@@ -357,24 +357,29 @@ emailInput.addEventListener("input", () => {
 });
 
 /* Step 5 */
-
-const setReviews = () => {
-  const dates = answers?.appointment;
-  const day = dates?.startDate?.split("T")[0];
-  const formatDay = new Date(day).toLocaleString([], {
+const getDay = () => {
+  const day = answers?.appointment?.startDate?.split("T")[0];
+  return new Date(day).toLocaleString([], {
     weekday: "long",
     day: "2-digit",
     month: "long",
     year: "numeric",
   });
-  const hour =
-    dates?.startDate?.split("T")[1] + " - " + dates?.endDate?.split("T")[1];
+};
 
+const getHour = () => {
+  const dates = answers?.appointment;
+  return [dates?.startDate?.split("T")[1], dates?.endDate?.split("T")[1]];
+};
+
+const setReviews = () => {
   //set all values
   document.getElementById("review-office").innerHTML = answers?.office;
   document.getElementById("review-place").innerHTML = answers?.place?.nome;
-  document.getElementById("review-date").innerHTML = formatDay;
-  document.getElementById("review-hour").innerHTML = hour;
+  document.getElementById("review-date").innerHTML = getDay();
+  document.getElementById("review-hour").innerHTML = `${getHour()[0]} - ${
+    getHour()[1]
+  }`;
   document.getElementById("review-service").innerHTML = answers?.service;
   document.getElementById("review-details").innerHTML = answers?.moreDetails;
   document.getElementById("review-name").innerHTML = answers?.name;
@@ -412,6 +417,16 @@ const checkMandatoryFields = () => {
 };
 
 /* confirm appointment - Submit */
+
+function successFeedback() {
+  document.getElementById("form-steps").classList.add("d-none");
+  document.getElementById("email-recap").innerText = answers?.email;
+  document.getElementById("date-recap").innerText = ` ${getDay()} dalle ore ${
+    getHour()[0]
+  } alle ore ${getHour()[1]}`;
+  const date = document.getElementById("final-step").classList.remove("d-none");
+}
+
 const confirmAppointment = () => {
   fetch(urlConfirm, {
     method: "POST",
@@ -424,7 +439,11 @@ const confirmAppointment = () => {
       return response.json();
     })
     .then((data) => {
-      alert(data?.message);
+      /* show success message */
+      successFeedback();
+      /* scroll to top of page */
+      const mainContainer = document.querySelector("#main-container");
+      if (mainContainer) mainContainer.scrollIntoView({ behavior: "smooth" });
     })
     .catch((err) => {
       console.log("err", err);

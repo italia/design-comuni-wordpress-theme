@@ -25,27 +25,33 @@ get_header();
                         <?php get_template_part("template-parts/common/breadcrumb"); ?>
                     </div>
                 </div>
-            </div>    
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-10">
-                        <div class="cmp-heading pb-3 pb-lg-4">
-                            <h1>Prenotazione appuntamento</h1>
+            </div>   
+            <div id="form-steps"> 
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-10">
+                            <div class="cmp-heading pb-3 pb-lg-4">
+                                <h1>Prenotazione appuntamento</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php get_template_part("template-parts/prenotazione/tabs"); ?>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <?php get_template_part("template-parts/prenotazione/index"); ?>
+                        <div class="col-12 col-lg-8 offset-lg-1 section-wrapper">
+                            <div class="steppers-content" aria-live="polite">
+                                <?php get_template_part("template-parts/prenotazione/content"); ?>
+                                <?php get_template_part("template-parts/prenotazione/buttons-bar"); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php get_template_part("template-parts/prenotazione/tabs"); ?>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <?php get_template_part("template-parts/prenotazione/index"); ?>
-                    <div class="col-12 col-lg-8 offset-lg-1 section-wrapper">
-                         <div class="steppers-content" aria-live="polite">
-                            <?php get_template_part("template-parts/prenotazione/content"); ?>
-                            <?php get_template_part("template-parts/prenotazione/buttons-bar"); ?>
-                        </div>
-                    </div>
-                </div>
+            <div id="final-step" class="d-none">
+                <?php get_template_part("template-parts/prenotazione/final-step"); ?>
+			    <?php get_template_part("template-parts/common/valuta-servizio"); ?>
             </div>
 
 
