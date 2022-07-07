@@ -385,6 +385,9 @@ function dci_add_servizi_metaboxes() {
                 )
             ), // override the get_posts args
         ),
+        'attributes' => array(
+            'required' => true
+        )
     ) );
 
     //argomenti

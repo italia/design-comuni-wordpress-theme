@@ -109,16 +109,12 @@ function dci_add_eventi_metaboxes() {
     ) );
 
     $cmb_apertura->add_field( array(
-            'name'       => __('Immagine *', 'design_comuni_italia' ),
-            'desc' => __( 'Immagine dell\'evento' , 'design_comuni_italia' ),
-            'id'             => $prefix . 'immagine',
-            'type' => 'file',
-            'query_args' => array( 'type' => 'image' ),
-            'attributes' => array(
-                'required' => true
-            )
-        )
-    );
+        'name'       => __('Immagine', 'design_comuni_italia' ),
+        'desc' => __( 'Immagine dell\'evento' , 'design_comuni_italia' ),
+        'id'             => $prefix . 'immagine',
+        'type' => 'file',
+        'query_args' => array( 'type' => 'image' ),
+    ));
 
     $cmb_evento_genitore = new_cmb2_box( array(
         'id'           => $prefix . 'box_evento_genitore',
