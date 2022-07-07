@@ -6,31 +6,32 @@ add_action( 'init', 'dci_register_post_type_unita_organizzativa', 60 );
 function dci_register_post_type_unita_organizzativa() {
     /** scheda **/
     $labels = array(
-        'name'          => _x( 'Unità organizzative', 'Post Type General Name', 'design_comuni_italia' ),
-        'singular_name' => _x( 'Unità organizzativa', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'add_new'       => _x( 'Aggiungi una Unità organizzativa', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'add_new_item'  => _x( 'Aggiungi una nuova Unità organizzativa', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'edit_item'       => _x( 'Modifica l\'Unità organizzativa', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'featured_image' => __( 'Immagine di riferimento dell\'Unità organizzativa', 'design_comuni_italia' ),
+        'name'          => _x( 'Unità Organizzative', 'Post Type General Name', 'design_comuni_italia' ),
+        'singular_name' => _x( 'Unità Organizzativa', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'add_new'       => _x( 'Aggiungi una Unità Organizzativa', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'add_new_item'  => _x( 'Aggiungi una nuova Unità Organizzativa', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'edit_item'       => _x( 'Modifica l\'Unità Organizzativa', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'featured_image' => __( 'Immagine di riferimento dell\'Unità Organizzativa', 'design_comuni_italia' ),
     );
 
     $args   = array(
         'label'         => __( 'Unità organizzativa', 'design_comuni_italia' ),
         'labels'        => $labels,
         'supports'      => array( 'title', 'editor'),
-        //'taxonomies'    => array( 'post_tag' ),
         'hierarchical'  => false,
         'public'        => true,
         'menu_position' => 5,
         'menu_icon'     => 'dashicons-admin-multisite',
         'has_archive'   => false,
-        'capability_type' => array('unita_orgnaizzativa', 'unita_organizzative'),
+        'rewrite' => array('slug' => 'amministrazione/unita_organizzativa','with_front' => false),
+        'capability_type' => array('unita_organizzativa', 'unita_organizzative'),
         'map_meta_cap'    => true,
         'description'    => __( 'Questa Tipologia descrive la struttura di un\'organizzazione comunale funzionale alla creazione di contenuti come uffici o altre unità organizzative (content type "organizzazione")', 'design_comuni_italia' ),
         'show_in_rest'       => true,
         'rest_base'          => 'unita_organizzative',
         'rest_controller_class' => 'WP_REST_Posts_Controller',
-        );
+    );
+
     register_post_type('unita_organizzativa', $args );
 
     remove_post_type_support( 'unita_organizzativa', 'editor');
