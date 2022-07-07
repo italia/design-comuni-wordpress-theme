@@ -1,5 +1,5 @@
 <?php 
-  $links = dci_get_option('link','link_utili');
+  $links = dci_get_option('contenuti','ricerca');
 ?>
 <!-- Search Modal -->
 <div
@@ -84,11 +84,13 @@
                 <div class="searches-list-wrapper">
                   <div class="other-link-title">FORSE STAVI CERCANDO</div>
                   <ul class="searches-list">
-                    <?php foreach ($links as $link) { ?>
+                    <?php foreach ($links as $link_id) { 
+                      $link = get_post($link_id);  
+                    ?>
                       <li>
-                          <a class="list-item mb-3 active ps-0" href="<?php echo $link['url']; ?>" aria-label="Vai alla pagina <?php echo $link['testo']; ?>" title="Vai alla pagina <?php echo $link['testo']; ?>"
+                          <a class="list-item mb-3 active ps-0" href="<?php echo get_permalink($link_id); ?>" aria-label="Vai alla pagina <?php echo $link->post_title; ?>" title="Vai alla pagina <?php echo $link->post_title; ?>"
                           ><span class="text-button-normal"
-                              ><?php echo $link['testo']; ?></span
+                              ><?php echo $link->post_title; ?></span
                           ></a
                           >
                       </li>

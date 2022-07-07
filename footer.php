@@ -19,7 +19,7 @@
                         <a href="<?php echo home_url() ?>" aria-label="Vai alla homepage" title="Vai alla homepage">
                             <?php get_template_part("template-parts/common/logo");?>
                             <div class="it-brand-text">
-                                <h2 class="no_toc">Comune di <?php echo dci_get_option("nome_comune");?></h2>
+                                <h2 class="no_toc"><?php echo dci_get_option("nome_comune");?></h2>
                             </div>
                         </a>
                     </div>
@@ -111,7 +111,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <p class="footer-info">
-                                Comune di <?php echo dci_get_option("nome_comune"); ?>
+                                <?php echo dci_get_option("nome_comune"); ?>
                                 <br /><?php echo dci_get_option("contatti_indirizzo",'footer'); ?>
                                 <br /><?php if(dci_get_option("contatti_CF_PIVA",'footer')) echo 'Codice fiscale / P. IVA:' . dci_get_option("contatti_CF_PIVA",'footer'); ?>
                                 <br /><br />

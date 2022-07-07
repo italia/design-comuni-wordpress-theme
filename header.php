@@ -42,7 +42,7 @@ $current_group = dci_get_current_group();
                     <div class="it-brand-text d-flex align-items-center">
                       <?php get_template_part("template-parts/common/logo"); ?>
                       <div>
-                        <div class="it-brand-title">Comune di <?php echo dci_get_option("nome_comune"); ?></div>
+                        <div class="it-brand-title"><?php echo dci_get_option("nome_comune"); ?></div>
                         <div class="it-brand-tagline d-none d-md-block">
                           <?php echo dci_get_option("motto_comune"); ?>
                         </div>
@@ -120,7 +120,7 @@ $current_group = dci_get_current_group();
                 <a href="<?php echo home_url(); ?>" title="Vai alla home" aria-label="Vai alla homepage" class="logo-hamburger">
                     <?php get_template_part("template-parts/common/logo"); ?>
                   <div class="it-brand-text">
-                    <div class="it-brand-title">Comune di <?php echo dci_get_option("nome_comune"); ?></div>
+                    <div class="it-brand-title"><?php echo dci_get_option("nome_comune"); ?></div>
                   </div>
                 </a>
                 <?php

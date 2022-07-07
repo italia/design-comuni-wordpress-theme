@@ -317,8 +317,24 @@ get_header();
                     <article id="ulteriori-informazioni" class="it-page-section anchor-offset mt-5">
                     <h4 class="mb-3">Ulteriori informazioni</h4>
                     <?php 
-                        if ($patrocinato) echo '<strong>Patrocinato da:</strong>' . $patrocinato;
-                        if ($sponsor) echo '<strong>Sponsor:</strong>' . $sponsor;
+                        if ( is_array($patrocinato) && count($patrocinato) ) {
+                            echo '<strong>Patrocinato da:</strong>';
+                            echo '<div class="link-list-wrapper"><ul class="link-list">';
+                            foreach ($patrocinato as $item) { ?>
+                                <li><a class="list-item px-0" href="<?php echo $item['_dci_evento_url']; ?>" title="vai alla pagina <?php echo $item['_dci_evento_nome']; ?>" aria-label="vai alla pagina <?php echo $item['_dci_evento_nome']; ?>" target="_blank"><span><?php echo $item['_dci_evento_nome']; ?></span></a>
+                                </li>
+                            <?php }
+                            echo '</ul></div>';
+                        }
+                        if ( is_array($sponsor) && count($sponsor) ) {
+                            echo '<strong>Sponsor:</strong>';
+                            echo '<div class="link-list-wrapper"><ul class="link-list">';
+                            foreach ($sponsor as $item) { ?>
+                                <li><a class="list-item px-0" href="<?php echo $item['_dci_evento_url']; ?>" title="vai alla pagina <?php echo $item['_dci_evento_nome']; ?>" aria-label="vai alla pagina <?php echo $item['_dci_evento_nome']; ?>" target="_blank"><span><?php echo $item['_dci_evento_nome']; ?></span></a>
+                                </li>
+                            <?php }
+                            echo '</ul></div>';
+                        }
                     ?>
                     <?php get_template_part('template-parts/single/recensione'); ?>
                     <?php if ($more_info) { ?>
