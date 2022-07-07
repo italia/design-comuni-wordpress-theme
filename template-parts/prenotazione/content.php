@@ -35,7 +35,7 @@
                 </option>
                 <?php foreach ($uffici as $uo_id) {
                 $ufficio = get_post($uo_id);
-                echo '<option value="'.$ufficio->post_title.'">'.$ufficio->post_title.'</option>';
+                echo '<option value="'.$ufficio->ID.'">'.$ufficio->post_title.'</option>';
                 } ?>
             </select>
             </div>

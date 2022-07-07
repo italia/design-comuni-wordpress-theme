@@ -136,13 +136,15 @@ pageSteps();
 /* Define an empty object to collect answers */
 const answers = {};
 
+const encodeObject = (obj) => encodeURIComponent(JSON.stringify(obj));
+const decodeObj = (str) => JSON.parse(decodeURIComponent(str));
+
 const saveAnswerByValue = (key, value, toBeDecoded = false) => {
+  if (key == "office") for (k in answers) delete answers[k];
   if (toBeDecoded) {
-    const decodedvalue = decodeURIComponent(value);
-    const newValue = JSON.parse(decodedvalue);
+    const newValue = decodeObj(value);
     answers[key] = newValue;
   } else answers[key] = value;
-  if (key == "office") answers.place = null;
   checkMandatoryFields();
 };
 const saveAnswerById = (key, id, callback) => {
@@ -155,10 +157,12 @@ const saveAnswerById = (key, id, callback) => {
 /* Get Luoghi by Unità organizzativa - Step 1 */
 const officeSelect = document.getElementById("office-choice");
 officeSelect.addEventListener("change", () => {
-  saveAnswerByValue("office", officeSelect?.value);
+  const id = officeSelect?.value;
+  const name = officeSelect?.querySelector(`[value="${id}"]`)?.innerText;
+  saveAnswerByValue("office", encodeObject({ id, name }), true);
 
   if (officeSelect?.value) {
-    const urlParam = new URLSearchParams({ title: officeSelect.value });
+    const urlParam = new URLSearchParams({ id: officeSelect.value });
     fetch(`/wp-json/wp/v2/sedi/ufficio/?${urlParam}`)
       .then((response) => response.json())
       .then((data) => {
@@ -226,7 +230,7 @@ officeSelect.addEventListener("change", () => {
           '<option selected="selected" value="">Seleziona opzione</option>';
         for (const service of data) {
           document.querySelector("#motivo-appuntamento").innerHTML += `
-          <option value="${service?.post_title}">${service?.post_title}</option>
+          <option value="${service?.ID}">${service?.post_title}</option>
           `;
         }
       })
@@ -263,9 +267,7 @@ appointment.addEventListener("change", () => {
           year: "numeric",
         });
         const id = startDate + "/" + endDate;
-        const value = encodeURIComponent(
-          JSON.stringify({ startDate, endDate })
-        );
+        const value = encodeObject({ startDate, endDate });
 
         document.querySelector("#radio-appointment").innerHTML += `
         <div
@@ -332,7 +334,9 @@ const setSelectedPlace = () => {
 /* Step 3 */
 const serviceSelect = document.getElementById("motivo-appuntamento");
 serviceSelect.addEventListener("change", () => {
-  saveAnswerByValue("service", serviceSelect?.value);
+  const id = serviceSelect?.value;
+  const name = serviceSelect?.querySelector(`[value="${id}"]`)?.innerText;
+  saveAnswerByValue("service", encodeObject({ id, name }), true);
 });
 
 const moreDetailsText = document.getElementById("form-details");
@@ -374,13 +378,13 @@ const getHour = () => {
 
 const setReviews = () => {
   //set all values
-  document.getElementById("review-office").innerHTML = answers?.office;
+  document.getElementById("review-office").innerHTML = answers?.office?.name;
   document.getElementById("review-place").innerHTML = answers?.place?.nome;
   document.getElementById("review-date").innerHTML = getDay();
   document.getElementById("review-hour").innerHTML = `${getHour()[0]} - ${
     getHour()[1]
   }`;
-  document.getElementById("review-service").innerHTML = answers?.service;
+  document.getElementById("review-service").innerHTML = answers?.service?.name;
   document.getElementById("review-details").innerHTML = answers?.moreDetails;
   document.getElementById("review-name").innerHTML = answers?.name;
   document.getElementById("review-surname").innerHTML = answers?.surname;
@@ -389,6 +393,7 @@ const setReviews = () => {
 
 /* Check mandatory fields */
 const checkMandatoryFields = () => {
+  console.log("body", answers);
   switch (currentStep) {
     case 1:
       if (answers?.office && answers?.place) btnNext.disabled = false;
@@ -418,13 +423,28 @@ const checkMandatoryFields = () => {
 
 /* confirm appointment - Submit */
 
-function successFeedback() {
-  document.getElementById("form-steps").classList.add("d-none");
+async function successFeedback() {
   document.getElementById("email-recap").innerText = answers?.email;
   document.getElementById("date-recap").innerText = ` ${getDay()} dalle ore ${
     getHour()[0]
   } alle ore ${getHour()[1]}`;
-  const date = document.getElementById("final-step").classList.remove("d-none");
+  const service = await getServiceDetail(answers?.service?.id);
+  console.log("service 2", service);
+  if (service?._dci_servizio_cosa_serve_list?.length > 0) {
+    const neededBox = document.getElementById("needed-recap");
+    neededBox.innerHTML = `
+      <p class="font-serif">${service?._dci_servizio_cosa_serve_introduzione}</p>
+      <ul>
+    `;
+    service._dci_servizio_cosa_serve_list.forEach((item) => {
+      neededBox.innerHTML += `<li>${item}</li>`;
+    });
+    neededBox.innerHTML += "</ul>";
+  }
+
+  // show final step
+  document.getElementById("form-steps").classList.add("d-none");
+  document.getElementById("final-step").classList.remove("d-none");
 }
 
 const confirmAppointment = () => {
@@ -449,3 +469,26 @@ const confirmAppointment = () => {
       console.log("err", err);
     });
 };
+
+async function getServiceDetail(id) {
+  try {
+    const res = await fetch(`/wp-json/wp/v2/servizi/${id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("HTTP error " + response.status);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("service 1", data);
+        return data?.cmb2?._dci_servizio_box_accesso;
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+
+    return res;
+  } catch (e) {
+    console.error(e);
+  }
+}

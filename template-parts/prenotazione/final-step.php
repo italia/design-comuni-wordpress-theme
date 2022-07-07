@@ -122,20 +122,14 @@
         <div class="col-12 col-lg-8 offset-lg-1">
         <div class="cmp-card mb-50">
             <div class="card has-bkg-primary-grey p-3">
-            <div class="card-header border-0 p-0 mb-lg-30">
-                <div class="d-flex">
-                <h2 class="title-xxlarge mb-0" id="needed">Cosa serve</h2>
+                <div class="card-header border-0 p-0 mb-lg-30">
+                    <div class="d-flex">
+                        <h2 class="title-xxlarge mb-0" id="needed">Cosa serve</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body p-0">
-                <div class="cmp-ul-list">
-                <ul class="list-wrapper titillium">
-                    <li>
-                    <span> Documento di identità </span>
-                    </li>
-                </ul>
+                <div class="card-body p-0">
+                    <div class="cmp-ul-list" id="needed-recap"></div>
                 </div>
-            </div>
             </div>
         </div>
 
