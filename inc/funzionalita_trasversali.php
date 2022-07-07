@@ -250,9 +250,79 @@ function dci_save_richiesta_assistenza(){
         "success" => true,
         "richiesta_assistenza" => array(
             "id" => $postId),
-            "title" => $ticket_title
-        ));
+        "title" => $ticket_title
+    ));
     wp_die();
 }
 add_action("wp_ajax_save_richiesta_assistenza" , "dci_save_richiesta_assistenza");
 add_action("wp_ajax_nopriv_save_richiesta_assistenza" , "dci_save_richiesta_assistenza");
+
+/**
+ * crea contenuto di tipo Appuntamento
+ */
+function dci_save_appuntamento(){
+
+    $params = json_decode(json_encode($_POST), true);
+
+    date_default_timezone_set('Europe/Rome');
+    $data = date('Y-m-d\TH:i:s');
+
+    if(array_key_exists("name", $params) && array_key_exists("email", $params) &&  array_key_exists("surname", $params) && array_key_exists("moreDetails", $params) && array_key_exists("service", $params)  && array_key_exists("office", $params) ) {
+
+        $appuntamento_title = $params['surname'].' '.$params['name'].'';
+
+        $postId = wp_insert_post(array(
+            'post_type' => 'appuntamento',
+            'post_title' =>  $appuntamento_title
+        ));
+    }
+
+    if($postId == 0) {
+        echo json_encode(array(
+            "success" => false,
+            "error" => array(
+                "code" =>  400,
+                "message" => "Oops, qualcosa è andato storto!"
+            )));
+        wp_die();
+    }
+
+    update_post_meta($postId, '_dci_appuntamento_data_ora_prenotazione',  $data);
+
+
+    if(array_key_exists("moreDetails", $params) && $params['moreDetails'] != "null") {
+        update_post_meta($postId, '_dci_appuntamento_dettaglio_richiesta',  $params['moreDetails']);
+    }
+
+    if(array_key_exists("service", $params) && $params['service'] != "null") {
+
+        $service_id = $params['service']['id'];
+        update_post_meta($postId, '_dci_appuntamento_servizio',$service_id);
+    }
+
+    if(array_key_exists("office", $params) && $params['office'] != "null") {
+
+        $office_id = $params['office']['id'];
+        update_post_meta($postId, '_dci_appuntamento_unita_organizzativa',  $office_id);
+    }
+
+    if(array_key_exists("appointment", $params) && $params['appointment'] != "null") {
+
+        $startDate = $params['appointment']['startDate'];
+        $endDate = $params['appointment']['endDate'];
+
+        update_post_meta($postId, '_dci_appuntamento_data_ora_inizio_appuntamento',  $startDate);
+        update_post_meta($postId, '_dci_appuntamento_data_ora_fine_appuntamento',  $endDate);
+    }
+
+    echo json_encode(array(
+        "success" => true,
+        "message" => 'Contenuto creato con successo: '.$postId,
+        "appuntamento" => array(
+            "id" => $postId),
+        "title" => $appuntamento_title
+    ));
+    wp_die();
+}
+add_action("wp_ajax_save_appuntamento" , "dci_save_appuntamento");
+add_action("wp_ajax_nopriv_save_appuntamento" , "dci_save_appuntamento");

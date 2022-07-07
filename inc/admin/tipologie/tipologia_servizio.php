@@ -198,7 +198,6 @@ function dci_add_servizi_metaboxes() {
         'object_types' => array( 'servizio' ),
         'context'      => 'normal',
         'priority'     => 'high',
-        'show_in_rest' => WP_REST_Server::READABLE
     ) );
 
     $cmb_accesso->add_field( array(
@@ -354,7 +353,7 @@ function dci_add_servizi_metaboxes() {
     //TEMPI E SCADENZE
     $cmb_tempi = new_cmb2_box( array(
         'id'           => $prefix . 'box_tempi',
-        'title'        => __( 'Tempi e scadenze', 'design_comuni_italia' ),
+        'title'        => __( 'Tempi e scadenze *', 'design_comuni_italia' ),
         'object_types' => array( 'servizio' ),
         'context'      => 'normal',
         'priority'     => 'high',
