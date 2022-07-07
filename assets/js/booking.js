@@ -393,7 +393,6 @@ const setReviews = () => {
 
 /* Check mandatory fields */
 const checkMandatoryFields = () => {
-  console.log("body", answers);
   switch (currentStep) {
     case 1:
       if (answers?.office && answers?.place) btnNext.disabled = false;
@@ -429,7 +428,6 @@ async function successFeedback() {
     getHour()[0]
   } alle ore ${getHour()[1]}`;
   const service = await getServiceDetail(answers?.service?.id);
-  console.log("service 2", service);
   if (service?._dci_servizio_cosa_serve_list?.length > 0) {
     const neededBox = document.getElementById("needed-recap");
     neededBox.innerHTML = `
@@ -448,9 +446,23 @@ async function successFeedback() {
 }
 
 const confirmAppointment = () => {
+  const body = new URLSearchParams();
+
+  for (var key in answers) {
+    if (typeof answers[key] == "object") {
+      body.append(key, JSON.stringify(answers[key]));
+    } else body.append(key, answers[key]);
+  }
+  body.append("action", "save_appuntamento");
+
   fetch(urlConfirm, {
     method: "POST",
-    body: JSON.stringify(answers),
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Cache-Control": "no-cache",
+    },
+    body,
   })
     .then((response) => {
       if (!response.ok) {
@@ -480,7 +492,6 @@ async function getServiceDetail(id) {
         return response.json();
       })
       .then((data) => {
-        console.log("service 1", data);
         return data?.cmb2?._dci_servizio_box_accesso;
       })
       .catch((err) => {

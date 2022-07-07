@@ -9,7 +9,7 @@ global $post;
 
 wp_enqueue_script( 'dci-booking', get_template_directory_uri() . '/assets/js/booking.js', array(), false, true);
 wp_localize_script('dci-booking', "url", get_template_directory_uri() . '/assets/json/calendar.json');
-wp_localize_script('dci-booking', "urlConfirm", get_template_directory_uri() . '/assets/json/confirm-appointment.json');
+wp_localize_script('dci-booking', "urlConfirm", admin_url( 'admin-ajax.php' ));
 
 get_header();
 
