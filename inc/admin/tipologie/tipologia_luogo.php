@@ -131,7 +131,7 @@ function dci_add_luogo_metaboxes() {
 
     $cmb_apertura->add_field( array(
         'id'         => $prefix . 'descrizione_breve',
-        'name'       => __( 'Descrizione breve', 'design_comuni_italia' ),
+        'name'       => __( 'Descrizione breve *', 'design_comuni_italia' ),
         'desc'       => __( 'Sintetica descrizione del luogo (meno di 255 caratteri)', 'design_comuni_italia' ),
         'type'       => 'textarea',
         'attributes'    => array(
@@ -458,10 +458,10 @@ function sdi_luogo_add_content_before_editor($post) {
 */
 
 /**
- * aggiungo js
+ * aggiungo js controllo campi obbligatori
  */
-//add_action( 'admin_print_scripts-post-new.php', 'dci_luogo_admin_script', 11 );
-//add_action( 'admin_print_scripts-post.php', 'dci_luogo_admin_script', 11 );
+add_action( 'admin_print_scripts-post-new.php', 'dci_luogo_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dci_luogo_admin_script', 11 );
 
 function dci_luogo_admin_script() {
 	global $post_type;

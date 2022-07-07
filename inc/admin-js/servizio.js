@@ -14,6 +14,26 @@ jQuery( document ).ready(function() {
         });
     });
 
+    let inputMotivo = jQuery('textarea[name^="_dci_servizio_motivo_stato"]');
+    inputMotivo.each(function() {
+        jQuery(this).on('change keyup paste', function(){
+            dci_remove_highlight_missing_field('.cmb2-id--dci-servizio-motivo-stato');
+        });
+    });
+
+    var inputFasi = document.querySelector('#_dci_servizio_fasi');
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === "attributes") {
+                dci_remove_highlight_missing_field('.cmb2-id--dci-servizio-fasi');
+            }
+        });
+    });
+
+    observer.observe(inputFasi, {
+        attributes: true //configure it to listen to attribute changes
+    });
+
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
 
         /**
@@ -23,6 +43,7 @@ jQuery( document ).ready(function() {
             dci_highlight_missing_field('.cmb2-id--dci-servizio-categorie');
             return false;
         }
+
         /**
          * controllo compilazione campo Argomenti
          */
@@ -30,6 +51,23 @@ jQuery( document ).ready(function() {
             dci_highlight_missing_field('.cmb2-id--dci-servizio-argomenti');
             return false;
         }
+
+        /**
+         * controllo compilazione campo Motivo dello stato
+         */
+        if (jQuery('input[name^="_dci_servizio_stato"]:checked').val() === 'false'  && !jQuery('textarea[name^="_dci_servizio_motivo_stato"]').val()) {
+            dci_highlight_missing_field('.cmb2-id--dci-servizio-motivo-stato');
+            return false;
+        }
+
+        /**
+         * controllo compilazione campo Fasi
+         */
+        if(jQuery('input[name^="_dci_servizio_fasi"]').attr('value') === '') {
+            dci_highlight_missing_field('.cmb2-id--dci-servizio-fasi');
+            return false;
+        }
+
         return true;
     });
 
@@ -39,6 +77,7 @@ jQuery( document ).ready(function() {
 
 
 function dci_highlight_missing_field(fieldClass) {
+
     jQuery(fieldClass).addClass("highlighted_missing_field")
         .append('<div id ="field-required-msg" class="field-required-msg"><em>campo obbligatorio !</em></div>')
     ;
