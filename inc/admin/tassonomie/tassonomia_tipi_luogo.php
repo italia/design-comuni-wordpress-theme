@@ -21,10 +21,12 @@ function dci_register_taxonomy_tipi_luogo() {
     $args = array(
         'hierarchical'      => true,
         'labels'            => $labels,
+        'public'            => false, //enable to get term archive page
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'tipo-luogo' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'tipo-luogo' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_tipi_luogo',
             'edit_terms'    => 'edit_tipi_luogo',

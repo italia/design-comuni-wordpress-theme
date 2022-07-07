@@ -24,7 +24,8 @@ function dci_register_taxonomy_eventi_vita_persone() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'evento-vita-persona' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'evento-vita-persona' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_eventi_vita_persone',
             'edit_terms'    => 'edit_eventi_vita_persone',

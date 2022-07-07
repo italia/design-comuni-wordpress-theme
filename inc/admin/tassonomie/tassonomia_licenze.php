@@ -24,7 +24,8 @@ function dci_register_taxonomy_licenze() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'licenza' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'licenza' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_licenze',
             'edit_terms'    => 'edit_licenze',

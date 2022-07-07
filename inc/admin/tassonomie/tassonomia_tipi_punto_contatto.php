@@ -21,10 +21,12 @@ function dci_register_taxonomy_tipi_punto_contatto() {
     $args = array(
         'hierarchical'      => true,
         'labels'            => $labels,
+        'public'            => false, //enable to get term archive page
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'tipo' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'tipo' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_tipi_punto_contatto',
             'edit_terms'    => 'edit_tipi_punto_contatto',

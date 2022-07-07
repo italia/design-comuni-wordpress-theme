@@ -24,7 +24,8 @@ function dci_register_taxonomy_frequenze_aggiornamento() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'frequenza-di-aggiornamento' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'frequenza-di-aggiornamento' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_frequenze_aggiornamento',
             'edit_terms'    => 'edit_frequenze_aggiornamento',

@@ -21,10 +21,12 @@ function dci_register_taxonomy_temi_dataset() {
     $args = array(
         'hierarchical'      => true,
         'labels'            => $labels,
+        'public'            => false, //enable to get term archive page
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'tema' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'tema' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_temi_dataset',
             'edit_terms'    => 'edit_temi_dataset',

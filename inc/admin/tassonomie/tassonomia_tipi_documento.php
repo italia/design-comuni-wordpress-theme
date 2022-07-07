@@ -25,7 +25,8 @@ function dci_register_taxonomy_tipi_documento() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'tipo-documento' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'tipo-documento' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_tipi_documento',
             'edit_terms'    => 'edit_tipi_documento',

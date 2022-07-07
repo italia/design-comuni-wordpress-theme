@@ -21,10 +21,12 @@ function dci_register_taxonomy_tipi_unita_organizzativa() {
     $args = array(
         'hierarchical'      => true,
         'labels'            => $labels,
+        'public'            => false, //enable to get term archive page
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'unita_organizzativa' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'tipi_unita_organizzativa' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_tipi_unita_organizzativa',
             'edit_terms'    => 'edit_tipi_unita_organizzativa',

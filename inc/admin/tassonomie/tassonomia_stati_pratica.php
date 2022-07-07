@@ -24,7 +24,8 @@ function dci_register_taxonomy_stati_pratica() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'stato-pratica' ),
+        'has_archive'           => false,    //archive page
+        //'rewrite'           => array( 'slug' => 'stato-pratica' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_stati_pratica',
             'edit_terms'    => 'edit_stati_pratica',
