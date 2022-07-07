@@ -364,29 +364,73 @@ function dci_add_eventi_metaboxes() {
         ),
     ) );
 
-    $cmb_informazioni->add_field( array(
-        'id' => $prefix . 'patrocinato',
-        'name'       => __('Patrocinato da ', 'design_comuni_italia' ),
+    //repeater link ("Patrocinato da")
+    $group_field_id = $cmb_informazioni->add_field( array(
+        'id'          => $prefix . 'patrocinato',
+        'type'        => 'group',
+        'description' => __( '<b>Patrocinato da</b>' , 'design_comuni_italia' ),
+        'options'     => array(
+            'group_title'    => __( 'Link {#}', 'design_comuni_italia' ), // {#} gets replaced by row number
+            'add_button'     => __( 'Aggiungi un link', 'design_comuni_italia' ),
+            'remove_button'  => __( 'Rimuovi il link', 'design_comuni_italia' ),
+            'sortable'       => true,
+            ),
+    ) );
+
+    $cmb_informazioni->add_group_field( $group_field_id, array(
+        'id' => $prefix . 'nome',
+        'name' => __('Nome Ente','design_comuni_italia'),
         'desc' => __( 'Nome dell\'ente che patrocina l\'evento. Si raccomanda di non usare sigle ma il nome esteso (es. Non "Mise" ma "Ministero dello sviluppo economico").', 'design_comuni_italia' ),
-        'type' => 'wysiwyg',
-        'options' => array(
-            'media_buttons' => false,
-            'textarea_rows' => 4,
-            'teeny' => true,
+        'type' => 'text',
+        'attributes'    => array(
+            //'required'    => 'required'
         ),
     ) );
 
-    $cmb_informazioni->add_field( array(
-        'id' => $prefix . 'sponsor',
-        'name'       => __('Sponsor', 'design_comuni_italia' ),
-        'desc' => __( 'Lista sponsor dell\'evento', 'design_comuni_italia' ),
-        'type' => 'wysiwyg',
-        'options' => array(
-            'media_buttons' => false,
-            'textarea_rows' => 4,
-            'teeny' => true,
+    $cmb_informazioni->add_group_field( $group_field_id, array(
+        'id' => $prefix . 'url',
+        'name' => __('URL','design_comuni_italia'),
+        'desc' => __( 'URL del Link', 'design_comuni_italia' ),
+        'type' => 'text_url',
+        'attributes'    => array(
+            //'required'    => 'required'
         ),
     ) );
+    //fine repeater
+
+    //repeater link ("Sponsor")
+    $group_field_id = $cmb_informazioni->add_field( array(
+        'id'          => $prefix . 'sponsor',
+        'type'        => 'group',
+        'description' => __( '<b>Sponsor</b>' , 'design_comuni_italia' ),
+        'options'     => array(
+            'group_title'    => __( 'Link {#}', 'design_comuni_italia' ), // {#} gets replaced by row number
+            'add_button'     => __( 'Aggiungi un link', 'design_comuni_italia' ),
+            'remove_button'  => __( 'Rimuovi il link', 'design_comuni_italia' ),
+            'sortable'       => true,
+        ),
+    ) );
+
+    $cmb_informazioni->add_group_field( $group_field_id, array(
+        'id' => $prefix . 'nome',
+        'name' => __('Nome Sponsor','design_comuni_italia'),
+        //'desc' => __( 'Nome dello sponsor', 'design_comuni_italia' ),
+        'type' => 'text',
+        'attributes'    => array(
+            //'required'    => 'required'
+        ),
+    ) );
+
+    $cmb_informazioni->add_group_field( $group_field_id, array(
+        'id' => $prefix . 'url',
+        'name' => __('URL','design_comuni_italia'),
+        'desc' => __( 'URL del Link', 'design_comuni_italia' ),
+        'type' => 'text_url',
+        'attributes'    => array(
+            //'required'    => 'required'
+        ),
+    ) );
+    //fine repeater
 
     $cmb_informazioni->add_field( array(
         'id'         => $prefix . 'ulteriori_informazioni',
