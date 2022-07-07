@@ -128,7 +128,13 @@
                     </div>
                 </div>
                 <div class="card-body p-0">
-                    <div class="cmp-ul-list" id="needed-recap"></div>
+                    <div class="cmp-ul-list" id="needed-recap">
+                        <ul class="list-wrapper titillium">
+                        <li>
+                            <span> Documento di identità </span>
+                        </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

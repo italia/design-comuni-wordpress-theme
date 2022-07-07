@@ -427,18 +427,19 @@ async function successFeedback() {
   document.getElementById("date-recap").innerText = ` ${getDay()} dalle ore ${
     getHour()[0]
   } alle ore ${getHour()[1]}`;
-  const service = await getServiceDetail(answers?.service?.id);
-  if (service?._dci_servizio_cosa_serve_list?.length > 0) {
-    const neededBox = document.getElementById("needed-recap");
-    neededBox.innerHTML = `
-      <p class="font-serif">${service?._dci_servizio_cosa_serve_introduzione}</p>
-      <ul>
-    `;
-    service._dci_servizio_cosa_serve_list.forEach((item) => {
-      neededBox.innerHTML += `<li>${item}</li>`;
-    });
-    neededBox.innerHTML += "</ul>";
-  }
+  // TODO: rimuovere commento dopo demo
+  // const service = await getServiceDetail(answers?.service?.id);
+  // if (service?._dci_servizio_cosa_serve_list?.length > 0) {
+  //   const neededBox = document.getElementById("needed-recap");
+  //   neededBox.innerHTML = `
+  //     <p class="font-serif">${service?._dci_servizio_cosa_serve_introduzione}</p>
+  //     <ul>
+  //   `;
+  //   service._dci_servizio_cosa_serve_list.forEach((item) => {
+  //     neededBox.innerHTML += `<li>${item}</li>`;
+  //   });
+  //   neededBox.innerHTML += "</ul>";
+  // }
 
   // show final step
   document.getElementById("form-steps").classList.add("d-none");
