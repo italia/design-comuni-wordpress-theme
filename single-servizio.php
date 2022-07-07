@@ -33,6 +33,7 @@ get_header();
             $cosa_serve_intro = dci_get_meta("cosa_serve_introduzione");
             $cosa_serve_list = dci_get_meta("cosa_serve_list");
             $output = dci_get_meta("output");
+            $fasi_scadenze_intro = dci_get_meta("tempi_text");
             $fasi_scadenze = dci_get_meta("fasi");
             $costi = dci_get_meta("costi");
             //canali di prenotazione
@@ -226,7 +227,9 @@ get_header();
                         <section class="mb-30">
                             <div class="cmp-timeline">
                                 <h2 class="title-xxlarge mb-3" id="deadlines">Tempi e scadenze</h2>
-                                <p class="text-paragraph mb-3 lora">Le graduatorie verranno aggiornate ogni mese con nuove assegnazioni e trasferimenti in base ai posti disponibili.</p>
+                                <p class="text-paragraph mb-3 lora">
+                                    <?php echo $fasi_scadenze_intro; ?>
+                                </p>
                                 <div class="calendar-vertical mb-3">
                                     <?php foreach ($fasi_scadenze as $fase_id) {        
                                         $fase = get_post($fase_id);              
