@@ -7,7 +7,15 @@ jQuery( document ).ready(function() {
         });
     });
 
+    let inputFormati = jQuery('textarea[name^="_dci_documento_privato_formati"]');
+    inputFormati.each(function() {
+        jQuery(this).on('change keyup paste', function(){
+            dci_remove_highlight_missing_field('.cmb2-id--dci-documento-privato-formati');
+        });
+    });
+
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
+
         /**
          * controllo compilazione campo Argomenti
          */
@@ -15,6 +23,15 @@ jQuery( document ).ready(function() {
             dci_highlight_missing_field('.cmb2-id--dci-documento-privato-argomenti');
             return false;
         }
+
+        /**
+         * controllo compilazione campo Formati disponibili
+         */
+        if (!jQuery('textarea[name^="_dci_documento_privato_formati"]').val()) {
+            dci_highlight_missing_field('.cmb2-id--dci-documento-privato-formati');
+            return false;
+        }
+
         return true;
     });
 });

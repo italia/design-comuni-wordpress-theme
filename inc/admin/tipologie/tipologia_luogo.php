@@ -244,7 +244,7 @@ function dci_add_luogo_metaboxes() {
     ) );
 
     $cmb_accesso->add_field( array(
-        'id' => $prefix . 'modalità_accesso',
+        'id' => $prefix . 'modalita_accesso',
         'name'        => __( 'Modalità di accesso *', 'design_comuni_italia' ),
         'desc' => __( 'Servizi disponibili sulle modalità di accesso al luogo con particolare attenzione agli accessi per disabili.' , 'design_comuni_italia' ),
         'type'       => 'wysiwyg',

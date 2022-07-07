@@ -29,6 +29,13 @@ jQuery( document ).ready(function() {
         attributes: true //configure it to listen to attribute changes
     });
 
+    let inputModalitaAccesso = jQuery('textarea[name^="_dci_luogo_modalita_accesso"]');
+    inputModalitaAccesso.each(function() {
+        jQuery(this).on('change keyup paste', function(){
+            dci_remove_highlight_missing_field('.cmb2-id--dci-luogo-modalita-accesso');
+        });
+    });
+
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
 
         /**
@@ -39,7 +46,15 @@ jQuery( document ).ready(function() {
             return false;
         }
 
+        /**
+         * controllo compilazione campo Modalità di accesso
+         */
+        if (!jQuery('textarea[name^="_dci_luogo_modalita_accesso"]').val()) {
+            dci_highlight_missing_field('.cmb2-id--dci-luogo-modalita-accesso');
+            return false;
+        }
 
+        return true;
     })
 });
 

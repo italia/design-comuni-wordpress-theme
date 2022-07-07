@@ -19,11 +19,18 @@ jQuery( document ).ready(function() {
         });
     });
 
+    let inputFormati = jQuery('textarea[name^="_dci_documento_pubblico_formati"]');
+    inputFormati.each(function() {
+        jQuery(this).on('change keyup paste', function(){
+            dci_remove_highlight_missing_field('.cmb2-id--dci-documento-pubblico-formati');
+        });
+    });
 
     /**
      * controllo all'invio del form
      */
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
+
         /**
          * controllo compilazione campo Argomenti
          */
@@ -31,6 +38,7 @@ jQuery( document ).ready(function() {
             dci_highlight_missing_field('.cmb2-id--dci-documento-pubblico-argomenti');
             return false;
         }
+
         /**
          * controllo compilaziono tassonomia tipi_doc_albo_pretorio se tassonomia tipi_dcoumento è 'documento albo pretorio'
          */
@@ -38,6 +46,15 @@ jQuery( document ).ready(function() {
             dci_highlight_missing_field ('.cmb2-id--dci-documento-pubblico-tipo-doc-albo-pretorio');
             return false;
         }
+
+        /**
+         * controllo compilazione campo Formati disponibili
+         */
+        if (!jQuery('textarea[name^="_dci_documento_pubblico_formati"]').val()) {
+            dci_highlight_missing_field('.cmb2-id--dci-documento-pubblico-formati');
+            return false;
+        }
+
         return true;
     });
 

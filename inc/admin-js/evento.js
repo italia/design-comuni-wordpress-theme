@@ -7,6 +7,20 @@ jQuery( document ).ready(function() {
         });
     });
 
+    let inputDescrizioneCompleta = jQuery('textarea[name^="_dci_evento_descrizione_completa"]');
+    inputDescrizioneCompleta.each(function() {
+        jQuery(this).on('change keyup paste', function(){
+            dci_remove_highlight_missing_field('.cmb2-id--dci-evento-descrizione-completa');
+        });
+    });
+
+    let inputDestinatari = jQuery('textarea[name^="_dci_evento_a_chi_e_rivolto"]');
+    inputDestinatari.each(function() {
+        jQuery(this).on('change keyup paste', function(){
+            dci_remove_highlight_missing_field('.cmb2-id--dci-evento-a-chi-e-rivolto');
+        });
+    });
+
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
         /**
          * controllo compilazione campo Argomenti
@@ -15,6 +29,23 @@ jQuery( document ).ready(function() {
             dci_highlight_missing_field('.cmb2-id--dci-evento-argomenti');
             return false;
         }
+
+        /**
+         * controllo compilazione campo Descrizione completa
+         */
+        if (!jQuery('textarea[name^="_dci_evento_descrizione_completa"]').val()) {
+            dci_highlight_missing_field('.cmb2-id--dci-evento-descrizione-completa');
+            return false;
+        }
+
+         /**
+         * controllo compilazione campo A chi è rivolto
+         */
+        if (!jQuery('textarea[name^="_dci_evento_a_chi_e_rivolto"]').val()) {
+            dci_highlight_missing_field('.cmb2-id--dci-evento-a-chi-e-rivolto');
+            return false;
+        }
+
         return true;
     });
 });

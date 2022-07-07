@@ -7,6 +7,13 @@ jQuery( document ).ready(function() {
         });
     });
 
+    let inputDistribuzioni = jQuery('textarea[name^="_dci_dataset_distribuzione"]');
+    inputDistribuzioni.each(function() {
+        jQuery(this).on('change keyup paste', function(){
+            dci_remove_highlight_missing_field('.cmb2-id--dci-dataset-distribuzione');
+        });
+    });
+
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
         /**
          * controllo compilazione campo Temi di un Dataset
@@ -15,6 +22,15 @@ jQuery( document ).ready(function() {
             dci_highlight_missing_field('.cmb2-id--dci-dataset-temi');
             return false;
         }
+
+        /**
+         * controllo compilazione campo Distribuzioni
+         */
+        if (!jQuery('textarea[name^="_dci_dataset_distribuzione"]').val()) {
+            dci_highlight_missing_field('.cmb2-id--dci-dataset-distribuzione');
+            return false;
+        }
+
         return true;
     });
 });
