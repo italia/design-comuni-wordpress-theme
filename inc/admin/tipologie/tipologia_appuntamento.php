@@ -21,12 +21,12 @@ function dci_register_post_type_appuntamento() {
     $args = array(
         'label'                 => __( 'Appuntamento', 'design_comuni_italia' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
+        'supports'              => array( 'title', 'editor' ),
         'hierarchical'          => false,
         'public'                => true,
         'menu_position'         => 5,
         'menu_icon'             => 'dashicons-calendar-alt',
-        'has_archive'           => true,
+        'has_archive'           => false,
         'capability_type' => array('appuntamento', 'appuntamenti'),
         'map_meta_cap'    => true,
         'description'    => __( "Struttura delle informazioni relative utili a presentare un appuntamento", 'design_comuni_italia' ),
@@ -152,3 +152,81 @@ function dci_add_appuntamento_metaboxes()
     ) );
 
 }
+
+
+/**
+ * Aggiungo colonne custom
+ * @param $columns
+ * @return mixed
+ */
+function dci_filter_appuntamento_columns( $columns ) {
+
+    $columns['servizio'] = __( 'Servizio','design_comuni_italia' );
+    $columns['ufficio'] = __( 'Ufficio','design_comuni_italia' );
+    $columns['data_ora_inizio'] = __( 'Data e ora inizio','design_comuni_italia' );
+    $columns['data_ora_fine'] = __( 'Data e ora fine','design_comuni_italia' );
+
+    return $columns;
+}
+add_filter( 'manage_appuntamento_posts_columns', 'dci_filter_appuntamento_columns' );
+
+/**
+ * Valorizzo le colonne custom
+ * @param $column
+ * @param $post_id
+ */
+function dci_manage_appuntamento_posts_custom_column( $column, $post_id ) {
+
+    if ( 'servizio' === $column ) {
+        $service_id  =  get_post_meta($post_id, '_dci_appuntamento_servizio', true );
+        if( get_post_type($service_id) == 'servizio')
+            echo  get_the_title($service_id);
+    }
+
+    if ( 'ufficio' === $column ) {
+        $office_id = get_post_meta($post_id, '_dci_appuntamento_unita_organizzativa', true );
+        if( get_post_type($office_id) == 'unita_organizzativa')
+            echo  get_the_title($office_id);
+    }
+
+    if ( 'data_ora_inizio' === $column ) {
+        $data_ora_inizio = get_post_meta($post_id, '_dci_appuntamento_data_ora_inizio_appuntamento', true );
+        if (is_numeric($data_ora_inizio)){
+            echo date('Y-m-d\TH:i', $data_ora_inizio);
+        } else {
+            echo  $data_ora_inizio;
+        }
+    }
+
+    if ( 'data_ora_fine' === $column ) {
+        $data_ora_fine =  get_post_meta($post_id, '_dci_appuntamento_data_ora_fine_appuntamento', true );
+        if (is_numeric($data_ora_fine)){
+            echo date('Y-m-d\TH:i', $data_ora_fine);;
+        } else {
+            echo  $data_ora_fine;
+        }
+    }
+
+}
+add_action( 'manage_appuntamento_posts_custom_column', 'dci_manage_appuntamento_posts_custom_column', 10, 2);
+
+/**
+ * Ordino le colonne
+ * @param $columns
+ * @return array
+ */
+function dci_save_appuntamento_columns( $columns ) {
+
+    $columns = array(
+        'cb' => $columns['cb'],
+        'title' => $columns['title'],
+        'servizio' => $columns['servizio'],
+        'ufficio' => $columns['ufficio'],
+        'data_ora_inizio' => $columns['data_ora_inizio'],
+        'data_ora_fine' => $columns['data_ora_fine'],
+        'date' => $columns['date'],
+    );
+
+    return $columns;
+}
+add_filter( 'manage_appuntamento_posts_columns', 'dci_save_appuntamento_columns' );
