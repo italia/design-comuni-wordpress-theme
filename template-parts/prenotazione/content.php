@@ -39,7 +39,7 @@
                 } ?>
             </select>
             </div>
-            <div class="cmp-info-radio radio-card" id="place-cards-wrapper"></div>
+            <div id="place-cards-wrapper"></div>
         </div>
         </div>
     </div>

@@ -128,13 +128,7 @@
                     </div>
                 </div>
                 <div class="card-body p-0">
-                    <div class="cmp-ul-list" id="needed-recap">
-                        <ul class="list-wrapper titillium">
-                        <li>
-                            <span> Documento di identità </span>
-                        </li>
-                        </ul>
-                    </div>
+                    <div class="cmp-ul-list" id="needed-recap"></div>
                 </div>
             </div>
         </div>
@@ -150,19 +144,8 @@
                     class="card-body align-items-center card-body d-flex justify-content-between"
                 >
                     <div class="left">
-                    <h3 class="title-small">
-                        <a
-                        href="#"
-                        aria-label="Vai a Ufficio anagrafe 03"
-                        title="Vai a Ufficio anagrafe 03"
-                        >Ufficio anagrafe 03</a
-                        >
-                    </h3>
-                    <p class="subtitle-small mb-0">
-                        Via Grazia Deledda 9/a - 20127<br />
-                        Milano <br />
-                        anagrafe@comune.it
-                    </p>
+                    <h3 class="title-small" id="office-recap"></h3>
+                    <p class="subtitle-small mb-0" id="address-recap"></p>
                     </div>
                 </div>
                 </div>
