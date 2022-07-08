@@ -38,6 +38,11 @@ function dci_theme_activation() {
 
     update_option("dci_has_installed", true);
 
+    // disabilito i commenti per i nuovi post
+    if( '' != get_option( 'default_comment_status' ) ) {
+        update_option( 'default_comment_status', '' );
+    }
+
 }
 add_action( 'after_switch_theme', 'dci_theme_activation' );
 

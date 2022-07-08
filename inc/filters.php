@@ -1,4 +1,5 @@
 <?php
+
     /**
      * filters url for post type Notizia (rewrite slug in tipologia_notizia.php)
      * @param $post_link
