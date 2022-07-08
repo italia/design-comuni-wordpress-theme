@@ -82,32 +82,6 @@ function dci_create_menu_locations() {
 }
 
 /**
- * Hide content editor
- */
-add_action( 'admin_init', 'dci_hide_editor' );
-function dci_hide_editor() {
-    global $pagenow;
-    if ( $pagenow == "post.php" ) {
-        // Get the Post ID.
-        if(isset($_GET['post']))
-            $post_id = $_GET['post'];
-        else if(isset($_POST['post_ID']))
-            $post_id = $_POST['post_ID'];
-
-        if ( ! isset( $post_id ) ) {
-            return;
-        }
-
-        // Get the name of the Page Template file.
-        //$template_file = get_post_meta( $post_id, '_wp_page_template', true );
-
-        // remove editor for page
-        remove_post_type_support( 'page', 'editor' );
-
-    }
-}
-
-/**
  * Add css admin style
  */
 function dci_admin_css_load() {

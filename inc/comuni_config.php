@@ -113,6 +113,13 @@ function dci_get_pagine_slugs(){
 }
 
 /**
+ * restituisce tutti gli i nomi dei template delle pagine di default del Sito dei Comuni
+ */
+function dci_get_pagine_template_names(){
+    return dci_get_all_values(COMUNI_PAGINE,'template_name');
+}
+
+/**
  * restituisce un array contenente i post type ricercabili dalla ricerca globale
  * @return string[]
  */
