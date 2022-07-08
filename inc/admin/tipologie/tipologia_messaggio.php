@@ -87,7 +87,6 @@ function dci_add_messaggio_metaboxes() {
         )
     ));
 
-
     //SERVIZIO/pratica
     $cmb_pratica_servizio = new_cmb2_box(array(
         'id' => $prefix . 'box_pratica_servizio',
@@ -103,6 +102,9 @@ function dci_add_messaggio_metaboxes() {
         'desc' => __( 'Eventuale pratica associata' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('pratica'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona la pratica', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_pratica_servizio->add_field( array(
@@ -111,6 +113,9 @@ function dci_add_messaggio_metaboxes() {
         'desc' => __( 'Se il documento non è collegato a una pratica è possibile indicare il servizio che ha generato il messaggio' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('servizio'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona il servizio', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_data_scadenza = new_cmb2_box(array(
@@ -145,6 +150,9 @@ function dci_add_messaggio_metaboxes() {
         'desc' => __( 'Link ai documenti (Es. modulo per...)' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_pubblico'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona i documenti pubblici', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_documenti->add_field( array(
@@ -153,5 +161,20 @@ function dci_add_messaggio_metaboxes() {
         'desc' => __( 'Link ai documenti (Es. ricevuta pagamento fatto. Es. certificato residenza)' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_privato'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona i documenti privati', 'design_comuni_italia' ),
+        )
     ) );
+}
+
+/**
+ * aggiungo js per controllo compilazione campi
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dci_messaggio_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dci_messaggio_admin_script', 11 );
+
+function dci_messaggio_admin_script() {
+    global $post_type;
+    if( 'messaggio' == $post_type )
+        wp_enqueue_script( 'messaggio-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/messaggio.js' );
 }

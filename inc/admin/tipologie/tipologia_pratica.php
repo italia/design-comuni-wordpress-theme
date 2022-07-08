@@ -120,6 +120,9 @@ function dci_add_pratica_metaboxes() {
         'desc' => __( 'Ufficio a cui fa riferiemnento la pratica (es: anagrafe, riscossione tributi, pagamenti, etc) e link alla scheda ufficio di riferimento della pratica' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona le unità organizzative', 'design_comuni_italia' ),
+        )
     ) );
     $cmb_descrizione->add_field( array(
         'id' => $prefix . 'servizio_pratica',
@@ -127,6 +130,9 @@ function dci_add_pratica_metaboxes() {
         'desc' => __( 'Servizio che genera la pratica (es: pagare qualcosa, effettuare un\'iscrizione, richiedere un documento specifico)' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('servizio'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona i servizi', 'design_comuni_italia' ),
+        )
     ) );
 
     //DOCUMENTI
@@ -144,14 +150,20 @@ function dci_add_pratica_metaboxes() {
         'desc' => __( 'Eventuali documenti pubblici allegati alla pratica' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_pubblico'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona i documenti pubblici', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_documenti->add_field( array(
         'id' => $prefix . 'documenti_privati',
         'name'        => __( 'Documenti privati collegati', 'design_comuni_italia' ),
-        'desc' => __( 'Eventuali documenti pubblici allegati alla pratica' , 'design_comuni_italia' ),
+        'desc' => __( 'Eventuali documenti privati allegati alla pratica' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_privato'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona i documenti privati', 'design_comuni_italia' ),
+        )
     ) );
 
 
@@ -161,7 +173,7 @@ function dci_add_pratica_metaboxes() {
         'title'        => __( 'Argomenti ', 'design_comuni_italia' ),
         'object_types' => array( 'pratica' ),
         'context'      => 'side',
-        'priority'     => 'low',
+        'priority'     => 'high',
     ) );
     $cmb_argomenti->add_field( array(
         'id' => $prefix . 'argomenti',
@@ -170,4 +182,17 @@ function dci_add_pratica_metaboxes() {
         'show_option_none' => false,
         'remove_default' => 'true',
     ) );
+}
+
+
+/**
+ * aggiungo js per controllo compilazione campi
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dci_pratica_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dci_pratica_admin_script', 11 );
+
+function dci_pratica_admin_script() {
+    global $post_type;
+    if( 'pratica' == $post_type )
+        wp_enqueue_script( 'pratica-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/pratica.js' );
 }

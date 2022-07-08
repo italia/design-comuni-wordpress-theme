@@ -203,5 +203,5 @@ add_action( 'admin_print_scripts-post.php', 'dci_dataset_admin_script', 11 );
 function dci_dataset_admin_script() {
     global $post_type;
     if( 'dataset' == $post_type )
-        wp_enqueue_script( 'luogo-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/dataset.js' );
+        wp_enqueue_script( 'dataset-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/dataset.js' );
 }

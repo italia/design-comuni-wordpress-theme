@@ -156,6 +156,9 @@ function dci_add_pagamento_metaboxes() {
         'desc' => __( 'Eventuale pratica associata al pagamento (se presente)' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('pratica'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona la pratica', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_pratica_servizio->add_field( array(
@@ -164,6 +167,9 @@ function dci_add_pagamento_metaboxes() {
         'desc' => __( 'Se il pagamento non è collegato a una pratica ma contempla un servizio, riportare il servizio che permette di soddisfare il task richiesto' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('servizio'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona il servizio', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_esito = new_cmb2_box( array(
@@ -200,5 +206,20 @@ function dci_add_pagamento_metaboxes() {
         'desc' => __( 'Eventuali documenti personali allegati' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_privato'),
+        'attributes' => array(
+            'placeholder' =>  __( ' Seleziona i documeni privati', 'design_comuni_italia' ),
+        )
     ) );
+}
+
+/**
+ * aggiungo js per controllo compilazione campi
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dci_pagamento_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dci_pagamento_admin_script', 11 );
+
+function dci_pagamento_admin_script() {
+    global $post_type;
+    if( 'pagamento' == $post_type )
+        wp_enqueue_script( 'pagamento-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/pagamento.js' );
 }
