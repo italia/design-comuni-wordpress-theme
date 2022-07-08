@@ -96,6 +96,11 @@ function dci_register_required_plugins() {
             'slug'     => 'version-control-for-jquery',
             'required' => true,
         ),
+        array(
+            'name'     => 'Disable Gutenberg',
+            'slug'     => 'disable-gutenberg',
+            'required' => false,
+        ),
 
 /*
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
