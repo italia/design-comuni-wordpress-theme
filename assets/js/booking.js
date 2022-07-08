@@ -1,5 +1,20 @@
-/* Steps Page - Next and Back button */
+//show green border on selected card
+function borderCardRadio() {
+  var cardsRadio = document.querySelectorAll(".radio-card");
+  var inputsRadio = document.querySelectorAll(".radio-input");
 
+  inputsRadio.forEach(function (inputRadio, indexInput) {
+    inputRadio.addEventListener("change", function () {
+      cardsRadio.forEach(function (cardRadio, indexCard) {
+        if (indexInput == indexCard)
+          cardRadio.classList.add("has-border-green");
+        else cardRadio.classList.remove("has-border-green");
+      });
+    });
+  });
+}
+
+/* Steps Page - Next and Back button */
 var content = document.querySelector(".section-wrapper");
 var currentStep = 1;
 var navscroll = document.querySelector(
@@ -217,6 +232,7 @@ officeSelect.addEventListener("change", () => {
           </div>
           `;
         }
+        borderCardRadio();
       })
       .catch((err) => {
         console.log("err", err);
@@ -427,19 +443,29 @@ async function successFeedback() {
   document.getElementById("date-recap").innerText = ` ${getDay()} dalle ore ${
     getHour()[0]
   } alle ore ${getHour()[1]}`;
-  // TODO: rimuovere commento dopo demo
-  // const service = await getServiceDetail(answers?.service?.id);
-  // if (service?._dci_servizio_cosa_serve_list?.length > 0) {
-  //   const neededBox = document.getElementById("needed-recap");
-  //   neededBox.innerHTML = `
-  //     <p class="font-serif">${service?._dci_servizio_cosa_serve_introduzione}</p>
-  //     <ul>
-  //   `;
-  //   service._dci_servizio_cosa_serve_list.forEach((item) => {
-  //     neededBox.innerHTML += `<li>${item}</li>`;
-  //   });
-  //   neededBox.innerHTML += "</ul>";
-  // }
+  //service
+  const service = await getServiceDetail(answers?.service?.id);
+  if (service?._dci_servizio_cosa_serve_list?.length > 0) {
+    const neededBox = document.getElementById("needed-recap");
+    neededBox.innerHTML = `
+      <p class="font-serif">${service?._dci_servizio_cosa_serve_introduzione}</p>
+      <ul>
+    `;
+    service._dci_servizio_cosa_serve_list.forEach((item) => {
+      neededBox.innerHTML += `<li>${item}</li>`;
+    });
+    neededBox.innerHTML += "</ul>";
+  }
+  //office
+  document.getElementById("office-recap").innerHTML = `
+    <a
+      href="#"
+      aria-label="Vai a ${answers?.office?.name}"
+      title="Vai a ${answers?.office?.name}"
+      >${answers?.office?.name}</a
+    >  
+  `;
+  document.getElementById("address-recap").innerHTML = answers?.place?.nome;
 
   // show final step
   document.getElementById("form-steps").classList.add("d-none");
