@@ -1,15 +1,15 @@
-# Contribuire a Design Scuole Wordpress Theme
+# Contribuire a Design Comuni Wordpress Theme
 
 Prenditi un momento per leggere questo documento così da rendere il processo semplice e consistente con quello utilizzato
 dal resto della comunità degli sviluppatori.
 
 ## Creare una issue
 
-L'[issue tracker](https://github.com/italia/design-scuole-wordpress-theme/issues) è il posto giusto dove inserire segnalazioni di bug,
+L'[issue tracker](https://github.com/italia/design-comuni-wordpress-theme/issues) è il posto giusto dove inserire segnalazioni di bug,
 richieste di nuove funzionalità e creazione di pull request, nel rispetto di queste condizioni:
 
 - Per favore, **non** usare l'issue tracker per richieste di supporto personali.
-  [Slack di Developers Italia, nel channel Design Siti Scuola ](https://developersitalia.slack.com/messages/design-siti-scuole/)
+  [Slack di Developers Italia](https://developersitalia.slack.com)
   o Stack Overflow sono i posti giusti a cui fare riferimento, dove sarà anche più facile troverete risposte immediate.
 
 - Allo stesso modo, per favore **non** provocare gli altri o "trollare" nei commenti alle issue.

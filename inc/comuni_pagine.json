@@ -53,22 +53,7 @@
             "slug" : "documenti-e-dati",
             "description" : "Bandi di concorso, avvisi, graduatorie, statistiche e documenti pubblici.",
             "template_name": "documenti-e-dati",
-            "children" : {
-              "Documenti" : {
-                "title" : "Documenti",
-                "slug" : "documenti",
-                "description" : "",
-                "template_name": "",
-                "children" : {}
-              },
-              "Dati" : {
-                "title" : "Dati",
-                "slug" : "dati",
-                "description" : "",
-                "template_name": "",
-                "children" : {}
-              }
-            }
+            "children" : {}
           }
         }
       },

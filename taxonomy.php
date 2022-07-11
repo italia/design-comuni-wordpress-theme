@@ -2,9 +2,7 @@
 global $obj;
 $obj = get_queried_object();
 
-if($obj->taxonomy == "tipologia-documento")
-	get_template_part("archive-documento");
-else if ($obj->taxonomy == "categorie_servizio")
+if ($obj->taxonomy == "categorie_servizio")
 	get_template_part("archive-servizio");
 else if($obj->taxonomy == "argomenti")
 	get_template_part("archive-argomento");

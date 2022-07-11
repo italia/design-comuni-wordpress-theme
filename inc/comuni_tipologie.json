@@ -175,7 +175,7 @@
             "singular_name" : "Sito Tematico",
             "plural_name" : "Siti Tematici"
         },
-        "sito_tematico" : {
+        "domanda_frequente" : {
             "name" : "domanda_frequente",
             "capability" : "domande_frequenti",
             "prefix" : "_dci_domanda_frequente_",
