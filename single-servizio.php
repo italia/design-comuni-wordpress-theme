@@ -6,7 +6,7 @@
  *
  * @package Design_Comuni_Italia
  */
-global $uo_id;
+global $uo_id, $file_url;
 
 get_header();
 ?>
@@ -44,13 +44,7 @@ get_header();
             $canale_fisico_uffici = dci_get_meta("canale_fisico_uffici");
 
             $more_info = dci_get_meta("ulteriori_informazioni");
-            $condizioni_servizio = dci_get_meta("condizioni_servizio");
-            $contatti_ids = dci_get_meta("punti_contatto");     
-            $contatti = array();            
-            foreach ($contatti_ids as $contatto) {
-                $item = get_post($contatto);
-                $contatti[] = $item;
-            }       
+            $condizioni_servizio = dci_get_meta("condizioni_servizio");     
             $uo_id = intval(dci_get_meta("unita_responsabile"));
             $argomenti = get_the_terms($post, 'argomenti');
             ?>
@@ -184,6 +178,20 @@ get_header();
                                             </a>
                                             </li>
                                         <?php } ?>
+                                        <?php if ( $condizioni_servizio ) { ?>
+                                            <li>
+                                            <a class="list-item" href="#conditions" aria-label="Vai alla sezione Condizioni di servizio" title="Vai alla sezione Condizioni di servizio">
+                                                <span class="title-medium">Condizioni di servizio</span>
+                                            </a>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ( $uo_id ) { ?>
+                                            <li>
+                                            <a class="list-item" href="#contacts" aria-label="Vai alla sezione Contatti" title="Vai alla sezione Contatti">
+                                                <span class="title-medium">Contatti</span>
+                                            </a>
+                                            </li>
+                                        <?php } ?>
                                     </ul>
                                 </li>
                             </ul>
@@ -285,10 +293,22 @@ get_header();
                                 <?php echo $more_info ?>
                             </p>
                         </section>
+                        <?php if ( $condizioni_servizio ) { 
+                            $file_url = $condizioni_servizio;
+                        ?>
+                        <section class="mb-30">
+                            <h2 class="title-xxlarge mb-3" id="conditions">Condizioni di servizio</h2>
+                            <p class="text-paragraph lora">Per conoscere i dettagli di
+                                scadenze, requisiti e altre informazioni importanti, leggi i termini e le condizioni di servizio.
+                            </p>
+                            <?php get_template_part("template-parts/single/attachment"); ?>
+                        </section>
+                        <?php } ?>
+                        <?php if ( $uo_id ) { ?>
                         <section class="it-page-section">
+                            <h2 class="title-xxlarge mb-3" id="contacts">Contatti</h2>
                             <div class="row">
                                 <div class="col-12 col-md-6">
-                                    <h6><small class="fw-semibold">Questa pagina è gestita da</small></h6>
                                     <div class="card-wrapper rounded h-auto mt-10">
                                         <?php 
                                             $with_border = true;
@@ -313,6 +333,7 @@ get_header();
                                 </div>
                             </div>
                         </section>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
