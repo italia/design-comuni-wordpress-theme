@@ -35,6 +35,35 @@ get_header();
                     </div>
                 </div>
             </div>
+
+            <div class="container ">
+                <article class="article-wrapper">
+
+                    <div class="row variable-gutters">
+                        <div class="col-lg-12">
+                            <?php
+                            the_content();
+                            ?>
+                        </div>
+                    </div>
+                    <div class="row variable-gutters">
+                        <div class="col-lg-12">
+                            <?php
+                            if ( comments_open() || get_comments_number() ) :
+                                comments_template();
+                            endif;
+                            ?>
+                        </div>
+                    </div>
+                    <div class="row variable-gutters">
+                        <div class="col-lg-12">
+                            <?php get_template_part( "template-parts/single/bottom" ); ?>
+                        </div><!-- /col-lg-9 -->
+                    </div><!-- /row -->
+
+                </article>
+            </div>
+
         <?php
         endwhile; // End of the loop.
         ?>

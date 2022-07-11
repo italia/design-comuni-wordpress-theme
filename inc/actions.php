@@ -82,32 +82,6 @@ function dci_create_menu_locations() {
 }
 
 /**
- * Hide content editor
- */
-add_action( 'admin_init', 'dci_hide_editor' );
-function dci_hide_editor() {
-    global $pagenow;
-    if ( $pagenow == "post.php" ) {
-        // Get the Post ID.
-        if(isset($_GET['post']))
-            $post_id = $_GET['post'];
-        else if(isset($_POST['post_ID']))
-            $post_id = $_POST['post_ID'];
-
-        if ( ! isset( $post_id ) ) {
-            return;
-        }
-
-        // Get the name of the Page Template file.
-        //$template_file = get_post_meta( $post_id, '_wp_page_template', true );
-
-        // remove editor for page
-        remove_post_type_support( 'page', 'editor' );
-
-    }
-}
-
-/**
  * Add css admin style
  */
 function dci_admin_css_load() {
@@ -170,13 +144,14 @@ add_action( 'pre_get_posts', 'dci_search_filters' );
 /**
  * add favicon
  */
-function add_my_favicon() {
-    $favicon_path = get_template_directory_uri() . '/assets/svg/it-designers-italia.svg';
+function dci_add_designers_italia_favicon() {
 
-    echo '<link rel="shortcut icon" href="' . esc_url($favicon_path) . '" />';
+    $favicon_path = get_template_directory_uri() . '/assets/svg/it-designers-italia.svg';
+    if (get_site_icon_url() === '')
+        echo '<link rel="shortcut icon" href="' . esc_url($favicon_path) . '" />';
 }
-add_action( 'wp_head', 'add_my_favicon' ); //front end
-add_action( 'admin_head', 'add_my_favicon' ); //admin end
+add_action( 'wp_head', 'dci_add_designers_italia_favicon' ); //front end
+add_action( 'admin_head', 'dci_add_designers_italia_favicon' ); //admin end
 
 /**
  * customize excerpt
@@ -254,55 +229,57 @@ function dci_admin_bar_customize_header() {
             'parent' => 'design-comuni-external',
             'id'     => 'dci-about-design',
             'title'  => __( 'About Design Comuni' ),
-            'href'   => 'https://www.google.it',
+            'href'   => 'https://designers.italia.it/modello/comuni/',
             'meta'  => array( 'target' => '_blank')
         )
     );
 
-
     $wp_admin_bar->add_menu(
         array(
-            'parent' => 'design-scuole',
+            'parent' => 'design-comuni',
             'id'     => 'dci-about-wp',
             'title'  => __( 'About WordPress' ),
             'href'   => $about_url,
         )
     );
 
-
     $wp_admin_bar->add_menu(
         array(
-            'parent' => 'design-scuole',
+            'parent' => 'design-comuni',
             'id'     => 'dci-github',
-            'title'  => __( 'Design su GitHub' ),
-            'href'   => "https://github.com/italia/design-scuole-wordpress-theme",
+            'title'  => __( 'Design Comuni su GitHub' ),
+            'href'   => "https://github.com/italia/design-comuni-wordpress-theme",
             'meta'  => array( 'target' => '_blank')
         )
     );
 
-
     if(current_user_can("manage_options")){
         $wp_admin_bar->add_menu(
             array(
-                'id'     => 'design-scuole-conf',
+                'id'     => 'design-comuni-conf',
                 'title' => __( '<div class="dashicons-before dashicons-admin-tools" style="float:left; padding-top: 6px; padding-right:4px;"> </div>Configurazione', "design_comuni_italia" ),
                 'href'   => admin_url("admin.php?page=homepage")
             )
         );
     }
 
-
 }
 add_action( 'admin_bar_menu', 'dci_admin_bar_customize_header', -10 );
 
+/**
+ * rimuovo wp-logo
+ */
 function dci_admin_bar_before_customize_header(){
     global $wp_admin_bar;
 
     $wp_admin_bar->remove_menu("wp-logo");
 }
 add_action( 'wp_before_admin_bar_render', 'dci_admin_bar_before_customize_header', -10 );
-// rimuovo customizer
-add_action( 'admin_menu', function () {
+
+/**
+ * rimuovo customizer (customize.php)
+ */
+function dci_remove_customizer () {
     global $submenu;
     if ( isset( $submenu[ 'themes.php' ] ) ) {
         foreach ( $submenu[ 'themes.php' ] as $index => $menu_item ) {
@@ -313,15 +290,15 @@ add_action( 'admin_menu', function () {
             }
         }
     }
-});
-
+}
+//add_action( 'admin_menu', 'dci_remove_customizer');
 function dci_before_admin_bar_render()
 {
     global $wp_admin_bar;
 
     $wp_admin_bar->remove_menu('customize');
 }
-add_action( 'wp_before_admin_bar_render', 'dci_before_admin_bar_render' );
+//add_action( 'wp_before_admin_bar_render', 'dci_before_admin_bar_render' );
 
 /**
  * abilito edit utenti agli admin di un netork multisite

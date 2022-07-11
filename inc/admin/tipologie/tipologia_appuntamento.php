@@ -130,13 +130,17 @@ function dci_add_appuntamento_metaboxes()
         'id' => $prefix . 'servizio',
         'desc' => __( 'Associazione con il servizio per il quale si prende appuntamento' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
-        'options' => dci_get_posts_options('servizio')
+        'options' => dci_get_posts_options('servizio'),
+        'attributes'    => array(
+            'required'    => 'required',
+            'placeholder' =>  __( ' Seleziona il servizio', 'design_comuni_italia' ),
+        ),
     ) );
 
     /**
      * metabox Unità organizzativa
      */
-    $cmb_servizio = new_cmb2_box(array(
+    $cmb_unita_organizzativa = new_cmb2_box(array(
         'id' => $prefix . 'box_unita_organizzativa',
         'title' => __('Unità organizzativa *'),
         'object_types' => array('appuntamento'),
@@ -144,15 +148,18 @@ function dci_add_appuntamento_metaboxes()
         'priority' => 'high',
     ));
 
-    $cmb_servizio->add_field( array(
+    $cmb_unita_organizzativa->add_field( array(
         'id' => $prefix . 'unita_organizzativa',
         'desc' => __( 'Se l\'appuntamento non è su un servizio ma con un\'Unità organizzativa' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
-        'options' => dci_get_posts_options('unita_organizzativa')
+        'options' => dci_get_posts_options('unita_organizzativa'),
+        'attributes'    => array(
+            'required'    => 'required',
+            'placeholder' =>  __( ' Seleziona unità organizzativa', 'design_comuni_italia' ),
+        ),
     ) );
 
 }
-
 
 /**
  * Aggiungo colonne custom
@@ -230,3 +237,17 @@ function dci_save_appuntamento_columns( $columns ) {
     return $columns;
 }
 add_filter( 'manage_appuntamento_posts_columns', 'dci_save_appuntamento_columns' );
+
+
+/**
+ * aggiungo js per controllo compilazione campi
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dci_appuntamento_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dci_appuntamento_admin_script', 11 );
+
+function dci_appuntamento_admin_script() {
+    global $post_type;
+    if( 'appuntamento' == $post_type )
+        wp_enqueue_script( 'appuntamento-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/appuntamento.js' );
+}
+
