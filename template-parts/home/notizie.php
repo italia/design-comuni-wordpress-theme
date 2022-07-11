@@ -10,7 +10,7 @@ global $count, $scheda;
 // $post = array_shift($posts);
 
 $post_id = dci_get_option('notizia_evidenziata','homepage', true )[0];
-$post = get_post($post_id);
+if($post_id) $post = get_post($post_id);
 
 $img = dci_get_meta("immagine", '_dci_notizia_', $post->ID);
 $arrdata = dci_get_data_pubblicazione_arr("data_pubblicazione", '_dci_notizia_', $post->ID);
@@ -27,7 +27,7 @@ $schede = array($scheda1,$scheda2,$scheda3 );
 ?>
 <!-- Tag section is opened in home.php -->
   <div class="container">
-    <?php if ($post) { ?>
+    <?php if ($post_id) { ?>
     <div class="row">
       <div class="col-lg-6 offset-lg-1 order-lg-2 px-0 px-lg-2">
         <?php if ($img) { 
@@ -71,7 +71,7 @@ $schede = array($scheda1,$scheda2,$scheda3 );
       </div>
     </div>
     <?php } else { ?>
-      <div style="height: 16px;"></div>
+      <div style="height: 34px;"></div>
     <?php } ?>
   </div>
 </section>

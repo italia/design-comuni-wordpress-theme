@@ -1,13 +1,18 @@
 <?php
 global $scheda, $count;
 
-$page = get_post($scheda['scheda_'.$count.'_pagina']);
-$page_id = $scheda['scheda_'.$count.'_pagina'];
-
 $post = get_post($scheda['scheda_'.$count.'_contenuto'][0]);
 $img = dci_get_meta('immagine');
 $descrizione_breve = dci_get_meta('descrizione_breve');
 $icon = dci_get_post_type_icon_by_id($post->ID);
+
+$page_id = $scheda['scheda_'.$count.'_pagina'];
+if ($page_id) {
+    $page = get_post($page_id);
+} else {
+    # get page dynamically
+    $page = get_page_by_path( dci_get_group($post->post_type) );    
+}
 
 $page_macro_slug = dci_get_group($post->post_type);
 $page_macro = get_page_by_path($page_macro_slug);
@@ -21,7 +26,7 @@ $page_macro = get_page_by_path($page_macro_slug);
             <!-- <svg class="icon">
                 <use xlink:href="#<?php #echo $icon ?>"></use>
             </svg> -->
-            <a class="category title-xsmall-semi-bold fw-semibold" href="<?php echo get_page_link($page_id); ?>" aria-label="Vai alla pagina <?php echo $page->post_title ?>" title="Vai alla pagina <?php echo $page->post_title ?>"><?php echo $page->post_title ?></a>
+            <a class="category title-xsmall-semi-bold fw-semibold" href="<?php echo get_page_link($page->ID); ?>" aria-label="Vai alla pagina <?php echo $page->post_title ?>" title="Vai alla pagina <?php echo $page->post_title ?>"><?php echo $page->post_title ?></a>
             </div>
             <p class="card-title text-paragraph-medium u-grey-light"><?php echo $post->post_title ?></p>
             <p class="text-paragraph-card u-grey-light m-0" style="margin-bottom: 40px!important;"><?php echo $descrizione_breve ?></p>
@@ -49,7 +54,7 @@ $page_macro = get_page_by_path($page_macro_slug);
             <!-- <svg class="icon">
                 <use xlink:href="#<?php #echo $icon ?>"></use>
             </svg> -->
-            <a class="category title-xsmall-semi-bold fw-semibold" href="<?php echo get_page_link($page_id); ?>" aria-label="Vai alla pagina <?php echo $page->post_title ?>" title="Vai alla pagina <?php echo $page->post_title ?>"><?php echo $page->post_title ?></a>
+            <a class="category title-xsmall-semi-bold fw-semibold" href="<?php echo get_page_link($page->ID); ?>" aria-label="Vai alla pagina <?php echo $page->post_title ?>" title="Vai alla pagina <?php echo $page->post_title ?>"><?php echo $page->post_title ?></a>
         </div>
         <p class="card-title text-paragraph-medium u-grey-light">
             <?php echo $post->post_title ?>
