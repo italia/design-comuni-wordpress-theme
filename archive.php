@@ -9,11 +9,6 @@
 
 $class = "petrol";
 
-if(is_post_type_archive("scheda_didattica")){
-    $class = "bluelectric";
-} else if(is_post_type_archive("scheda_progetto")){
-    $class = "bluelectric";
-}
 get_header();
 ?>
 

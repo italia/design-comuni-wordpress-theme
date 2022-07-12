@@ -42,9 +42,11 @@ if(!function_exists("dci_get_post_type_icon_by_id")) {
 if(!function_exists("dci_get_post_type_icon_by_type")) {
     function dci_get_post_type_icon_by_type($post_type) {
         $icon = '';
+        /*  rimossa option associazione icona-post_type
         if ($post_type != '') {
             $icon = dci_get_option('icona_post_type_'.$post_type,'content');
         }
+        */
         return $icon;
     }
 }
@@ -81,21 +83,6 @@ if(!function_exists("dci_get_children_pages")) {
             }
         }
         return $result;
-    }
-}
-
-/**
- * save star classification
- */
-if(!function_exists("dci_save_star_classification")) {
-    function dci_save_star_classification($stars = 0, $select = '', $details = '') {
-        console_log(array(
-            'stars' => $stars,
-            'selected_answer' => $select,
-            'details' => $details
-        ),
-        'DATI INVIATI'
-        );
     }
 }
 
@@ -657,30 +644,6 @@ function dci_bootstrap_pagination(\WP_Query $wp_query = null, $echo = true)
     }
     return null;
 }
-
-
-/**
- * @param $post_type
- *
- * ritorna il nome dell'svg utilizzato per la preview del post type
- * @return string
- */
-function dci_get_post_types_icon_class($post_type)
-{
-    $icon = "newspaper";
-    $group = dci_get_group($post_type);
-    if ($group == "school")
-        $icon = "school-building";
-    else if ($group == "education")
-        $icon = "school";
-    else if ($group == "service")
-        $icon = "hand-point-up";
-
-    if ($post_type == "documento")
-        $icon = "generic-document";
-    return $icon;
-}
-
 
 /**
  *
