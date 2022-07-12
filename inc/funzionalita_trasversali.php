@@ -295,17 +295,15 @@ function dci_save_appuntamento(){
     }
 
     if(array_key_exists("service", $params) && $params['service'] != "null") {
-
         $service_obj = json_decode(stripslashes($params['service']), true);
-        $service_id = $service_obj['id'];
-        update_post_meta($postId, '_dci_appuntamento_servizio',$service_id);
+        //$service_id = $service_obj['id'];
+        update_post_meta($postId, '_dci_appuntamento_servizio',$service_obj['name']);
     }
 
     if(array_key_exists("office", $params) && $params['office'] != "null") {
-
         $office_obj = json_decode(stripslashes($params['office']), true);
-        $office_id = $office_obj['id'];
-        update_post_meta($postId, '_dci_appuntamento_unita_organizzativa',  $office_id);
+        //$office_id = $office_obj['id'];
+        update_post_meta($postId, '_dci_appuntamento_unita_organizzativa', $office_obj['name']);
     }
 
     if(array_key_exists("appointment", $params) && $params['appointment'] != "null") {

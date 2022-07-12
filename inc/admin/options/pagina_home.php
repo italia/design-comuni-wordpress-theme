@@ -57,16 +57,9 @@ function dci_register_pagina_home_options(){
         'repeatable'  => false,
         'options'     => array(
             'group_title'       => 'Scheda 1:',
-            'closed' => true)
+    )
     ) );
     //scheda1
-    $home_options->add_group_field( $schede_group_id, array(
-        'id' => $prefix . 'scheda_1_pagina',
-        'name'        => __( 'Pagina link ', 'design_comuni_italia' ),
-        'desc' => __( 'Selezionare la pagina a cui linkare la scheda' , 'design_comuni_italia' ),
-        'type'    => 'pw_select',
-        'options' =>  dci_get_children_pages_options(),
-    ) );
     $home_options->add_group_field( $schede_group_id, array(
             'name' => __('<h5>Selezione contenuto</h5>', 'design_comuni_italia'),
             'desc' => __('Seleziona il contenuto da mostrare nella Scheda. ', 'design_comuni_italia'),
@@ -95,14 +88,7 @@ function dci_register_pagina_home_options(){
         'repeatable'  => false,
         'options'     => array(
             'group_title'       => 'Scheda 2:',
-            'closed' => true)
-    ) );
-    $home_options->add_group_field( $schede_group_id, array(
-        'id' => $prefix . 'scheda_2_pagina',
-        'name'        => __( 'Pagina link ', 'design_comuni_italia' ),
-        'desc' => __( 'Selezionare la pagina a cui linkare la scheda' , 'design_comuni_italia' ),
-        'type'    => 'pw_select',
-        'options' =>  dci_get_children_pages_options(),
+    )
     ) );
     $home_options->add_group_field( $schede_group_id, array(
             'name' => __('<h5>Selezione contenuto</h5>', 'design_comuni_italia'),
@@ -131,14 +117,7 @@ function dci_register_pagina_home_options(){
         'repeatable'  => false,
         'options'     => array(
             'group_title'       => 'Scheda 3:',
-            'closed' => true)
-    ) );
-    $home_options->add_group_field( $schede_group_id, array(
-        'id' => $prefix . 'scheda_3_pagina',
-        'name'        => __( 'Pagina link ', 'design_comuni_italia' ),
-        'desc' => __( 'Selezionare la pagina a cui linkare la scheda' , 'design_comuni_italia' ),
-        'type'    => 'pw_select',
-        'options' =>  dci_get_children_pages_options(),
+       )
     ) );
     $home_options->add_group_field( $schede_group_id, array(
             'name' => __('<h5>Selezione contenuto</h5>', 'design_comuni_italia'),

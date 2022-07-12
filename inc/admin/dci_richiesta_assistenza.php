@@ -7,13 +7,13 @@ add_action( 'init', 'dci_register_post_type_richiesta_assistenza', 100 );
 function dci_register_post_type_richiesta_assistenza() {
 
     $labels = array(
-        'name'                  => _x( 'Richieste Assistenza', 'Post Type General Name', 'design_comuni_italia' ),
-        'singular_name'         => _x( 'Richiesta Assistenza', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'add_new'               => _x( 'Aggiungi una Richiesta Assistenza', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'add_new_item'               => _x( 'Aggiungi una Richiesta Assistenza', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'name'                  => _x( 'Tickets', 'Post Type General Name', 'design_comuni_italia' ),
+        'singular_name'         => _x( 'Ticket', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'add_new'               => _x( 'Aggiungi un Ticket', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'add_new_item'               => _x( 'Aggiungi un nuovo Ticket', 'Post Type Singular Name', 'design_comuni_italia' ),
         //'featured_image' => __( 'Logo Identificativo del Rating', 'design_comuni_italia' ),
-        'edit_item'      => _x( 'Modifica la Richiesta Assistenza', 'Post Type Singular Name', 'design_comuni_italia' ),
-        'view_item'      => _x( 'Visualizza la Richiesta Assistenza', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'edit_item'      => _x( 'Dettagli Ticket', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'view_item'      => _x( 'Visualizza il Ticket', 'Post Type Singular Name', 'design_comuni_italia' ),
         'set_featured_image' => __( 'Seleziona Immagine Richiesta Assistenza' ),
         'remove_featured_image' => __( 'Rimuovi Immagine Richiesta Assistenza' , 'design_comuni_italia' ),
         'use_featured_image' => __( 'Usa come Immagine Richiesta Assistenza' , 'design_comuni_italia' ),
@@ -21,17 +21,20 @@ function dci_register_post_type_richiesta_assistenza() {
     $args = array(
         'label'                 => __( 'Rating', 'design_comuni_italia' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
         'hierarchical'          => false,
         'public'                => true,
         'menu_position'         => 5,
         'menu_icon'             => 'dashicons-media-spreadsheet',
         'has_archive'           => false,
         'capability_type' => array('richiesta_assistenza', 'richieste_assistenza'),
+        'capabilities' => array(
+            'create_posts' => 'do_not_allow'
+        ),
         'map_meta_cap'    => true,
         'description'    => __( "Struttura dei resoconti delle richieste di assistenza degli utenti", 'design_comuni_italia' ),
     );
     register_post_type( 'richiesta_assistenza', $args );
+    remove_post_type_support( 'richiesta_assistenza', 'title');
     remove_post_type_support( 'richiesta_assistenza', 'editor');
 
 }
@@ -41,8 +44,20 @@ function dci_register_post_type_richiesta_assistenza() {
  */
 add_action( 'edit_form_after_title', 'dci_richiesta_assistenza_add_content_after_title' );
 function dci_richiesta_assistenza_add_content_after_title($post) {
-    if($post->post_type == "rating")
-        _e('<span><i>il <b>Titolo</b> è il <b>Titolo della Richiesta Assistenza</b></i></span><br><br><br> ', 'design_comuni_italia' );
+
+    if($post->post_type == "richiesta_assistenza") {
+        if (isset($_GET['post']))
+            $curr_post_id = $_GET['post'];
+        else if (isset($_POST['post_ID']))
+            $curr_post_id = $_POST['post_ID'];
+
+        if (isset($curr_post_id)) {
+            $post_title = get_the_title($curr_post_id);
+            _e('<h1>' . $post_title . '</h1>', 'design_comuni_italia');
+        }
+
+        //_e('<span><i>il <b>Titolo</b> è il <b>Titolo della Richiesta Assistenza</b></i></span><br><br><br> ', 'design_comuni_italia' );
+    }
 }
 
 /**
@@ -66,6 +81,9 @@ function dci_add_richiesta_assistenza_metaboxes()
         'name'  => __( 'Nome', 'design_comuni_italia' ),
         'desc'  => __( 'Nome del Richiedente', 'design_comuni_italia' ),
         'type' => 'text',
+        'attributes' => array(
+            'readonly' => true
+        )
     ) );
 
     $cmb_richiedente->add_field( array(
@@ -73,6 +91,9 @@ function dci_add_richiesta_assistenza_metaboxes()
         'name'  => __( 'Cognome', 'design_comuni_italia' ),
         'desc'  => __( 'Cognome del Richiedente', 'design_comuni_italia' ),
         'type' => 'text',
+        'attributes' => array(
+            'readonly' => true
+        )
     ) );
 
     $cmb_richiedente->add_field( array(
@@ -80,6 +101,9 @@ function dci_add_richiesta_assistenza_metaboxes()
         'name'  => __( 'Email', 'design_comuni_italia' ),
         'desc'  => __( 'Email del Richiedente', 'design_comuni_italia' ),
         'type' => 'text_email',
+        'attributes' => array(
+            'readonly' => true
+        )
     ) );
 
     $cmb_richiesta = new_cmb2_box(array(
@@ -95,6 +119,9 @@ function dci_add_richiesta_assistenza_metaboxes()
         'name'  => __( 'Categoria', 'design_comuni_italia' ),
         'desc'  => __( 'Categoria del Servizio per il quale viene richiesta assistenza', 'design_comuni_italia' ),
         'type' => 'text',
+        'attributes' => array(
+            'readonly' => true
+        )
     ) );
 
     $cmb_richiesta->add_field( array(
@@ -102,6 +129,9 @@ function dci_add_richiesta_assistenza_metaboxes()
         'name'  => __( 'Servizio', 'design_comuni_italia' ),
         'desc'  => __( 'Servizio per il quale viene richiesta assistenza', 'design_comuni_italia' ),
         'type' => 'text',
+        'attributes' => array(
+            'readonly' => true
+        )
     ) );
 
     $cmb_richiesta->add_field( array(
@@ -109,6 +139,9 @@ function dci_add_richiesta_assistenza_metaboxes()
         'name'  => __( 'Dettagli', 'design_comuni_italia' ),
         'desc'  => __( 'Dettagli richiesta di assistenza', 'design_comuni_italia' ),
         'type' => 'textarea',
+        'attributes' => array(
+            'readonly' => true
+        )
     ) );
 
 }
@@ -249,3 +282,43 @@ function dci_richiesta_assistenza_posts_orderby( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'dci_richiesta_assistenza_posts_orderby' );
+
+/**
+ * disabilito quick edit del titolo per le Richieste di Assistenza
+ * @param $actions
+ * @param $post
+ * @return mixed
+ */
+function dci_richiesta_assistenza_row_actions( $actions, $post ) {
+
+    if ( 'richiesta_assistenza' === $post->post_type ) {
+
+        // Removes the "Quick Edit" action.
+        unset( $actions['inline hide-if-no-js'] );
+    }
+    return $actions;
+}
+add_filter( 'post_row_actions', 'dci_richiesta_assistenza_row_actions', 10, 2 );
+
+/**
+ * rimuovo voce menu aggiungi Richiesta Assistenza
+ */
+function dci_richiesta_assistenza_remove_add_new_menu() {
+
+    remove_submenu_page('edit.php?post_type=richiesta_assistenza','post-new.php?post_type=richiesta_assistenza');
+
+}
+add_action('admin_menu','dci_richiesta_assistenza_remove_add_new_menu');
+
+/**
+ * rimuovo meta box Update, Publish
+ * @param $post_type
+ * @param $position
+ * @param $post
+ */
+function dci_richiesta_assistenza_remove_publish_mbox( $post_type, $position, $post )
+{
+    remove_meta_box( 'submitdiv', 'richiesta_assistenza', 'side' );
+}
+add_action( 'do_meta_boxes', 'dci_richiesta_assistenza_remove_publish_mbox', 10, 3 );
+

@@ -270,11 +270,3 @@ function dci_get_all_values($array,$key){
     return $result;
 }
 
-
-
-//TODO: remove from article-*.php
-
-
-function dci_get_post_types_color_class() {
-    return null;
-}

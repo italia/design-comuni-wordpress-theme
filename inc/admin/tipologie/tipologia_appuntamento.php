@@ -12,7 +12,7 @@ function dci_register_post_type_appuntamento() {
         'add_new'               => _x( 'Aggiungi un Appuntamento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'add_new_item'               => _x( 'Aggiungi un Appuntamento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'featured_image' => __( 'Logo Identificativo dell\'Appuntamento', 'design_comuni_italia' ),
-        'edit_item'      => _x( 'Modifica l\'Appuntamento', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'edit_item'      => _x( 'Dettagli richiesta Appuntamento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'view_item'      => _x( 'Visualizza l\'Appuntamento', 'Post Type Singular Name', 'design_comuni_italia' ),
         'set_featured_image' => __( 'Seleziona Immagine Appuntamento' ),
         'remove_featured_image' => __( 'Rimuovi Immagine Appuntamento' , 'design_comuni_italia' ),
@@ -28,12 +28,16 @@ function dci_register_post_type_appuntamento() {
         'menu_icon'             => 'dashicons-calendar-alt',
         'has_archive'           => false,
         'capability_type' => array('appuntamento', 'appuntamenti'),
+        'capabilities' => array(
+            'create_posts' => 'do_not_allow'
+        ),
         'map_meta_cap'    => true,
         'description'    => __( "Struttura delle informazioni relative utili a presentare un appuntamento", 'design_comuni_italia' ),
 
     );
     register_post_type( 'appuntamento', $args );
 
+    remove_post_type_support( 'appuntamento', 'title');
     remove_post_type_support( 'appuntamento', 'editor');
 }
 
@@ -42,8 +46,19 @@ function dci_register_post_type_appuntamento() {
  */
 add_action( 'edit_form_after_title', 'dci_appuntamento_add_content_after_title' );
 function dci_appuntamento_add_content_after_title($post) {
-    if($post->post_type == "appuntamento")
-        _e('<span><i>il <b>Titolo</b> è il <b>Titolo della richiesta</b></i></span><br><br><br> ', 'design_comuni_italia' );
+    if($post->post_type == "appuntamento") {
+        if (isset($_GET['post']))
+            $curr_post_id = $_GET['post'];
+        else if (isset($_POST['post_ID']))
+            $curr_post_id = $_POST['post_ID'];
+
+        if (isset($curr_post_id)) {
+            $post_title = get_the_title($curr_post_id);
+            _e('Richiesta di appuntamento: <h1>' . $post_title . '</h1>', 'design_comuni_italia');
+        }
+
+        //_e('<span><i>il <b>Titolo</b> è il <b>Titolo della richiesta</b></i></span><br><br><br> ', 'design_comuni_italia');
+    }
 }
 
 /**
@@ -66,14 +81,10 @@ function dci_add_appuntamento_metaboxes()
         'id' => $prefix . 'dettaglio_richiesta',
         'desc' => __( 'Testo della richiesta' , 'design_comuni_italia' ),
         'name'  => __( 'Dettaglio richiesta *', 'design_comuni_italia' ),
-        'type' => 'wysiwyg',
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 7, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
-        ),
+        'type' => 'textarea',
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'readonly' => true
         ),
     ) );
 
@@ -93,7 +104,8 @@ function dci_add_appuntamento_metaboxes()
         'name'    => __( 'Data e ora in cui è stata fatta la prenotazione *', 'design_comuni_italia' ),
         'type'    => 'text_datetime_timestamp',
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'readonly' => true
         ),
     ) );
 
@@ -102,7 +114,8 @@ function dci_add_appuntamento_metaboxes()
         'name'    => __( 'Data e ora inizio appuntamento *', 'design_comuni_italia' ),
         'type'    => 'text_datetime_timestamp',
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'readonly' => true
         ),
     ) );
 
@@ -111,7 +124,8 @@ function dci_add_appuntamento_metaboxes()
         'name'    => __( 'Data e ora della fine dell\'appuntamento *', 'design_comuni_italia' ),
         'type'    => 'text_datetime_timestamp',
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'readonly' => true
         ),
     ) );
 
@@ -129,11 +143,10 @@ function dci_add_appuntamento_metaboxes()
     $cmb_servizio->add_field( array(
         'id' => $prefix . 'servizio',
         'desc' => __( 'Associazione con il servizio per il quale si prende appuntamento' , 'design_comuni_italia' ),
-        'type'    => 'pw_select',
-        'options' => dci_get_posts_options('servizio'),
+        'type'    => 'text',
         'attributes'    => array(
             'required'    => 'required',
-            'placeholder' =>  __( ' Seleziona il servizio', 'design_comuni_italia' ),
+            'readonly' => true
         ),
     ) );
 
@@ -151,11 +164,10 @@ function dci_add_appuntamento_metaboxes()
     $cmb_unita_organizzativa->add_field( array(
         'id' => $prefix . 'unita_organizzativa',
         'desc' => __( 'Se l\'appuntamento non è su un servizio ma con un\'Unità organizzativa' , 'design_comuni_italia' ),
-        'type'    => 'pw_select',
-        'options' => dci_get_posts_options('unita_organizzativa'),
+        'type'    => 'text',
         'attributes'    => array(
             'required'    => 'required',
-            'placeholder' =>  __( ' Seleziona unità organizzativa', 'design_comuni_italia' ),
+            'readonly' => true
         ),
     ) );
 
@@ -185,15 +197,11 @@ add_filter( 'manage_appuntamento_posts_columns', 'dci_filter_appuntamento_column
 function dci_manage_appuntamento_posts_custom_column( $column, $post_id ) {
 
     if ( 'servizio' === $column ) {
-        $service_id  =  get_post_meta($post_id, '_dci_appuntamento_servizio', true );
-        if( get_post_type($service_id) == 'servizio')
-            echo  get_the_title($service_id);
+        echo get_post_meta($post_id, '_dci_appuntamento_servizio', true );
     }
 
     if ( 'ufficio' === $column ) {
-        $office_id = get_post_meta($post_id, '_dci_appuntamento_unita_organizzativa', true );
-        if( get_post_type($office_id) == 'unita_organizzativa')
-            echo  get_the_title($office_id);
+        echo get_post_meta($post_id, '_dci_appuntamento_unita_organizzativa', true );
     }
 
     if ( 'data_ora_inizio' === $column ) {
@@ -238,12 +246,48 @@ function dci_save_appuntamento_columns( $columns ) {
 }
 add_filter( 'manage_appuntamento_posts_columns', 'dci_save_appuntamento_columns' );
 
+/**
+ * Rendo le colonne filtrabili
+ * @param $columns
+ * @return mixed
+ */
+function dci_appuntamento_sortable_columns( $columns ) {
+
+    $columns['servizio'] = 'appuntamento_servizio';
+    $columns['ufficio'] = 'appuntamento_ufficio';
+
+    return $columns;
+}
+add_filter( 'manage_edit-appuntamento_sortable_columns', 'dci_appuntamento_sortable_columns');
 
 /**
- * aggiungo js per controllo compilazione campi
+ * Filtro le colonne
+ * @param $query
  */
-add_action( 'admin_print_scripts-post-new.php', 'dci_appuntamento_admin_script', 11 );
-add_action( 'admin_print_scripts-post.php', 'dci_appuntamento_admin_script', 11 );
+function dci_appuntamento_posts_orderby( $query ) {
+    if( ! is_admin() || ! $query->is_main_query() ) {
+        return;
+    }
+
+    if ( 'appuntamento_servizio' === $query->get( 'orderby') ) {
+        $query->set( 'orderby', 'meta_value' );
+        $query->set( 'meta_key', '_dci_appuntamento_servizio' );
+    }
+
+    if ( 'appuntamento_ufficio' === $query->get( 'orderby') ) {
+        $query->set( 'orderby', 'meta_value' );
+        $query->set( 'meta_key', '_dci_appuntamento_unita_organizzativa' );
+    }
+
+
+}
+add_action( 'pre_get_posts', 'dci_appuntamento_posts_orderby' );
+
+/**
+ * aggiungo js per controllo compilazione campi (se campo dettagli è wysiwyg)
+ */
+//add_action( 'admin_print_scripts-post-new.php', 'dci_appuntamento_admin_script', 11 );
+//add_action( 'admin_print_scripts-post.php', 'dci_appuntamento_admin_script', 11 );
 
 function dci_appuntamento_admin_script() {
     global $post_type;
@@ -251,3 +295,43 @@ function dci_appuntamento_admin_script() {
         wp_enqueue_script( 'appuntamento-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/appuntamento.js' );
 }
 
+/**
+ * disabilito quick edit del titolo per gli Appuntamenti
+ * @param $actions
+ * @param $post
+ * @return mixed
+ */
+function dci_appuntamento_row_actions( $actions, $post ) {
+
+    //se la pagina ha slug tra le pagine create all'attivazione del tema
+    if ( 'appuntamento' === $post->post_type ) {
+
+        // Removes the "Quick Edit" action.
+        unset( $actions['inline hide-if-no-js'] );
+    }
+    return $actions;
+}
+add_filter( 'post_row_actions', 'dci_appuntamento_row_actions', 10, 2 );
+
+/**
+ * rimuovo voce menu aggiungi Appuntamento
+ */
+function dci_appuntamento_remove_add_new_menu() {
+
+        remove_submenu_page('edit.php?post_type=appuntamento','post-new.php?post_type=appuntamento');
+
+}
+add_action('admin_menu','dci_appuntamento_remove_add_new_menu');
+
+
+/**
+ * rimuovo meta box Update, Publish
+ * @param $post_type
+ * @param $position
+ * @param $post
+ */
+function dci_appuntamento_remove_publish_mbox( $post_type, $position, $post )
+{
+    remove_meta_box( 'submitdiv', 'appuntamento', 'side' );
+}
+add_action( 'do_meta_boxes', 'dci_appuntamento_remove_publish_mbox', 10, 3 );
