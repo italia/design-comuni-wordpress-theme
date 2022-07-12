@@ -3,12 +3,8 @@ $categorie_servizio_names = dci_categorie_servizio_array();
 ?>
 
 <div class="container py-5">
-    <h2 class="title-xxlarge mt-60 mt-lg-80 mb-lg-40">
-        Esplora per categoria
-    </h2>
-    <div
-        class="row g-4"
-    >
+    <h2 class="title-xxlarge mb-4">Esplora per categoria</h2>
+    <div class="row g-4">
         <?php foreach ($categorie_servizio_names as $categoria_servizio_name) {
             $args = array('post_type' => 'servizio',
                 'posts_per_page' => -1,
@@ -26,7 +22,7 @@ $categorie_servizio_names = dci_categorie_servizio_array();
         ?>
         <div class="col-md-6 col-xl-4">
             <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm rounded">
                     <div class="card-body">
                         <a  href="<?php echo $url; ?>" aria-label="Vai all'argomento <?php echo $categoria->name; ?>" title="Vai all'argomento <?php echo $categoria->name; ?>" data-element="service-category-link"><h3 class="card-title t-primary title-xlarge"><?php echo $categoria->name; ?></h3></a>
                         <p class="titillium text-paragraph mb-0">

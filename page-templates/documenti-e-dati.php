@@ -5,7 +5,7 @@
  *
  * @package Design_Comuni_Italia
  */
-global $post;
+global $post, $with_shadow;
 $search_url = esc_url( home_url( '/' ));
 
 $tipi_documento = get_terms( array(
@@ -22,7 +22,10 @@ get_header();
 			the_post();
 			
 			?>
-			<?php get_template_part("template-parts/hero/hero"); ?>
+			<?php 
+				$with_shadow = true;
+				get_template_part("template-parts/hero/hero"); 
+			?>
 			<?php get_template_part("template-parts/documento/evidenza"); ?>
 			<?php get_template_part("template-parts/documento/tutti-documenti"); ?>
 			<?php get_template_part("template-parts/documento/categorie"); ?>

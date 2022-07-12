@@ -24,21 +24,33 @@ $description = dci_get_meta('descrizione','_dci_page_',$post->ID);
 get_header();
 ?>
    <main>
-        <form>
-            <button type="submit" class="d-none"></button>
-            <div class="container" id="main-container">
-                <div class="row">
-                    <div class="col-12 col-lg-10 offset-lg-1">
-                        <?php get_template_part("template-parts/common/breadcrumb"); ?>
-                    <div class="cmp-heading pb-3 pb-lg-4">
-                        <h1 class="title-xxxlarge">Domande frequenti</h1>              
-                        <p class="subtitle-small">
-                            <?php echo $description; ?>
-                        </p>
-                    </div>
+        <div class="container" id="main-container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <?php get_template_part("template-parts/common/breadcrumb"); ?>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="cmp-hero">
+                        <section class="it-hero-wrapper bg-white align-items-start">
+                            <div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
+                                <h1 class="text-black hero-title" data-element="page-name">
+                                    Domande frequenti
+                                </h1>
+                                <p class="titillium hero-text">
+                                    <?php echo $description; ?>
+                                </p>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
+        </div>
+        <form>
+            <button type="submit" class="d-none"></button>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-8 offset-lg-2 px-sm-3 mt-2">

@@ -4,7 +4,7 @@
     $posts = dci_get_grouped_posts_by_term( 'novita-evento' , 'argomenti', $argomento->slug, 3 );
 ?>
 
-<section class="novita-section" id="novita">
+<section id="novita">
     <div class="bg-grey-card pt-40 pt-md-100 pb-50">
         <div class="container">
             <div class="row row-title">
@@ -46,14 +46,14 @@
                             <?php } ?>
                             <div class="card-body p-4">
                                 <div class="category-top">
-                                    <a class="u-grey-light fw-semibold" href="<?php echo $url_eventi; ?>" aria-label="Vai alla pagina Eventi" title="Vai alla pagina Eventi">
+                                    <a class="u-main-primary fw-semibold" href="<?php echo $url_eventi; ?>" aria-label="Vai alla pagina Eventi" title="Vai alla pagina Eventi">
                                         Eventi
                                     </a>
                                     <span class="data u-grey-light">
                                         DAL <?php echo $start_date_arr[0] . ' AL ' . $end_date_arr[0] . ' ' . $monthName . ' ' . $end_date_arr[2]?>
                                     </span>
                                 </div>
-                                <h4 class="title-small-semi-bold-big mb-0 u-grey-light">
+                                <h4 class="title-small-semi-bold-big mb-0 u-main-primary">
                                     <a href="<?php echo get_permalink(); ?>" aria-label="Visualizza scheda <?php echo the_title(); ?>" title="Visualizza scheda <?php echo the_title(); ?>">
                                     <?php echo the_title(); ?>
                                     </a>
@@ -84,14 +84,14 @@
                             <?php } ?>
                             <div class="card-body p-4">
                                 <div class="category-top">
-                                    <a class="u-grey-light fw-semibold" href="<?php echo get_term_link($tipo_notizia->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_notizia->name; ?>" title="Vai alla sezione <?php echo $tipo_notizia->name; ?>">
+                                    <a class="u-main-primary fw-semibold" href="<?php echo get_term_link($tipo_notizia->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_notizia->name; ?>" title="Vai alla sezione <?php echo $tipo_notizia->name; ?>">
                                         <?php echo $tipo_notizia->name; ?>
                                     </a>
                                     <span class="data u-grey-light">
                                         <?php echo $arrdata[0] . ' ' . $monthName . ' ' . $arrdata[2]?>
                                     </span>
                                 </div>
-                                <h4 class="title-small-semi-bold-big mb-0 u-grey-light">
+                                <h4 class="title-small-semi-bold-big mb-0 u-main-primary">
                                     <a href="<?php echo get_permalink(); ?>" aria-label="Visualizza scheda <?php echo the_title(); ?>" title="Visualizza scheda <?php echo the_title(); ?>">
                                     <?php echo the_title(); ?>
                                     </a>

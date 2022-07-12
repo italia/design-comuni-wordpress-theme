@@ -41,15 +41,15 @@ $schede = array($scheda1,$scheda2,$scheda3 );
               <svg class="icon icon-sm">
                 <use xlink:href="#it-calendar"></use>
               </svg>
-              <a class="category title-xsmall-semi-bold fw-semibold" href="<?php echo dci_get_template_page_url("page-templates/novita.php"); ?>" aria-label="Vai alla pagina Notizie" title="Vai alla pagina Notizie"><?php echo $post->post_type ?></a>
+              <span class="title-xsmall-semi-bold fw-semibold"><?php echo $post->post_type ?></span>
               <?php if(is_array($arrdata) && count($arrdata)) { ?>
               <span class="data fw-normal"><?php echo $arrdata[0].' '.$monthName.' '.$arrdata[2]; ?></span>
               <?php } ?>
             </div>
             <a href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai alla pagina <?php echo $post->post_title ?>" title="Vai alla pagina <?php echo $post->post_title ?>">
-              <h1 class="h4 card-title title-xlarge">
+              <h3 class="h4 card-title title-xlarge u-main-primary">
                 <?php echo $post->post_title ?>
-              </h1>
+              </h3>
             </a>
             <p class="mb-4 subtitle-small pt-3 lora">
               <?php echo $descrizione_breve ?>

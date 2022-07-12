@@ -7,7 +7,7 @@
  * @package Design_Comuni_Italia
  */
 
-global $obj, $the_query, $load_posts, $load_card_type, $servizio, $additional_filter, $title, $description, $data_element;
+global $obj, $the_query, $load_posts, $load_card_type, $servizio, $additional_filter, $title, $description, $data_element, $hide_categories;
 
 $max_posts = isset($_GET['max_posts']) ? $_GET['max_posts'] : 3;
 $load_posts = 3;
@@ -46,7 +46,7 @@ get_header();
               <h2 class="visually-hidden">Esplora tutti i servizi</h2>
               <div class="col-12 col-lg-8 pt-30 pt-lg-50 pb-lg-50">
                 <div class="cmp-input-search">
-                  <div class="form-group autocomplete-wrapper mb-0">
+                  <div class="form-group autocomplete-wrapper mb-2 mb-lg-4">
                   <div class="input-group">
                   <label for="autocomplete-two" class="visually-hidden">Cerca una parola chiave</label>
                   <input type="search" 
@@ -65,12 +65,13 @@ get_header();
                     <svg class="icon icon-sm icon-primary" role="img" aria-labelledby="autocomplete-label"><use href="#it-search"></use></svg>
                   </span>
                   </div>
-                  <p id="autocomplete-label" class="mt-2 mt-lg-3 mb-4"><strong><?php echo $the_query->found_posts; ?> </strong>servizi trovati in ordine alfabetico</p>
                   </div>
+                  <p id="autocomplete-label" class="mb-4"><strong><?php echo $the_query->found_posts; ?> </strong>servizi trovati in ordine alfabetico</p>
                 </div>
                 <div id="load-more">
                     <?php foreach ($servizi as $servizio) { 
-                        $load_card_type = "servizio";
+                        $load_card_type = "categoria_servizio";
+                        $hide_categories = true;
                         get_template_part("template-parts/servizio/card");    
                     } ?>
                 </div>

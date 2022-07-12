@@ -1,4 +1,10 @@
-<div class="cmp-breadcrumbs" role="navigation">
+<?php
+ global $custom_class;
+
+ if (!$custom_class) $custom_class = '';
+?>
+
+<div class="cmp-breadcrumbs <?php echo $custom_class; ?>" role="navigation">
   <?php
   if ( function_exists( 'breadcrumb_trail' ) ) {
     $args = array(

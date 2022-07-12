@@ -34,7 +34,7 @@
             </div>
             <div class="col-12 col-lg-8 pt-lg-50 pb-lg-50">
                 <div class="cmp-input-search">
-                    <div class="form-group autocomplete-wrapper mb-0">
+                    <div class="form-group autocomplete-wrapper mb-2 mb-lg-4">
                         <div class="input-group">
                         <label for="autocomplete-two" class="visually-hidden"
                         >Cerca una parola chiave</label
@@ -63,10 +63,10 @@
                             href="#it-search"
                             ></use></svg></span>
                         </div>
-                        <p id="autocomplete-label" class="mt-2 mt-lg-3 mb-4">
-                        <strong><?php echo $the_query->found_posts; ?> </strong>servizi trovati in ordine alfabetico
-                        </p>
                     </div>
+                    <p id="autocomplete-label" class="mb-4">
+                    <strong><?php echo $the_query->found_posts; ?> </strong>servizi trovati in ordine alfabetico
+                    </p>
                 </div>
                 <div id="load-more">
                     <?php foreach ($posts as $servizio) { 

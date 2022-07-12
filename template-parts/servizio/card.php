@@ -1,5 +1,5 @@
 <?php
-global $servizio;
+global $servizio, $hide_categories;
 
 $prefix = '_dci_servizio_';
 $categorie = get_the_terms($servizio->ID, 'categorie_servizio');
@@ -9,6 +9,7 @@ if($servizio->post_status == "publish") {
     ?>
         <div class="cmp-card-latest-messages mb-3 mb-30" data-bs-toggle="modal" data-bs-target="#" id="">
             <div class="card drop-shadow px-4 pt-4 pb-4 rounded">
+                <?php if (!$hide_categories) { ?>
                 <div class="card-header border-0 p-0">
                     <?php if (is_array($categorie) && count($categorie)) {
                         $count = 1;
@@ -22,6 +23,7 @@ if($servizio->post_status == "publish") {
                     }                        
                     ?>
                 </div>
+                <?php } ?>
                 <div class="card-body p-0 my-2">
                 <h3 class="green-title-big t-primary mb-8">
                     <a href="<?php echo get_permalink($servizio->ID); ?>" aria-label="Vai al servizio <?php echo $servizio->post_title; ?>" title="Vai al servizio <?php echo $servizio->post_title; ?>" data-element="service-link"><?php echo $servizio->post_title; ?></a>

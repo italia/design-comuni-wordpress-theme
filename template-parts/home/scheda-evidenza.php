@@ -26,7 +26,7 @@ $page_macro = get_page_by_path($page_macro_slug);
             <!-- <svg class="icon">
                 <use xlink:href="#<?php #echo $icon ?>"></use>
             </svg> -->
-            <a class="category title-xsmall-semi-bold fw-semibold" href="<?php echo get_page_link($page->ID); ?>" aria-label="Vai alla pagina <?php echo $page->post_title ?>" title="Vai alla pagina <?php echo $page->post_title ?>"><?php echo $page->post_title ?></a>
+            <span class="category title-xsmall-semi-bold fw-semibold" ><?php echo $page->post_title ?></span>
             </div>
             <p class="card-title text-paragraph-medium u-grey-light"><?php echo $post->post_title ?></p>
             <p class="text-paragraph-card u-grey-light m-0" style="margin-bottom: 40px!important;"><?php echo $descrizione_breve ?></p>
@@ -54,7 +54,7 @@ $page_macro = get_page_by_path($page_macro_slug);
             <!-- <svg class="icon">
                 <use xlink:href="#<?php #echo $icon ?>"></use>
             </svg> -->
-            <a class="category title-xsmall-semi-bold fw-semibold" href="<?php echo get_page_link($page->ID); ?>" aria-label="Vai alla pagina <?php echo $page->post_title ?>" title="Vai alla pagina <?php echo $page->post_title ?>"><?php echo $page->post_title ?></a>
+            <span class="category title-xsmall-semi-bold fw-semibold"><?php echo $page->post_title ?></span>
         </div>
         <p class="card-title text-paragraph-medium u-grey-light">
             <?php echo $post->post_title ?>

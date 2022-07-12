@@ -9,9 +9,9 @@
 
     if (is_array($contenuti_evidenza) && count($contenuti_evidenza)) {
 ?>
-<div class="container px-4">
-    <h2 class="title-xxlarge mt-70 mb-4 mt-lg-40 pt-lg-2 mb-lg-40">In evidenza</h2>
-    <div class="row pb-60">
+<div class="container py-5">
+    <h2 class="title-xxlarge mb-4">In evidenza</h2>
+    <div class="row g-4">
         <?php foreach ($contenuti_evidenza as $post_id) { 
             $post = get_post($post_id);
             $description = dci_get_meta('descrizione_breve'); 
@@ -19,9 +19,9 @@
                 $tipo_documento = get_the_terms($post->ID, 'tipi_documento')[0];
             } 
         ?>
-            <div class="col-12 col-md-4">
-                <div class="card-wrapper rounded shadow-sm border border-light">
-                    <div class="card bg-none">
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-wrapper rounded shadow-sm border border-light pb-0">
+                    <div class="card bg-none no-after">
                         <div class="card-body">
                             <div class="categoryicon-top">
                                 <svg class="icon icon-sm">

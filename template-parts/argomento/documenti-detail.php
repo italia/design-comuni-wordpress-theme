@@ -23,11 +23,11 @@
                 <div class="card card-teaser rounded border border-light">
                     <div class="card-body">
                         <div class="category-top">
-                            <a class="u-grey-light fw-semibold" href="<?php echo get_term_link($tipo_documento->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_documento->name; ?>" title="Vai alla sezione <?php echo $tipo_documento->name; ?>">
+                            <a class="u-main-primary fw-semibold" href="<?php echo get_term_link($tipo_documento->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_documento->name; ?>" title="Vai alla sezione <?php echo $tipo_documento->name; ?>">
                                 <?php echo $tipo_documento->name; ?>
                             </a>
                         </div>
-                        <h4 class="text-paragraph-medium u-grey-light">
+                        <h4 class="text-paragraph-medium u-main-primary">
                             <a href="<?php echo get_permalink(); ?>" aria-label="Vai a <?php echo the_title(); ?>" title="Vai a <?php echo the_title(); ?>"><?php echo the_title(); ?></a>
                         </h4>
                         <p class="text-paragraph-card u-grey-light">

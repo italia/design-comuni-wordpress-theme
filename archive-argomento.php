@@ -6,7 +6,7 @@
  *
  * @package Design_Comuni_Italia
  */
-global $obj, $argomento, $with_border, $uo_id;
+global $obj, $argomento, $with_border, $uo_id, $custom_class;
 
 $argomento = get_term_by('id', $obj->term_id, 'argomenti');
 $img = dci_get_term_meta('immagine', "dci_term_", $argomento->term_id);
@@ -35,7 +35,10 @@ get_header();
   
                 <div class="row justify-content-center">
                   <div class="col-12 col-lg-10">
-                    <?php get_template_part("template-parts/common/breadcrumb"); ?>
+                    <?php 
+                      $custom_class = 'mt-0';
+                      get_template_part("template-parts/common/breadcrumb"); 
+                    ?>
                   </div>
                 </div>
                 <div class="row sport-wrapper justify-content-between mt-lg-2">

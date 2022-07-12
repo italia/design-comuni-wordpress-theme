@@ -11,40 +11,42 @@ global $load_card_type;
 get_header();
 ?>
     <main>
+        <h1 class="visually-hidden" id="search-container">Ricerca</h1>
+        <div class="container" id="main-container">
+          <div class="mb-md-5">
+            <?php get_template_part("template-parts/common/breadcrumb"); ?>
+          </div>
+        </div>
+
         <div class="container">
             <form role="search" id="search-form" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <div class="row mb-md-5">
-                    <div class="col-12">
-                        <?php get_template_part("template-parts/common/breadcrumb"); ?>
-                        <div class="form-group cmp-input-search-button mt-2 mb-4 mb-lg-50">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <svg class="icon icon-md">
-                                        <use
-                                            href="#it-search"
-                                        ></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <label for="search-input" class="active">Con Etichetta</label>
-                                <input
-                                type="search"
-                                class="form-control"
-                                id="search-input"
-                                name="s"
-                                value="<?php echo get_search_query(); ?>"
-                                data-focus-mouse="false"
-                                />
+                <div class="form-group cmp-input-search-button mt-2 mb-4 mb-lg-50">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <svg class="icon icon-md">
+                                <use
+                                    href="#it-search"
+                                ></use>
+                                </svg>
                             </div>
-                            <button
-                                type="submit"
-                                class="btn btn-primary"
-                            >
-                                <span class="">Cerca</span>
-                            </button>
                         </div>
+                        <label for="search-input" class="active">Con Etichetta</label>
+                        <input
+                        type="search"
+                        class="form-control"
+                        id="search-input"
+                        name="s"
+                        value="<?php echo get_search_query(); ?>"
+                        data-focus-mouse="false"
+                        />
                     </div>
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        <span class="">Cerca</span>
+                    </button>
                 </div>
                 <div class="row justify-content-center">
                     <?php get_template_part("template-parts/search/filters"); ?>

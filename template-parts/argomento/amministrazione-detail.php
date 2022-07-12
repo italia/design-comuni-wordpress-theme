@@ -24,11 +24,11 @@
                         <div class="card-body d-flex justify-content-between">
                             <div class="py-4 ps-4">
                                 <div class="category-top">
-                                    <a class="u-grey-light fw-semibold" href="<?php echo get_term_link($tipo_amministrazione->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_amministrazione->name; ?>" title="Vai alla sezione <?php echo $tipo_amministrazione->name; ?>">
+                                    <a class="u-main-primary fw-semibold" href="<?php echo get_term_link($tipo_amministrazione->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_amministrazione->name; ?>" title="Vai alla sezione <?php echo $tipo_amministrazione->name; ?>">
                                 <?php echo $tipo_amministrazione->name; ?>
                             </a>
                                 </div>
-                                <h4 class="text-paragraph-medium u-grey-light">
+                                <h4 class="text-paragraph-medium u-main-primary">
                                     <a href="<?php echo get_permalink(); ?>" aria-label="Vai alla scheda <?php echo the_title(); ?>" title="Vai alla scheda <?php echo the_title(); ?>"><?php echo the_title(); ?></a>
                                 </h4>
                                 <p class="m-0 u-grey-light text-paragraph-card">
