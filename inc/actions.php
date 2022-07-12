@@ -14,6 +14,11 @@ function force_post_title( $post )  {
         unset($post_types[$key]);
     }
 
+    //remove control for appuntamento
+    if (($key = array_search('appuntamento', $post_types)) !== false) {
+        unset($post_types[$key]);
+    }
+
     // If the current post is not one of the chosen post types, exit this function.
     if ( ! in_array( $post->post_type, $post_types ) ) {
         return;

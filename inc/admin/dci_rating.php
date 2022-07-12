@@ -12,7 +12,7 @@ function dci_register_post_type_rating() {
         'add_new'               => _x( 'Aggiungi una Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
         'add_new_item'               => _x( 'Aggiungi una Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
         //'featured_image' => __( 'Logo Identificativo del Rating', 'design_comuni_italia' ),
-        'edit_item'      => _x( 'Modifica la Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
+        'edit_item'      => _x( 'Dettagli Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
         'view_item'      => _x( 'Visualizza la Valutazione', 'Post Type Singular Name', 'design_comuni_italia' ),
         'set_featured_image' => __( 'Seleziona Immagine Valutazione' ),
         'remove_featured_image' => __( 'Rimuovi Immagine Valutazione' , 'design_comuni_italia' ),
@@ -21,18 +21,22 @@ function dci_register_post_type_rating() {
     $args = array(
         'label'                 => __( 'Rating', 'design_comuni_italia' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
         'hierarchical'          => false,
         'public'                => true,
         'menu_position'         => 5,
         'menu_icon'             => 'dashicons-star-half',
         'has_archive'           => false,
         'capability_type' => array('rating', 'ratings'),
+        'capabilities' => array(
+            'create_posts' => 'do_not_allow'
+        ),
         'map_meta_cap'    => true,
         'description'    => __( "Struttura dei resoconti delle valutazioni degli utenti", 'design_comuni_italia' ),
     );
     register_post_type( 'rating', $args );
     remove_post_type_support( 'rating', 'editor');
+    remove_post_type_support( 'rating', 'title' );
+
 
     $labels = array(
         'name'              => _x( 'Stars', 'taxonomy general name', 'design_scuole_italia' ),
@@ -82,8 +86,20 @@ function dci_register_post_type_rating() {
  */
 add_action( 'edit_form_after_title', 'dci_rating_add_content_after_title' );
 function dci_rating_add_content_after_title($post) {
-    if($post->post_type == "rating")
-        _e('<span><i>il <b>Titolo</b> è il <b>Titolo della pagina o del contenuto valutato</b></i></span><br><br><br> ', 'design_comuni_italia' );
+
+    if($post->post_type == "rating") {
+        if (isset($_GET['post']))
+            $curr_post_id = $_GET['post'];
+        else if (isset($_POST['post_ID']))
+            $curr_post_id = $_POST['post_ID'];
+
+        if (isset($curr_post_id)) {
+            $post_title = get_the_title($curr_post_id);
+            _e('Pagina valutata: <h1>' . $post_title . '</h1>', 'design_comuni_italia');
+        }
+
+        //_e('<span><i>il <b>Titolo</b> è il <b>Titolo della pagina o del contenuto valutato</b></i></span><br><br><br> ', 'design_comuni_italia');
+    }
 }
 
 /**
@@ -108,7 +124,7 @@ function dci_add_rating_metaboxes()
         'desc'  => __( 'URL della pagina o del contenuto valutato', 'design_comuni_italia' ),
         'type' => 'text',
         'attributes' => array(
-            'readonly' => 1
+            'readonly' => true
         )
     ) );
 
@@ -128,6 +144,9 @@ function dci_add_rating_metaboxes()
         'name'  => __( 'Risposta scelta multipla', 'design_comuni_italia' ),
         'desc' => __( 'Risposta alla prima domanda (a scelta multipla)' , 'design_comuni_italia' ),
         'type' => 'text',
+        'attributes' => array(
+            'readonly' => true
+        )
     ) );
 
     $cmb_dati->add_field( array(
@@ -135,6 +154,9 @@ function dci_add_rating_metaboxes()
         'name'  => __( 'Risposta domanda aperta', 'design_comuni_italia' ),
         'desc' => __( 'Risposta alla domanda aperta' , 'design_comuni_italia' ),
         'type' => 'text',
+        'attributes' => array(
+            'readonly' => true
+        )
     ) );
 }
 
@@ -232,3 +254,43 @@ function dci_rating_posts_orderby( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'dci_rating_posts_orderby' );
+
+/**
+ * disabilito quick edit del titolo per le Valutazioni
+ * @param $actions
+ * @param $post
+ * @return mixed
+ */
+function dci_rating_row_actions( $actions, $post ) {
+
+    if ( 'rating' === $post->post_type ) {
+
+        // Removes the "Quick Edit" action.
+        unset( $actions['inline hide-if-no-js'] );
+    }
+    return $actions;
+}
+add_filter( 'post_row_actions', 'dci_rating_row_actions', 10, 2 );
+
+/**
+ * rimuovo voce menu aggiungi Valutazione
+ */
+function dci_rating_remove_add_new_menu() {
+
+    remove_submenu_page('edit.php?post_type=rating','post-new.php?post_type=rating');
+
+}
+add_action('admin_menu','dci_rating_remove_add_new_menu');
+
+/**
+ * rimuovo meta box Update, Publish
+ * @param $post_type
+ * @param $position
+ * @param $post
+ */
+function dci_rating_remove_publish_mbox( $post_type, $position, $post )
+{
+    remove_meta_box( 'submitdiv', 'rating', 'side' );
+}
+add_action( 'do_meta_boxes', 'dci_rating_remove_publish_mbox', 10, 3 );
+
