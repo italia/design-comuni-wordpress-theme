@@ -250,6 +250,16 @@ function add_menu_link_class( $atts, $item, $args ) {
 }
 add_filter("wp_nav_menu_objects","max_nav_items",10,2);
 
+function add_service_metatag() {
+	if (is_singular(array("servizio"))) {
+	?>
+	  <script type="application/ld+json" data-element="metatag">
+	  </script>
+	<?php
+	}
+  }
+add_action( 'wp_head', 'add_service_metatag' );
+
 function console_log ($output, $msg = "log") {
     echo '<script> console.log("'. $msg .'",'. json_encode($output) .')</script>';
 };

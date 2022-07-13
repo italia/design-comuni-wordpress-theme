@@ -10,13 +10,10 @@ global $uo_id, $file_url;
 
 get_header();
 ?>
-
-
     <main>
         <?php
         while ( have_posts() ) :
             the_post();
-
             $user_can_view_post = dci_members_can_user_view_post(get_current_user_id(), $post->ID);
 
             // prefix: _dci_servizio_
@@ -48,6 +45,33 @@ get_header();
             $uo_id = intval(dci_get_meta("unita_responsabile"));
             $argomenti = get_the_terms($post, 'argomenti');
             ?>
+            <script>
+                const metatag = {
+                    name: '<?= $post->post_title; ?>',
+                    serviceType: "P1Y",
+                    serviceOperator: {
+                        name: "Lorem"
+                    },
+                    areaServed: {
+                        name: "Lorem ipsum"
+                    },
+                    audience: {
+                        name: "Lorem ipsum"
+                    },
+                    availableChannel: {
+                        serviceUrl: "Lorem ipsum",
+                        serviceLocation: {
+                            name: "Lorem ipsum",
+                            address: {
+                            streetAddress: "Lorem ipsum",
+                            postalCode: "Lorem ipsum",
+                            addressLocality: "Lorem ipsum",
+                            }
+                        }
+                    }
+                };
+                document.querySelector('[data-element="metatag"]').innerHTML = JSON.stringify(metatag);
+            </script>
             <div class="container" id="main-container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10">
