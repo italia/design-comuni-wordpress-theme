@@ -236,7 +236,8 @@ function dci_add_documento_pubblico_metaboxes()
         'type' => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'required' => 'required'
+            'required' => 'required',
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         )
     ));
 
@@ -276,7 +277,7 @@ function dci_add_documento_pubblico_metaboxes()
         'show_option_none' => false,
         'remove_default' => 'true',
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
         ),
     ) );
 
@@ -294,6 +295,9 @@ function dci_add_documento_pubblico_metaboxes()
         'desc' => __( 'Link alla scheda servizio)' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('servizio'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona i Servizi', 'design_comuni_italia' ),
+        ),
     ) );
 
 
@@ -311,7 +315,7 @@ function dci_add_documento_pubblico_metaboxes()
         'id' => $prefix . 'data_inizio',
         'desc' => __('Data e fase iniziale. Es data di apertura della parteciopazione a un bando".', 'design_comuni_italia'),
         'type' => 'text_date_timestamp',
-        'date_format' => 'd/m/Y',
+        'date_format' => 'd-m-Y',
     ));
 
     $cmb_tempi->add_field(array(
@@ -319,7 +323,7 @@ function dci_add_documento_pubblico_metaboxes()
         'id' => $prefix . 'data_fine',
         'desc' => __('Prevedere una data di scadenza del contenuto del documento. Es. data comunicazione vincitori del bando".', 'design_comuni_italia'),
         'type' => 'text_date_timestamp',
-        'date_format' => 'd/m/Y',
+        'date_format' => 'd-m-Y',
     ));
 
 
@@ -337,6 +341,9 @@ function dci_add_documento_pubblico_metaboxes()
         'desc' => __( 'Schede Dataset collegate al documento' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('dataset'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona i Dataset', 'design_comuni_italia' ),
+        ),
     ) );
 
     //ULTERIORI INFORMAZIONI
@@ -378,6 +385,9 @@ function dci_add_documento_pubblico_metaboxes()
         'desc' => __('Lista di documenti allegati: link a quelli strutturati a loro volta come documenti', 'design_comuni_italia'),
         'type' => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_pubblico'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona i Documenti Pubblici', 'design_comuni_italia' ),
+        ),
     ));
 
     $cmb_events = new_cmb2_box( array(

@@ -168,7 +168,7 @@ function dci_add_luogo_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('luogo'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona i luoghi', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona i Luoghi', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -394,7 +394,7 @@ function dci_add_luogo_metaboxes() {
         'options' => dci_get_posts_options('punto_contatto'),
         'attributes'    => array(
             'required'    => 'required',
-            'placeholder' =>  __( ' Seleziona i punti di contatto', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona i Punti di Contatto', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -415,7 +415,7 @@ function dci_add_luogo_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         )
     ) );
 
@@ -426,7 +426,7 @@ function dci_add_luogo_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         )
     ) );
 

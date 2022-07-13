@@ -139,7 +139,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         )
     ) );
 
@@ -150,7 +150,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('persona_pubblica'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona le persone pubbliche', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona le Persone Pubbliche', 'design_comuni_italia' ),
         )
     ) );
 
@@ -173,7 +173,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('persona_pubblica'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona la persona pubblica', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona la Persona Pubblica', 'design_comuni_italia' ),
         )
     ) );
     
@@ -194,7 +194,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'options' => dci_get_posts_options('persona_pubblica'),
         'attributes'    => array(
             'required'    => 'required',
-            'placeholder' =>  __( 'Seleziona le persone pubbliche', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona le Persone Pubbliche', 'design_comuni_italia' ),
 
         ),
     ) );
@@ -214,7 +214,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('servizio'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona i servizi', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona i Servizi', 'design_comuni_italia' ),
         )
     ) );
 
@@ -235,7 +235,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'options' => dci_get_posts_options('luogo'),
         'attributes'    => array(
             'required'    => 'required',
-            'placeholder' =>  __( 'Seleziona il luogo', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona il Luogo', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -246,7 +246,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('luogo'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona i luoghi', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona i Luoghi', 'design_comuni_italia' ),
         )
     ) );
 
@@ -258,7 +258,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'options' => dci_get_posts_options('punto_contatto'),
         'attributes'    => array(
             'required'    => 'required',
-            'placeholder' =>  __( ' Seleziona i punti di contatto', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona i Punti di Contatto', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -279,7 +279,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_pubblico'),
         'atributes' => array(
-            'placeholder' =>  __( 'Seleziona i documenti pubblici', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona i Documenti Pubblici', 'design_comuni_italia' ),
         )
     ) );
 

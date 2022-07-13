@@ -113,6 +113,7 @@ function dci_add_pagamento_metaboxes() {
         'name'    => __( 'Data Pagamento *', 'design_comuni_italia' ),
         'desc' => __('Data in cui è stato effettuato il pagamento', 'design_comuni_italia'),
         'type'    => 'text_date_timestamp',
+        'date_format' => 'd-m-Y',
         'attributes' => array(
             'required' => 'required'
         )
@@ -176,7 +177,7 @@ function dci_add_pagamento_metaboxes() {
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('pratica'),
         'attributes' => array(
-            'placeholder' =>  __( ' Seleziona la pratica', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona la Pratica', 'design_comuni_italia' ),
         )
     ) );
 
@@ -187,7 +188,7 @@ function dci_add_pagamento_metaboxes() {
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('servizio'),
         'attributes' => array(
-            'placeholder' =>  __( ' Seleziona il servizio', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona il Servizio', 'design_comuni_italia' ),
         )
     ) );
 
@@ -226,7 +227,7 @@ function dci_add_pagamento_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_privato'),
         'attributes' => array(
-            'placeholder' =>  __( ' Seleziona i documeni privati', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona i Documenti Privati', 'design_comuni_italia' ),
         )
     ) );
 }

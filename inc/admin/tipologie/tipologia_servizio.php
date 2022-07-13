@@ -316,6 +316,9 @@ function dci_add_servizi_metaboxes() {
         'desc' => __( 'Uffici che erogano il servizio ' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
+        ),
     ) );
 
     //COSTI E VINCOLI
@@ -470,7 +473,8 @@ function dci_add_servizi_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('punto_contatto'),
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'placeholder' =>  __( 'Seleziona i Punti di Contatto', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -481,7 +485,8 @@ function dci_add_servizi_metaboxes() {
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'required' => 'required'
+            'required' => 'required',
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         )
     ) );
 
@@ -520,6 +525,9 @@ function dci_add_servizi_metaboxes() {
         'desc' => __( 'Link alle schede documenti non funzionali al completamento del servizi, ma di semplice supporto' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_pubblico'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona i Documenti Pubblici', 'design_comuni_italia' ),
+        ),
     ) );
 
     //Ulteriori informazioni

@@ -103,6 +103,7 @@ function dci_add_appuntamento_metaboxes()
         'id' => $prefix . 'data_ora_prenotazione',
         'name'    => __( 'Data e ora in cui è stata fatta la prenotazione *', 'design_comuni_italia' ),
         'type'    => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
         'attributes'    => array(
             'required'    => 'required',
             'readonly' => true
@@ -113,6 +114,7 @@ function dci_add_appuntamento_metaboxes()
         'id' => $prefix . 'data_ora_inizio_appuntamento',
         'name'    => __( 'Data e ora inizio appuntamento *', 'design_comuni_italia' ),
         'type'    => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
         'attributes'    => array(
             'required'    => 'required',
             'readonly' => true
@@ -123,6 +125,7 @@ function dci_add_appuntamento_metaboxes()
         'id' => $prefix . 'data_ora_fine_appuntamento',
         'name'    => __( 'Data e ora della fine dell\'appuntamento *', 'design_comuni_italia' ),
         'type'    => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
         'attributes'    => array(
             'required'    => 'required',
             'readonly' => true

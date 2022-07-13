@@ -101,7 +101,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('incarico'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona gli incarichi', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona gli Incarichi', 'design_comuni_italia' ),
         )
     ) );
 
@@ -112,7 +112,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         )
     ) );
 
@@ -123,7 +123,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         )
     ) );
 
@@ -132,6 +132,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'name'    => __( 'Data conclusione incarico', 'design_comuni_italia' ),
         'desc' => __( 'Data conclusione incarico.' , 'design_comuni_italia' ),
         'type'    => 'text_date',
+        'date_format' => 'd-m-Y',
     ) );
 
     $cmb_user->add_field( array(
@@ -187,7 +188,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'options' => dci_get_posts_options('punto_contatto'),
         'attributes'    => array(
             'required'    => 'required',
-            'placeholder' =>  __( ' Seleziona i punti di contatto', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona i Punti di Contatto', 'design_comuni_italia' ),
         ),
     ) );
 

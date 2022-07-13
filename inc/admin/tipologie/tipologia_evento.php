@@ -100,12 +100,14 @@ function dci_add_eventi_metaboxes() {
         'id' => $prefix . 'data_orario_inizio',
         'name'    => __( 'Data e orario di inizio', 'design_comuni_italia' ),
         'type'    => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
     ) );
 
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'data_orario_fine',
         'name'    => __( 'Data e orario di fine', 'design_comuni_italia' ),
         'type'    => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
     ) );
 
     $cmb_apertura->add_field( array(
@@ -130,7 +132,7 @@ function dci_add_eventi_metaboxes() {
         'type' => 'pw_select',
         'options' => dci_get_posts_options('evento'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona evento genitore', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona Evento genitore', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -208,7 +210,7 @@ function dci_add_eventi_metaboxes() {
             'type'    => 'pw_multiselect',
             'options' => dci_get_posts_options('persona_pubblica'),
             'attributes' => array(
-                'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_comuni_italia' ),
+                'placeholder' =>  __( 'Seleziona le Persone Pubbliche', 'design_comuni_italia' ),
             ),
         )
     );
@@ -261,7 +263,7 @@ function dci_add_eventi_metaboxes() {
         'show_option_none' => true,
         'options' =>  dci_get_posts_options('luogo'),
         'attributes'    => array(
-            'placeholder' =>  __( 'Seleziona il luogo', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona il Luogo', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -340,7 +342,7 @@ function dci_add_eventi_metaboxes() {
         'options' => dci_get_posts_options('punto_contatto'),
         'attributes'    => array(
             'required'    => 'required',
-            'placeholder' =>  __( ' Seleziona i punti di contatto', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona i Punti di Contatto', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -360,7 +362,7 @@ function dci_add_eventi_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona le unità organizzative', 'design_comuni_italia' ),
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         ),
     ) );
 

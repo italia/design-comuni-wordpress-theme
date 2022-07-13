@@ -210,7 +210,8 @@ function dci_add_documento_privato_metaboxes()
         'type' => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'required' => 'required'
+            'required' => 'required',
+            'placeholder' =>  __( 'Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         )
     ));
 
@@ -269,6 +270,9 @@ function dci_add_documento_privato_metaboxes()
         'desc' => __( 'Eventuale pratica associata al documento' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('pratica'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona la Pratica', 'design_comuni_italia' ),
+        )
     ) );
 
     $cmb_pratica_servizio->add_field( array(
@@ -277,6 +281,9 @@ function dci_add_documento_privato_metaboxes()
         'desc' => __( 'Se il documento non è collegato a una pratica è possibile indicare il servizio che ha generato il documento' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('servizio'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona il Servizio', 'design_comuni_italia' ),
+        )
     ) );
 
 
@@ -319,6 +326,10 @@ function dci_add_documento_privato_metaboxes()
         'desc' => __('Lista di documenti allegati: link a quelli strutturati a loro volta come documenti', 'design_comuni_italia'),
         'type' => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_pubblico'),
+        'attributes' => array(
+            'required' => 'required',
+            'placeholder' =>  __( 'Seleziona i Documenti Pubblici', 'design_comuni_italia' ),
+        )
     ));
 
     $cmb_events = new_cmb2_box( array(

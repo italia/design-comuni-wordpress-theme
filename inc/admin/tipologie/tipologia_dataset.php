@@ -153,6 +153,7 @@ function dci_add_dataset_metaboxes() {
         'name'    => __( 'Ultima modifica *', 'design_comuni_italia' ),
         'desc' => __( 'Data dell\'ultima modifica effettuata sul dataset' , 'design_comuni_italia' ),
         'type'    => 'text_date_timestamp',
+        'date_format' => 'd-m-Y',
         'attributes'    => array(
             'required'    => 'required'
         ),

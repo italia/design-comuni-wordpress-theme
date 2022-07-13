@@ -140,7 +140,7 @@ function dci_add_pratica_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('unita_organizzativa'),
         'attributes' => array(
-            'placeholder' =>  __( ' Seleziona le unità organizzative', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona le Unità Organizzative', 'design_comuni_italia' ),
         )
     ) );
     $cmb_descrizione->add_field( array(
@@ -150,7 +150,7 @@ function dci_add_pratica_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('servizio'),
         'attributes' => array(
-            'placeholder' =>  __( ' Seleziona i servizi', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona i Servizi', 'design_comuni_italia' ),
         )
     ) );
 
@@ -170,7 +170,7 @@ function dci_add_pratica_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_pubblico'),
         'attributes' => array(
-            'placeholder' =>  __( ' Seleziona i documenti pubblici', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona i Documenti Pubblici', 'design_comuni_italia' ),
         )
     ) );
 
@@ -181,7 +181,7 @@ function dci_add_pratica_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('documento_privato'),
         'attributes' => array(
-            'placeholder' =>  __( ' Seleziona i documenti privati', 'design_comuni_italia' ),
+            'placeholder' =>  __( ' Seleziona i Documenti Privati', 'design_comuni_italia' ),
         )
     ) );
 

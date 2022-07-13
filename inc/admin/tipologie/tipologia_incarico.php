@@ -105,7 +105,8 @@ function dci_add_incarico_metaboxes()
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('persona_pubblica'),
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
+            'placeholder' =>  __( 'Seleziona una Persona Pubblica', 'design_comuni_italia' ),
         ),
     ) );
 
@@ -114,7 +115,9 @@ function dci_add_incarico_metaboxes()
         'name'    => __( 'Unità organizzativa', 'design_comuni_italia' ),
         'desc' => __( 'L\'organizzazione presso la quale svolge l\'incarico' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
-        'options' => dci_get_posts_options('unita_organizzativa'),
+        'options' => dci_get_posts_options('unita_organizzativa'),'attributes' => array(
+            'placeholder' =>  __( 'Seleziona una Unità Organizzativa', 'design_comuni_italia' ),
+        ),
     ) );
 
     $cmb_dati->add_field( array(
@@ -123,6 +126,9 @@ function dci_add_incarico_metaboxes()
         'desc' => __( 'Se è un incarico di responsabilità, specificare l\'organizzazione della quale è responsabile in base all\'incarico' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('unita_organizzativa'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona una Unità Organizzativa', 'design_comuni_italia' ),
+        ),
     ) );
 
     /**
@@ -141,6 +147,7 @@ function dci_add_incarico_metaboxes()
         'name'    => __( 'Data inizio incarico *', 'design_comuni_italia' ),
         'desc' => __( 'Data di inizio dell\'incarico' , 'design_comuni_italia' ),
         'type'    => 'text_date_timestamp',
+        'date_format' => 'd-m-Y',
         'attributes'    => array(
             'required'    => 'required'
         ),
@@ -151,6 +158,7 @@ function dci_add_incarico_metaboxes()
         'name'    => __( 'Data conclusione incarico', 'design_comuni_italia' ),
         'desc' => __( 'Data in cui termina l\'incarico o la carica' , 'design_comuni_italia' ),
         'type'    => 'text_date_timestamp',
+        'date_format' => 'd-m-Y',
     ) );
 
      $cmb_date->add_field( array(
@@ -158,6 +166,7 @@ function dci_add_incarico_metaboxes()
         'name'    => __( 'Data insediamento', 'design_comuni_italia' ),
         'desc' => __( 'Solo per incarichi politici: specificare la data di insediamento' , 'design_comuni_italia' ),
         'type'    => 'text_date_timestamp',
+         'date_format' => 'd-m-Y',
     ) );
 
     /**
@@ -177,6 +186,9 @@ function dci_add_incarico_metaboxes()
         'desc' => __( 'Inserire riferimento all\'atto di nomina della persona' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('documento_pubblico'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona il Documento Pubblico', 'design_comuni_italia' ),
+        ),
     ) );
 
     /**
