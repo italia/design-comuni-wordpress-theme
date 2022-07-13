@@ -72,3 +72,19 @@ function dci_add_domanda_frequente_metaboxes() {
     ) );
 
 }
+
+/**
+ * Valorizzo il post content in base al campo risposta, necessario per la ricerca del contenuto
+ * @param $data
+ * @return mixed
+ */
+function dci_domanda_frequente_set_post_content( $data ) {
+
+    if($data['post_type'] == 'domanda_frequente' && isset($_POST['_dci_domanda_frequente_risposta'])) {
+        $risposta = $_POST['_dci_domanda_frequente_risposta'];
+        $data['post_content'] =  $risposta;
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data' , 'dci_domanda_frequente_set_post_content' , '99', 1 );
