@@ -18,7 +18,7 @@
                   >
                 </li>
                 <li>
-                  <a class="list-item" href="<?php echo dci_get_template_page_url('page-templates/assistenza.php'); ?>" aria-label="Vai alla pagina: Richiedi assistenza" title="Vai alla pagina: Richiedi assistenza"
+                  <a class="list-item" href="<?php echo dci_get_template_page_url('page-templates/assistenza.php'); ?>" aria-label="Vai alla pagina: Richiedi assistenza" title="Vai alla pagina: Richiedi assistenza" data-element="contacts"
                     ><svg class="icon icon-primary icon-sm">
                       <use
                         href="#it-mail"

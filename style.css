@@ -10,11 +10,6 @@ Text Domain: design_comuni_italia
 /** immagini e allineamenti wp **/
 /* =WordPress Core
 -------------------------------------------------------------- */
-.WIP {
-  text-align: center;
-  padding: 10px;
-  background-color: gold;
-}
 
 svg.icon > image {
   width: inherit;
