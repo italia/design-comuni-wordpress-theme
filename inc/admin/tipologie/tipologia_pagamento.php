@@ -29,13 +29,32 @@ function dci_register_post_type_pagamento() {
         'has_archive'           => true,
         'capability_type' => array('pagamento', 'pagamenti'),
         'map_meta_cap'    => true,
-        'description'    => __( 'Struttura delle informazioni relative utili a presentare un pagamento in area riservata', 'design_comuni_italia' ),
+        'description'    => __( "Content type utile per l’implementazione dell’AREA RISERVATA", 'design_comuni_italia' ),
 
     );
     register_post_type( 'pagamento', $args );
 
     remove_post_type_support( 'pagamento', 'editor');
 }
+
+/**
+ * Aggiungo notice per segnalare l'appartenenza della tipologia all'Area Riservata
+ * @param $views
+ * @return mixed
+ */
+function dci_pagamento_desc_notice( $views ){
+
+    $screen = get_current_screen();
+    $post_type = get_post_type_object($screen->post_type);
+
+    if ($post_type->description) {
+        echo '<div class="notice notice-warning settings-error is-dismissible"><p>'.$post_type->description.'</p></div>';
+    }
+
+    return $views;
+}
+
+add_filter("views_edit-pagamento", 'dci_pagamento_desc_notice');
 
 /**
  * Aggiungo label sotto il titolo

@@ -7,7 +7,7 @@ add_action( 'init', 'dci_register_post_type_pratica', 100 );
 function dci_register_post_type_pratica() {
 
     $labels = array(
-        'name'                  => _x( 'Pratica', 'Post Type General Name', 'design_comuni_italia' ),
+        'name'                  => _x( 'Pratiche', 'Post Type General Name', 'design_comuni_italia' ),
         'singular_name'         => _x( 'Pratica', 'Post Type Singular Name', 'design_comuni_italia' ),
         'add_new'               => _x( 'Aggiungi una Pratica', 'Post Type Singular Name', 'design_comuni_italia' ),
         'add_new_item'               => _x( 'Aggiungi una Pratica', 'Post Type Singular Name', 'design_comuni_italia' ),
@@ -29,13 +29,32 @@ function dci_register_post_type_pratica() {
         'has_archive'           => true,
         'capability_type' => array('pratica', 'pratiche'),
         'map_meta_cap'    => true,
-        'description'    => __( "Struttura delle informazioni utili a presentare un dataset", 'design_comuni_italia' ),
+        'description'    => __( "Content type utile per l’implementazione dell’AREA RISERVATA", 'design_comuni_italia' ),
 
     );
     register_post_type( 'pratica', $args );
 
     remove_post_type_support( 'pratica', 'editor');
 }
+
+/**
+ * Aggiungo notice per segnalare l'appartenenza della tipologia all'Area Riservata
+ * @param $views
+ * @return mixed
+ */
+function dci_pratica_desc_notice( $views ){
+
+    $screen = get_current_screen();
+    $post_type = get_post_type_object($screen->post_type);
+
+    if ($post_type->description) {
+        echo '<div class="notice notice-warning settings-error is-dismissible"><p>'.$post_type->description.'</p></div>';
+    }
+
+    return $views;
+}
+
+add_filter("views_edit-pratica", 'dci_pratica_desc_notice');
 
 /**
 * Aggiungo label sotto il titolo

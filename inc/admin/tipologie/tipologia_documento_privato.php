@@ -25,12 +25,32 @@ function dci_register_post_type_documento_privato() {
         'has_archive'   => true,
         'capability_type' => array('documento_privato', 'documenti_privati'),
         'map_meta_cap'    => true,
-        'description'    => __( "Struttura delle informazioni relative utili a presentare un documento privato", 'design_comuni_italia' ),
+        'description'    => __( "Content type utile per l’implementazione dell’AREA RISERVATA", 'design_comuni_italia' ),
     );
     register_post_type( 'documento_privato', $args );
 
     remove_post_type_support( 'documento_privato', 'editor');
 }
+
+/**
+ * Aggiungo notice per segnalare l'appartenenza della tipologia all'Area Riservata
+ * @param $views
+ * @return mixed
+ */
+function dci_documento_privato_desc_notice( $views ){
+
+    $screen = get_current_screen();
+    $post_type = get_post_type_object($screen->post_type);
+
+    if ($post_type->description) {
+        echo '<div class="notice notice-warning settings-error is-dismissible"><p>'.$post_type->description.'</p></div>';
+    }
+
+    return $views;
+}
+
+add_filter("views_edit-documento_privato", 'dci_documento_privato_desc_notice');
+
 
 /**
  * Aggiungo label sotto il titolo
@@ -40,7 +60,6 @@ function dci_documento_privato_add_content_after_title($post) {
     if($post->post_type == "documento_privato")
         _e('<span><i>il <b>Titolo</b> è il <b>Nome del Documento</b>.<i></span><br><br>', 'design_comuni_italia' );
 }
-
 
 /**
  * Crea i metabox del post type Documento privato
