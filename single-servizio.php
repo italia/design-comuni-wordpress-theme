@@ -25,7 +25,6 @@ get_header();
             // $destinatari_intro = dci_get_meta("destinatari_introduzione");
             // $destinatari_list = dci_get_meta("destinatari_list");
             $descrizione = dci_get_meta("descrizione_estesa");
-            // $copertura_geografica = dci_get_meta("copertura_geografica");
             $come_fare = dci_get_meta("come_fare");
             $cosa_serve_intro = dci_get_meta("cosa_serve_introduzione");
             $cosa_serve_list = dci_get_meta("cosa_serve_list");
@@ -44,33 +43,50 @@ get_header();
             $condizioni_servizio = dci_get_meta("condizioni_servizio");     
             $uo_id = intval(dci_get_meta("unita_responsabile"));
             $argomenti = get_the_terms($post, 'argomenti');
+
+            // valori per metatag
+            $categorie = get_the_terms($post, 'categorie_servizio');
+            $categoria_servizio = $categorie[0]->name;
+            $ipa = dci_get_meta('codice_ente_erogatore');
+            $copertura_geografica = dci_get_meta("copertura_geografica");
+            if ($canale_fisico_uffici[0]) {
+                $ufficio = get_post($canale_fisico_uffici[0]);
+                $luogo_id = dci_get_meta('sede_principale', '_dci_unita_organizzativa_', $ufficio->ID);
+                $indirizzo = dci_get_meta('indirizzo', '_dci_luogo_', $luogo_id);
+                $quartiere = dci_get_meta('quartiere', '_dci_luogo_', $luogo_id);
+                $cap = dci_get_meta('cap', '_dci_luogo_', $luogo_id);
+            }
+            function convertToPlain($text) {
+                return htmlspecialchars(trim(strip_tags($text)));
+            };
+
+            console_log(convertToPlain($destinatari));
             ?>
-            <script>
-                const metatag = {
-                    name: '<?= $post->post_title; ?>',
-                    serviceType: "P1Y",
-                    serviceOperator: {
-                        name: "Lorem"
+            <script type="application/ld+json" data-element="metatag">
+                {
+                    "name": "<?= $post->post_title; ?>"",
+                    "serviceType": "<?= $categoria_servizio; ?>",
+                    "serviceOperator": {
+                        "name": "<?= $ipa; ?>"
                     },
-                    areaServed: {
-                        name: "Lorem ipsum"
+                    "areaServed": {
+                        "name": "<?= convertToPlain($copertura_geografica); ?>"
                     },
-                    audience: {
-                        name: "Lorem ipsum"
+                    "audience": {
+                        "name": "<?= convertToPlain($destinatari); ?>"
                     },
-                    availableChannel: {
-                        serviceUrl: "Lorem ipsum",
-                        serviceLocation: {
-                            name: "Lorem ipsum",
-                            address: {
-                            streetAddress: "Lorem ipsum",
-                            postalCode: "Lorem ipsum",
-                            addressLocality: "Lorem ipsum",
+                    "availableChannel": {
+                        "serviceUrl": "<?= $canale_digitale_link; ?>",
+                        "serviceLocation": {
+                            "name": "<?= $ufficio->post_title; ?>",
+                            "address": {
+                            "streetAddress": "<?= $indirizzo; ?>",
+                            "postalCode": "<?= $cap; ?>",
+                            "addressLocality": "<?= $quartiere; ?>",
                             }
                         }
                     }
-                };
-                document.querySelector('[data-element="metatag"]').innerHTML = JSON.stringify(metatag);
+                }
             </script>
             <div class="container" id="main-container">
                 <div class="row justify-content-center">
@@ -226,19 +242,21 @@ get_header();
                     <div class="col-12 col-lg-8 offset-lg-1">
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="who-needs">A chi è rivolto</h2>
-                            <?php echo $destinatari ?>
+                            <div class="richtext-wrapper lora">
+                                <?php echo $destinatari ?>
+                            </div>
                         </section>
                         <?php if ($descrizione) { ?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="description">Descrizione</h2>
-                            <p class="text-paragraph lora"><?php echo $descrizione ?></p>
+                            <div class="richtext-wrapper lora"><?php echo $descrizione ?></div>
                         </section>
                         <?php } ?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="how-to">Come fare</h2>
-                            <p class="text-paragraph lora"> 
+                            <div class="richtext-wrapper lora"> 
                                 <?php echo $come_fare ?>
-                            </p>
+                            </div>
                         </section>
                         <section class="mb-30 has-bg-grey p-3">
                             <h2 class="title-xxlarge mb-3" id="needed">Cosa serve</h2>
@@ -253,7 +271,7 @@ get_header();
                         </section>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="obtain">Cosa si ottiene</h2>
-                            <p class="text-paragraph lora"><?php echo $output ?></p>
+                            <div class="richtext-wrapper lora"><?php echo $output ?></div>
                         </section>
                         <?php if ( is_array($fasi_scadenze) && count($fasi_scadenze) ) { ?>
                         <section class="mb-30">
@@ -296,12 +314,12 @@ get_header();
                         <?php } ?>
                         <section class="mb-30 has-bg-grey p-4">
                             <h2 class="title-xxlarge mb-3" id="submit-request">Dove presentare la domanda</h2>
-                            <p class="text-paragraph lora mb-4"><?php echo $canale_digitale_text; ?></p>
+                            <div class="richtext-wrapper lora mb-4"><?php echo $canale_digitale_text; ?></div>
                             
                             <a href="<?php echo $canale_digitale_link; ?>" aria-label="Vai alla pagina <?php echo $canale_digitale_label; ?> " class="btn btn-primary mobile-full mb-4">
                                 <span><?php echo $canale_digitale_label; ?></span>
                             </a>
-                            <p class="text-paragraph lora mb-4"><?php echo $canale_fisico_text; ?></p>
+                            <div class="richtext-wrapper lora mb-4"><?php echo $canale_fisico_text; ?></div>
                             <?php foreach ($canale_fisico_uffici as $uo_id) { 
                                 $ufficio = get_post($uo_id);    
                             ?>
@@ -313,18 +331,18 @@ get_header();
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="more-info">Ulteriori informazioni</h2>
                             <h3 class="mb-3 subtitle-medium" id="more-info">Graduatorie di accesso</h3>
-                            <p class="text-paragraph lora">
+                            <div class="richtext-wrapper lora">
                                 <?php echo $more_info ?>
-                            </p>
+                            </div>
                         </section>
                         <?php if ( $condizioni_servizio ) { 
                             $file_url = $condizioni_servizio;
                         ?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="conditions">Condizioni di servizio</h2>
-                            <p class="text-paragraph lora">Per conoscere i dettagli di
+                            <div class="richtext-wrapper lora">Per conoscere i dettagli di
                                 scadenze, requisiti e altre informazioni importanti, leggi i termini e le condizioni di servizio.
-                            </p>
+                            </div>
                             <?php get_template_part("template-parts/single/attachment"); ?>
                         </section>
                         <?php } ?>
