@@ -21,60 +21,7 @@ jQuery( document ).ready(function() {
         });
     });
 
-    let inputDestinatari = jQuery('textarea[name^="_dci_servizio_a_chi_e_rivolto"]');
-    inputDestinatari.each(function() {
-        jQuery(this).on('change keyup paste', function(){
-            dci_remove_highlight_missing_field('.cmb2-id--dci-servizio-a-chi-e-rivolto');
-        });
-    });
 
-    let inputComeFare = jQuery('textarea[name^="_dci_servizio_come_fare"]');
-    inputComeFare.each(function() {
-        jQuery(this).on('change keyup paste', function(){
-            dci_remove_highlight_missing_field('.cmb2-id--dci-servizio-come-fare');
-        });
-    });
-
-    let inputCosaServe = jQuery('textarea[name^="_dci_servizio_cosa_serve_introduzione"]');
-    inputCosaServe.each(function() {
-        jQuery(this).on('change keyup paste', function(){
-            dci_remove_highlight_missing_field('.cmb2-id--dci-servizio-cosa-serve-introduzione');
-        });
-    });
-
-    let inputOutput = jQuery('textarea[name^="_dci_servizio_output"]');
-    inputOutput.each(function() {
-        jQuery(this).on('change keyup paste', function(){
-            dci_remove_highlight_missing_field('.cmb2-id--dci-servizio-output');
-        });
-    });
-
-    let inputProcedure = jQuery('textarea[name^="_dci_servizio_procedure_collegate"]');
-    inputProcedure.each(function() {
-        jQuery(this).on('change keyup paste', function(){
-            dci_remove_highlight_missing_field('.cmb2-id--dci-servizio-procedure-collegate');
-        });
-    });
-
-    let inputTempiText = jQuery('textarea[name^="_dci_servizio_tempi_text"]');
-    inputTempiText.each(function() {
-        jQuery(this).on('change keyup paste', function(){
-            dci_remove_highlight_missing_field('.cmb2-id--dci-servizio-tempi-text');
-        });
-    });
-
-    var inputFasi = document.querySelector('#_dci_servizio_fasi');
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.type === "attributes") {
-                dci_remove_highlight_missing_field('.cmb2-id--dci-servizio-fasi');
-            }
-        });
-    });
-
-    observer.observe(inputFasi, {
-        attributes: true //configure it to listen to attribute changes
-    });
 
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
 
@@ -102,71 +49,8 @@ jQuery( document ).ready(function() {
             return false;
         }
 
-        /**
-         * controllo compilazione campo A chi è rivolto
-         */
-        if (!jQuery('textarea[name^="_dci_servizio_a_chi_e_rivolto"]').val()) {
-            dci_highlight_missing_field('.cmb2-id--dci-servizio-a-chi-e-rivolto');
-            return false;
-        }
-
-        /**
-         * controllo compilazione campo Come fare
-         */
-        if (!jQuery('textarea[name^="_dci_servizio_come_fare"]').val()) {
-            dci_highlight_missing_field('.cmb2-id--dci-servizio-come-fare');
-            return false;
-        }
-
-        /**
-         * controllo compilazione campo Cosa serve
-         */
-        if (!jQuery('textarea[name^="_dci_servizio_cosa_serve_introduzione"]').val()) {
-            dci_highlight_missing_field('.cmb2-id--dci-servizio-cosa-serve-introduzione');
-            return false;
-        }
-
-        /**
-         * controllo compilazione campo Output
-         */
-        if (!jQuery('textarea[name^="_dci_servizio_output"]').val()) {
-            dci_highlight_missing_field('.cmb2-id--dci-servizio-output');
-            return false;
-        }
-
-        /**
-         * controllo compilazione campo Procedure collegate
-         */
-        if (!jQuery('textarea[name^="_dci_servizio_procedure_collegate"]').val()) {
-            dci_highlight_missing_field('.cmb2-id--dci-servizio-procedure-collegate');
-            return false;
-        }
-
-        /**
-         * controllo compilazione campo Tempi text
-         */
-        if (!jQuery('textarea[name^="_dci_servizio_tempi_text"]').val()) {
-            dci_highlight_missing_field('.cmb2-id--dci-servizio-tempi-text');
-            return false;
-        }
-
-
-        /**
-         * controllo compilazione campo Fasi
-         */
-        if(jQuery('input[name^="_dci_servizio_fasi"]').attr('value') === '') {
-            dci_highlight_missing_field('.cmb2-id--dci-servizio-fasi');
-            return false;
-        }
-
-
-
         return true;
     });
-
-
-
-
 
 });
 

@@ -202,16 +202,3 @@ function dci_add_pratica_metaboxes() {
         'remove_default' => 'true',
     ) );
 }
-
-
-/**
- * aggiungo js per controllo compilazione campi
- */
-add_action( 'admin_print_scripts-post-new.php', 'dci_pratica_admin_script', 11 );
-add_action( 'admin_print_scripts-post.php', 'dci_pratica_admin_script', 11 );
-
-function dci_pratica_admin_script() {
-    global $post_type;
-    if( 'pratica' == $post_type )
-        wp_enqueue_script( 'pratica-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/pratica.js' );
-}

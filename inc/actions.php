@@ -27,9 +27,58 @@ function force_post_title( $post )  {
     ?>
     <script type='text/javascript'>
         ( function ( $ ) {
+
+            const required_dci_cmb2_wysiwyg_fields = [
+                '_dci_unita_organizzativa_competenze',
+                '_dci_luogo_modalita_accesso',
+                '_dci_dataset_distribuzione',
+                '_dci_documento_privato_formati',
+                '_dci_documento_pubblico_formati',
+                '_dci_evento_descrizione_completa',
+                '_dci_evento_a_chi_e_rivolto',
+                '_dci_messaggio_testo_messaggio',
+                '_dci_notizia_testo_completo',
+                '_dci_pagamento_descrizione_pagamento',
+                '_dci_pagamento_modalita_pagamento',
+                '_dci_pratica_descrizione',
+                '_dci_servizio_a_chi_e_rivolto',
+                '_dci_servizio_come_fare',
+                '_dci_servizio_cosa_serve_introduzione',
+                '_dci_servizio_output',
+                '_dci_servizio_procedure_collegate',
+                '_dci_servizio_tempi_text',
+            ]
+
             $( document ).ready( function () {
                 //Require post title when adding/editing Project Summaries
+
                 $( 'body' ).on( 'submit.edit-post', '#post', function () {
+
+                    for (const field_id of required_dci_cmb2_wysiwyg_fields) {
+
+                        if ( $( "#"+field_id ).val() !== undefined && !$( "#"+field_id ).val()) {
+                            // Show the alert
+                            var alertid = field_id+"-required-msj"
+                            if ( !$( "#"+alertid ).length ) {
+                                $( "#wp-"+field_id+"-wrap" )
+                                    .append( '<div id="'+alertid+'"><em>Campo obbligatorio</em></div>' )
+                                    .css({
+                                        "padding": "5px",
+                                        "margin": "5px 0",
+                                        "background": "#ffebe8",
+                                        "border": "1px solid #c00"
+                                    });
+                            }
+                            // Hide the spinner
+                            $( '#major-publishing-actions .spinner' ).hide();
+                            // The buttons get "disabled" added to them on submit. Remove that class.
+                            $( '#major-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
+                            // Focus on the title field.
+                            $( "#"+field_id).focus();
+                            return false;
+                        }
+                    }
+
                     // If the title isn't set
                     if ( $( "#title" ).val().replace( / /g, '' ).length === 0 ) {
                         // Show the alert

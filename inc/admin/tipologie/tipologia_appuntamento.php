@@ -287,18 +287,6 @@ function dci_appuntamento_posts_orderby( $query ) {
 add_action( 'pre_get_posts', 'dci_appuntamento_posts_orderby' );
 
 /**
- * aggiungo js per controllo compilazione campi (se campo dettagli è wysiwyg)
- */
-//add_action( 'admin_print_scripts-post-new.php', 'dci_appuntamento_admin_script', 11 );
-//add_action( 'admin_print_scripts-post.php', 'dci_appuntamento_admin_script', 11 );
-
-function dci_appuntamento_admin_script() {
-    global $post_type;
-    if( 'appuntamento' == $post_type )
-        wp_enqueue_script( 'appuntamento-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/appuntamento.js' );
-}
-
-/**
  * disabilito quick edit del titolo per gli Appuntamenti
  * @param $actions
  * @param $post

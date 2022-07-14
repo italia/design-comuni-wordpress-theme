@@ -7,13 +7,6 @@ jQuery( document ).ready(function() {
         });
     });
 
-    let inputTestoCompleto = jQuery('textarea[name^="_dci_notizia_testo_completo"]');
-    inputTestoCompleto.each(function() {
-        jQuery(this).on('change keyup paste', function(){
-            dci_remove_highlight_missing_field('.cmb2-id--dci-notizia-testo-completo');
-        });
-    });
-
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
 
         /**
@@ -21,14 +14,6 @@ jQuery( document ).ready(function() {
          */
         if(jQuery('input[name^="_dci_notizia_argomenti"]:checked').length == 0){
             dci_highlight_missing_field('.cmb2-id--dci-notizia-argomenti');
-            return false;
-        }
-
-        /**
-         * controllo compilazione campo Testo completo
-         */
-        if (!jQuery('textarea[name^="_dci_notizia_testo_completo"]').val()) {
-            dci_highlight_missing_field('.cmb2-id--dci-notizia-testo-completo');
             return false;
         }
 

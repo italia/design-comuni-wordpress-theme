@@ -231,15 +231,3 @@ function dci_add_pagamento_metaboxes() {
         )
     ) );
 }
-
-/**
- * aggiungo js per controllo compilazione campi
- */
-add_action( 'admin_print_scripts-post-new.php', 'dci_pagamento_admin_script', 11 );
-add_action( 'admin_print_scripts-post.php', 'dci_pagamento_admin_script', 11 );
-
-function dci_pagamento_admin_script() {
-    global $post_type;
-    if( 'pagamento' == $post_type )
-        wp_enqueue_script( 'pagamento-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/pagamento.js' );
-}

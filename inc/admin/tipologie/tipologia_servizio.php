@@ -377,20 +377,11 @@ function dci_add_servizi_metaboxes() {
         'id' => $prefix . 'fasi',
         'name'        => __( 'Fasi del servizio', 'design_comuni_italia' ),
         'desc' => __( 'Seleziona le fasi del Servizio. <br><a href="post-new.php?post_type=fase">Inserisci Fase</a>' , 'design_comuni_italia' ),
-        'type'    => 'custom_attached_posts',
-        'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-        'options' => array(
-            'show_thumbnails' => false, // Show thumbnails on the left
-            'filter_boxes'    => true, // Show a text box for filtering the results
-            'query_args'      => array(
-                'posts_per_page' => -1,
-                'post_type'      => array(
-                    'fase',
-                )
-            ), // override the get_posts args
-        ),
+        'type'    => 'pw_multiselect',
+        'options' => dci_get_posts_options('fase'),
         'attributes' => array(
-            'required' => true
+            'required' => true,
+            'placeholder' => __( 'Seleziona le fasi del Servizio', 'design_comuni_italia')
         )
     ) );
 

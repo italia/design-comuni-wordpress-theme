@@ -11,18 +11,10 @@ jQuery( document ).ready(function() {
         });
     });
 
-
     let inputAlboPretorio = jQuery('input[name^="_dci_documento_pubblico_tipo_doc_albo_pretorio"]');
     inputAlboPretorio.each(function() {
         jQuery(this).click(function(){
             dci_remove_highlight_missing_field('.cmb2-id--dci-documento-pubblico-tipo-doc-albo-pretorio');
-        });
-    });
-
-    let inputFormati = jQuery('textarea[name^="_dci_documento_pubblico_formati"]');
-    inputFormati.each(function() {
-        jQuery(this).on('change keyup paste', function(){
-            dci_remove_highlight_missing_field('.cmb2-id--dci-documento-pubblico-formati');
         });
     });
 
@@ -44,14 +36,6 @@ jQuery( document ).ready(function() {
          */
         if((jQuery('input[name^="_dci_documento_pubblico_tipo_doc_albo_pretorio"]:checked').length == 0) && (jQuery('input[name^="_dci_documento_pubblico_tipo_documento"]:checked').val() == 'documento-albo-pretorio')){
             dci_highlight_missing_field ('.cmb2-id--dci-documento-pubblico-tipo-doc-albo-pretorio');
-            return false;
-        }
-
-        /**
-         * controllo compilazione campo Formati disponibili
-         */
-        if (!jQuery('textarea[name^="_dci_documento_pubblico_formati"]').val()) {
-            dci_highlight_missing_field('.cmb2-id--dci-documento-pubblico-formati');
             return false;
         }
 

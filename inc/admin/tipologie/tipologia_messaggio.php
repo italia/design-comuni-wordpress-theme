@@ -187,15 +187,3 @@ function dci_add_messaggio_metaboxes() {
         )
     ) );
 }
-
-/**
- * aggiungo js per controllo compilazione campi
- */
-add_action( 'admin_print_scripts-post-new.php', 'dci_messaggio_admin_script', 11 );
-add_action( 'admin_print_scripts-post.php', 'dci_messaggio_admin_script', 11 );
-
-function dci_messaggio_admin_script() {
-    global $post_type;
-    if( 'messaggio' == $post_type )
-        wp_enqueue_script( 'messaggio-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/messaggio.js' );
-}
