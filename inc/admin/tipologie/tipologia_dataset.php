@@ -206,3 +206,31 @@ function dci_dataset_admin_script() {
     if( 'dataset' == $post_type )
         wp_enqueue_script( 'dataset-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/dataset.js' );
 }
+
+/**
+ * Valorizzo il post content in base al contenuto dei campi custom
+ * @param $data
+ * @return mixed
+ */
+function dci_dataset_set_post_content( $data ) {
+
+    if($data['post_type'] == 'dataset') {
+
+        $descrizione_breve = '';
+        if (isset($_POST['_dci_dataset_descrizione_breve'])) {
+            $descrizione_breve = $_POST['_dci_dataset_descrizione_breve'];
+        }
+
+        $distribuzione = '';
+        if (isset($_POST['_dci_dataset_distribuzione'])) {
+            $distribuzione = $_POST['_dci_dataset_distribuzione'];
+        }
+
+        $content = $descrizione_breve.', '.$distribuzione;
+
+        $data['post_content'] = $content;
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data' , 'dci_dataset_set_post_content' , '99', 1 );

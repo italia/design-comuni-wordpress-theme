@@ -303,3 +303,36 @@ function dci_add_unita_organizzativa_metaboxes() {
         ),
     ) );
 }
+
+/**
+ * Valorizzo il post content in base al contenuto dei campi custom
+ * @param $data
+ * @return mixed
+ */
+function dci_unita_organizzativa_set_post_content( $data ) {
+
+    if($data['post_type'] == 'unita_organizzativa') {
+
+        $descrizione_breve = '';
+        if (isset($_POST['_dci_unita_organizzativa_descrizione_breve'])) {
+            $descrizione_breve = $_POST['_dci_unita_organizzativa_descrizione_breve'];
+        }
+
+        $competenze= '';
+        if (isset($_POST['_dci_unita_organizzativa_competenze'])) {
+            $competenze = $_POST['_dci_unita_organizzativa_competenze'];
+        }
+
+        $info = '';
+        if (isset($_POST['_dci_unita_organizzativa_ulteriori_informazioni'])) {
+            $info = $_POST['_dci_unita_organizzativa_ulteriori_informazioni'];
+        }
+
+        $content = $descrizione_breve.', '.$competenze.', '.$info;
+
+        $data['post_content'] = $content;
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data' , 'dci_unita_organizzativa_set_post_content' , '99', 1 );

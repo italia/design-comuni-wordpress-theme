@@ -256,13 +256,35 @@ function dci_add_persona_pubblica_metaboxes() {
  * @return mixed
  */
 function dci_persona_pubblica_set_post_title( $data ) {
+    
+    if($data['post_type'] == 'persona_pubblica') {
 
-    if($data['post_type'] == 'persona_pubblica' && isset($_POST['_dci_persona_pubblica_nome'])  && isset($_POST['_dci_persona_pubblica_cognome']) ) {
+        if(isset($_POST['_dci_persona_pubblica_nome'])  && isset($_POST['_dci_persona_pubblica_cognome']) ) {
 
-        $nome = $_POST['_dci_persona_pubblica_nome'];
-        $cognome = $_POST['_dci_persona_pubblica_cognome'];
-        $title = $nome.' '.$cognome;
-        $data['post_title'] =  $title ;
+            $nome = $_POST['_dci_persona_pubblica_nome'];
+            $cognome = $_POST['_dci_persona_pubblica_cognome'];
+            $title = $nome.' '.$cognome;
+            $data['post_title'] =  $title ;
+        }
+        
+        $descrizione_breve = '';
+        if (isset($_POST['_dci_persona_pubblica_descrizione_breve'])) {
+            $descrizione_breve = $_POST['_dci_persona_pubblica_descrizione_breve'];
+        }
+
+        $competenze= '';
+        if (isset($_POST['_dci_persona_pubblica_competenze'])) {
+            $competenze = $_POST['_dci_persona_pubblica_competenze'];
+        }
+
+        $info = '';
+        if (isset($_POST['_dci_persona_pubblica_ulteriori_informazioni'])) {
+            $info = $_POST['_dci_persona_pubblica_ulteriori_informazioni'];
+        }
+
+        $content = $descrizione_breve.', '.$competenze.', '.$info;
+
+        $data['post_content'] = $content;
     }
 
     return $data;

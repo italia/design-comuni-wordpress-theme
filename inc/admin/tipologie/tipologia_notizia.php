@@ -292,3 +292,31 @@ function dci_notizia_admin_script() {
     if( 'notizia' == $post_type )
         wp_enqueue_script( 'notizia-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/notizia.js' );
 }
+
+/**
+ * Valorizzo il post content in base al contenuto dei campi custom
+ * @param $data
+ * @return mixed
+ */
+function dci_notizia_set_post_content( $data ) {
+
+    if($data['post_type'] == 'notizia') {
+
+        $descrizione_breve = '';
+        if (isset($_POST['_dci_notizia_descrizione_breve'])) {
+            $descrizione_breve = $_POST['_dci_notizia_descrizione_breve'];
+        }
+
+        $testo_completo = '';
+        if (isset($_POST['_dci_notizia_testo_completo'])) {
+            $testo_completo = $_POST['_dci_notizia_testo_completo'];
+        }
+
+        $content = $descrizione_breve.', '.$testo_completo;
+
+        $data['post_content'] = $content;
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data' , 'dci_notizia_set_post_content' , '99', 1 );

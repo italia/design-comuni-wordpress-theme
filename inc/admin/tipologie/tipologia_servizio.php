@@ -602,3 +602,36 @@ function dci_servizio_admin_script() {
     if( 'servizio' == $post_type )
         wp_enqueue_script( 'servizio-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/servizio.js' );
 }
+
+/**
+ * Valorizzo il post content in base al contenuto dei campi custom
+ * @param $data
+ * @return mixed
+ */
+function dci_servizio_set_post_content( $data ) {
+
+    if($data['post_type'] == 'servizio') {
+
+        $descrizione_breve = '';
+        if (isset($_POST['_dci_servizio_descrizione_breve'])) {
+            $descrizione_breve = $_POST['_dci_servizio_descrizione_breve'];
+        }
+
+        $descrizione_estesa = '';
+        if (isset($_POST['_dci_servizio_descrizione_estesa'])) {
+            $descrizione_estesa = $_POST['_dci_servizio_descrizione_estesa'];
+        }
+
+        $info = '';
+        if (isset($_POST['_dci_servizio_ulteriori_informazioni'])) {
+            $info = $_POST['_dci_servizio_ulteriori_informazioni'];
+        }
+
+        $content = $descrizione_breve.', '.$descrizione_estesa.', '.$info;
+
+        $data['post_content'] = $content;
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data' , 'dci_servizio_set_post_content' , '99', 1 );

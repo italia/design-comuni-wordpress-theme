@@ -458,3 +458,37 @@ function dci_evento_admin_script() {
     if( 'evento' == $post_type )
         wp_enqueue_script( 'luogo-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/evento.js' );
 }
+
+
+/**
+ * Valorizzo il post content in base al contenuto dei campi custom
+ * @param $data
+ * @return mixed
+ */
+function dci_evento_set_post_content( $data ) {
+
+    if($data['post_type'] == 'evento') {
+
+        $descrizione_breve = '';
+        if (isset($_POST['_dci_evento_descrizione_breve'])) {
+            $descrizione_breve = $_POST['_dci_evento_descrizione_breve'];
+        }
+
+        $descrizione_estesa = '';
+        if (isset($_POST['_dci_evento_descrizione_completa'])) {
+            $descrizione_estesa = $_POST['_dci_evento_descrizione_completa'];
+        }
+
+        $info = '';
+        if (isset($_POST['_dci_evento_ulteriori_informazioni'])) {
+            $info = $_POST['_dci_evento_ulteriori_informazioni'];
+        }
+
+        $content = $descrizione_breve.', '.$descrizione_estesa.', '.$info;
+
+        $data['post_content'] = $content;
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data' , 'dci_evento_set_post_content' , '99', 1 );

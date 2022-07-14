@@ -511,3 +511,36 @@ function dci_save_luogo( $post_id) {
 
 // relazione bidirezionale servizi / luoghi
 //new dci_bidirectional_cmb2("_dci_luogo_", "luogo", "servizi_presenti", "box_elementi_dati", "_dci_servizio_luoghi");
+
+/**
+ * Valorizzo il post content in base al contenuto dei campi custom
+ * @param $data
+ * @return mixed
+ */
+function dci_luogo_set_post_content( $data ) {
+
+    if($data['post_type'] == 'luogo') {
+
+        $descrizione_breve = '';
+        if (isset($_POST['_dci_luogo_descrizione_breve'])) {
+            $descrizione_breve = $_POST['_dci_luogo_descrizione_breve'];
+        }
+
+        $descrizione_estesa = '';
+        if (isset($_POST['_dci_luogo_descrizione_estesa'])) {
+            $descrizione_estesa = $_POST['_dci_luogo_descrizione_estesa'];
+        }
+
+        $info = '';
+        if (isset($_POST['_dci_luogo_ulteriori_informazioni'])) {
+            $info = $_POST['_dci_luogo_ulteriori_informazioni'];
+        }
+
+        $content = $descrizione_breve.', '.$descrizione_estesa.', '.$info;
+
+        $data['post_content'] = $content;
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data' , 'dci_luogo_set_post_content' , '99', 1 );
