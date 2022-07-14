@@ -62,21 +62,16 @@ function dci_add_page_metaboxes() {
 
             remove_post_type_support( 'page', 'editor' );
 
+            remove_post_type_support( 'page', 'title' );
+
+            $args['attributes'] = array(
+                'required' => 'required',
+                'maxlength' => 255,
+                'readonly' => true
+            );
         }
 
-        //se la pagina ha slug tra le pagine create all'attivazione del tema
-          if ( in_array($slug, dci_get_pagine_slugs() ) ) {
-
-              $args['attributes'] = array(
-                  'required' => 'required',
-                  'maxlength' => 255,
-                  'readonly' => true
-              );
-
-              remove_post_type_support( 'page', 'title' );
-
-          }
-        }
+    }
 
     $cmb_descrizione->add_field($args);
 
