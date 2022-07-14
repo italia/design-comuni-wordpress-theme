@@ -121,7 +121,7 @@ get_header();
                                         </div>
                                     <?php } ?>
                                     <p class="subtitle-small mb-3" data-element="service-description">
-                                        <?php echo $sottotitolo ?>
+                                        <?php echo $descrizione_breve ?>
                                     </p>
                                     <?php if ($canale_digitale_link) { ?>
                                     <a href="<?php echo $canale_digitale_link; ?>" aria-label="Vai alla pagina <?php echo $canale_digitale_label; ?> " class="btn btn-primary mobile-full mb-4">
