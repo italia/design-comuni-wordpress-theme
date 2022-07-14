@@ -67,7 +67,6 @@ function dci_add_domanda_frequente_metaboxes() {
         'type'       => 'textarea',
         'attributes'    => array(
             'required'    => 'required',
-            'maxlength'  => '255',
         ),
     ) );
 
