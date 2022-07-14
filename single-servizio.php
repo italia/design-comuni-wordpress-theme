@@ -57,10 +57,12 @@ get_header();
                 $cap = dci_get_meta('cap', '_dci_luogo_', $luogo_id);
             }
             function convertToPlain($text) {
-                return htmlspecialchars(trim(strip_tags($text)));
-            };
+                $text = str_replace(array("\r", "\n"), '', $text);
+                $text = str_replace('"', '\"', $text);
+                $text = str_replace('&nbsp;', ' ', $text);
 
-            console_log(convertToPlain($destinatari));
+                return trim(strip_tags($text));
+            };
             ?>
             <script type="application/ld+json" data-element="metatag">
                 {
