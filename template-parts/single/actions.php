@@ -1,7 +1,9 @@
 <?php
-global $post, $inline;
+global $post, $inline, $hide_arguments;
 $argomenti = get_the_terms($post, 'argomenti');
 $post_url = get_permalink();
+
+if ($hide_arguments) $argomenti = array();
 ?>
 
 <div class="dropdown <?php echo $inline ? 'd-inline' : '' ?>">

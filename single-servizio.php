@@ -6,7 +6,7 @@
  *
  * @package Design_Comuni_Italia
  */
-global $uo_id, $file_url;
+global $uo_id, $file_url, $hide_arguments;
 
 get_header();
 ?>
@@ -123,12 +123,17 @@ get_header();
                                     <p class="subtitle-small mb-3" data-element="service-description">
                                         <?php echo $sottotitolo ?>
                                     </p>
+                                    <?php if ($canale_digitale_link) { ?>
                                     <a href="<?php echo $canale_digitale_link; ?>" aria-label="Vai alla pagina <?php echo $canale_digitale_label; ?> " class="btn btn-primary mobile-full mb-4">
                                         <span><?php echo $canale_digitale_label; ?></span>
                                     </a>
+                                    <?php } ?>
                                 </div>
                                 <div class="col-lg-3 offset-lg-1 mt-5 mt-lg-0">
-                                    <?php get_template_part('template-parts/single/actions'); ?>
+                                    <?php 
+                                        $hide_arguments = true;
+                                        get_template_part('template-parts/single/actions'); 
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -206,13 +211,11 @@ get_header();
                                             </a>
                                             </li>
                                         <?php } ?>
-                                        <?php if ( $canale_digitale || ( is_array($canale_fisico_uffici) && count($canale_fisico_uffici)) ) { ?>
-                                            <li>
-                                            <a class="list-item" href="#submit-request" aria-label="Vai alla sezione Presenta la domanda" title="Vai alla sezione Presenta la domanda">
-                                                <span class="title-medium">Presenta la domanda</span>
-                                            </a>
-                                            </li>
-                                        <?php } ?>
+                                        <li>
+                                        <a class="list-item" href="#submit-request" aria-label="Vai alla sezione Accedi al servizio" title="Vai alla sezione Accedi al servizio">
+                                            <span class="title-medium">Accedi al servizio</span>
+                                        </a>
+                                        </li>
                                         <?php if ( $more_info ) { ?>
                                             <li>
                                             <a class="list-item" href="#more-info" aria-label="Vai alla sezione Ulteriori informazioni" title="Vai alla sezione Ulteriori informazioni">
@@ -315,28 +318,25 @@ get_header();
                         </section>
                         <?php } ?>
                         <section class="mb-30 has-bg-grey p-4">
-                            <h2 class="title-xxlarge mb-3" id="submit-request">Dove presentare la domanda</h2>
-                            <div class="richtext-wrapper lora mb-4"><?php echo $canale_digitale_text; ?></div>
-                            
-                            <a href="<?php echo $canale_digitale_link; ?>" aria-label="Vai alla pagina <?php echo $canale_digitale_label; ?> " class="btn btn-primary mobile-full mb-4">
-                                <span><?php echo $canale_digitale_label; ?></span>
-                            </a>
-                            <div class="richtext-wrapper lora mb-4"><?php echo $canale_fisico_text; ?></div>
-                            <?php foreach ($canale_fisico_uffici as $uo_id) { 
-                                $ufficio = get_post($uo_id);    
-                            ?>
-                            <p class="text-paragraph t-primary mb-4">
-                                <a href="<?php echo get_permalink($ufficio); ?>" aria-label="Vai a Pranota appuntamento presso <?php echo $ufficio->post_title; ?>" title="Vai a Pranota appuntamento presso <?php echo $ufficio->post_title; ?>"><?php echo $ufficio->post_title; ?> [prenota]</a>
-                            </p>
+                            <h2 class="mb-3" id="submit-request">Accedi al servizio</h2>
+                            <?php if ($canale_digitale_link) { ?>
+                            <p class="text-paragraph lora mb-4">Puoi richiedere l’iscrizione alla Scuola dell’infanzia direttamente online
+                                tramite identità digitale.</p>
+                            <a href='<?php echo $canale_digitale_link; ?>' target="_blank" class="btn btn-primary mobile-full"  aria-label="Richiedi iscrizione online"><span>Richiedi iscrizione online</span></a>
                             <?php } ?>
+                            <p class="text-paragraph lora mt-4">Puoi prenotare un appuntamento e presentarti presso gli uffici.
+                            </p>
+                            <a href='<?php echo dci_get_template_page_url('page-templates/prenota-appuntamento.php');?>' class="btn btn-outline-primary t-primary bg-white mobile-full"  aria-label="Vai alla pagina prenota appuntamento"><span>Prenota appuntamento</span></a>
                         </section>
+                        <?php if ( $more_info ) {  ?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="more-info">Ulteriori informazioni</h2>
-                            <h3 class="mb-3 subtitle-medium" id="more-info">Graduatorie di accesso</h3>
+                            <h3 class="mb-3 subtitle-medium">Graduatorie di accesso</h3>
                             <div class="richtext-wrapper lora">
                                 <?php echo $more_info ?>
                             </div>
                         </section>
+                        <?php }  ?>
                         <?php if ( $condizioni_servizio ) { 
                             $file_url = $condizioni_servizio;
                         ?>
@@ -348,11 +348,11 @@ get_header();
                             <?php get_template_part("template-parts/single/attachment"); ?>
                         </section>
                         <?php } ?>
-                        <?php if ( $uo_id ) { ?>
+
                         <section class="it-page-section">
                             <h2 class="title-xxlarge mb-3" id="contacts">Contatti</h2>
                             <div class="row">
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-8 col-lg-6 mb-30">
                                     <div class="card-wrapper rounded h-auto mt-10">
                                         <?php 
                                             $with_border = true;
@@ -360,24 +360,19 @@ get_header();
                                         ?>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <h6><small>Argomenti:</small></h6>
-                                    <?php foreach ( $argomenti as $item ) { ?>
-                                        <a 
-                                        class="chip-label text-white" 
-                                        href="<?php echo get_term_link($item); ?>" 
-                                        title="<?php _e("Vai all'argomento", "design_comuni_italia"); ?>: <?php echo $item->name; ?>"
-                                        aria-label="<?php _e("Vai all'argomento", "design_comuni_italia"); ?>: <?php echo $item->name; ?>"
-                                        >
-                                            <div class="chip chip-simple bg-success">
-                                                <span class="chip-label text-white"><?php echo $item->name; ?></span>
-                                            </div>                
-                                        </a>
-                                    <?php } ?>
+                                <div class="col-12 mb-30">
+                                    <span class="text-paragraph-small">Argomenti:</span>
+                                    <div class="d-flex flex-wrap gap-2 mt-10 mb-30">
+                                        <?php foreach ( $argomenti as $item ) { ?>
+                                            <div class="cmp-tag">
+                                                <a class="cmp-tag__tag title-xsmall t-primary bg-tag" aria-label="Visualizza tutti gli argomenti <?php echo $item->name; ?>" title="Visualizza tutti gli argomenti <?php echo $item->name; ?>" href="<?php echo get_term_link($item); ?>" data-element="service-topic"><?php echo $item->name; ?></a>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    <?php get_template_part('template-parts/single/page_bottom',"simple"); ?>
                                 </div>
                             </div>
                         </section>
-                        <?php } ?>
                     </div>
                 </div>
             </div>
