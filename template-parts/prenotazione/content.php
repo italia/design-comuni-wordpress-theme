@@ -39,7 +39,7 @@
                 } ?>
             </select>
             </div>
-            <div id="place-cards-wrapper"></div>
+            <fieldset id="place-cards-wrapper"></fieldset>
         </div>
         </div>
     </div>
@@ -77,7 +77,11 @@
             <div class="cmp-card-radio-list mt-4">
             <div class="card p-3">
                 <div class="card-body p-0">
-                    <div class="form-check m-0" id="radio-appointment">Nessunn appuntamento disponibile.</div>
+                    <div class="form-check m-0" >
+                        <fieldset id="radio-appointment">                            
+                            Nessunn appuntamento disponibile.
+                        </fieldset>
+                    </div>
                 </div>
             </div>
             </div>
@@ -243,7 +247,7 @@
         <div class="card has-bkg-grey shadow-sm mb-0">
             <div class="card-header border-0 p-0 mb-lg-30">
             <div class="d-flex">
-                <h2 class="title-xxlarge mb-0" id="">Riepilogo</h2>
+                <h3 class="subtitle-large mb-0" id="">Riepilogo</h3>
             </div>
             </div>
             <div class="card-body p-0">

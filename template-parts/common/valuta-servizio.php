@@ -43,105 +43,109 @@
                 <div class="form-rating d-none">
                 <div class="d-none rating-shadow" data-step="1">
                     <div class="cmp-steps-rating">
-                    <div class="iscrizioni-header w-100">
-                        <h4
-                        class="step-title d-flex align-items-center justify-content-between drop-shadow"
-                        >
-                        <span class="d-block d-lg-inline"
-                            >Cosa ha funzionato meglio? </span
-                        ><span class="step">1/2</span>
-                        </h4>
-                    </div>
-                    <div class="cmp-steps-rating__body">
-                        <div class="cmp-radio-list">
-                        <div class="card card-teaser shadow-rating">
-                            <div class="card-body">
-                            <div class="form-check m-0">
-                                <div
-                                class="radio-body border-bottom border-light cmp-radio-list__item"
+                        <fieldset>
+                            <div class="iscrizioni-header w-100">
+                                <h3
+                                class="step-title d-flex align-items-center justify-content-between drop-shadow"
                                 >
-                                <input
-                                    name="rating"
-                                    type="radio"
-                                    id="radio-1"
-                                />
-                                <label for="radio-1"
-                                    >Alcune indicazioni non erano chiare</label
-                                >
+                                <legend class="d-block d-lg-inline"
+                                    >Cosa ha funzionato meglio? </legend
+                                ><span class="step">1/2</span>
+                                </h3>
+                            </div>
+                            <div class="cmp-steps-rating__body">
+                                <div class="cmp-radio-list">
+                                <div class="card card-teaser shadow-rating">
+                                    <div class="card-body">
+                                    <div class="form-check m-0">
+                                        <div
+                                        class="radio-body border-bottom border-light cmp-radio-list__item"
+                                        >
+                                        <input
+                                            name="rating"
+                                            type="radio"
+                                            id="radio-1"
+                                        />
+                                        <label for="radio-1"
+                                            >Alcune indicazioni non erano chiare</label
+                                        >
+                                        </div>
+                                        <div
+                                        class="radio-body border-bottom border-light cmp-radio-list__item"
+                                        >
+                                        <input
+                                            name="rating"
+                                            type="radio"
+                                            id="radio-2"
+                                        />
+                                        <label for="radio-2"
+                                            >Alcune indicazioni non erano corrette</label
+                                        >
+                                        </div>
+                                        <div
+                                        class="radio-body border-bottom border-light cmp-radio-list__item"
+                                        >
+                                        <input
+                                            name="rating"
+                                            type="radio"
+                                            id="radio-3"
+                                        />
+                                        <label for="radio-3"
+                                            >Non capivo se quello che facevo era corretto</label
+                                        >
+                                        </div>
+                                        <div
+                                        class="radio-body border-bottom border-light cmp-radio-list__item"
+                                        >
+                                        <input
+                                            name="rating"
+                                            type="radio"
+                                            id="radio-4"
+                                        />
+                                        <label for="radio-4"
+                                            >Ho avuto problemi tecnici</label
+                                        >
+                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
-                                <div
-                                class="radio-body border-bottom border-light cmp-radio-list__item"
-                                >
-                                <input
-                                    name="rating"
-                                    type="radio"
-                                    id="radio-2"
-                                />
-                                <label for="radio-2"
-                                    >Alcune indicazioni non erano corrette</label
-                                >
-                                </div>
-                                <div
-                                class="radio-body border-bottom border-light cmp-radio-list__item"
-                                >
-                                <input
-                                    name="rating"
-                                    type="radio"
-                                    id="radio-3"
-                                />
-                                <label for="radio-3"
-                                    >Non capivo se quello che facevo era corretto</label
-                                >
-                                </div>
-                                <div
-                                class="radio-body border-bottom border-light cmp-radio-list__item"
-                                >
-                                <input
-                                    name="rating"
-                                    type="radio"
-                                    id="radio-4"
-                                />
-                                <label for="radio-4"
-                                    >Ho avuto problemi tecnici</label
-                                >
                                 </div>
                             </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                        </fieldset>
                     </div>
                 </div>
                 <div class="d-none" data-step="2">
                     <div class="cmp-steps-rating">
-                    <div class="iscrizioni-header w-100">
-                        <h4
-                        class="step-title d-flex align-items-center justify-content-between drop-shadow mb-4"
-                        >
-                        <span class="d-block d-lg-inline"
-                            >Vuoi aggiungere altri dettagli? </span
-                        ><span class="step">2/2</span>
-                        </h4>
-                    </div>
-                    <div class="cmp-steps-rating__body">
-                        <div class="form-group shadow-rating">
-                        <label for="formGroupExampleInputWithHelp"
-                            >Dettaglio</label
-                        >
-                        <input
-                            class="form-control"
-                            id="formGroupExampleInputWithHelp"
-                            aria-describedby="formGroupExampleInputWithHelpDescription"
-                            maxlength="200"
-                            type="text"
-                        />
-                        <small
-                            id="formGroupExampleInputWithHelpDescription"
-                            class="form-text"
-                            >Inserire massimo 200 caratteri</small
-                        >
-                        </div>
-                    </div>
+                        <fieldset>
+                            <div class="iscrizioni-header w-100">
+                                <h3
+                                class="step-title d-flex align-items-center justify-content-between drop-shadow mb-4"
+                                >
+                                <legend class="d-block d-lg-inline"
+                                    >Vuoi aggiungere altri dettagli? </legend
+                                ><span class="step">2/2</span>
+                                </h3>
+                            </div>
+                            <div class="cmp-steps-rating__body">
+                                <div class="form-group shadow-rating">
+                                <label for="formGroupExampleInputWithHelp"
+                                    >Dettaglio</label
+                                >
+                                <input
+                                    class="form-control"
+                                    id="formGroupExampleInputWithHelp"
+                                    aria-describedby="formGroupExampleInputWithHelpDescription"
+                                    maxlength="200"
+                                    type="text"
+                                />
+                                <small
+                                    id="formGroupExampleInputWithHelpDescription"
+                                    class="form-text"
+                                    >Inserire massimo 200 caratteri</small
+                                >
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
                 </div>
                 <div

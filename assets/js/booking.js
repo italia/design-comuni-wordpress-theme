@@ -181,7 +181,8 @@ officeSelect.addEventListener("change", () => {
     fetch(`/wp-json/wp/v2/sedi/ufficio/?${urlParam}`)
       .then((response) => response.json())
       .then((data) => {
-        document.querySelector("#place-cards-wrapper").innerHTML = "";
+        document.querySelector("#place-cards-wrapper").innerHTML =
+          '<legend class="visually-hidden">Seleziona un ufficio</legend>';
         for (const place of data) {
           const reducedPlace = {
             nome: place.post_title,
@@ -272,7 +273,8 @@ appointment.addEventListener("change", () => {
       return response.json();
     })
     .then((data) => {
-      document.querySelector("#radio-appointment").innerHTML = "";
+      document.querySelector("#radio-appointment").innerHTML =
+        '<legend class="visually-hidden">Seleziona un giorno e orario</legend>';
       for (const dates of data) {
         const { startDate, endDate } = dates;
         const startDay = startDate.split("T")[0];

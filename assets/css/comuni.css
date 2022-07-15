@@ -2541,9 +2541,6 @@ a.read-more {
 .link-list-wrapper ul li a.active span {
   text-decoration: none;
 }
-.chip .chip-label:hover {
-  text-decoration: underline;
-}
 .card.card-teaser {
   padding: 16px 24px;
 }
@@ -2646,7 +2643,14 @@ a.read-more {
   transform: translateY(-150%);
 }
 .chip.chip-simple {
+  border-color: #007a52;
   margin-bottom: 5px;
+}
+.chip.chip-simple .chip-label {
+  color: #007a52;
+}
+.chip.chip-simple:hover {
+  background-color: #007a52;
 }
 .contact-section .card.card-teaser-info,
 .office-section .card.card-teaser-info,
@@ -3708,6 +3712,21 @@ a.read-more {
     line-height: 1.1;
   }
 }
+.search-modal .modal-title h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+@media (min-width: 576px) {
+  .search-modal .modal-title h2 {
+    font-size: 2.6666666667rem;
+  }
+}
+@media (min-width: 768px) {
+  .search-modal .modal-title h2 {
+    line-height: 1.1;
+  }
+}
 .search-modal .modal-title .search-link {
   margin-right: 1.5rem;
 }
@@ -4532,17 +4551,23 @@ a.read-more {
   }
 }
 .cmp-steps-rating .step-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 36px;
   padding: 0.875rem;
   margin-bottom: 2.375rem;
 }
 @media (min-width: 576px) {
   .cmp-steps-rating .step-title {
-    font-size: 1rem;
     padding: 0.78rem;
     margin-bottom: 2.111rem;
+  }
+}
+.cmp-steps-rating .step-title legend {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 36px;
+}
+@media (min-width: 576px) {
+  .cmp-steps-rating .step-title legend {
+    font-size: 1rem;
   }
 }
 .cmp-radio-list {
@@ -5154,6 +5179,9 @@ a.read-more {
 }
 .plus-text:hover {
   color: #007a52;
+}
+.btn:hover {
+  text-decoration: none;
 }
 .btn.mobile-full {
   width: 100%;
@@ -6430,7 +6458,7 @@ a.read-more {
 }
 .cmp-info-radio .big-title {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.17;
   padding-bottom: 0.5rem;
   max-width: 85%;
@@ -6605,6 +6633,7 @@ a.read-more {
   font-family: Titillium Web;
   font-weight: 600;
   line-height: 1.5;
+  padding-left: 0;
 }
 @media (min-width: 576px) {
   .category-list__title {

@@ -5,9 +5,9 @@ if(count($argomenti)) {?>
 
 <div class="col-lg-9 argomenti">
     <?php foreach ( $argomenti as $item ) { ?>
-        <div class="chip chip-simple chip-primary bg-primary rounded-3">
+        <div class="chip chip-simple">
             <a 
-            class="chip-label text-white" 
+            class="chip-label" 
             href="<?php echo get_term_link($item); ?>" 
             title="<?php _e("Vai all'argomento", "design_comuni_italia"); ?>: <?php echo $item->name; ?>"
             aria-label="<?php _e("Vai all'argomento", "design_comuni_italia"); ?>: <?php echo $item->name; ?>"
