@@ -282,7 +282,7 @@ function dci_persona_pubblica_set_post_title( $data ) {
             $info = $_POST['_dci_persona_pubblica_ulteriori_informazioni'];
         }
 
-        $content = $descrizione_breve.', '.$competenze.', '.$info;
+        $content = $descrizione_breve.'<br>'.$competenze.'<br>'.$info;
 
         $data['post_content'] = $content;
     }

@@ -226,7 +226,7 @@ function dci_dataset_set_post_content( $data ) {
             $distribuzione = $_POST['_dci_dataset_distribuzione'];
         }
 
-        $content = $descrizione_breve.', '.$distribuzione;
+        $content = $descrizione_breve.'<br>'.$distribuzione;
 
         $data['post_content'] = $content;
     }
