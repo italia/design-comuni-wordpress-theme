@@ -40,7 +40,7 @@ function dci_register_pagina_vivi_options(){
         'type' => 'text',
     ) );
     $vivi_options->add_field(array(
-            'name' => __('Eventi in evidenza', 'design_scuole_italia'),
+            'name' => __('Eventi in evidenza', 'design_comuni_italia'),
             'desc' => __('Seleziona gli eventi in evidenza. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_comuni_italia'),
             'id' => $prefix . 'eventi_evidenziati',
             'type'    => 'custom_attached_posts',
@@ -61,7 +61,7 @@ function dci_register_pagina_vivi_options(){
         )
     );
     $vivi_options->add_field(array(
-            'name' => __('Luoghi in evidenza', 'design_scuole_italia'),
+            'name' => __('Luoghi in evidenza', 'design_comuni_italia'),
             'desc' => __('Seleziona i luoghi in evidenza. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_comuni_italia'),
             'id' => $prefix . 'luoghi_evidenziati',
             'type'    => 'custom_attached_posts',

@@ -1,118 +1,111 @@
 {
-  "pagine" : {
-      "Amministrazione" :{
-        "title" : "Amministrazione",
-        "slug" : "amministrazione",
-        "description" : "Tutte le informazioni sulla struttura amministrativa del Comune. Scopri gli organi politici, gli uffici e il personale e consulta i documenti pubblici, le statistiche e i bandi di gara.",
-        "template_name" : "amministrazione",
-        "children" : {
-          "Aree amministrative" : {
-            "title" : "Aree amministrative",
-            "slug" : "aree-amministrative",
-            "description" : "La struttura organizzativa è suddivisa in aree di competenze che gestiscono i servizi erogati alla comunità.",
-            "template_name": "",
-            "children" : {}
-          },
-          "Enti e Fondazioni" : {
-            "title" : "Enti e Fondazioni",
-            "slug" : "enti-e-fondazioni",
-            "description" : "I consorzi, gli enti e le società partecipate di cui il Comune fa parte per rappresentare al meglio gli interessi della comunità.",
-            "template_name": "",
-            "children" : {}
-          },
-          "Organi di Governo" : {
-            "title" : "Organi di Governo",
-            "slug" : "organi-di-governo",
-            "description" : "Le informazioni sulla Giunta e il Consiglio comunale, incluse le convocazioni, le registrazioni delle sedute e i verbali.",
-            "template_name": "",
-            "children" : {}
-          },
-          "Personale amministrativo" : {
-            "title" : "Personale amministrativo",
-            "slug" : "personale-amministrativo",
-            "description" : "Personale da contattare per informazioni e supporto ai servizi erogati dagli uffici.",
-            "template_name": "",
-            "children" : {}
-          },
-          "Politici" : {
-            "title" : "Politici",
-            "slug" : "politici",
-            "description" : "Tutti i rappresentanti dei cittadini che compongono gli organi di indirizzo politico del Comune.",
-            "template_name": "",
-            "children" : {}
-          },
-          "Uffici" : {
-            "title" : "Uffici",
-            "slug" : "uffici",
-            "description" : "Le informazioni e i contatti degli Uffici di Città, gli uffici aperti al pubblico e gli uffici assistenziali.",
-            "template_name": "",
-            "children" : {}
-          },
-          "Documenti e Dati":{
-            "title" : "Documenti e Dati",
-            "slug" : "documenti-e-dati",
-            "description" : "Bandi di concorso, avvisi, graduatorie, statistiche e documenti pubblici.",
-            "template_name": "documenti-e-dati",
-            "children" : {}
-          }
+  "pagine": {
+    "Amministrazione": {
+      "title": "Amministrazione",
+      "slug": "amministrazione",
+      "description": "Tutte le informazioni sulla struttura amministrativa del Comune. Scopri gli organi politici, gli uffici e il personale e consulta i documenti pubblici, le statistiche e i bandi di gara.",
+      "template_name": "amministrazione",
+      "children": {
+        "Aree amministrative": {
+          "title": "Aree amministrative",
+          "slug": "aree-amministrative",
+          "description": "La struttura organizzativa è suddivisa in aree di competenze che gestiscono i servizi erogati alla comunità.",
+          "template_name": "",
+          "children": {}
+        },
+        "Enti e Fondazioni": {
+          "title": "Enti e Fondazioni",
+          "slug": "enti-e-fondazioni",
+          "description": "I consorzi, gli enti e le società partecipate di cui il Comune fa parte per rappresentare al meglio gli interessi della comunità.",
+          "template_name": "",
+          "children": {}
+        },
+        "Organi di Governo": {
+          "title": "Organi di Governo",
+          "slug": "organi-di-governo",
+          "description": "Le informazioni sulla Giunta e il Consiglio comunale, incluse le convocazioni, le registrazioni delle sedute e i verbali.",
+          "template_name": "",
+          "children": {}
+        },
+        "Personale amministrativo": {
+          "title": "Personale amministrativo",
+          "slug": "personale-amministrativo",
+          "description": "Personale da contattare per informazioni e supporto ai servizi erogati dagli uffici.",
+          "template_name": "",
+          "children": {}
+        },
+        "Politici": {
+          "title": "Politici",
+          "slug": "politici",
+          "description": "Tutti i rappresentanti dei cittadini che compongono gli organi di indirizzo politico del Comune.",
+          "template_name": "",
+          "children": {}
+        },
+        "Uffici": {
+          "title": "Uffici",
+          "slug": "uffici",
+          "description": "Le informazioni e i contatti degli Uffici di Città, gli uffici aperti al pubblico e gli uffici assistenziali.",
+          "template_name": "",
+          "children": {}
+        },
+        "Documenti e Dati": {
+          "title": "Documenti e Dati",
+          "slug": "documenti-e-dati",
+          "description": "Bandi di concorso, avvisi, graduatorie, statistiche e documenti pubblici.",
+          "template_name": "documenti-e-dati",
+          "children": {}
         }
-      },
-      "Novità" :{
-        "title" : "Novità",
-        "slug" : "novita",
-        "description" : "Tutte le novità comunali per i cittadini per restare aggiornati.",
-        "template_name": "novita",
-        "children" : {}
-      },
-      "Servizi":{
-        "title" : "Servizi",
-        "slug" : "servizi",
-        "description" : "Tutti i servizi comunali per i cittadini, disponibili online o a sportello, per richiedere documenti e permessi, iscriversi a graduatorie ed effettuare pagamenti.",
-        "template_name": "servizi",
-        "children" : {
-          "Assistenza" : {
-            "title" : "Assistenza",
-            "slug" : "assistenza",
-            "description" : "I campi contraddistinti dal simbolo asterisco sono obbligatori.",
-            "template_name": "assistenza",
-            "children" : {}
-          },
-          "Prenotazioni" : {
-            "title" : "Prenotazioni",
-            "slug" : "prenotazioni",
-            "description" : "",
-            "template_name": "prenota-appuntamento",
-            "children" : {}
-          }
-        }
-      },
-      "Vivere il Comune":{
-        "title" : "Vivere il Comune",
-        "slug" : "vivere-il-comune",
-        "description" : "Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.",
-        "template_name": "vivere-il-comune",
-        "children" : {}
-      },
-      "Argomenti" : {
-        "title" : "Argomenti",
-        "slug" : "argomenti",
-        "description" : "Gli argomenti rispondono a un'esigenza di organizzazione dei contenuti del sito istituzionale per temi e rappresentano le principali categorie di contenuti, informazioni e documenti specifici.",
-        "template_name": "argomenti",
-        "children" : {}
-      },
-      "Accesso" : {
-        "title" : "Accesso",
-        "slug" : "accesso",
-        "description" : "",
-        "template_name": "accesso",
-        "children" : {}
-      },
-      "Domande frequenti" : {
-        "title" : "Domande frequenti",
-        "slug" : "domande-frequenti",
-        "description" : "Elenco di risposte alle domande più frequenti raccolte dalle richieste di assistenza dei cittadini.",
-        "template_name": "domande-frequenti",
-        "children" : {}
       }
+    },
+    "Novità": {
+      "title": "Novità",
+      "slug": "novita",
+      "description": "Tutte le novità comunali per i cittadini per restare aggiornati.",
+      "template_name": "novita",
+      "children": {}
+    },
+    "Servizi": {
+      "title": "Servizi",
+      "slug": "servizi",
+      "description": "Tutti i servizi comunali per i cittadini, disponibili online o a sportello, per richiedere documenti e permessi, iscriversi a graduatorie ed effettuare pagamenti.",
+      "template_name": "servizi",
+      "children": {
+        "Assistenza": {
+          "title": "Assistenza",
+          "slug": "assistenza",
+          "description": "I campi contraddistinti dal simbolo asterisco sono obbligatori.",
+          "template_name": "assistenza",
+          "children": {}
+        },
+        "Prenotazioni": {
+          "title": "Prenotazioni",
+          "slug": "prenotazioni",
+          "description": "",
+          "template_name": "prenota-appuntamento",
+          "children": {}
+        }
+      }
+    },
+    "Vivere il Comune": {
+      "title": "Vivere il Comune",
+      "slug": "vivere-il-comune",
+      "description": "Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.",
+      "template_name": "vivere-il-comune",
+      "children": {}
+    },
+    "Argomenti": {
+      "title": "Argomenti",
+      "slug": "argomenti",
+      "description": "Gli argomenti rispondono a un'esigenza di organizzazione dei contenuti del sito istituzionale per temi e rappresentano le principali categorie di contenuti, informazioni e documenti specifici.",
+      "template_name": "argomenti",
+      "children": {}
+    },
+    "Domande frequenti": {
+      "title": "Domande frequenti",
+      "slug": "domande-frequenti",
+      "description": "Elenco di risposte alle domande più frequenti raccolte dalle richieste di assistenza dei cittadini.",
+      "template_name": "domande-frequenti",
+      "children": {}
     }
+  }
 }

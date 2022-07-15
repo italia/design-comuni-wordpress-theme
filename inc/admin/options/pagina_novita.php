@@ -27,7 +27,7 @@ function dci_register_pagina_novita_options(){
         'type' => 'title',
     ) );
     $novita_options->add_field(array(
-            'name' => __('Contenuti in evidenza', 'design_scuole_italia'),
+            'name' => __('Contenuti in evidenza', 'design_comuni_italia'),
             'desc' => __('Seleziona le notizie da mostrare nella sezione In Evidenza.', 'design_comuni_italia'),
             'id' => $prefix . 'contenuti_evidenziati',
             'type'    => 'custom_attached_posts',

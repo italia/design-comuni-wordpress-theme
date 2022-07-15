@@ -30,7 +30,7 @@ function dci_register_ricerca_options(){
     ) );
 
     $ricerca_options->add_field(array(
-        'name' => __('Contenuti', 'design_scuole_italia'),
+        'name' => __('Contenuti', 'design_comuni_italia'),
         'desc' => __('Seleziona i contenuti', 'design_comuni_italia'),
         'id' => $prefix . 'contenuti',
         'type'    => 'custom_attached_posts',

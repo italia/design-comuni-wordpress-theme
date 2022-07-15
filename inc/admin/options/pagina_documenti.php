@@ -27,7 +27,7 @@ function dci_register_pagina_documenti_options(){
         'type' => 'title',
     ) );
     $documenti_options->add_field(array(
-            'name' => __('Contenuti in evidenza', 'design_scuole_italia'),
+            'name' => __('Contenuti in evidenza', 'design_comuni_italia'),
             'desc' => __('Seleziona i documenti e i dataset da mostrare nella sezione In Evidenza. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_comuni_italia'),
             'id' => $prefix . 'contenuti_evidenziati',
             'type'    => 'custom_attached_posts',

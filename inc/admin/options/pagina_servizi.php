@@ -28,7 +28,7 @@ function dci_register_pagina_servizi_options(){
         'type' => 'title',
     ) );
     $servizi_options->add_field(array(
-            'name' => __('Servizi in evidenza', 'design_scuole_italia'),
+            'name' => __('Servizi in evidenza', 'design_comuni_italia'),
             'desc' => __('Seleziona i servizi da mostrare nella sezione In Evidenza. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_comuni_italia'),
             'id' => $prefix . 'servizi_evidenziati',
             'type'    => 'custom_attached_posts',

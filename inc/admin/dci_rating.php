@@ -39,8 +39,8 @@ function dci_register_post_type_rating() {
 
 
     $labels = array(
-        'name'              => _x( 'Stars', 'taxonomy general name', 'design_scuole_italia' ),
-        'singular_name'     => _x( 'Stars', 'taxonomy singular name', 'design_scuole_italia' ),
+        'name'              => _x( 'Stars', 'taxonomy general name', 'design_comuni_italia' ),
+        'singular_name'     => _x( 'Stars', 'taxonomy singular name', 'design_comuni_italia' ),
     );
 
     $args = array(
@@ -60,8 +60,8 @@ function dci_register_post_type_rating() {
     register_taxonomy( 'stars', array( 'rating' ), $args );
 
     $labels = array(
-        'name'              => _x( 'Page Url', 'taxonomy general name', 'design_scuole_italia' ),
-        'singular_name'     => _x( 'Page Url', 'taxonomy singular name', 'design_scuole_italia' ),
+        'name'              => _x( 'Page Url', 'taxonomy general name', 'design_comuni_italia' ),
+        'singular_name'     => _x( 'Page Url', 'taxonomy singular name', 'design_comuni_italia' ),
     );
 
     $args = array(

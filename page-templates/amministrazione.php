@@ -3,7 +3,7 @@
  *
  * amministrazione template file
  *
- * @package Design_Scuole_Italia
+ * @package Design_Comuni_Italia
  */
 global $post;
 get_header();

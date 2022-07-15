@@ -3,7 +3,7 @@
  *
  * Prenota appuntamento template file
  *
- * @package Design_Scuole_Italia
+ * @package Design_Comuni_Italia
  */
 global $post;
 

@@ -89,7 +89,7 @@ add_action ('admin_menu', function () {
 function dci_readme_render_manual(){
 echo '<div class="wrap manuale">';
 
-    $response = wp_remote_get( 'https://raw.githubusercontent.com/italia/design-scuole-wordpress-theme/master/README.md?test=1' );
+    $response = wp_remote_get( 'https://raw.githubusercontent.com/italia/design-comuni-wordpress-theme/master/README.md?test=1' );
 
     if ( is_array( $response ) && ! is_wp_error( $response ) ) {
 
