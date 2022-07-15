@@ -349,7 +349,6 @@ class Breadcrumb_Trail {
 
             if ( is_singular() ) {
 
-			    //TODO:
 			    $group_name = dci_get_group_name(get_post_type());
 			    //console_log($group_name);
 			    switch ($group_name) {
@@ -384,7 +383,6 @@ class Breadcrumb_Trail {
 				$this->add_singular_items();
 			}
 
-			// todo: rendere dinamiche le url del breadcrumb in base al template di pagina
 			// If viewing an archive page.
 			elseif ( is_archive() ) {
 

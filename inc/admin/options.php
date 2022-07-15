@@ -111,27 +111,3 @@ function dci_options_assets() {
 
 }
 add_action( 'admin_enqueue_scripts', 'dci_options_assets' );
-
-if (! wp_next_scheduled ( 'dci_cron_options' )) {
-    wp_schedule_event(time(), 'daily', 'dci_cron_options');
-}
-add_action('dci_cron_options', 'dci_check_cron_options');
-
-function dci_check_cron_options() {
-    $update = false;
-    $messages = dci_get_option( "messages", "home_messages" );
-
-    foreach ($messages as $key => $message) {
-        $message_date = strtotime($message['data_message']);
-        $now = strtotime("now");
-        if($message_date <= $now) {
-            $update = true;
-            unset($messages[$key]);
-        }
-    }
-
-    if($update) {
-        $to_update['messages'] = array_values($messages);
-        update_option('home_messages', $to_update, true);
-    }
-}

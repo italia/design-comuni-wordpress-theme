@@ -312,7 +312,7 @@ function dci_notizia_set_post_content( $data ) {
             $testo_completo = $_POST['_dci_notizia_testo_completo'];
         }
 
-        $content = $descrizione_breve.', '.$testo_completo;
+        $content = $descrizione_breve.'<br>'.$testo_completo;
 
         $data['post_content'] = $content;
     }

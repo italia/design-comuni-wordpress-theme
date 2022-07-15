@@ -16,9 +16,6 @@ function dci_theme_activation() {
     //creo le pagine
     insertPages($pagine = dci_get_pagine_obj());
 
-    //
-    updatePagesDescription();
-
     //creo i permessi e le capabilites
     createCapabilities();
 
@@ -32,7 +29,7 @@ function dci_theme_activation() {
 
     global $wp_rewrite;
     $wp_rewrite->init(); //important...
-    //TODO:? associazione tag - tassonomia
+
     $wp_rewrite->set_tag_base("argomenti" );
     $wp_rewrite->flush_rules();
 
@@ -229,23 +226,7 @@ function updateCategorieServizio() {
     }
 }
 
-function updatePagesDescription() {
-/**
-    //primo livello
-    updatePageDescription('Amministrazione','Tutte le informazioni sulla struttura amministrativa del Comune. Scopri gli organi politici, gli uffici e il personale e consulta i documenti pubblici, le statistiche e i bandi di gara.');
-    updatePageDescription('Servizi','Tutti i servizi comunali per i cittadini, disponibili online o a sportello, per richiedere documenti e permessi, iscriversi a graduatorie ed effettuare pagamenti.');
-    updatePageDescription('Argomenti','Gli argomenti rispondono a un\'esigenza di organizzazione dei contenuti del sito istituzionale per temi e rappresentano le principali categorie di contenuti, informazioni e documenti specifici.');
-    updatePageDescription('Vivere il Comune','Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.');
-    updatePageDescription('Documenti e Dati','Bandi di concorso, avvisi, graduatorie, statistiche e documenti pubblici.');
 
-    //secondo livello (Amministrazione)
-    $amministrazione_pages = dci_get_pages_descriptions_array('Amministrazione');
-    foreach($amministrazione_pages as $title => $desc){
-        updatePageDescription($title,$desc);
-    }
-*/
-
-}
 function updatePageDescription($page_title, $description) {
     $page= get_page_by_title( $page_title);
     if (dci_get_meta('descrizione','_dci_page_',$page->ID)==''){
@@ -271,44 +252,6 @@ function insertPages($pagine, $parent_id = 0) {
             insertPages($pagina['children'],$page_id);
         }
     }
-    /**
-    $page_amministrazione = dci_create_page_template(__( 'Amministrazione', 'design_comuni_italia'), 'page-templates/amministrazione.php','amministrazione' );
-    dci_create_page_template(__( 'Luoghi', 'design_comuni_italia'),'page-templates/luoghi.php','luoghi', $page_amministrazione);
-    dci_create_page_template(__( 'Organi di governo', 'design_comuni_italia'),'page-templates/organi-di-governo.php','organi-di-governo', $page_amministrazione);
-    dci_create_page_template(__( 'Aree amministrative', 'design_comuni_italia'),'page-templates/aree-amministrative.php','aree-amministrative', $page_amministrazione);
-    dci_create_page_template(__( 'Uffici', 'design_comuni_italia'),'page-templates/uffici.php','uffici', $page_amministrazione);
-    dci_create_page_template(__( 'Enti e fondazioni', 'design_comuni_italia'),'page-templates/enti-e-fondazioni.php','enti-e-fondazioni', $page_amministrazione);
-    dci_create_page_template(__( 'Politici', 'design_comuni_italia'),'page-templates/politici.php','politici', $page_amministrazione);
-    dci_create_page_template(__( 'Personale amministrativo', 'design_comuni_italia'),'page-templates/personale-amministrativo.php','personale-amministrativo', $page_amministrazione);
-
-
-    $page_servizi = dci_create_page_template(__( 'Servizi', 'design_comuni_italia'), 'page-templates/servizi.php','servizi' );
-    dci_create_page_template(__( 'Pagamenti', 'design_comuni_italia'),'page-templates/pagamenti.php','pagamenti', $page_servizi);
-    dci_create_page_template(__( 'Sostegno', 'design_comuni_italia'),'page-templates/sostegno.php','sostegno', $page_servizi);
-    dci_create_page_template(__( 'Domande e iscrizioni', 'design_comuni_italia'),'page-templates/domande-e-iscrizioni.php','domande-e-iscrizioni', $page_servizi);
-    dci_create_page_template(__( 'Segnalazioni', 'design_comuni_italia'),'page-templates/segnalazioni.php','segnalazioni', $page_servizi);
-    dci_create_page_template(__( 'Autorizzazioni e concessioni', 'design_comuni_italia'),'page-templates/autorizzazioni-e-concessioni.php','autorizzazioni-e-concessioni', $page_servizi);
-    dci_create_page_template(__( 'Certificati e dichiarazioni', 'design_comuni_italia'),'page-templates/autorizzazioni-e-concessioni.php','autorizzazioni-e-concessioni', $page_servizi);
-
-
-    $page_novita = dci_create_page_template(__( 'Novità', 'design_comuni_italia'), 'page-templates/novita.php','novita' );
-    dci_create_page_template(__( 'Notizie', 'design_comuni_italia'), 'page-templates/notizie.php','notizie', $page_novita );
-    dci_create_page_template(__( 'Eventi', 'design_comuni_italia'), 'page-templates/eventi.php','eventi', $page_novita );
-    dci_create_page_template(__( 'Comunicati stampa', 'design_comuni_italia'), 'page-templates/comunicati-stampa.php','comunicati-stampa', $page_novita );
-
-    $page_vivere_comune = dci_create_page_template(__( 'Vivere il Comune', 'design_comuni_italia'), 'page-templates/vivi.php','vivere-il-comune' );
-
-    $page_documenti = dci_create_page_template(__( 'Documenti e Dati', 'design_comuni_italia'), 'page-templates/documenti-e-dati.php','documenti-e-dati' );
-    dci_create_page_template(__( 'Progetti e attività', 'design_comuni_italia'), 'page-templates/progetti-e-attivita.php','progetti-e-attivita', $page_documenti );
-    dci_create_page_template(__( 'Delibere, determine e ordinanze', 'design_comuni_italia'), 'page-templates/delibere-determine-e-ordinanze.php','delibere-determine-e-ordinanze', $page_documenti );
-    dci_create_page_template(__( 'Bandi', 'design_comuni_italia'), 'page-templates/bandi.php','bandi', $page_documenti );
-    dci_create_page_template(__( 'Concorsi', 'design_comuni_italia'), 'page-templates/concorsi.php','concorsi', $page_documenti );
-    dci_create_page_template(__( 'Albo pretorio', 'design_comuni_italia'), 'page-templates/albo-pretorio.php','albo-pretorio', $page_documenti );
-
-    dci_create_page_template(__( 'Argomenti', 'design_comuni_italia'), 'page-templates/argomenti.php','argomenti' );
-
-    dci_create_page_template(__( 'Accesso', 'design_comuni_italia'), 'page-templates/accesso.php','accesso' );
-     * */
 }
 
 /**

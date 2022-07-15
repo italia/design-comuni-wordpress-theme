@@ -328,7 +328,7 @@ function dci_unita_organizzativa_set_post_content( $data ) {
             $info = $_POST['_dci_unita_organizzativa_ulteriori_informazioni'];
         }
 
-        $content = $descrizione_breve.', '.$competenze.', '.$info;
+        $content = $descrizione_breve.'<br>'.$competenze.'<br>'.$info;
 
         $data['post_content'] = $content;
     }
