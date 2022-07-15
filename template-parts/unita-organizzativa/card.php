@@ -19,13 +19,13 @@
     if($with_border) {
 ?>
 
-<div class="card card-teaser card-teaser-info rounded shadow-sm p-4">
+<div class="card card-teaser card-teaser-info rounded shadow-sm p-3">
     <div class="card-body pe-3">
-        <h5 class="card-title">
+        <p class="card-title text-paragraph-regular-medium-semi mb-3">
             <a class="u-main-primary" href="<?php echo get_permalink($ufficio->ID); ?>" title="Vai alla pagina <?php echo $ufficio->post_title; ?>" aria-label="Vai alla pagina <?php echo $ufficio->post_title; ?>" data-element="service-area">
             <?php echo $ufficio->post_title; ?>
             </a>
-        </h5>
+        </p>
         <div class="card-text">
             <?php foreach ($indirizzi as $indirizzo) {
                 echo '<p class="u-main-black">'.$indirizzo.'</p>';

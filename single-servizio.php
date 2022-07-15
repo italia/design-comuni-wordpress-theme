@@ -109,13 +109,13 @@ get_header();
                                     <?php if ( $stato == 'true' ) {?>
                                         <div class="d-flex flex-wrap cmp-heading__tag">
                                             <div class="cmp-tag">
-                                            <span class="cmp-tag__tag title-xsmall text-decoration-none text-button" data-element="service-status">Servizio attivo</span>
+                                            <span class="cmp-tag__tag title-xsmall" data-element="service-status">Servizio attivo</span>
                                             </div>
                                         </div>
                                     <?php } else {?>
                                         <div class="d-flex flex-wrap gap-2 cmp-heading__tag">
                                             <div class="cmp-tag">
-                                            <span class="cmp-tag__tag title-xsmall text-decoration-none text-button" data-element="service-status">Servizio non attivo</span>
+                                            <span class="cmp-tag__tag title-xsmall" data-element="service-status">Servizio non attivo</span>
                                             </div>
                                             <!-- <div><?php #echo $motivo_stato; ?></div> -->
                                         </div>
@@ -350,7 +350,7 @@ get_header();
                         <?php } ?>
 
                         <section class="it-page-section">
-                            <h2 class="title-xxlarge mb-3" id="contacts">Contatti</h2>
+                            <h2 class="mb-3" id="contacts">Contatti</h2>
                             <div class="row">
                                 <div class="col-12 col-md-8 col-lg-6 mb-30">
                                     <div class="card-wrapper rounded h-auto mt-10">
@@ -365,7 +365,9 @@ get_header();
                                     <div class="d-flex flex-wrap gap-2 mt-10 mb-30">
                                         <?php foreach ( $argomenti as $item ) { ?>
                                             <div class="cmp-tag">
-                                                <a class="cmp-tag__tag title-xsmall t-primary bg-tag" aria-label="Visualizza tutti gli argomenti <?php echo $item->name; ?>" title="Visualizza tutti gli argomenti <?php echo $item->name; ?>" href="<?php echo get_term_link($item); ?>" data-element="service-topic"><?php echo $item->name; ?></a>
+                                                <a class="chip chip-simple t-primary bg-tag" aria-label="Visualizza tutti gli argomenti <?php echo $item->name; ?>" title="Visualizza tutti gli argomenti <?php echo $item->name; ?>" href="<?php echo get_term_link($item); ?>" data-element="service-topic">
+                                                <span class="chip-label"><?php echo $item->name; ?></span>
+                                                </a>
                                             </div>
                                         <?php } ?>
                                     </div>

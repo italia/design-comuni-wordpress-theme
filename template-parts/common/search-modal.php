@@ -31,7 +31,7 @@
                       ></use>
                     </svg>
                   </button>
-                  <span><?php _e("Cerca","design_comuni_italia"); ?></span>
+                  <h2><?php _e("Cerca","design_comuni_italia"); ?></h2>
                   <button
                     class="search-link d-none d-md-block"
                     type="button"

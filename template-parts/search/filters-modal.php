@@ -33,71 +33,75 @@ aria-labelledby="modalrightTitle"
                 </button>
             </div>
             <div class="modal-body">
-                <div class="categoy-list pb-4">
-                <h2 class="h6 text-uppercase category-list__title">
-                    Tipologie
-                </h2>
-                <ul>
-                    <?php 
-                        foreach ($tipologie as $type_slug) {
-                            $tipologia = get_term_by('slug', $type_slug);
-                    ?>
-                    <li>
-                        <div class="form-check">
-                            <div class="checkbox-body border-light py-3">
-                            <input
-                                type="checkbox"
-                                name="post_types[]"
-                                <?php if(in_array($type_slug, $post_types)) echo " checked "; ?>
-                                id="mobile-<?php echo $type_slug; ?>" 
-                                value="<?php echo $type_slug; ?>" 
-                                onclick="handleQueryParams('postTypes', '<?php echo $type_slug; ?>')"
-                            />
-                            <label
-                                for="mobile-<?php echo $type_slug; ?>" 
-                                class="subtitle-small_semi-bold mb-0 category-list__list"
-                                ><?php echo COMUNI_TIPOLOGIE[$type_slug]['plural_name']; ?>
-                                </label
-                            >
-                            </div>
-                        </div>
-                    </li>
-                    <?php } ?>
-                </ul>
-                </div>
-                <div class="categoy-list pb-4">
-                <h2 class="h6 text-uppercase category-list__title">
-                    Argomenti
-                </h2>
-                <ul>
-                    <?php 
-                        foreach ($arr_ids as $arg_id) {
-                        $argomento = get_term_by('id', $arg_id, 'argomenti');
-                        $slug = $argomento->slug;
-                    ?>
-                    <li>
-                        <div class="form-check">
-                            <div class="checkbox-body border-light py-3">
-                                <input 
-                                    type="checkbox" 
-                                    id="mobile-<?php echo $arg_id; ?>" 
-                                    name="post_terms[]" 
-                                    value="<?php echo $arg_id; ?>"
-                                    <?php if(in_array($arg_id, $post_terms)) echo " checked "; ?>
-                                    onclick="handleQueryParams('postTerms', '<?php echo $arg_id; ?>')"
-                                />
-                                <label 
-                                    for="mobile-<?php echo $arg_id; ?>" 
-                                    class="subtitle-small_semi-bold mb-0 category-list__list"
-                                >
-                                    <?php echo $argomento->name; ?>
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                    <?php } ?>
-                </ul>
-                </div>
+                <fieldset>
+                    <div class="categoy-list pb-4">
+                        <legend class="h6 text-uppercase category-list__title">
+                            Tipologie
+                        </legend>
+                        <ul>
+                            <?php 
+                                foreach ($tipologie as $type_slug) {
+                                    $tipologia = get_term_by('slug', $type_slug);
+                            ?>
+                            <li>
+                                <div class="form-check">
+                                    <div class="checkbox-body border-light py-3">
+                                    <input
+                                        type="checkbox"
+                                        name="post_types[]"
+                                        <?php if(in_array($type_slug, $post_types)) echo " checked "; ?>
+                                        id="mobile-<?php echo $type_slug; ?>" 
+                                        value="<?php echo $type_slug; ?>" 
+                                        onclick="handleQueryParams('postTypes', '<?php echo $type_slug; ?>')"
+                                    />
+                                    <label
+                                        for="mobile-<?php echo $type_slug; ?>" 
+                                        class="subtitle-small_semi-bold mb-0 category-list__list"
+                                        ><?php echo COMUNI_TIPOLOGIE[$type_slug]['plural_name']; ?>
+                                        </label
+                                    >
+                                    </div>
+                                </div>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="categoy-list pb-4">
+                        <legend class="h6 text-uppercase category-list__title">
+                            Argomenti
+                        </legend>
+                        <ul>
+                            <?php 
+                                foreach ($arr_ids as $arg_id) {
+                                $argomento = get_term_by('id', $arg_id, 'argomenti');
+                                $slug = $argomento->slug;
+                            ?>
+                            <li>
+                                <div class="form-check">
+                                    <div class="checkbox-body border-light py-3">
+                                        <input 
+                                            type="checkbox" 
+                                            id="mobile-<?php echo $arg_id; ?>" 
+                                            name="post_terms[]" 
+                                            value="<?php echo $arg_id; ?>"
+                                            <?php if(in_array($arg_id, $post_terms)) echo " checked "; ?>
+                                            onclick="handleQueryParams('postTerms', '<?php echo $arg_id; ?>')"
+                                        />
+                                        <label 
+                                            for="mobile-<?php echo $arg_id; ?>" 
+                                            class="subtitle-small_semi-bold mb-0 category-list__list"
+                                        >
+                                            <?php echo $argomento->name; ?>
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </fieldset>
             </div>
             <div class="modal-footer mt-3">
                 <button

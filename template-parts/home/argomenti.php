@@ -37,8 +37,8 @@ $altri_argomenti = dci_get_option('argomenti_altri','homepage');
                             $argomento = get_term_by('term_taxonomy_id', $arg_id);
                             $url = get_term_link(intval($arg_id),'argomenti');
                     ?>
-                    <div class="chip chip-simple chip-primary bg-primary rounded-3 pb-0 mb-2">
-                        <a href="<?php echo $url ?>" class="chip-label text-white" aria-label="Vai all'argomento <?php echo $argomento->name; ?>" title="Vai all'argomento <?php echo $argomento->name; ?>"><?php echo $argomento->name ?></a>
+                    <div class="chip chip-simple pb-0 mb-2">
+                        <a href="<?php echo $url ?>" class="chip-label" aria-label="Vai all'argomento <?php echo $argomento->name; ?>" title="Vai all'argomento <?php echo $argomento->name; ?>"><?php echo $argomento->name ?></a>
                     </div>
                     <?php } } ?>
                 </div>

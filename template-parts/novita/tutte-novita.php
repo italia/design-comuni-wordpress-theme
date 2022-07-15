@@ -28,7 +28,7 @@ global $the_query, $load_posts, $load_card_type;
                     <div class="form-group autocomplete-wrapper mb-0">
                         <div class="input-group">
                             <label for="autocomplete-two" class="visually-hidden"
-                            >Cerca per parola chiave</label
+                            >Cerca</label
                             >
                             <input
                             type="search"
