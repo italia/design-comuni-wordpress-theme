@@ -97,7 +97,6 @@
                     id="<?php echo 'star'.$c.'a' ?>"
                     name="ratingA"
                     value="<?php echo $c; ?>"
-                    onclick="setStarsValue(<?php echo $c; ?>)"
                 />
                 <label class="full rating-star" for="<?php echo 'star'.$c.'a' ?>">
                     <svg class="icon icon-sm" role="img" aria-labelledby="<?php echo $c; ?>-star">
@@ -109,20 +108,9 @@
             <?php --$c; } ?>
         </fieldset>
         <div class="ms-3">
-        <a class="btn btn-outline-primary btn-sm" aria-label="invia valutazione dell'evento" onclick="saveAnswers()">
+        <a class="btn btn-outline-primary btn-sm" aria-label="invia valutazione dell'evento" >
             <span>Invia valutazione</span>
         </a>
         </div>
     </div>
 </div>
-<script>
-    const answers = {};
-
-    const setStarsValue = (value) => {
-        answers.stars = value;
-    };
-
-    const saveAnswers = () => {
-        console.log('answers',answers);
-    };
-</script>

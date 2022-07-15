@@ -138,12 +138,11 @@ get_header();
                         <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
                             <?php foreach ($documenti as $doc_id) { 
                                 $documento = get_post($doc_id);
-                                $icon = dci_get_post_type_icon_by_id($doc_id);
                             ?>
                             <div class="card card-teaser shadow-sm p-4 mt-3 rounded border border-light flex-nowrap">
                                 <svg class="icon">
                                 <use
-                                    xlink:href="#<?php echo $icon; ?>"
+                                    xlink:href="#it-clip"
                                 ></use>
                                 </svg>
                                 <div class="card-body">

@@ -35,7 +35,7 @@
                 <div class="cmp-rating__card-second d-none" data-step="3">
                 <div class="card-header border-0">
                     <h2 class="title-medium-2-bold mb-0" id="rating-feedback">
-                    radioResponsezie, il tuo parere ci aiuterà a migliorare il
+                    Grazie, il tuo parere ci aiuterà a migliorare il
                     servizio!
                     </h2>
                 </div>
