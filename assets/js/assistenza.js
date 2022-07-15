@@ -44,6 +44,7 @@
       const emptyFields = Object.values(node)?.filter((v) => !v);
       if (emptyFields?.length > 0 || !EMAIL_REGEXP.test(email)) return false;
 
+      // modificare l'url se si vuole integrare con un servizio esterno
       const res = await fetch(data_assistenza.url, {
         method: "POST",
         credentials: "same-origin",

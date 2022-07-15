@@ -265,6 +265,8 @@ const appointment = document.getElementById("appointment");
 appointment.addEventListener("change", () => {
   answers.appointment = null;
   checkMandatoryFields();
+
+  // modificare l'url se si vuole integrare con un servizio esterno
   fetch(url + `?month=${appointment?.value}&office=${answers?.place?.id}`)
     .then((response) => {
       if (!response.ok) {
@@ -484,6 +486,7 @@ const confirmAppointment = () => {
   }
   body.append("action", "save_appuntamento");
 
+  // modificare l'url se si vuole integrare con un servizio esterno
   fetch(urlConfirm, {
     method: "POST",
     credentials: "same-origin",

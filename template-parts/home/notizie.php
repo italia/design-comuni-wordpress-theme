@@ -47,7 +47,7 @@ $schede = array($scheda1,$scheda2,$scheda3 );
               <?php } ?>
             </div>
             <a href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai alla pagina <?php echo $post->post_title ?>" title="Vai alla pagina <?php echo $post->post_title ?>">
-              <h3 class="h4 card-title title-xlarge u-main-primary">
+              <h3 class="h4 card-title title-xlarge">
                 <?php echo $post->post_title ?>
               </h3>
             </a>

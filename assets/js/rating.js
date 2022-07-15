@@ -27,6 +27,7 @@ const submitRating = () => {
     page,
   };
 
+  // modificare l'url se si vuole integrare con un servizio esterno
   fetch(data.ajaxurl, {
     method: "POST",
     credentials: "same-origin",
