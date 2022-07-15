@@ -1,6 +1,6 @@
 # ![developers.italia](https://avatars1.githubusercontent.com/u/15377824?s=36&v=4 "developers.italia") Design Comuni Italia
 
-[![Join the #design siti comuni channel](https://img.shields.io/badge/Slack%20channel-%23design_siti_comuni-blue.svg)](https://developersitalia.slack.com/)
+[![Join the #design siti comuni channel](https://img.shields.io/badge/Slack%20channel-%23design_siti_comuni-blue.svg)](https://developersitalia.slack.com/messages/design-siti-comuni/)
 
 ## **Un sito per i Comuni Italiani**
 
@@ -40,7 +40,7 @@ Abilita poi il tema **Design Comuni Italia** cliccando sul bottone `Attiva`.
 
 #### **Supporto tecnico ed editoriale**
 
-Sul [canale Slack #design-siti-comuni](http://developersitalia.slack.com/) puoi confrontarti sulle risorse e trovare le risposte a tutte le domande riguardo problemi tecnici o l’architettura dei contenuti.
+Sul [canale Slack #design-siti-comuni](http://developersitalia.slack.com/messages/design-siti-comuni/) puoi confrontarti sulle risorse e trovare le risposte a tutte le domande riguardo problemi tecnici o l’architettura dei contenuti.
 
 È necessario avere un’utenza Slack di Developers Italia. [Attivala adesso](https://slack.developers.italia.it/).
 
@@ -54,6 +54,7 @@ Sul [canale Slack #design-siti-comuni](http://developersitalia.slack.com/) puoi 
 - [Relazioni tra i contenuti](#relazioni-tra-i-contenuti)
 - [I diversi content type](#i-diversi-content-type)
 - [Personalizzazione](#personalizzazione)
+- [Servizi esterni](#servizi-esterni)
 - [La community di riferimento](#la-community-di-riferimento)
 - [FAQ](#faq)
 - [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
@@ -125,7 +126,7 @@ Eventi - Unità Organizzative
 
 Questo significa, ad esempio, che ogni pagina di un Evento può presentare una relazione con contenuti come i luoghi e le persone pubbliche.
 
-**Attenzione!** Dal punto di vista pratico, è necessario che i contenuti che si vuole collegare vengano creati in un ordine preciso: prima i content type che fungono da contenuti di dettaglio e poi il content type contenitore (es. prima i punti di contatto, i luoghi e le persone e solo dopo la l'unità organizzativa che li referenzia).
+**Attenzione!** Dal punto di vista pratico, è necessario che i contenuti che si vuole collegare vengano creati in un ordine preciso: prima i content type che fungono da contenuti di dettaglio e poi il content type contenitore (es. prima i punti di contatto, i luoghi e le persone e solo dopo l'unità organizzativa che li referenzia).
 
 Per collegare tra loro diverse tipologie di contenuto, quindi:
 
@@ -137,6 +138,29 @@ Per associare nuovi contenuti di dettaglio ad altri già esistenti:
 
 1. Crea la nuova scheda di contenuto di dettaglio.
 2. Entra nella scheda del contenuto contenitore e, tramite l’apposito campo, associa la scheda del contenuto di dettaglio.
+
+#### **Personalizzazione**
+
+Nell’area di configurazione è possibile (e talvolta necessario) personalizzare alcuni caratteristiche del sito, come i contenuti da mostrare in evidenza o nella homepage.
+
+L’area di configurazione è divisa in tab per le diverse aree del sito.
+
+Cliccando su `Configurazione`, è possibile definire:
+
+- **Configurazione Comune**: le impostazioni di base del Comune, come il nome, lo stemma, il link alla regione di apartenenza;
+- **Home Page**: i contenuti e gli argomenti in evidenza in homepage ;
+- **Socialmedia**: i link ai canali social del Comune, che compariranno nell'header e nel footer;
+- **Footer**: la sezione contatti presente nel footer e i link alla privacy policy e alla media policy;
+- **Amministrazione**: i contenuti in evidenza nella pagina Amministrazione;
+- **Novità**: i contenuti e gli argomenti in evidenza nella pagina Novità;
+- **Servizi**: i contenuti in evidenza nella pagina Servizi;
+- **Documenti e Dati**: i contenuti e gli argomenti in evidenza nella pagina Documenti e Dati;
+- **Vivere il Comune**: i contenuti in evidenza nella pagina Vivere il Comune;
+- **Argomenti**: gli argomenti in evidenza nella pagina Argomenti;
+- **Assistenza e Contatti**: le informazioni utili per contattare il comune, come il numero verde;
+- **Link Utili**: i link utili che compaiono in homepage nella sezione di ricerca;
+- **Ricerca**: i contenuti suggeriti nella pagina di ricerca globale.
+
 
 #### **Servizi esterni**
 
@@ -235,27 +259,6 @@ Il file da mofificare per integrare un servizio esterno si trova all'interno del
 
 - `assets > js > assistenza.js `.
 
-#### **Personalizzazione**
-
-Nell’area di configurazione è possibile (e talvolta necessario) personalizzare alcuni caratteristiche del sito, come i contenuti da mostrare in evidenza o nella homepage.
-
-L’area di configurazione è divisa in tab per le diverse aree del sito.
-
-Cliccando su `Configurazione`, è possibile definire:
-
-- **Configurazione Comune**: le impostazioni di base del Comune, come il nome, lo stemma, il link alla regione di apartenenza;
-- **Home Page**: i contenuti e gli argomenti in evidenza in homepage ;
-- **Socialmedia**: i link ai canali social del Comune, che compariranno nell'header e nel footer;
-- **Footer**: la sezione contatti presente nel footer e i link alla privacy policy e alla media policy;
-- **Amministrazione**: i contenuti in evidenza nella pagina Amministrazione;
-- **Novità**: i contenuti e gli argomenti in evidenza nella pagina Novità;
-- **Servizi**: i contenuti in evidenza nella pagina Servizi;
-- **Documenti e Dati**: i contenuti e gli argomenti in evidenza nella pagina Documenti e Dati;
-- **Vivere il Comune**: i contenuti in evidenza nella pagina Vivere il Comune;
-- **Argomenti**: gli argomenti in evidenza nella pagina Argomenti;
-- **Assistenza e Contatti**: le informazioni utili per contattare il comune, come il numero verde;
-- **Link Utili**: i link utili che compaiono in homepage nella sezione di ricerca;
-- **Ricerca**: i contenuti suggeriti nella pagina di ricerca globale.
 
 #### **La community di riferimento**
 
