@@ -59,7 +59,7 @@ jQuery( document ).ready(function() {
 function dci_highlight_missing_field(fieldClass) {
 
     jQuery(fieldClass).addClass("highlighted_missing_field")
-        .append('<div id ="field-required-msg" class="field-required-msg"><em>campo obbligatorio !</em></div>')
+        .append('<div id ="field-required-msg" class="field-required-msg"><em>Campo obbligatorio</em></div>')
     ;
     jQuery('html,body').animate({
         scrollTop: jQuery("#field-required-msg").parent().offset().top - 100
