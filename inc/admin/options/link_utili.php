@@ -1,6 +1,7 @@
 <?php
 
 function dci_register_link_utili_options(){
+    $prefix = '';
 
     $args = array(
         'id'           => 'dci_options_link_utili',

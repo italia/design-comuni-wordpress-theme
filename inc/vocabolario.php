@@ -112,13 +112,12 @@ if(!function_exists("dci_categorie_servizio_array")){
             'Ambiente',
             'Anagrafe e stato civile',
             'Appalti pubblici',
-            'Attività produttive e commercio',
             'Autorizzazioni',
             'Catasto e urbanistica',
             'Cultura e tempo libero',
             'Educazione e formazione',
             'Giustizia e sicurezza pubblica',
-            //'Imprese e commercio',
+            'Imprese e commercio',
             'Mobilità e trasporti',
             'Salute, benessere e assistenza',
             'Tributi, finanze e contravvenzioni',
@@ -693,7 +692,7 @@ if(!function_exists('dci_get_categorie_servizio_descriptions_array')){
             'Salute, benessere e assistenza' => 'Servizi santirari e di sostegno per minori, famiglie, anziani e persone con disabilità.',
             'Autorizzazioni' => 'Autorizzazioni, permessi, licenze, concessioni di suolo, passi carrabili e prestito di beni del Comune.',
             'Agricoltura e pesca' => 'Autorizzazioni e politiche alimentari per agricoltura e pesca.',
-            'Attività produttive e commercio' => 'Avvio di un’attività, commercio, autorizzazioni e concessioni per attività produttive, mercati, incentivi e supporto alle imprese.'
+            'Imprese e commercio' => 'Avvio di un’attività, commercio, autorizzazioni e concessioni per attività produttive, mercati, incentivi e supporto alle imprese.'
         ];
         return $categorie_servizio_descriptions_arr;
     }

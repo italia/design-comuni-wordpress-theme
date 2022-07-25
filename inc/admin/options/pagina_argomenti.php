@@ -1,6 +1,7 @@
 <?php
 
 function dci_register_pagina_argomenti_options(){
+    $prefix = '';
 
     $args = array(
         'id'           => 'dci_options_argomenti',

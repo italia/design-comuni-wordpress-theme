@@ -1,6 +1,7 @@
 <?php
 
 function dci_register_pagina_servizi_options(){
+    $prefix = '';
 
     /**
      * Opzioni Servizi

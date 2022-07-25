@@ -1,6 +1,7 @@
 <?php
 
 function dci_register_comune_options(){
+    $prefix = '';
 
     /**
      * Opzioni di base

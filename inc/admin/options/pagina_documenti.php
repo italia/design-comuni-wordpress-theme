@@ -1,6 +1,8 @@
 <?php
 
 function dci_register_pagina_documenti_options(){
+    $prefix = '';
+
     /**
      * Opzioni Documenti e Dati
      */

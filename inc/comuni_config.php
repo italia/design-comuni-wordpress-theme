@@ -29,7 +29,10 @@ function dci_get_group($tipologia) {
  * @return mixed
  */
 function dci_get_group_name($tipologia) {
-    return COMUNI_TIPOLOGIE[$tipologia]['group_name'];
+    if (array_key_exists($tipologia, COMUNI_TIPOLOGIE ) && is_array(COMUNI_TIPOLOGIE[$tipologia]) && array_key_exists('group_name',  COMUNI_TIPOLOGIE[$tipologia]) ){
+        return COMUNI_TIPOLOGIE[$tipologia]['group_name'];
+    }
+    return null;
 }
 
 /**
@@ -40,7 +43,7 @@ function dci_get_group_name($tipologia) {
 function dci_get_tipologie_related_to_taxonomy($taxonomy) {
     $result = array();
     foreach (COMUNI_TIPOLOGIE as $tipologia) {
-        if (is_array($tipologia['taxonomy']) && in_array($taxonomy,$tipologia['taxonomy'])){
+        if (array_key_exists('taxonomy', $tipologia) && is_array($tipologia['taxonomy']) && in_array($taxonomy,$tipologia['taxonomy'])){
             $result[] = $tipologia['name'];
         }
     }

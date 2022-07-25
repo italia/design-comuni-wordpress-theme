@@ -1,6 +1,7 @@
 <?php
 
 function dci_register_scheda_assistenza_options(){
+    $prefix = '';
 
     $args = array(
         'id'           => 'dci_options_assistenza',

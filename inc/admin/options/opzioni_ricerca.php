@@ -1,6 +1,7 @@
 <?php
 
 function dci_register_ricerca_options(){
+    $prefix = '';
 
     /**
      * Opzioni Ricerca Globale

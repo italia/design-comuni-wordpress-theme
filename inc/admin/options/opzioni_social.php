@@ -1,6 +1,8 @@
 <?php
 
 function dci_register_social_options(){
+    $prefix = '';
+
     /**
      * Opzioni Social
      */

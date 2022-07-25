@@ -1,6 +1,8 @@
 <?php
 
 function dci_register_pagina_amministrazione_options(){
+    $prefix = '';
+
     /**
      * Opzioni Amministrazione
      */

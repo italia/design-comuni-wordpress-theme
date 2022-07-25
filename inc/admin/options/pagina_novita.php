@@ -1,6 +1,8 @@
 <?php
 
 function dci_register_pagina_novita_options(){
+    $prefix = '';
+
     /**
      * Opzioni Novità
      */

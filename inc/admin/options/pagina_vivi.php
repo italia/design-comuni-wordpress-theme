@@ -1,6 +1,8 @@
 <?php
 
 function dci_register_pagina_vivi_options(){
+    $prefix = '';
+
     /**
      * Opzioni Vivere il Comune
      */

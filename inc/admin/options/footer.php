@@ -1,6 +1,7 @@
 <?php
 
 function dci_register_footer_options(){
+    $prefix = '';
 
     /**
      * Opzioni Footer
