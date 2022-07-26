@@ -59,7 +59,6 @@ function dci_add_update_theme_page() {
 }
 add_action( 'admin_menu', 'dci_add_update_theme_page' );
 
-
 /**
  * inserimento ricorsivo dei termini di tassonomia
  * @param $array
@@ -234,8 +233,6 @@ function updatePageDescription($page_title, $description) {
     }
 }
 
-
-
 /**
  * inserimento pagine (ricorsivo)
  */
@@ -248,7 +245,12 @@ function insertPages($pagine, $parent_id = 0) {
             updatePageDescription($pagina['title'],$pagina['description']);
         }
 
-        if (!empty($pagina['children'])){
+        if (!isset($page_id)) {
+            $page = get_page_by_title($pagina['title']);
+            $page_id = $page->ID;
+        }
+
+        if (!empty($pagina['children']) && isset($page_id)){
             insertPages($pagina['children'],$page_id);
         }
     }
@@ -286,7 +288,6 @@ function createCapabilities() {
     $admins->add_cap( "edit_roles");
     $admins->add_cap( "delete_roles");
 }
-
 
 /**
  * creazione menu
@@ -426,14 +427,16 @@ function dci_create_custom_menu_item($item_name,  $menu_id, $link = '#') {
 function dci_create_page_menu_item($page_name, $menu_id ,$label = '') {
     $page= get_page_by_title( $page_name);
     $item_label =  ($label !== '') ? $label : $page_name;
-    wp_update_nav_menu_item($menu_id, 0, array(
-        'menu-item-title' =>$item_label,
-        'menu-item-status' => 'publish',
-        'menu-item-type' => 'post_type',
-        'menu-item-object-id' => $page->ID,
-        'menu-item-object' => 'page',
-        'menu-item-attr-title' => $page->post_name
-    ));
+    if ($page) {
+       wp_update_nav_menu_item($menu_id, 0, array(
+           'menu-item-title' =>$item_label,
+           'menu-item-status' => 'publish',
+           'menu-item-type' => 'post_type',
+           'menu-item-object-id' => $page->ID,
+           'menu-item-object' => 'page',
+           'menu-item-attr-title' => $page->post_name
+       ));
+    }
 }
 
 function dci_create_archive_menu_item($post_type, $menu_id ,$label = '') {
@@ -486,6 +489,7 @@ function dci_create_page_template($name, $slug, $template, $parent_id = '', $con
         'post_parent' => $parent_id
     );
 
+    $new_page_id = null;
     if ( ! isset( $page_check->ID ) ) {
         $new_page_id = wp_insert_post( $new_page );
         if ( ! empty( $new_page_template ) ) {
