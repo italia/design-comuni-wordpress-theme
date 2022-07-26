@@ -386,17 +386,19 @@ function dci_get_eventi_calendar_array() {
     );
     $eventi = get_posts($args);
     $eventi_calendar_array = array();
+
     foreach( $eventi as $evento){
+        $data_orario_inizio = dci_get_meta('data_orario_inizio','_dci_evento_',$evento);
+        $data_orario_fine =   dci_get_meta('data_orario_fine','_dci_evento_',$evento);
 
         $eventi_calendar_array [] = array(
             'id' => $evento,
             'titolo' => get_the_title( $evento ),
             'link' => get_post_permalink($evento),
-            'data_inizio' => gmdate("Y-m-d", dci_get_meta('data_orario_inizio','_dci_evento_',$evento)),
-            'data_fine' => gmdate("Y-m-d", dci_get_meta('data_orario_fine','_dci_evento_',$evento)),
+            'data_inizio' =>($data_orario_inizio != "") ?  gmdate("Y-m-d", dci_get_meta('data_orario_inizio','_dci_evento_',$evento)) : "",
+            'data_fine' => ($data_orario_fine != "") ?  gmdate("Y-m-d", dci_get_meta('data_orario_fine','_dci_evento_',$evento)): "",
             'tipo_evento' => dci_get_tipo_evento($evento)
         );
-
     }
    return $eventi_calendar_array;
 }
@@ -529,63 +531,6 @@ if (!function_exists("dci_get_mapbox_access_token")) {
 
         return $accesstoken;
     }
-}
-
-/**
- * Event date start/stop
- * @param $post
- *
- */
-function dci_get_date_evento($post)
-{
-    if ($post->post_type == "evento")
-        $prefix = '_dci_evento_';
-
-    $ret = "";
-    $timestamp_inizio = dci_get_meta("timestamp_inizio", $prefix, $post->ID);
-    $timestamp_fine = dci_get_meta("timestamp_fine", $prefix, $post->ID);
-    if ($timestamp_inizio >= $timestamp_fine) {
-        $ret .= date_i18n("j F Y", $timestamp_inizio);
-        //$ret .= __(" alle ", "design_comuni_italia");
-        //$ret .=  date_i18n("H:i", $timestamp_inizio);
-        return $ret;
-    }
-
-    $data_inizio = date_i18n("j F Y", $timestamp_inizio);
-    $data_fine = date_i18n("j F Y", $timestamp_fine);
-    $ora_inizio = date_i18n("H:i", $timestamp_inizio);
-    $ora_fine = date_i18n("H:i", $timestamp_fine);
-    if ($data_inizio == $data_fine) {
-        $ret .= __("Il ", "design_comuni_italia");
-        $ret .= $data_inizio;
-        /*
-        if($post->post_type == "evento"){
-            $ret .= __(" dalle ", "design_comuni_italia");
-            $ret .= $ora_inizio;
-            $ret .= __(" alle ", "design_comuni_italia");
-            $ret .= $ora_fine;
-
-        }*/
-
-    } else {
-        $ret .= __("dal ", "design_comuni_italia");
-        $ret .= $data_inizio;
-        /*
-        if($post->post_type == "evento") {
-            $ret .= __( " alle ", "design_comuni_italia" );
-            $ret .= $ora_inizio;
-        }*/
-        $ret .= __(" al ", "design_comuni_italia");
-        $ret .= $data_fine;
-        /*
-        if($post->post_type == "evento") {
-            $ret .= __( " alle ", "design_comuni_italia" );
-            $ret .= $ora_fine;
-        }*/
-    }
-
-    return $ret;
-
 }
 
 /**
@@ -946,6 +891,7 @@ if (!function_exists("dci_truncate")) {
  */
 if(!function_exists("dci_get_data_pubblicazione_arr")) {
     function dci_get_data_pubblicazione_arr($key = '', $prefix = '', $post_id) {
+        global $post;
         $arrdata = array();
         if (!$post) $post = get_post($post_id);
 
