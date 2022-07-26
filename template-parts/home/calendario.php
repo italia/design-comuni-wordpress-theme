@@ -15,8 +15,10 @@ $full_date = $currentMonth . $nextMonth . $fisrt_date[0];
 
 $total_eventi = 0;
 foreach ($date as $data) {
+	if ( is_array($calendario[$data]) && count($calendario[$data]) ) {
 	$eventi = $calendario[$data]['eventi'];
-	if ($eventi) ++$total_eventi;
+	++$total_eventi;
+	}
  }
 
 ?>
@@ -43,8 +45,10 @@ foreach ($date as $data) {
 					<?php foreach ($date as $data) { 
 					$arrdata =  explode("-", $data);
 					$dayName = date_i18n('D', mktime(0, 0, 0,intval($arrdata[1]), intval($arrdata[2])));
-
+					
+					if ( is_array($calendario[$data]) && count($calendario[$data]) )
 					$eventi = $calendario[$data]['eventi'];
+					else $eventi = [];
 					?>
 					<li class="splide__slide">
 						<div class="it-single-slide-wrapper h-100">

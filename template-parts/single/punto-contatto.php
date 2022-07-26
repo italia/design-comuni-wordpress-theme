@@ -28,18 +28,18 @@ $other_contacts = array(
             </a>
         </h5>
         <div class="card-text">
-            <?php if ( is_array($full_contatto['indirizzo']) && count ($full_contatto['indirizzo']) ) {
+            <?php if ( isset($full_contatto['indirizzo']) && is_array($full_contatto['indirizzo']) && count ($full_contatto['indirizzo']) ) {
                 foreach ($full_contatto['indirizzo'] as $value) {
                     echo '<p>'.$value.'</p>';
                 } 
                 echo '<p class="mt-3"></p>';
             } ?>
-            <?php if ( is_array($full_contatto['telefono']) && count ($full_contatto['telefono']) ) {
+            <?php if ( isset($full_contatto['telefono']) && is_array($full_contatto['telefono']) && count ($full_contatto['telefono']) ) {
                 foreach ($full_contatto['telefono'] as $value) {
                     echo '<p>T '.$value.'</p>';
                 }
             } ?>
-            <?php if ( is_array($full_contatto['url']) && count ($full_contatto['url']) ) {
+            <?php if ( isset($full_contatto['url']) && is_array($full_contatto['url']) && count ($full_contatto['url']) ) {
                 foreach ($full_contatto['url'] as $value) { ?>
                     <p>
                         <a 
@@ -52,7 +52,7 @@ $other_contacts = array(
                     </p>
                <?php }
             } ?>
-            <?php if ( is_array($full_contatto['email']) && count ($full_contatto['email']) ) {
+            <?php if ( isset($full_contatto['email']) && is_array($full_contatto['email']) && count ($full_contatto['email']) ) {
                 foreach ($full_contatto['email'] as $value) { ?>
                     <p>
                         <a  
@@ -66,7 +66,7 @@ $other_contacts = array(
                <?php }
             } ?>
             <?php foreach ($other_contacts as $type) {
-                if ( is_array($full_contatto[$type]) && count ($full_contatto[$type]) ) {
+                if ( isset($full_contatto[$type]) && is_array($full_contatto[$type]) && count ($full_contatto[$type]) ) {
                     foreach ($full_contatto[$type] as $value) {
                         echo '<p>'.$type.': '.$value.'</p>';
                     }

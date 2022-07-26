@@ -7,10 +7,11 @@
  */
 global $the_query, $load_posts, $load_card_type, $label, $label_no_more, $classes;
 
-$max_posts = isset($_GET['max_posts']) ? $_GET['max_posts'] : 5;
-$load_posts = 5;
+$max_posts = isset($_GET['max_posts']) ? $_GET['max_posts'] : 20;
+$load_posts = 10;
+$query = isset($_GET['search']) ? $_GET['search'] : null;
 $args = array(
-    's' => $_GET['search'],
+    's' => $query,
     'posts_per_page' => $max_posts,
     'post_type'      => 'domanda_frequente',
     'orderby'        => 'post_title',
@@ -66,7 +67,7 @@ get_header();
                                 placeholder="Cerca" 
                                 id="autocomplete-three" 
                                 name="search"
-                                value="<?php echo $_GET['search']; ?>"
+                                value="<?php echo $query; ?>"
                                 data-bs-autocomplete="[]">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit" id="button-3">

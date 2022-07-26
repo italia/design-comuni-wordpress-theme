@@ -14,12 +14,13 @@ $query_params = json_encode($_GET);
 $additional_filter = json_encode($additional_filter);
 
 $query = $the_query->query;
-$post_types = $query['post_type'];
+$post_types = isset($query['post_type']) ? $query['post_type'] : null;
 if ( !$post_types ) $post_types = dci_get_sercheable_tipologie();
 
 $post_types = json_encode( $post_types );
 
-$query_params = '?post_count='.$the_query->post_count.'&load_posts='.$load_posts.'&search='.$_GET['search'].'&post_types='.$post_types.'&load_card_type='.$load_card_type.'&query_params='.$query_params.'&additional_filter='.$additional_filter;
+$query_search = isset($_GET['search']) ? $_GET['search'] : null;
+$query_params = '?post_count='.$the_query->post_count.'&load_posts='.$load_posts.'&search='.$query_search.'&post_types='.$post_types.'&load_card_type='.$load_card_type.'&query_params='.$query_params.'&additional_filter='.$additional_filter;
 
 if($the_query->post_count < $the_query->found_posts) {
 ?> 

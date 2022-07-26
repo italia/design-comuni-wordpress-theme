@@ -4,7 +4,10 @@ global $argomento_full, $count, $sito_tematico_id;
 $argomento = get_term_by('slug', $argomento_full['argomento_'.$count.'_argomento'], 'argomenti');
 
 $icon = dci_get_term_meta('icona', "dci_term_", $argomento->term_id);
+
+if (isset($argomento_full['argomento_'.$count.'_siti_tematici']))
 $sito_tematico_id = $argomento_full['argomento_'.$count.'_siti_tematici'];
+if (isset($argomento_full['argomento_'.$count.'_contenuti']))
 $links = $argomento_full['argomento_'.$count.'_contenuti'];
 ?>
 
@@ -33,7 +36,7 @@ $links = $argomento_full['argomento_'.$count.'_contenuti'];
         <?php } ?>
 
         <!-- links -->
-        <?php if(is_array($links) && count($links)) { ?>
+        <?php if(isset($links) && is_array($links) && count($links)) { ?>
         <div class="link-list-wrapper mt-4">
             <ul class="link-list">
                 <?php foreach ($links as $link_id) { 
@@ -65,3 +68,5 @@ $links = $argomento_full['argomento_'.$count.'_contenuti'];
         </span>
     </a>
 </div>
+<?php
+$sito_tematico_id = null;

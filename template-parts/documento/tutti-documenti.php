@@ -3,8 +3,9 @@ global $the_query, $load_posts, $load_card_type;
 
     $max_posts = isset($_GET['max_posts']) ? $_GET['max_posts'] : 3;
     $load_posts = 3;
+    $query = isset($_GET['search']) ? $_GET['search'] : null;
     $args = array(
-        's' => $_GET['search'],
+        's' => $query,
         'posts_per_page' => $max_posts,
         'post_type'      => array('documento_pubblico', 'dataset'),
         'orderby'        => 'post_title',
@@ -36,7 +37,7 @@ global $the_query, $load_posts, $load_card_type;
                         placeholder="Cerca per parola chiave"
                         id="autocomplete-two"
                         name="search"
-                        value="<?php echo $_GET['search']; ?>"
+                        value="<?php echo $query; ?>"
                         data-bs-autocomplete="[]"
                         />
                         <div class="input-group-append">

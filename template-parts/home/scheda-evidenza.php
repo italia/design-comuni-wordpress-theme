@@ -6,13 +6,7 @@ $img = dci_get_meta('immagine');
 $descrizione_breve = dci_get_meta('descrizione_breve');
 $icon = dci_get_post_type_icon_by_id($post->ID);
 
-$page_id = $scheda['scheda_'.$count.'_pagina'];
-if ($page_id) {
-    $page = get_post($page_id);
-} else {
-    # get page dynamically
-    $page = get_page_by_path( dci_get_group($post->post_type) );    
-}
+$page = get_page_by_path( dci_get_group($post->post_type) );    
 
 $page_macro_slug = dci_get_group($post->post_type);
 $page_macro = get_page_by_path($page_macro_slug);

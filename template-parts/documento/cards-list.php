@@ -49,7 +49,10 @@
                     <div class="col-12 order-1 order-md-2">
                         <div class="card-body card-img-none rounded-top">
                             <div class="category-top cmp-list-card-img__body">
-                                <span class="category cmp-list-card-img__body-heading-title underline"><?php echo $tipo->name ? strtoupper($tipo->name) : 'DATASET'; ?></span>
+                                <span class="category cmp-list-card-img__body-heading-title underline"><?php
+                                console_log($tipo); 
+                                echo isset($tipo->name) ? strtoupper($tipo->name) : 'DATASET'; ?>
+                                </span>
                                 <span class="data"><?php echo $arrdata[0].' '.strtoupper($monthName).' '.$arrdata[2] ?></span>
                             </div>
                             <a href="<?php echo get_permalink(); ?>" aria-label="vai al documento <?php echo the_title(); ?>" title="vai al documento <?php echo the_title(); ?>">
