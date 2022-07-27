@@ -64,8 +64,7 @@ get_header();
                 return trim(strip_tags($text));
             };
             ?>
-            <script type="application/ld+json" data-element="metatag">
-                {
+            <script type="application/ld+json" data-element="metatag">{
                     "name": "<?= $post->post_title; ?>",
                     "serviceType": "<?= $categoria_servizio; ?>",
                     "serviceOperator": {
@@ -84,12 +83,11 @@ get_header();
                             "address": {
                             "streetAddress": "<?= $indirizzo; ?>",
                             "postalCode": "<?= $cap; ?>",
-                            "addressLocality": "<?= $quartiere; ?>",
+                            "addressLocality": "<?= $quartiere; ?>"
                             }
                         }
                     }
-                }
-            </script>
+            }</script>
             <div class="container" id="main-container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10">
