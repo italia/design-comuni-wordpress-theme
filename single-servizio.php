@@ -66,7 +66,7 @@ get_header();
             ?>
             <script type="application/ld+json" data-element="metatag">
                 {
-                    "name": "<?= $post->post_title; ?>"",
+                    "name": "<?= $post->post_title; ?>",
                     "serviceType": "<?= $categoria_servizio; ?>",
                     "serviceOperator": {
                         "name": "<?= $ipa; ?>"
