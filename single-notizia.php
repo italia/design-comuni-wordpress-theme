@@ -147,7 +147,7 @@ get_header();
                                 </svg>
                                 <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="<?php echo get_permalink($doc_id); ?>" aria-label="Vai al documento <?php echo $documento->post_title; ?>">
+                                    <a class="text-decoration-none" href="<?php echo get_permalink($doc_id); ?>" aria-label="Vai al documento <?php echo $documento->post_title; ?>">
                                         <?php echo $documento->post_title; ?>
                                     </a>
                                 </h5>

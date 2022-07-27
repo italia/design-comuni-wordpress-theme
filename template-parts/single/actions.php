@@ -8,7 +8,7 @@ if ($hide_arguments) $argomenti = array();
 
 <div class="dropdown <?php echo $inline ? 'd-inline' : '' ?>">
     <button
-        class="btn btn-dropdown dropdown-toggle"
+        class="btn btn-dropdown dropdown-toggle text-decoration-underline d-inline-flex align-items-center fs-0"
         type="button"
         id="shareActions"
         data-bs-toggle="dropdown"
@@ -70,7 +70,7 @@ if ($hide_arguments) $argomenti = array();
 </div>
 <div class="dropdown <?php echo $inline ? 'd-inline' : '' ?>">
     <button
-        class="btn btn-dropdown dropdown-toggle"
+        class="btn btn-dropdown dropdown-toggle text-decoration-underline d-inline-flex align-items-center fs-0"
         type="button"
         id="viewActions"
         data-bs-toggle="dropdown"
@@ -136,7 +136,7 @@ if ($hide_arguments) $argomenti = array();
     <span class="subtitle-small">Argomenti</span>
     <div class="chip-wrapper mt-2">
         <?php foreach ($argomenti as $argomento) { ?>
-        <a href="<?php echo get_term_link($argomento->term_id); ?>" aria-label="Vai all'argomento: <?php echo $argomento->name; ?>" title="Vai all'argomento: <?php echo $argomento->name; ?>" data-element="service-topic">
+        <a class="text-decoration-none" href="<?php echo get_term_link($argomento->term_id); ?>" aria-label="Vai all'argomento: <?php echo $argomento->name; ?>" title="Vai all'argomento: <?php echo $argomento->name; ?>" data-element="service-topic">
             <div class="chip chip-simple chip-primary">
                 <span class="chip-label"><?php echo $argomento->name; ?></span>
             </div>

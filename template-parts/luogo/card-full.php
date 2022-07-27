@@ -24,16 +24,16 @@ $tipi_luogo = get_the_terms($post->ID,'tipi_luogo');
                         if ( is_array($tipi_luogo) && count($tipi_luogo) ) {
                         foreach ($tipi_luogo as $tipo_luogo) {
                     ?>
-                        <a class="u-main-primary fw-bold cmp-list-card-img__body-heading-title" href="<?php echo get_term_link($tipo_luogo->term_id); ?>" aria-label="Vai alla categoria <?php echo $tipo_luogo->name; ?>" title="Vai alla categoria <?php echo $tipo_luogo->name; ?>">
+                        <?php echo $count == 1 ? '' : ' - '; ?>
+                        <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title" href="<?php echo get_term_link($tipo_luogo->term_id); ?>" aria-label="Vai alla categoria <?php echo $tipo_luogo->name; ?>" title="Vai alla categoria <?php echo $tipo_luogo->name; ?>">
                             <?php 
-                                echo $count == 1 ? '' : ' - ';
                                 echo $tipo_luogo->name; 
                             ?>
                         </a>
                     <?php ++$count; }} ?>
                 </div>
                 <h3 class="cmp-list-card-img__body-title u-main-primary">
-                    <a href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai alla pagina <?php echo $post->post_title ?>" title="Vai alla pagina <?php echo $post->post_title ?>"><?php echo $post->post_title ?></a>
+                    <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai alla pagina <?php echo $post->post_title ?>" title="Vai alla pagina <?php echo $post->post_title ?>"><?php echo $post->post_title ?></a>
                 </h3>
                 <p class="cmp-list-card-img__body-description">
                     <?php echo $descrizione; ?>

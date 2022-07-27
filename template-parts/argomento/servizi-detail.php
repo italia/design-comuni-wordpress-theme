@@ -23,12 +23,12 @@
                     <div class="card card-teaser rounded border border-light">
                         <div class="card-body">
                             <div class="category-top">
-                                <a class="u-main-primary fw-semibold" href="<?php echo get_term_link($categoria_servizio->term_id); ?>" aria-label="Vai alla categoria di servizio <?php echo $categoria_servizio->name; ?>" title="Vai alla categoria di servizio <?php echo $categoria_servizio->name; ?>">
+                                <a class="text-decoration-none fw-semibold" href="<?php echo get_term_link($categoria_servizio->term_id); ?>" aria-label="Vai alla categoria di servizio <?php echo $categoria_servizio->name; ?>" title="Vai alla categoria di servizio <?php echo $categoria_servizio->name; ?>">
                                     <?php echo $categoria_servizio->name; ?>
                                 </a>
                             </div>
-                            <h4 class="text-paragraph-medium u-main-primary">
-                                <a href="<?php echo get_permalink(); ?>" aria-label="Vai a <?php echo the_title(); ?>" title="Vai a <?php echo the_title(); ?>"><?php echo the_title(); ?></a>  
+                            <h4 class="text-paragraph-medium ">
+                                <a class="text-decoration-none" href="<?php echo get_permalink(); ?>" aria-label="Vai a <?php echo the_title(); ?>" title="Vai a <?php echo the_title(); ?>"><?php echo the_title(); ?></a>  
                             </h4>
                             <p class="m-0 u-grey-light text-paragraph-card">
                                 <?php echo $description; ?>

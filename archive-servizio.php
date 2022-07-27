@@ -92,7 +92,7 @@ get_header();
                         </li>
                       <?php } ?>                      
                       <li>
-                        <a class="list-item ps-0 text-button-xs-bold d-flex align-items-center" href="<?php echo get_permalink( get_page_by_path( 'amministrazione' ) ); ?>" aria-label="Vai all'area amministrativa" title="Vai all'area amministrativa">
+                        <a class="list-item ps-0 text-button-xs-bold d-flex align-items-center text-decoration-none" href="<?php echo get_permalink( get_page_by_path( 'amministrazione' ) ); ?>" aria-label="Vai all'area amministrativa" title="Vai all'area amministrativa">
                           <span class="mr-10">VAI ALL’AREA AMMINISTRATIVA</span>
                           <svg class="icon icon-xs icon-primary">
                             <use href="#it-arrow-right"></use>
@@ -117,7 +117,7 @@ get_header();
               <div class="cmp-card-simple card-wrapper pb-0">
                 <div class="card shadow rounded">
                   <div class="card-body">
-                    <a href="<?php echo $item['link']; ?>" aria-label="Vai all'argomento <?php echo $item['titolo']; ?>" title="Vai all'argomento <?php echo $item['titolo']; ?>">
+                    <a class="text-decoration-none" href="<?php echo $item['link']; ?>" aria-label="Vai all'argomento <?php echo $item['titolo']; ?>" title="Vai all'argomento <?php echo $item['titolo']; ?>">
                       <h3 class="card-title t-primary title-xlarge">
                         <?php echo $item['titolo']; ?>
                       </h3>

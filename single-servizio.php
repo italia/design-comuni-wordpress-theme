@@ -363,7 +363,7 @@ get_header();
                                     <div class="d-flex flex-wrap gap-2 mt-10 mb-30">
                                         <?php foreach ( $argomenti as $item ) { ?>
                                             <div class="cmp-tag">
-                                                <a class="chip chip-simple t-primary bg-tag" aria-label="Visualizza tutti gli argomenti <?php echo $item->name; ?>" title="Visualizza tutti gli argomenti <?php echo $item->name; ?>" href="<?php echo get_term_link($item); ?>" data-element="service-topic">
+                                                <a class="chip chip-simple t-primary bg-tag text-decoration-none" aria-label="Visualizza tutti gli argomenti <?php echo $item->name; ?>" title="Visualizza tutti gli argomenti <?php echo $item->name; ?>" href="<?php echo get_term_link($item); ?>" data-element="service-topic">
                                                 <span class="chip-label"><?php echo $item->name; ?></span>
                                                 </a>
                                             </div>

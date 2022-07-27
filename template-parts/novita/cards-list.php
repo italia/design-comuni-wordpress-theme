@@ -21,7 +21,7 @@
                     <span class="category cmp-list-card-img__body-heading-title underline"><?php echo strtoupper($tipo->name); ?></span>
                     <span class="data"><?php echo $arrdata[0].' '.strtoupper($monthName).' '.$arrdata[2] ?></span>
                     </div>
-                    <a href="<?php echo get_permalink(); ?>" aria-label="vai alla notizia <?php echo the_title(); ?>" title="vai alla notizia <?php echo the_title(); ?>">
+                    <a class="text-decoration-none" href="<?php echo get_permalink(); ?>" aria-label="vai alla notizia <?php echo the_title(); ?>" title="vai alla notizia <?php echo the_title(); ?>">
                         <h3 class="h5 card-title u-grey-light"><?php echo the_title(); ?></h3>
                     </a>
                     <p class="card-text d-none d-md-block">
@@ -46,7 +46,7 @@
                                 </span>
                                 <span class="data"><?php echo $arrdata[0].' '.strtoupper($monthName).' '.$arrdata[2] ?></span>
                             </div>
-                            <a href="<?php echo get_permalink(); ?>" aria-label="vai alla notizia <?php echo the_title(); ?>" title="vai alla notizia <?php echo the_title(); ?>">
+                            <a class="text-decoration-none" href="<?php echo get_permalink(); ?>" aria-label="vai alla notizia <?php echo the_title(); ?>" title="vai alla notizia <?php echo the_title(); ?>">
                                 <h3 class="h5 card-title u-grey-light"><?php echo the_title(); ?></h3>
                             </a>
                             <p class="card-text d-none d-md-block">

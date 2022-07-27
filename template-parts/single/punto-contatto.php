@@ -23,7 +23,7 @@ $other_contacts = array(
     </svg>
     <div class="card-body">
         <h5 class="card-title">
-            <a href="#" aria-label="Vai alla pagina <?php echo $contatto->post_title; ?>" title="Vai alla pagina <?php echo $contatto->post_title; ?>">
+            <a class="text-decoration-none" href="#" aria-label="Vai alla pagina <?php echo $contatto->post_title; ?>" title="Vai alla pagina <?php echo $contatto->post_title; ?>">
             <?php echo $contatto->post_title; ?>
             </a>
         </h5>

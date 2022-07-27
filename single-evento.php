@@ -284,7 +284,7 @@ get_header();
                             </svg>
                             <div class="card-body">
                             <h5 class="card-title">
-                                <a href="<?php echo $documenti; ?>" title="Vai alla locandina <?php echo $doc->post_title; ?>" aria-label="vai alla locandina <?php echo $doc->post_title; ?>"><?php echo $doc->post_title; ?></a>
+                                <a class="text-decoration-none" href="<?php echo $documenti; ?>" title="Vai alla locandina <?php echo $doc->post_title; ?>" aria-label="vai alla locandina <?php echo $doc->post_title; ?>"><?php echo $doc->post_title; ?></a>
                             </h5>
                             </div>
                         </div>

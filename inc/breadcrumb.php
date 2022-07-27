@@ -214,6 +214,11 @@ class Breadcrumb_Trail {
 				if (  1 < $item_position  )
 					$separator = sprintf( '<span class="separator">/</span>');
 
+				//Categorie di servizio
+				if (get_post_type() == 'servizio' && $item_position > 3  && $item_position < $item_count ) {
+					$separator = sprintf( '<span class="separator">-</span>');
+				}
+
 				if ( 1 === $item_position && 1 < $item_count )
 					$item_class .= ' trail-begin';
 
@@ -348,6 +353,18 @@ class Breadcrumb_Trail {
             }
 
             if ( is_singular() ) {
+
+				if (get_post_type() == 'servizio') {
+					$this->items[] =  "<a href='".home_url("servizi")."' aria-label='Vai alla pagina Servizi' title='Vai alla pagina Servizi'>".__("Servizi", "design_comuni_italia")."</a>";
+					$terms = get_the_terms(get_the_ID(),'categorie_servizio');
+					if($terms){
+					  foreach ($terms as $term) {
+						  $this->items[] = sprintf( '<a href="%s" aria-label="Vai alla pagina '.$term->name.'" title="Vai alla pagina '.$term->name.'">%s</a>', esc_url( get_term_link( $term, 'categorie_servizio' ) ), $term->name );
+					  }
+					}
+					$this->items[] = get_the_title();
+					return;
+				}
 
 			    $group_name = dci_get_group_name(get_post_type());
 			    //console_log($group_name);

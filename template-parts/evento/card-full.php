@@ -27,12 +27,12 @@ $tipo_evento = get_the_terms($post->ID,'tipi_evento')[0];
             </div>
             <div class="card-body">
                 <div class="category-top cmp-list-card-img__body">
-                    <a class="u-main-primary fw-bold cmp-list-card-img__body-heading-title" href="<?php echo get_term_link($tipo_evento->term_id); ?>" aria-label="Vai alla categoria <?php echo $tipo_evento->name; ?>" title="Vai alla categoria <?php echo $tipo_evento->name; ?>">
+                    <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title" href="<?php echo get_term_link($tipo_evento->term_id); ?>" aria-label="Vai alla categoria <?php echo $tipo_evento->name; ?>" title="Vai alla categoria <?php echo $tipo_evento->name; ?>">
                         <?php echo $tipo_evento->name; ?>
                     </a>
                 </div>
                 <h3 class="cmp-list-card-img__body-title u-main-primary">
-                    <a href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai alla pagina <?php echo $post->post_title ?>" title="Vai alla pagina <?php echo $post->post_title ?>"><?php echo $post->post_title ?></a>
+                    <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai alla pagina <?php echo $post->post_title ?>" title="Vai alla pagina <?php echo $post->post_title ?>"><?php echo $post->post_title ?></a>
                 </h3>
                 <p class="cmp-list-card-img__body-description">
                     <?php echo $descrizione; ?>

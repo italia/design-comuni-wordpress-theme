@@ -21,12 +21,6 @@
       'labels'          => array(
         'search'        => esc_html__( 'Ricerca','design_comuni_italia' ),
           ),
-      'post_taxonomy'   => array(
-        'servizio'      => 'tipologia-servizio', // 'post' post type and 'post_tag' taxonomy
-        'documento'     => 'tipologia-documento',
-        'post'          => 'tipologia-articolo',
-        'luogo'         => 'tipologia-luogo',
-      ),
       'echo'            => true
     );
     breadcrumb_trail($args);

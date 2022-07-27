@@ -30,7 +30,7 @@
     </svg>
     <div class="card-body">
         <h5 class="card-title">
-            <a href="<?php echo get_permalink($ufficio->ID); ?>" aria-label="Vai alla pagina <?php echo $ufficio->post_title; ?>" title="Vai alla pagina <?php echo $ufficio->post_title; ?>">
+            <a class="text-decoration-none" href="<?php echo get_permalink($ufficio->ID); ?>" aria-label="Vai alla pagina <?php echo $ufficio->post_title; ?>" title="Vai alla pagina <?php echo $ufficio->post_title; ?>">
                 <?php echo $ufficio->post_title; ?>
             </a>
         </h5>

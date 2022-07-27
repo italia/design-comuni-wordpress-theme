@@ -29,13 +29,13 @@
                                 </svg>
                                 <span class="text fw-semibold">
                                 <?php if ($post->post_type == "documento_pubblico") { ?>
-                                    <a href="<?php echo get_term_link($tipo_documento->term_id); ?>" aria-label="Vai alla categoria <?php echo $tipo_documento->name; ?>" title="Vai appa categoria <?php echo $tipo_documento->name; ?>"><?php echo $tipo_documento->name; ?></a>
+                                    <a class="text-decoration-none" href="<?php echo get_term_link($tipo_documento->term_id); ?>" aria-label="Vai alla categoria <?php echo $tipo_documento->name; ?>" title="Vai appa categoria <?php echo $tipo_documento->name; ?>"><?php echo $tipo_documento->name; ?></a>
                                 <?php } else { ?>
                                     <a href="<?php echo get_post_type_archive_link( 'dataset' ); ?>" aria-label="Vai alla pagina Dataset" title="Vai alla pagina Dataset">Dataset</a>
                                 <?php } ?>
                                 </span>
                             </div>
-                            <a href="<?php echo get_permalink(); ?>" aria-label="Vai a <?php echo the_title(); ?>" title="Vai a <?php echo the_title(); ?>">
+                            <a class="text-decoration-none" href="<?php echo get_permalink(); ?>" aria-label="Vai a <?php echo the_title(); ?>" title="Vai a <?php echo the_title(); ?>">
                             <h3 class="card-title h5"><?php echo the_title(); ?></h3>
                             </a>
                             <p class="card-text"><?php echo $description; ?></p>

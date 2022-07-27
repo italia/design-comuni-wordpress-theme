@@ -13,7 +13,7 @@
             <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
             <div class="card shadow-sm rounded">
                 <div class="card-body">
-                <a href="<?php echo $page['link']; ?>" aria-label="Vai all'argomento <?php echo $page_name; ?>" title="Vai all'argomento <?php echo $page_name; ?>" data-element="administration-element"><h3 class="card-title t-primary title-xlarge"><?php echo $page_name; ?></h3></a>
+                <a class="text-decoration-none" href="<?php echo $page['link']; ?>" aria-label="Vai all'argomento <?php echo $page_name; ?>" title="Vai all'argomento <?php echo $page_name; ?>" data-element="administration-element"><h3 class="card-title t-primary title-xlarge"><?php echo $page_name; ?></h3></a>
                 <p class="titillium text-paragraph mb-0">
                     <?php echo $page['description']; ?>
                 </p>
