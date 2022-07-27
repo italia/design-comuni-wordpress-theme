@@ -7,7 +7,7 @@
 <div class="card-wrapper card-teaser-wrapper">
     <div class="card card-teaser shadow mt-3 rounded">
     <svg class="icon">
-        <use xlink:href="#it-pin"></use>
+        <use xlink:href="#it-pin" aria-hidden="true"></use>
     </svg>
     <div class="card-body">
         <h5 class="card-title">

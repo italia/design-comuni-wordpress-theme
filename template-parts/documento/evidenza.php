@@ -24,7 +24,7 @@
                     <div class="card bg-none no-after">
                         <div class="card-body">
                             <div class="categoryicon-top">
-                                <svg class="icon icon-sm">
+                                <svg class="icon icon-sm" aria-hidden="true">
                                     <use href="#it-file"></use>
                                 </svg>
                                 <span class="text fw-semibold">

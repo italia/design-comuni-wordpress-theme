@@ -90,7 +90,6 @@ $current_group = dci_get_current_group();
             <nav
               class="navbar navbar-expand-lg has-megamenu"
               aria-label="Navigazione principale"
-              role="navigation"
             >
               <button
                 class="custom-navbar-toggler"

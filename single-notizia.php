@@ -65,7 +65,7 @@ get_header();
             <div class="container">
                 <div class="row border-top row-column-border row-column-menu-left border-light">
                     <aside class="col-lg-4">
-                        <div class="sticky-wrapper navbar-wrapper">
+                        <div class="d-none d-lg-block sticky-wrapper navbar-wrapper">
                             <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg">
                             <button
                                 class="custom-navbar-toggler"
@@ -140,7 +140,7 @@ get_header();
                                 $documento = get_post($doc_id);
                             ?>
                             <div class="card card-teaser shadow-sm p-4 mt-3 rounded border border-light flex-nowrap">
-                                <svg class="icon">
+                                <svg class="icon" aria-hidden="true">
                                 <use
                                     xlink:href="#it-clip"
                                 ></use>

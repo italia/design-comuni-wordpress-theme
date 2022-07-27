@@ -71,8 +71,6 @@
                     <button
                       type="submit"
                       class="btn btn-primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#"
                     >
                       <span class="">Cerca</span>
                     </button>

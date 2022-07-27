@@ -38,7 +38,7 @@ $schede = array($scheda1,$scheda2,$scheda3 );
         <div class="card mb-5">
           <div class="card-body pb-5">
             <div class="category-top">
-              <svg class="icon icon-sm">
+              <svg class="icon icon-sm" aria-hidden="true">
                 <use xlink:href="#it-calendar"></use>
               </svg>
               <span class="title-xsmall-semi-bold fw-semibold"><?php echo $post->post_type ?></span>

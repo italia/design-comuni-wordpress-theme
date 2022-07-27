@@ -61,7 +61,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Luogo</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         
@@ -119,7 +119,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Luogo</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         
@@ -130,7 +130,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Data e orario</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         
@@ -180,7 +180,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Luogo</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         
@@ -191,7 +191,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Data e orario</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         
@@ -202,7 +202,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Dettagli appuntamento</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         
@@ -244,7 +244,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Luogo</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         
@@ -255,7 +255,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Data e orario</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         
@@ -266,7 +266,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Dettagli appuntamento</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         
@@ -277,7 +277,7 @@
             <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end w-100 py-3">
               <span class="d-block h-100 title-medium text-uppercase">Richiedente</span>
         
-              <svg class="d-block icon icon-primary icon-sm">
+              <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
                 <use href="#it-check"></use>
               </svg>
         

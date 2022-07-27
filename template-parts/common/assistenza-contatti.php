@@ -11,7 +11,7 @@
               <h2 class="title-medium-2-semi-bold">Contatta il comune</h2>
               <ul class="contact-list p-0">
                 <li>
-                  <a class="list-item" href="<?php echo dci_get_template_page_url('page-templates/domande-frequenti.php'); ?>" aria-label="Vai alla pagina: Leggi le domande frequenti" title="Vai alla pagina: Leggi le domande frequenti"><svg class="icon icon-primary icon-sm">
+                  <a class="list-item" href="<?php echo dci_get_template_page_url('page-templates/domande-frequenti.php'); ?>" aria-label="Vai alla pagina: Leggi le domande frequenti" title="Vai alla pagina: Leggi le domande frequenti"><svg class="icon icon-primary icon-sm" aria-hidden="true">
                       <use
                         href="#it-help-circle"
                       ></use></svg><span>Leggi le domande frequenti</span></a
@@ -19,7 +19,7 @@
                 </li>
                 <li>
                   <a class="list-item" href="<?php echo dci_get_template_page_url('page-templates/assistenza.php'); ?>" aria-label="Vai alla pagina: Richiedi assistenza" title="Vai alla pagina: Richiedi assistenza" data-element="contacts"
-                    ><svg class="icon icon-primary icon-sm">
+                    ><svg class="icon icon-primary icon-sm" aria-hidden="true">
                       <use
                         href="#it-mail"
                       ></use></svg><span>Richiedi assistenza</span></a
@@ -27,7 +27,7 @@
                 </li>
                 <li>
                   <a class="list-item" href="tel:<?php echo $numero_verde; ?>" aria-label="Chiama il numero verde <?php echo $numero_verde; ?>" title="Chiama il numero verde <?php echo $numero_verde; ?>"
-                    ><svg class="icon icon-primary icon-sm">
+                    ><svg class="icon icon-primary icon-sm" aria-hidden="true">
                       <use
                         href="#it-hearing"
                       ></use></svg><span>Numero verde <?php echo $numero_verde; ?></span></a
@@ -35,7 +35,7 @@
                 </li>
                 <li>
                   <a class="list-item" href="<?php echo dci_get_template_page_url("page-templates/prenota-appuntamento.php");?>" title="Vai alla pagina prenota appuntamento" aria-label="Vai alla pagina prenota appuntamento" data-element="appointment-booking">
-                    <svg class="icon icon-primary icon-sm">
+                    <svg class="icon icon-primary icon-sm" aria-hidden="true">
                       <use href="#it-calendar"></use>
                     </svg><span>Prenota appuntamento</span>
                   </a>
@@ -47,7 +47,7 @@
               <ul class="contact-list p-0">
                 <li>
                   <a class="list-item" href="#" aria-label="Vai alla pagina: Segnala disservizio" title="Vai alla pagina: Segnala disservizio"
-                    ><svg class="icon icon-primary icon-sm">
+                    ><svg class="icon icon-primary icon-sm" aria-hidden="true">
                       <use
                         href="#it-map-marker-circle"
                       ></use></svg><span>Segnala disservizio</span></a

@@ -66,7 +66,7 @@ get_header();
                         ?>
                         <div class="mt-5">
                             <a target="_blank" href="https://calendar.google.com/calendar/r" class="btn btn-outline-primary btn-icon" aria-label="vai al calendario eventi" title="vai al calendario eventi">
-                                <svg class="icon icon-primary">
+                                <svg class="icon icon-primary" aria-hidden="true">
                                 <use xlink:href="#it-calendar"></use>
                                 </svg>
                                 <span>Vai al calendario eventi</span>
@@ -79,7 +79,7 @@ get_header();
             <div class="container">
                 <div class="row border-top row-column-border row-column-menu-left border-light">
                     <aside class="col-lg-4">
-                        <div class="sticky-wrapper navbar-wrapper">
+                        <div class="d-none d-lg-block sticky-wrapper navbar-wrapper">
                             <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg">
                             <button
                                 class="custom-navbar-toggler"
@@ -243,7 +243,7 @@ get_header();
                         ?>
                         <div class="mt-5">
                             <a target="_blank" href="https://calendar.google.com/calendar/r/eventedit?text=<?php echo urlencode(get_the_title()); ?>&dates=<?php echo $data_inizio; ?>/<?php echo $data_fine; ?>&details=<?php echo urlencode($descrizione_breve); ?>:+<?php echo urlencode(get_permalink()); ?>&location=<?php echo urlencode($luogo); ?>" class="btn btn-outline-primary btn-icon" aria-label="aggiungi al calendario" title="Aggiungi al calendario">
-                                <svg class="icon icon-primary">
+                                <svg class="icon icon-primary" aria-hidden="true">
                                 <use xlink:href="#it-plus-circle"></use>
                                 </svg>
                                 <span>Aggiungi al calendario</span>
@@ -279,7 +279,7 @@ get_header();
                     <article id="documenti" class="it-page-section anchor-offset mt-5">
                         <h4>Documenti</h4>
                         <div class="card card-teaser shadow mt-3 rounded">
-                            <svg class="icon">
+                            <svg class="icon" aria-hidden="true">
                             <use xlink:href="#it-clip"></use>
                             </svg>
                             <div class="card-body">

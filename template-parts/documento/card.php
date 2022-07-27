@@ -2,7 +2,7 @@
 global $documento;
 ?>
 <div class="card card-teaser shadow-sm p-4s rounded border border-light flex-nowrap">
-	<svg class="icon">
+	<svg class="icon" aria-hidden="true">
 		<use xlink:href="#it-clip"></use>
 	</svg>
 	<div class="card-body">

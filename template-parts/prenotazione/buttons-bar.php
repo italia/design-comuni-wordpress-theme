@@ -6,7 +6,7 @@
         aria-label="Torna indietro allo step precedente"
         disabled
         >
-        <svg class="icon icon-primary icon-sm">
+        <svg class="icon icon-primary icon-sm" aria-hidden="true">
             <use
             href="#it-chevron-left"
             ></use>
@@ -40,7 +40,7 @@
         disabled
         >
         <span class="text-button-sm">Avanti</span>
-        <svg class="icon icon-white icon-sm">
+        <svg class="icon icon-white icon-sm" aria-hidden="true">
             <use
             href="#it-chevron-right"
             ></use>

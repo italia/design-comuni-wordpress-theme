@@ -64,7 +64,7 @@ get_header();
                             aria-label="Filtra i risultati"
                             >
                             <span class="rounded-icon">
-                                <svg class="icon icon-primary icon-xs mb-1">
+                                <svg class="icon icon-primary icon-xs mb-1" aria-hidden="true">
                                 <use href="#it-funnel"></use>
                                 </svg> 
                             </span>

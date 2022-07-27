@@ -263,7 +263,7 @@
                     </h4>
                     <a
                     href="#"
-                    class=""
+                    class="text-decoration-none"
                     title="Modifica Ufficio"
                     aria-label="Modifica Ufficio"
                     ><span class="text-button-sm-semi t-primary"
@@ -305,7 +305,7 @@
                     </h4>
                     <a
                     href="#"
-                    class=""
+                    class="text-decoration-none"
                     title="Modifica Data e orario"
                     aria-label="Modifica Data e orario"
                     ><span class="text-button-sm-semi t-primary"
@@ -343,7 +343,7 @@
                     </h4>
                     <a
                     href="#"
-                    class=""
+                    class="text-decoration-none"
                     title="Modifica Dettagli appuntamento"
                     aria-label="Modifica Dettagli appuntamento"
                     ><span class="text-button-sm-semi t-primary"
@@ -379,7 +379,7 @@
                     </h4>
                     <a
                     href="#"
-                    class=""
+                    class="text-decoration-none"
                     title="Modifica Richiedente"
                     aria-label="Modifica Richiedente"
                     ><span class="text-button-sm-semi t-primary"

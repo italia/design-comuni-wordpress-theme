@@ -48,7 +48,7 @@ get_header();
                             <p class="subtitle-small pb-40 mb-0">
                             Hai un’identità digitale SPID o CIE?
                             <a
-                                class="title-small-semi-bold t-primary underline"
+                                class="title-small-semi-bold t-primary text-decoration-none"
                                 href="#"
                                 title="Accedi all'area riservata tramite SPID o CIE"
                                 aria-label="Accedi all'area riservata tramite SPID o CIE"
@@ -318,7 +318,7 @@ get_header();
                                 class="btn btn-sm steppers-btn-prev p-0"
                                 aria-label="Torna indietro allo step precedente"
                             >
-                                <svg class="icon icon-primary icon-sm">
+                                <svg class="icon icon-primary icon-sm" aria-hidden="true">
                                 <use
                                     href="#it-chevron-left"
                                 ></use>
@@ -364,7 +364,7 @@ get_header();
                             <section class="it-hero-wrapper bg-white align-items-start">
                                 <div class="it-hero-text-wrapper pt-0 ps-0 pb-40 pb-lg-60">
                                     <div class="categoryicon-top d-flex">
-                                    <svg class="icon icon-success mr-10 icon-sm mb-1">
+                                    <svg class="icon icon-success mr-10 icon-sm mb-1" aria-hidden="true">
                                         <use href="#it-check-circle"></use>
                                     </svg>
                                     <h1 class="text-black hero-title" data-element="page-name">Richiesta inviata</h1>

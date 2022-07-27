@@ -5,7 +5,7 @@
             <section class="it-hero-wrapper bg-white align-items-start">
             <div class="it-hero-text-wrapper pt-0 ps-0 pb-40">
                 <div class="categoryicon-top d-flex">
-                <svg class="icon icon-success mr-10 icon-sm mb-1">
+                <svg class="icon icon-success mr-10 icon-sm mb-1" aria-hidden="true">
                     <use
                     href="#it-check-circle"
                     ></use>
@@ -168,7 +168,7 @@
                 >
                     <span class="list-item-title-icon-wrapper">
                     <svg
-                        class="icon icon-sm align-self-start icon-primary icon-color"
+                        class="icon icon-sm align-self-start icon-primary icon-color" aria-hidden="true"
                     >
                         <use
                         href="#it-calendar"
@@ -190,7 +190,7 @@
                 >
                     <span class="list-item-title-icon-wrapper">
                     <svg
-                        class="icon icon-sm align-self-start icon-primary icon-color"
+                        class="icon icon-sm align-self-start icon-primary icon-color" aria-hidden="true"
                     >
                         <use
                         href="#it-calendar"
@@ -212,7 +212,7 @@
                 >
                     <span class="list-item-title-icon-wrapper">
                     <svg
-                        class="icon icon-sm align-self-start icon-primary icon-color"
+                        class="icon icon-sm align-self-start icon-primary icon-color" aria-hidden="true"
                     >
                         <use
                         href="#it-calendar"

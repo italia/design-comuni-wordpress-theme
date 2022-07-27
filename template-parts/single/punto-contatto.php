@@ -18,7 +18,7 @@ $other_contacts = array(
 
 ?>
 <div class="card card-teaser shadow mt-3 rounded">
-    <svg class="icon">
+    <svg class="icon" aria-hidden="true">
         <use xlink:href="#it-telephone"></use>
     </svg>
     <div class="card-body">

@@ -77,7 +77,7 @@ get_header();
             <div class="container">
                 <div class="row border-top row-column-border row-column-menu-left border-light">
                     <aside class="col-lg-4">
-                        <div class="sticky-wrapper navbar-wrapper">
+                        <div class="d-none d-lg-block sticky-wrapper navbar-wrapper">
                             <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg">
                             <button
                                 class="custom-navbar-toggler"

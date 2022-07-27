@@ -16,17 +16,17 @@ if ($hide_arguments) $argomenti = array();
         aria-expanded="false"
         aria-label="condividi sui social"
     >
-        <svg class="icon">
+        <svg class="icon" aria-hidden="true">
             <use xlink:href="#it-share"></use>
         </svg>
         <small>Condividi</small>
     </button>
     <div class="dropdown-menu shadow-lg" aria-labelledby="shareActions">
         <div class="link-list-wrapper">
-            <ul class="link-list">
-                <li>
-                <a class="list-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su facebook" title="Condividi questo articolo su facebook" target="_blank">
-                <svg class="icon">
+            <ul class="link-list" role="menu">
+                <li role="none">
+                <a class="list-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su facebook" title="Condividi questo articolo su facebook" target="_blank" role="menuitem">
+                <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-facebook"
                     ></use>
@@ -34,9 +34,9 @@ if ($hide_arguments) $argomenti = array();
                     <span>Facebook</span></a
                 >
                 </li>
-                <li>
-                <a class="list-item" href="https://twitter.com/intent/tweet?text=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su twitter" title="Condividi questo articolo su twitter" target="_blank">
-                <svg class="icon">
+                <li role="none">
+                <a class="list-item" href="https://twitter.com/intent/tweet?text=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su twitter" title="Condividi questo articolo su twitter" target="_blank" role="menuitem">
+                <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-twitter"
                     ></use>
@@ -44,9 +44,9 @@ if ($hide_arguments) $argomenti = array();
                     <span>Twitter</span></a
                 >
                 </li>
-                <li>
-                <a class="list-item" href="https://www.linkedin.com/shareArticle?url=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su linkedin" title="Condividi questo articolo su linkedin" target="_blank">
-                <svg class="icon">
+                <li role="none">
+                <a class="list-item" href="https://www.linkedin.com/shareArticle?url=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su linkedin" title="Condividi questo articolo su linkedin" target="_blank" role="menuitem">
+                <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-linkedin"
                     ></use>
@@ -54,9 +54,9 @@ if ($hide_arguments) $argomenti = array();
                     <span>Linkedin</span></a
                 >
                 </li>
-                <li>
-                <a class="list-item" href="https://api.whatsapp.com/send?text=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su whatsapp" title="Condividi questo articolo su whatsapp" target="_blank">
-                <svg class="icon">
+                <li role="none">
+                <a class="list-item" href="https://api.whatsapp.com/send?text=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su whatsapp" title="Condividi questo articolo su whatsapp" target="_blank" role="menuitem">
+                <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-whatsapp"
                     ></use>
@@ -77,7 +77,7 @@ if ($hide_arguments) $argomenti = array();
         aria-haspopup="true"
         aria-expanded="false"
     >
-        <svg class="icon">
+        <svg class="icon" aria-hidden="true">
         <use
             xlink:href="#it-more-items"
         ></use>
@@ -86,10 +86,10 @@ if ($hide_arguments) $argomenti = array();
     </button>
     <div class="dropdown-menu shadow-lg" aria-labelledby="viewActions">
         <div class="link-list-wrapper">
-            <ul class="link-list">
-                <li>
-                <a class="list-item" href="#" aria-label="Scarica notizia" title="Scarica notizia"
-                    ><svg class="icon">
+            <ul class="link-list" role="menu">
+                <li role="none">
+                <a class="list-item" href="#" aria-label="Scarica notizia" title="Scarica notizia" role="menuitem"
+                    ><svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-download"
                     ></use>
@@ -97,9 +97,9 @@ if ($hide_arguments) $argomenti = array();
                     <span>Scarica</span></a
                 >
                 </li>
-                <li>
-                <a class="list-item" href="#" onclick="window.print()"  aria-label="Stampa notizia" title="Stampa notizia">
-                    <svg class="icon">
+                <li role="none">
+                <a class="list-item" href="#" onclick="window.print()"  aria-label="Stampa notizia" title="Stampa notizia" role="menuitem">
+                    <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-print"
                     ></use>
@@ -107,9 +107,9 @@ if ($hide_arguments) $argomenti = array();
                     <span>Stampa</span></a
                 >
                 </li>
-                <li>
-                <a class="list-item" href="#"  aria-label="Ascolta notizia" title="Ascolta notizia"
-                    ><svg class="icon">
+                <li role="none">
+                <a class="list-item" href="#"  aria-label="Ascolta notizia" title="Ascolta notizia" role="menuitem"
+                    ><svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-hearing"
                     ></use>
@@ -117,9 +117,9 @@ if ($hide_arguments) $argomenti = array();
                     <span>Ascolta</span></a
                 >
                 </li>
-                <li>
-                <a class="list-item" href="mailto:?subject=<?php echo the_title(); ?>&body=<?php echo get_permalink(); ?>" aria-label="Invia notizia" title="Invia notizia"
-                    ><svg class="icon">
+                <li role="none">
+                <a class="list-item" href="mailto:?subject=<?php echo the_title(); ?>&body=<?php echo get_permalink(); ?>" aria-label="Invia notizia" title="Invia notizia" role="menuitem"
+                    ><svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-mail"
                     ></use>
