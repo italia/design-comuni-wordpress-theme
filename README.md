@@ -30,6 +30,14 @@ Se il tema viene scaricato come file `.zip` puoi estrarre l'archivio e inserirlo
 
 - `Aspetto > Temi > Aggiungi nuovo > Carica tema` (o apri la seguente url: {{host}}/wp-admin/theme-install.php).
 
+#### Aggiornamento libreria Bootstrap Italia
+
+Se si desidera aggiornare la libreria Bootsrap Italia è possibile lanciare il seguente comando nella folder di installazione del tema (è necessario avere installato una versione di node >= 14.18.0):
+
+```node
+ npm install 
+ ```
+
 #### Come abilitare il tema
 
 Una volta inserita la cartella o caricato file `.zip`come descritto al punto precedente, apri il backoffice e naviga al seguente percorso:

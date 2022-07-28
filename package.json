@@ -1,0 +1,22 @@
+{
+  "name": "design-comuni-wordpress-theme-npm",
+  "version": "1.0.0",
+  "description": "Libreria Bootstrap Italia per il Tema Wordpress dei Comuni Italiani",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/italia/design-comuni-wordpress-theme.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/italia/design-comuni-wordpress-theme/issues"
+  },
+  "homepage": "https://github.com/italia/design-comuni-wordpress-theme#readme",
+  "dependencies": {
+    "bootstrap-italia": "^2.0.2"
+  }
+}
