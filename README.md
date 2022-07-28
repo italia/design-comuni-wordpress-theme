@@ -32,7 +32,7 @@ Se il tema viene scaricato come file `.zip` puoi estrarre l'archivio e inserirlo
 
 #### Aggiornamento libreria Bootstrap Italia
 
-Se si desidera aggiornare la libreria Bootsrap Italia è possibile lanciare il seguente comando nella folder di installazione del tema (è necessario avere installato una versione di node >= 14.18.0):
+Se si desidera aggiornare la libreria Bootstrap Italia è possibile lanciare il seguente comando nella folder di installazione del tema (è necessario avere installato una versione di node >= 14.18.0):
 
 ```node
  npm install 
