@@ -3047,6 +3047,7 @@ a:hover .card-title {
 }
 .cmp-breadcrumbs .breadcrumb-container .breadcrumb .breadcrumb-item a {
   color: #007a52;
+  font-weight: 400;
 }
 .cmp-breadcrumbs .breadcrumb-container .breadcrumb .breadcrumb-item a:hover {
   color: #006242;
@@ -3315,7 +3316,6 @@ a:hover .card-title {
   font-size: 1rem;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   margin-bottom: 0.5rem;
   display: block;
@@ -3654,9 +3654,6 @@ a:hover .card-title {
 .cmp-modal #modal-vehicle-data input::-moz-placeholder {
   color: #191919;
 }
-.cmp-modal #modal-vehicle-data input:-ms-input-placeholder {
-  color: #191919;
-}
 .cmp-modal #modal-vehicle-data input::placeholder {
   color: #191919;
 }
@@ -3805,11 +3802,6 @@ a:hover .card-title {
   color: #455b71;
   opacity: 0.4;
 }
-.search-modal .form-group input:-ms-input-placeholder {
-  font-weight: 400;
-  color: #455b71;
-  opacity: 0.4;
-}
 .search-modal .form-group input::placeholder {
   font-weight: 400;
   color: #455b71;
@@ -3872,9 +3864,6 @@ a:hover .card-title {
   background-color: #e6e9f2;
 }
 .modal-address input[type="text"]::-moz-placeholder {
-  color: #191919;
-}
-.modal-address input[type="text"]:-ms-input-placeholder {
   color: #191919;
 }
 .modal-address input[type="text"]::placeholder {
@@ -5191,9 +5180,6 @@ a:hover .card-title {
 .plus-text:hover {
   color: #007a52;
 }
-.btn:hover {
-  text-decoration: none;
-}
 .btn.mobile-full {
   width: 100%;
 }
@@ -5201,9 +5187,6 @@ a:hover .card-title {
   .btn.mobile-full {
     width: 50%;
   }
-}
-.btn.bg-white:hover {
-  text-decoration: underline;
 }
 @media (max-width: 991.8px) {
   .btn.full-mb {
@@ -5217,12 +5200,15 @@ a:hover .card-title {
   border-radius: 0;
   background-color: #06c;
   font-weight: 700;
+  color: #fff;
+}
+.btn.square:focus,
+.btn.square:hover {
+  background-color: #0053a6;
+  color: #fff;
 }
 .btn.btn-re {
   width: 100%;
-}
-.btn.btn-re:hover {
-  text-decoration: underline;
 }
 @media (min-width: 768px) {
   .btn.btn-re {
@@ -5242,9 +5228,9 @@ a:hover .card-title {
 .cmp-tag__tag {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #007a52;
+  color: #008758;
   padding: 0 0.75rem;
-  border: 1px solid #007a52;
+  border: 1px solid #008758;
   text-decoration: none;
   border-radius: 50px;
 }
@@ -5262,6 +5248,8 @@ a:hover .card-title {
 @media (max-width: 991.8px) {
   .cmp-tag .bg-tag {
     background-color: #007a52;
+  }
+  .cmp-tag .bg-tag .chip-label {
     color: #fff;
   }
 }
@@ -5893,11 +5881,6 @@ a:hover .card-title {
 .cmp-accordion .accordion-body .link-list .shadow:not(:first-child) {
   margin: 0.5rem 0;
 }
-@media (min-width: 576px) {
-  .cmp-accordion .accordion-body .link-list .shadow:not(:first-child) {
-    margin: 0.43rem 0 1.33rem;
-  }
-}
 @media (min-width: 768px) {
   .cmp-accordion .accordion-body .link-list .shadow .list-item-title {
     font-size: 0.89rem !important;
@@ -6450,7 +6433,6 @@ a:hover .card-title {
   font-size: 1rem;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   margin-bottom: 0.25rem;
   display: block;
@@ -6603,11 +6585,6 @@ a:hover .card-title {
   color: #191919;
   font-size: 1rem;
 }
-.cmp-input-search-button.form-group input:-ms-input-placeholder {
-  font-weight: 400;
-  color: #191919;
-  font-size: 1rem;
-}
 .cmp-input-search-button.form-group input::placeholder {
   font-weight: 400;
   color: #191919;
@@ -6617,19 +6594,12 @@ a:hover .card-title {
   .cmp-input-search-button.form-group input::-moz-placeholder {
     font-size: 2.2222222222rem;
   }
-  .cmp-input-search-button.form-group input:-ms-input-placeholder {
-    font-size: 2.2222222222rem;
-  }
   .cmp-input-search-button.form-group input::placeholder {
     font-size: 2.2222222222rem;
   }
 }
 @media (min-width: 768px) {
   .cmp-input-search-button.form-group input::-moz-placeholder {
-    font-weight: 700;
-    color: #455a64;
-  }
-  .cmp-input-search-button.form-group input:-ms-input-placeholder {
     font-weight: 700;
     color: #455a64;
   }
