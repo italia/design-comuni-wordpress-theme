@@ -17,7 +17,7 @@ global $video, $trascrizione;
 <div class="accordion border-0 mb-4" id="videoTranscription">
     <div class="accordion-item">
         <div class="accordion-header" id="heading1c">
-            <button class="accordion-button collapsed title-snall-semi-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1c" aria-expanded="true" aria-controls="collapse1c" aria-label="Trascrizione del video">
+            <button class="accordion-button collapsed title-snall-semi-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1c" aria-expanded="true" aria-controls="collapse1c">
                 <div class="button-wrapper d-flex">
                 Trascrizione del video
                     <div class="icon-wrapper">

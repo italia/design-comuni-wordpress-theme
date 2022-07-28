@@ -38,7 +38,7 @@
                     data-bs-toggle="modal"
                     data-bs-target="#search-modal"
                     data-dismiss="modal" 
-                    aria-label="Close"
+                    aria-label="Chiudi e torna alla pagina precedente"
                   >
                     <svg class="icon icon-md">
                       <use

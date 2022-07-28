@@ -23,12 +23,12 @@
                     <div class="card card-teaser rounded border border-light">
                         <div class="card-body">
                             <div class="category-top">
-                                <a class="text-decoration-none fw-semibold" href="<?php echo get_term_link($categoria_servizio->term_id); ?>" aria-label="Vai alla categoria di servizio <?php echo $categoria_servizio->name; ?>" title="Vai alla categoria di servizio <?php echo $categoria_servizio->name; ?>">
+                                <a class="text-decoration-none fw-semibold" href="<?php echo get_term_link($categoria_servizio->term_id); ?>">
                                     <?php echo $categoria_servizio->name; ?>
                                 </a>
                             </div>
                             <h4 class="text-paragraph-medium ">
-                                <a class="text-decoration-none" href="<?php echo get_permalink(); ?>" aria-label="Vai a <?php echo the_title(); ?>" title="Vai a <?php echo the_title(); ?>"><?php echo the_title(); ?></a>  
+                                <a class="text-decoration-none" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>  
                             </h4>
                             <p class="m-0 u-grey-light text-paragraph-card">
                                 <?php echo $description; ?>
@@ -43,7 +43,6 @@
                 class="btn btn-primary text-button w-100"
                 onclick="location.href='<?php echo dci_get_template_page_url('page-templates/servizi.php'); ?>'"
                 aria-label = "Vai alla pagina tutti i servizi"
-                title = "Vai alla pagina tutti i servizi"
             >
                 Tutti i servizi
             </button>

@@ -49,7 +49,7 @@ if(count($argomenti)) {
                           <ul class="link-list">
                             <?php foreach ($amministrazione as $item) { ?>
                               <li>
-                              <a class="list-item" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione amministrazione - <?php echo $item->post_title; ?>" aria-label="vai alla sezione amministrazione - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                              <a class="list-item" href="<?php echo get_permalink($item->ID); ?>" ><span><?php echo $item->post_title; ?></span></a>
                               </li>
                             <?php } ?>
                           </ul>
@@ -73,7 +73,7 @@ if(count($argomenti)) {
                           <ul class="link-list">
                             <?php foreach ($servizi as $item) { ?>
                               <li>
-                              <a class="list-item" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione servizi - <?php echo $item->post_title; ?>" aria-label="vai alla sezione servizi - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                              <a class="list-item" href="<?php echo get_permalink($item->ID); ?>" ><span><?php echo $item->post_title; ?></span></a>
                               </li>
                             <?php } ?>
                           </ul>
@@ -97,7 +97,7 @@ if(count($argomenti)) {
                           <ul class="link-list">
                             <?php foreach ($documenti as $item) { ?>
                               <li>
-                              <a class="list-item" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione documenti - <?php echo $item->post_title; ?>" aria-label="vai alla sezione documenti - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                              <a class="list-item" href="<?php echo get_permalink($item->ID); ?>" ><span><?php echo $item->post_title; ?></span></a>
                               </li>
                             <?php } ?>
                           </ul>
@@ -121,7 +121,7 @@ if(count($argomenti)) {
                           <ul class="link-list">
                             <?php foreach ($notizie as $item) { ?>
                               <li>
-                              <a class="list-item" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione novita - <?php echo $item->post_title; ?>" aria-label="vai alla sezione novita - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                              <a class="list-item" href="<?php echo get_permalink($item->ID); ?>" ><span><?php echo $item->post_title; ?></span></a>
                               </li>
                             <?php } ?>
                           </ul>

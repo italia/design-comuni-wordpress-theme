@@ -240,7 +240,7 @@ class Breadcrumb_Trail {
 
 			// Wrap the breadcrumb trail.
 			$breadcrumb = sprintf(
-				'<%1$s aria-label="%2$s" class="breadcrumb-container" >%3$s%4$s%5$s</%1$s>',
+				'<%1$s class="breadcrumb-container" >%3$s%4$s%5$s</%1$s>',
 				tag_escape( $this->args['container'] ),
 				esc_attr( $this->labels['aria_label'] ),
 				$this->args['before'],
@@ -355,11 +355,11 @@ class Breadcrumb_Trail {
             if ( is_singular() ) {
 
 				if (get_post_type() == 'servizio') {
-					$this->items[] =  "<a href='".home_url("servizi")."' aria-label='Vai alla pagina Servizi' title='Vai alla pagina Servizi'>".__("Servizi", "design_comuni_italia")."</a>";
+					$this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_comuni_italia")."</a>";
 					$terms = get_the_terms(get_the_ID(),'categorie_servizio');
 					if($terms){
 					  foreach ($terms as $term) {
-						  $this->items[] = sprintf( '<a href="%s" aria-label="Vai alla pagina '.$term->name.'" title="Vai alla pagina '.$term->name.'">%s</a>', esc_url( get_term_link( $term, 'categorie_servizio' ) ), $term->name );
+						  $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, 'categorie_servizio' ) ), $term->name );
 					  }
 					}
 					$this->items[] = get_the_title();
@@ -370,22 +370,22 @@ class Breadcrumb_Trail {
 			    //console_log($group_name);
 			    switch ($group_name) {
                     case 'Vivere il comune' :
-                        $this->items[] =  "<a href='".home_url("vivere-il-comune")."' aria-label='Vai alla pagina ".$group_name."' title='Vai alla pagina ".$group_name."'>".__("Vivere il Comune", "design_comuni_italia")."</a>";
+                        $this->items[] =  "<a href='".home_url("vivere-il-comune")."'>".__("Vivere il Comune", "design_comuni_italia")."</a>";
                         $this->items[] = get_the_title();
                         return;
                         break;
                     case 'Amministrazione':
-                        $this->items[] =  "<a href='".home_url("amministrazione")."' aria-label='Vai alla pagina ".$group_name."' title='Vai alla pagina ".$group_name."'>".__("Amministrazione", "design_comuni_italia")."</a>";
+                        $this->items[] =  "<a href='".home_url("amministrazione")."'>".__("Amministrazione", "design_comuni_italia")."</a>";
                         $this->items[] = get_the_title();
                         return;
                         break;
                     case 'Servizi':
-                        $this->items[] =  "<a href='".home_url("servizi")."' aria-label='Vai alla pagina ".$group_name."' title='Vai alla pagina ".$group_name."'>".__("Servizi", "design_comuni_italia")."</a>";
+                        $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_comuni_italia")."</a>";
                         $this->items[] = get_the_title();
                         return;
                         break;
                     case 'Novità':
-                        $this->items[] =  "<a href='".home_url("novita")."' aria-label='Vai alla pagina ".$group_name."' title='Vai alla pagina ".$group_name."'>".__("Novità", "design_comuni_italia")."</a>";
+                        $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_comuni_italia")."</a>";
                         $this->items[] = get_the_title();
                         return;
                         break;
@@ -413,20 +413,20 @@ class Breadcrumb_Trail {
                 elseif ( is_category() || is_tag() || is_tax() ){
 
                     if (is_tax(array("categorie_servizio"))){
-                        $this->items[] = "<a href='".home_url("servizi")."' aria-label='Vai alla pagina Servizi' title='Vai alla pagina Servizi'>".__("Servizi", "design_comuni_italia")."</a>";
+                        $this->items[] = "<a href='".home_url("servizi")."'>".__("Servizi", "design_comuni_italia")."</a>";
                         $this->items[] = single_term_title( '', false );
                     }
                     else if (is_tax(array("argomenti"))){
-                        $this->items[] = "<a href='".home_url("argomenti")."' aria-label='Vai alla pagina Argomenti' title='Vai alla pagina Argomenti'>".__("Argomenti", "design_comuni_italia")."</a>";
+                        $this->items[] = "<a href='".home_url("argomenti")."'>".__("Argomenti", "design_comuni_italia")."</a>";
                         $this->items[] = single_term_title( '', false );
                     }
                     else if (is_tax(array("tipi_documento"))){
-                        $this->items[] = "<a href='".home_url("documenti-e-dati")."' aria-label='Vai alla pagina Documenti e Dati' title='Vai alla pagina Documenti e Dati'>".__("Documenti e Dati", "design_comuni_italia")."</a>";
+                        $this->items[] = "<a href='".home_url("documenti-e-dati")."'>".__("Documenti e Dati", "design_comuni_italia")."</a>";
                         $term_name = single_term_title( '', false );
                         $this->items[] = __(dci_get_breadcrumb_label($term_name), "design_comuni_italia");
                     }
                     else if (is_tax(array("tipi_notizia"))){
-                        $this->items[] = "<a href='".home_url("novita")."' aria-label='Vai alla pagina Novità' title='Vai alla pagina Novità'>".__("Novità", "design_comuni_italia")."</a>";
+                        $this->items[] = "<a href='".home_url("novita")."'>".__("Novità", "design_comuni_italia")."</a>";
                         $term_name = single_term_title( '', false );
                         $this->items[] = __(dci_get_breadcrumb_label($term_name), "design_comuni_italia");
                     }
@@ -526,7 +526,7 @@ class Breadcrumb_Trail {
 	protected function add_network_home_link() {
 
 		if ( is_multisite() && ! is_main_site() && true === $this->args['network'] )
-			$this->items[] = sprintf( '<a href="%s" rel="home" aria-label="Vai alla Homepage" title="Vai alla Homepage">%s</a>', esc_url( network_home_url() ), $this->labels['home'] );
+			$this->items[] = sprintf( '<a href="%s" rel="home">%s</a>', esc_url( network_home_url() ), $this->labels['home'] );
 	}
 
 	/**
@@ -542,7 +542,7 @@ class Breadcrumb_Trail {
 		$label   = $network ? get_bloginfo( 'name' ) : $this->labels['home'];
 		$rel     = $network ? '' : ' rel="home"';
 
-		$this->items[] = sprintf( '<a href="%s"%s aria-label="Vai alla Homepage" title="Vai alla Homepage">%s</a>', esc_url( user_trailingslashit( home_url() ) ), $rel, $label );
+		$this->items[] = sprintf( '<a href="%s"%s>%s</a>', esc_url( user_trailingslashit( home_url() ) ), $rel, $label );
 	}
 
 	/**

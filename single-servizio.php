@@ -122,9 +122,9 @@ get_header();
                                         <?php echo $descrizione_breve ?>
                                     </p>
                                     <?php if ($canale_digitale_link) { ?>
-                                    <a href="<?php echo $canale_digitale_link; ?>" aria-label="Vai alla pagina <?php echo $canale_digitale_label; ?> " class="btn btn-primary mobile-full mb-4">
-                                        <span><?php echo $canale_digitale_label; ?></span>
-                                    </a>
+                                    <button type="button" class="btn btn-primary fw-bold" onclick="location.href='<?php echo $canale_digitale_link; ?>';">
+                                        <span class=""><?php echo $canale_digitale_label; ?></span>
+                                    </button>
                                     <?php } ?>
                                 </div>
                                 <div class="col-lg-3 offset-lg-1 mt-5 mt-lg-0">
@@ -147,7 +147,7 @@ get_header();
                             <div class="link-list-wrapper">
                             <ul class="link-list">
                                 <li>
-                                    <a class="list-item large medium right-icon p-0 text-decoration-none" href="#collapseOne" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseOne" data-focus-mouse="true" aria-label="Apri e chiudi il menù INDICE DELLA PAGINA" title="Apri e chiudi il menù INDICE DELLA PAGINA">
+                                    <a class="list-item large medium right-icon p-0 text-decoration-none" href="#collapseOne" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseOne" data-focus-mouse="true">
                                         <span class="list-item-title-icon-wrapper pb-10 px-3">
                                         <span id="accordion-title" class="title-xsmall-semi-bold">INDICE DELLA PAGINA</span>
                                         <svg class="icon icon-xs right">
@@ -156,81 +156,80 @@ get_header();
                                         </span>
                                         <!-- Progress Bar -->
                                         <div class="progress bg-light">
-                                        <div class="progress-bar" role="progressbar" aria-label="Progress bar dell'indice della pagina" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </a>
                                     <ul class="link-sublist collapse show" id="collapseOne" data-element="page-index">
                                     <?php if ($destinatari ) { ?>
                                         <li>
-                                            <a class="list-item" href="#who-needs" aria-label="Vai alla sezione A chi è rivolto" title="Vai alla sezione A chi è rivolto"
-                                            ><span class="title-medium">A chi è rivolto</span></a
+                                            <a class="list-item" href="#who-needs"><span class="title-medium">A chi è rivolto</span></a
                                             >
                                         </li>
                                         <?php } ?>
                                         <?php if ( $descrizione ) { ?>
                                             <li>
-                                                <a class="list-item" href="#description" aria-label="Vai alla sezione Descrizione" title="Vai alla sezione Descrizione">
+                                                <a class="list-item" href="#description">
                                                 <span class="title-medium">Descrizione</span>
                                                 </a>
                                             </li>
                                         <?php } ?>
                                         <?php if ( $come_fare ) { ?>
                                             <li>
-                                            <a class="list-item" href="#how-to" aria-label="Vai alla sezione Come fare" title="Vai alla sezione Come fare">
+                                            <a class="list-item" href="#how-to">
                                                 <span class="title-medium">Come fare</span>
                                             </a>
                                             </li>
                                         <?php } ?>
                                         <?php if ( is_array($cosa_serve_list) ) { ?>
                                             <li>
-                                            <a class="list-item" href="#needed" aria-label="Vai alla sezione Cosa serve" title="Vai alla sezione Cosa serve">
+                                            <a class="list-item" href="#needed">
                                                 <span class="title-medium">Cosa serve</span>
                                             </a>
                                             </li>
                                         <?php } ?>
                                         <?php if ( $output ) { ?>
                                             <li>
-                                            <a class="list-item" href="#obtain" aria-label="Vai alla sezione Cosa si ottiene" title="Vai alla sezione Cosa si ottiene">
+                                            <a class="list-item" href="#obtain">
                                                 <span class="title-medium">Cosa si ottiene</span>
                                             </a>
                                             </li>
                                         <?php } ?>
                                         <?php if ( is_array($fasi_scadenze) && count($fasi_scadenze)) { ?>
                                             <li>
-                                            <a class="list-item" href="#deadlines" aria-label="Vai alla sezione Tempi e scadenze" title="Vai alla sezione Tempi e scadenze">
+                                            <a class="list-item" href="#deadlines">
                                                 <span class="title-medium">Tempi e scadenze</span>
                                             </a>
                                             </li>
                                         <?php } ?>
                                         <?php if ( $costi ) { ?>
                                             <li>
-                                            <a class="list-item" href="#costs" aria-label="Vai alla sezione Quanto costa" title="Vai alla sezione Quanto costa">
+                                            <a class="list-item" href="#costs">
                                                 <span class="title-medium">Quanto costa</span>
                                             </a>
                                             </li>
                                         <?php } ?>
                                         <li>
-                                        <a class="list-item" href="#submit-request" aria-label="Vai alla sezione Accedi al servizio" title="Vai alla sezione Accedi al servizio">
+                                        <a class="list-item" href="#submit-request">
                                             <span class="title-medium">Accedi al servizio</span>
                                         </a>
                                         </li>
                                         <?php if ( $more_info ) { ?>
                                             <li>
-                                            <a class="list-item" href="#more-info" aria-label="Vai alla sezione Ulteriori informazioni" title="Vai alla sezione Ulteriori informazioni">
+                                            <a class="list-item" href="#more-info">
                                                 <span class="title-medium">Ulteriori informazioni</span>
                                             </a>
                                             </li>
                                         <?php } ?>
                                         <?php if ( $condizioni_servizio ) { ?>
                                             <li>
-                                            <a class="list-item" href="#conditions" aria-label="Vai alla sezione Condizioni di servizio" title="Vai alla sezione Condizioni di servizio">
+                                            <a class="list-item" href="#conditions">
                                                 <span class="title-medium">Condizioni di servizio</span>
                                             </a>
                                             </li>
                                         <?php } ?>
                                         <?php if ( $uo_id ) { ?>
                                             <li>
-                                            <a class="list-item" href="#contacts" aria-label="Vai alla sezione Contatti" title="Vai alla sezione Contatti">
+                                            <a class="list-item" href="#contacts">
                                                 <span class="title-medium">Contatti</span>
                                             </a>
                                             </li>
@@ -320,11 +319,15 @@ get_header();
                             <?php if ($canale_digitale_link) { ?>
                             <p class="text-paragraph lora mb-4">Puoi richiedere l’iscrizione alla Scuola dell’infanzia direttamente online
                                 tramite identità digitale.</p>
-                            <a href='<?php echo $canale_digitale_link; ?>' target="_blank" class="btn btn-primary mobile-full"  aria-label="Richiedi iscrizione online"><span>Richiedi iscrizione online</span></a>
+                            <button type="button" class="btn btn-primary mobile-full" onclick="location.href='<?php echo $canale_digitale_link; ?>';">
+                                <span class=""><?php echo $canale_digitale_label; ?></span>
+                            </button>
                             <?php } ?>
                             <p class="text-paragraph lora mt-4">Puoi prenotare un appuntamento e presentarti presso gli uffici.
                             </p>
-                            <a href='<?php echo dci_get_template_page_url('page-templates/prenota-appuntamento.php');?>' class="btn btn-outline-primary t-primary bg-white mobile-full"  aria-label="Vai alla pagina prenota appuntamento"><span>Prenota appuntamento</span></a>
+                            <button type="button" class="btn btn-outline-primary t-primary bg-white mobile-full" onclick="location.href='<?php echo dci_get_template_page_url('page-templates/prenota-appuntamento.php'); ?>';">
+                                <span class="">Prenota appuntamento</span>
+                            </button>
                         </section>
                         <?php if ( $more_info ) {  ?>
                         <section class="mb-30">
@@ -363,7 +366,7 @@ get_header();
                                     <div class="d-flex flex-wrap gap-2 mt-10 mb-30">
                                         <?php foreach ( $argomenti as $item ) { ?>
                                             <div class="cmp-tag">
-                                                <a class="chip chip-simple t-primary bg-tag text-decoration-none" aria-label="Visualizza tutti gli argomenti <?php echo $item->name; ?>" title="Visualizza tutti gli argomenti <?php echo $item->name; ?>" href="<?php echo get_term_link($item); ?>" data-element="service-topic">
+                                                <a class="chip chip-simple t-primary bg-tag text-decoration-none" href="<?php echo get_term_link($item); ?>" data-element="service-topic">
                                                 <span class="chip-label"><?php echo $item->name; ?></span>
                                                 </a>
                                             </div>

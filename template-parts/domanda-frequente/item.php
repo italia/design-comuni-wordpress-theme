@@ -7,7 +7,7 @@ $description = dci_get_meta('risposta');
 
 <div class="accordion-item">
     <div class="accordion-header" id="headingfaq-<?php echo $i; ?>">
-        <button class="accordion-button collapsed title-snall-semi-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefaq-<?php echo $i; ?>" aria-expanded="true" aria-controls="collapsefaq-<?php echo $i; ?>" aria-label="Approfondisci Come posso pagare una multa?">
+        <button class="accordion-button collapsed title-snall-semi-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefaq-<?php echo $i; ?>" aria-expanded="true" aria-controls="collapsefaq-<?php echo $i; ?>">
             <div class="button-wrapper">
             <?php echo $post->post_title; ?>
             <div class="icon-wrapper">

@@ -25,7 +25,7 @@ $tipi_luogo = get_the_terms($post->ID,'tipi_luogo');
                         foreach ($tipi_luogo as $tipo_luogo) {
                     ?>
                         <?php echo $count == 1 ? '' : ' - '; ?>
-                        <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title" href="<?php echo get_term_link($tipo_luogo->term_id); ?>" aria-label="Vai alla categoria <?php echo $tipo_luogo->name; ?>" title="Vai alla categoria <?php echo $tipo_luogo->name; ?>">
+                        <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title" href="<?php echo get_term_link($tipo_luogo->term_id); ?>">
                             <?php 
                                 echo $tipo_luogo->name; 
                             ?>
@@ -33,14 +33,14 @@ $tipi_luogo = get_the_terms($post->ID,'tipi_luogo');
                     <?php ++$count; }} ?>
                 </div>
                 <h3 class="cmp-list-card-img__body-title u-main-primary">
-                    <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai alla pagina <?php echo $post->post_title ?>" title="Vai alla pagina <?php echo $post->post_title ?>"><?php echo $post->post_title ?></a>
+                    <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title ?></a>
                 </h3>
                 <p class="cmp-list-card-img__body-description">
                     <?php echo $descrizione; ?>
                 </p>
                 <a
                     class="read-more t-primary text-uppercase cmp-list-card-img__body-link"
-                    href="<?php echo get_permalink($post->ID); ?>" title="Leggi di più sulla pagina di <?php echo $post->post_title ?>" aria-label="Leggi di più sulla pagina di <?php echo $post->post_title ?>">
+                    href="<?php echo get_permalink($post->ID); ?>" aria-label="Leggi di più sulla pagina di <?php echo $post->post_title ?>">
                     <span class="text">Leggi di più</span>
                     <span class="visually-hidden"
                     ></span

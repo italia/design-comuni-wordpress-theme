@@ -24,12 +24,12 @@
                         <div class="card-body d-flex justify-content-between">
                             <div class="py-4 ps-4">
                                 <div class="category-top">
-                                    <a class="text-decoration-none fw-semibold" href="<?php echo get_term_link($tipo_amministrazione->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_amministrazione->name; ?>" title="Vai alla sezione <?php echo $tipo_amministrazione->name; ?>">
+                                    <a class="text-decoration-none fw-semibold" href="<?php echo get_term_link($tipo_amministrazione->term_id); ?>">
                                 <?php echo $tipo_amministrazione->name; ?>
                             </a>
                                 </div>
                                 <h4 class="text-paragraph-medium">
-                                    <a class="text-decoration-none" href="<?php echo get_permalink(); ?>" aria-label="Vai alla scheda <?php echo the_title(); ?>" title="Vai alla scheda <?php echo the_title(); ?>"><?php echo the_title(); ?></a>
+                                    <a class="text-decoration-none" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
                                 </h4>
                                 <p class="m-0 u-grey-light text-paragraph-card">
                                     <?php echo $description; ?>
@@ -46,7 +46,6 @@
                 class="btn btn-primary text-button w-100"
                 onclick="location.href='<?php echo dci_get_template_page_url('page-templates/amministrazione.php'); ?>'"
                 aria-label = "Vai alla pagina tutta l'amministrazione"
-                title = "Vai alla pagina tutta l'amministrazione"
             >
                 Tutta l’amministrazione
             </button>

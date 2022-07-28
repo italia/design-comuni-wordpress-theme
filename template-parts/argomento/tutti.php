@@ -49,7 +49,6 @@
             <div class="col">
             <nav
                 class="pagination-wrapper justify-content-center"
-                aria-label="Esempio di navigazione della pagina"
             >
                 <ul class="pagination">
                 <?php if ($current_page != 1) { ?>

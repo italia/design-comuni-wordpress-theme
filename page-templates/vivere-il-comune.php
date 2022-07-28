@@ -19,7 +19,7 @@ get_header();
 			?>
 			<?php get_template_part("template-parts/hero/hero"); ?>
 			<section class="hero-img mb-20 mb-lg-50">
-				<section class="it-hero-wrapper it-hero-small-size cmp-hero-img-small" aria-label="In evidenza">
+				<section class="it-hero-wrapper it-hero-small-size cmp-hero-img-small">
 					<div class="img-responsive-wrapper">
 						<div class="img-responsive">
 							<div class="img-wrapper">

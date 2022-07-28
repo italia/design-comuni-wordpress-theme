@@ -88,7 +88,7 @@
                             $post = get_post($servizio_id);    
                         ?>
                         <li class="mb-3 mt-3">
-                            <a class="list-item ps-0 title-medium underline" href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai al servizio <?php echo $post->post_title; ?>" title="Vai al servizio <?php echo $servizio->post_title; ?>">
+                            <a class="list-item ps-0 title-medium underline" href="<?php echo get_permalink($post->ID); ?>">
                                 <span><?php echo $post->post_title; ?></span>
                             </a>
                         </li>

@@ -46,8 +46,6 @@
                     aria-expanded="true"
                     aria-controls="collapse-one"
                     data-focus-mouse="true"
-                    aria-label="Apri e chiudi il menù INDICE DELLA PAGINA"
-                    title="Apri e chiudi il menù INDICE DELLA PAGINA"
                     >
                     <span class="list-item-title-icon-wrapper pb-10 px-3">
                         <span
@@ -66,7 +64,6 @@
                         <div
                         class="progress-bar"
                         role="progressbar"
-                        aria-label="Progress bar dell'indice della pagina"
                         style="width: 15%"
                         aria-valuenow="15"
                         aria-valuemin="0"
@@ -83,8 +80,6 @@
                         <a
                         class="list-item"
                         href="#needed"
-                        aria-label="Vai alla sezione Cosa serve"
-                        title="Vai alla sezione Cosa serve"
                         >
                         <span class="title-medium">Cosa serve</span>
                         </a>
@@ -93,8 +88,6 @@
                         <a
                         class="list-item"
                         href="#address"
-                        aria-label="Vai alla sezione Indirizzo"
-                        title="Vai alla sezione Indirizzo"
                         >
                         <span class="title-medium">Indirizzo</span>
                         </a>
@@ -103,8 +96,6 @@
                         <a
                         class="list-item"
                         href="#calendar"
-                        aria-label="Vai alla sezione Aggiungi al tuo calendario"
-                        title="Vai alla sezione Aggiungi al tuo calendario"
                         >
                         <span class="title-medium"
                             >Aggiungi al tuo calendario</span

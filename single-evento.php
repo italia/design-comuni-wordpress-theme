@@ -65,7 +65,7 @@ get_header();
                             get_template_part('template-parts/single/actions'); 
                         ?>
                         <div class="mt-5">
-                            <a target="_blank" href="https://calendar.google.com/calendar/r" class="btn btn-outline-primary btn-icon" aria-label="vai al calendario eventi" title="vai al calendario eventi">
+                            <a target="_blank" href="https://calendar.google.com/calendar/r" class="btn btn-outline-primary btn-icon">
                                 <svg class="icon icon-primary" aria-hidden="true">
                                 <use xlink:href="#it-calendar"></use>
                                 </svg>
@@ -86,7 +86,6 @@ get_header();
                                 type="button"
                                 aria-controls="navbarNav"
                                 aria-expanded="false"
-                                aria-label="Toggle navigation"
                                 data-bs-target="#navbarNav"
                             >
                                 <span class="it-list"></span>Indice della pagina
@@ -111,55 +110,47 @@ get_header();
                                     <h3 class="no_toc border-light">Indice della pagina</h3>
                                     <ul class="link-list">
                                     <li class="nav-item active">
-                                        <a class="nav-link active" href="#cos-e"  aria-label="Vai alla sezione Cos'è " title="Vai alla sezione Cos'è "
-                                        ><span>Cos'è</span></a
+                                        <a class="nav-link active" href="#cos-e"><span>Cos'è</span></a
                                         >
                                     </li>
                                     <?php if( $luogo_evento) { ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#luogo" aria-label="Vai alla sezione Luogo " title="Vai alla sezione Luogo "
-                                        ><span>Luogo</span></a
+                                        <a class="nav-link" href="#luogo"><span>Luogo</span></a
                                         >
                                     </li>
                                     <?php } ?>
                                     <?php if ($start_timestamp && $end_timestamp) { ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#date-e-orari" aria-label="Vai alla sezione Date e orari " title="Vai alla sezione Date e orari "
-                                        ><span>Date e orari</span></a
+                                        <a class="nav-link" href="#date-e-orari"><span>Date e orari</span></a
                                         >
                                     </li>
                                     <?php } ?>
                                     <?php if( is_array($costi) && count($costi) ) { ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#costi" aria-label="Vai alla sezione Costi " title="Vai alla sezione Costi "
-                                        ><span>Costi</span></a
+                                        <a class="nav-link" href="#costi"><span>Costi</span></a
                                         >
                                     </li>
                                     <?php } ?>
                                     <?php if( $documenti ) { ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#documenti" aria-label="Vai alla sezione Documenti " title="Vai alla sezione Documenti "
-                                        ><span>Documenti</span></a
+                                        <a class="nav-link" href="#documenti"><span>Documenti</span></a
                                         >
                                     </li>
                                     <?php } ?>
                                     <?php if( is_array($punti_contatto) && count($punti_contatto) ) { ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#contatti" aria-label="Vai alla sezione Contatti " title="Vai alla sezione Contatti "
-                                        ><span>Contatti</span></a
+                                        <a class="nav-link" href="#contatti"><span>Contatti</span></a
                                         >
                                     </li>
                                     <?php } ?>
                                     <?php if( is_array($appuntamenti) && count($appuntamenti) ) { ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#appuntamenti" aria-label="Vai alla sezione Appuntamenti " title="Vai alla sezione Appuntamenti "
-                                        ><span>Appuntamenti</span></a
+                                        <a class="nav-link" href="#appuntamenti"><span>Appuntamenti</span></a
                                         >
                                     </li>
                                     <?php } ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#ulteriori-informazioni" aria-label="Vai alla sezione Ulteriori informazioni " title="Vai alla sezione Ulteriori informazioni "
-                                        ><span>Ulteriori informazioni</span></a
+                                        <a class="nav-link" href="#ulteriori-informazioni"><span>Ulteriori informazioni</span></a
                                         >
                                     </li>
                                     </ul>
@@ -242,7 +233,7 @@ get_header();
                         $luogo = $luogo_evento->post_title;
                         ?>
                         <div class="mt-5">
-                            <a target="_blank" href="https://calendar.google.com/calendar/r/eventedit?text=<?php echo urlencode(get_the_title()); ?>&dates=<?php echo $data_inizio; ?>/<?php echo $data_fine; ?>&details=<?php echo urlencode($descrizione_breve); ?>:+<?php echo urlencode(get_permalink()); ?>&location=<?php echo urlencode($luogo); ?>" class="btn btn-outline-primary btn-icon" aria-label="aggiungi al calendario" title="Aggiungi al calendario">
+                            <a target="_blank" href="https://calendar.google.com/calendar/r/eventedit?text=<?php echo urlencode(get_the_title()); ?>&dates=<?php echo $data_inizio; ?>/<?php echo $data_fine; ?>&details=<?php echo urlencode($descrizione_breve); ?>:+<?php echo urlencode(get_permalink()); ?>&location=<?php echo urlencode($luogo); ?>" class="btn btn-outline-primary btn-icon">
                                 <svg class="icon icon-primary" aria-hidden="true">
                                 <use xlink:href="#it-plus-circle"></use>
                                 </svg>
@@ -284,7 +275,7 @@ get_header();
                             </svg>
                             <div class="card-body">
                             <h5 class="card-title">
-                                <a class="text-decoration-none" href="<?php echo $documenti; ?>" title="Vai alla locandina <?php echo $doc->post_title; ?>" aria-label="vai alla locandina <?php echo $doc->post_title; ?>"><?php echo $doc->post_title; ?></a>
+                                <a class="text-decoration-none" href="<?php echo $documenti; ?>" title="Scarica la locandina <?php echo $doc->post_title; ?>" aria-label="Scarica la locandina <?php echo $doc->post_title; ?>"><?php echo $doc->post_title; ?></a>
                             </h5>
                             </div>
                         </div>
@@ -321,7 +312,7 @@ get_header();
                             echo '<strong>Patrocinato da:</strong>';
                             echo '<div class="link-list-wrapper"><ul class="link-list">';
                             foreach ($patrocinato as $item) { ?>
-                                <li><a class="list-item px-0" href="<?php echo $item['_dci_evento_url']; ?>" title="vai alla pagina <?php echo $item['_dci_evento_nome']; ?>" aria-label="vai alla pagina <?php echo $item['_dci_evento_nome']; ?>" target="_blank"><span><?php echo $item['_dci_evento_nome']; ?></span></a>
+                                <li><a class="list-item px-0" href="<?php echo $item['_dci_evento_url']; ?>" target="_blank"><span><?php echo $item['_dci_evento_nome']; ?></span></a>
                                 </li>
                             <?php }
                             echo '</ul></div>';
@@ -330,7 +321,7 @@ get_header();
                             echo '<strong>Sponsor:</strong>';
                             echo '<div class="link-list-wrapper"><ul class="link-list">';
                             foreach ($sponsor as $item) { ?>
-                                <li><a class="list-item px-0" href="<?php echo $item['_dci_evento_url']; ?>" title="vai alla pagina <?php echo $item['_dci_evento_nome']; ?>" aria-label="vai alla pagina <?php echo $item['_dci_evento_nome']; ?>" target="_blank"><span><?php echo $item['_dci_evento_nome']; ?></span></a>
+                                <li><a class="list-item px-0" href="<?php echo $item['_dci_evento_url']; ?>" target="_blank"><span><?php echo $item['_dci_evento_nome']; ?></span></a>
                                 </li>
                             <?php }
                             echo '</ul></div>';

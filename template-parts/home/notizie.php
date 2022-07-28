@@ -46,7 +46,7 @@ $schede = array($scheda1,$scheda2,$scheda3 );
               <span class="data fw-normal"><?php echo $arrdata[0].' '.$monthName.' '.$arrdata[2]; ?></span>
               <?php } ?>
             </div>
-            <a href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai alla pagina <?php echo $post->post_title ?>" class="text-decoration-none">
+            <a href="<?php echo get_permalink($post->ID); ?>" class="text-decoration-none">
               <h3 class="h4 card-title title-xlarge">
                 <?php echo $post->post_title ?>
               </h3>
@@ -58,8 +58,7 @@ $schede = array($scheda1,$scheda2,$scheda3 );
             <a
               class="read-more pb-3"
               href="<?php echo dci_get_template_page_url("page-templates/novita.php"); ?>"
-              aria-label="Vai alla pagina Notizie" 
-              title="Vai alla pagina Notizie"
+              aria-label="Visualizza tutte le novità"
             >
               <span class="text">Tutte le novità</span>
               <svg class="icon">

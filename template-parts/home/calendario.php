@@ -63,7 +63,7 @@ foreach ($date as $data) {
 								?>
 									<p class="card-text px-2 pb-10 mb-10 d-flex">
 										<?php if ($img) dci_get_img($img, 'me-3 rounded'); ?>
-										<a href="<?php echo $evento['link'] ?>" aria-label="Vai alla scheda <?php echo $evento['titolo'] ?>" title="Vai alla scheda <?php echo $evento['titolo'] ?>"><?php echo $evento['titolo'] ?></a>
+										<a href="<?php echo $evento['link'] ?>"><?php echo $evento['titolo'] ?></a>
 									</p>
 								<?php }} ?>
 							</div>

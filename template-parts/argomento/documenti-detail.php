@@ -23,12 +23,12 @@
                 <div class="card card-teaser rounded border border-light">
                     <div class="card-body">
                         <div class="category-top">
-                            <a class="text-decoration-none fw-semibold" href="<?php echo get_term_link($tipo_documento->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_documento->name; ?>" title="Vai alla sezione <?php echo $tipo_documento->name; ?>">
+                            <a class="text-decoration-none fw-semibold" href="<?php echo get_term_link($tipo_documento->term_id); ?>">
                                 <?php echo $tipo_documento->name; ?>
                             </a>
                         </div>
                         <h4 class="text-paragraph-medium ">
-                            <a class="text-decoration-none" href="<?php echo get_permalink(); ?>" aria-label="Vai a <?php echo the_title(); ?>" title="Vai a <?php echo the_title(); ?>"><?php echo the_title(); ?></a>
+                            <a class="text-decoration-none" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
                         </h4>
                         <p class="text-paragraph-card u-grey-light">
                             <?php echo $description; ?>
@@ -44,7 +44,6 @@
                 class="btn btn-primary text-button w-100"
                 onclick="location.href='<?php echo dci_get_template_page_url('page-templates/documenti-e-dati.php'); ?>'"
                 aria-label = "Vai alla pagina tutti i documenti"
-                title = "Vai alla pagina tutti i documenti"
             >
             Tutti i documenti
             </button>

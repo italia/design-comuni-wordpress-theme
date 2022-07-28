@@ -8,9 +8,7 @@ if(count($argomenti)) {?>
         <div class="chip chip-simple">
             <a 
             class="chip-label" 
-            href="<?php echo get_term_link($item); ?>" 
-            title="<?php _e("Vai all'argomento", "design_comuni_italia"); ?>: <?php echo $item->name; ?>"
-            aria-label="<?php _e("Vai all'argomento", "design_comuni_italia"); ?>: <?php echo $item->name; ?>"
+            href="<?php echo get_term_link($item); ?>"
             >
                 <?php echo $item->name; ?>
             </a>

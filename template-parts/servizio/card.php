@@ -15,7 +15,7 @@ if($servizio->post_status == "publish") {
                         $count = 1;
                         foreach ($categorie as $categoria) {
                             echo $count == 1 ? '' : ' - ';
-                            echo '<a class="text-decoration-none title-xsmall-bold mb-2 category text-uppercase" href="'.get_term_link($categoria->term_id).'" title="'.$categoria->name.'" aria-label="'.$categoria->name.'">';
+                            echo '<a class="text-decoration-none title-xsmall-bold mb-2 category text-uppercase" href="'.get_term_link($categoria->term_id).'">';
                             echo $categoria->name ;                                    
                             echo '</a>';
                             ++$count;
@@ -26,7 +26,7 @@ if($servizio->post_status == "publish") {
                 <?php } ?>
                 <div class="card-body p-0 my-2">
                 <h3 class="green-title-big t-primary mb-8">
-                    <a class="text-decoration-none" href="<?php echo get_permalink($servizio->ID); ?>" aria-label="Vai al servizio <?php echo $servizio->post_title; ?>" title="Vai al servizio <?php echo $servizio->post_title; ?>" data-element="service-link"><?php echo $servizio->post_title; ?></a>
+                    <a class="text-decoration-none" href="<?php echo get_permalink($servizio->ID); ?>" data-element="service-link"><?php echo $servizio->post_title; ?></a>
                 </h3>
                 <p class="text-paragraph">
                     <?php echo $descrizione_breve; ?>

@@ -54,7 +54,7 @@ $last_notification = get_user_meta($current_user->ID,"_dci_last_notification", t
                     <a class="list-item" href="#"><span>Impostazioni</span></a>
                     </li>
                     <li>
-                    <a class="list-item left-icon" href="<?php echo wp_logout_url(); ?>" aria-label="Esci">
+                    <a class="list-item left-icon" href="<?php echo wp_logout_url(); ?>">
                         <svg class="icon icon-primary icon-sm left">
                         <use
                             xlink:href="#it-external-link"></use>

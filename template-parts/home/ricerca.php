@@ -33,11 +33,11 @@
                     <ul class="link-list">
                         <?php foreach ($links as $link) { ?>
                             <li>
-                                <a class="list-item mb-3 active ps-0" href="<?php echo $link['url']; ?>" aria-label="Vai alla pagina <?php echo $link['testo']; ?>" title="Vai alla pagina <?php echo $link['testo']; ?>"
-                                ><span class="text-button-normal"
-                                    ><?php echo $link['testo']; ?></span
-                                ></a
-                                >
+                                <a class="list-item mb-3 active ps-0" href="<?php echo $link['url']; ?>">
+                                <span class="text-button-normal"
+                                    ><?php echo $link['testo']; ?>
+                                </span>
+                                </a>
                             </li>
                         <?php } ?>
                     </ul>

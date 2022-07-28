@@ -14,7 +14,7 @@
         ?>
             <div class="col-sm-6 col-lg-4">
                 <div class="it-grid-item-wrapper it-grid-item-overlay">
-                    <a href="<?php echo get_term_link( $argomento->term_id ); ?>" title="vai all'argomento - <?php echo $argomento->name; ?>" aria-label="vai all'argomento - <?php echo $argomento->name; ?>">
+                    <a href="<?php echo get_term_link( $argomento->term_id ); ?>">
                     <div class="img-responsive-wrapper">
                         <div class="img-responsive">
                             <div class="img-wrapper">

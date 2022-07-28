@@ -16,8 +16,6 @@
                 aria-expanded="true"
                 aria-controls="collapse-one"
                 data-focus-mouse="true"
-                aria-label="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
-                title="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
                 >
                 <span class="list-item-title-icon-wrapper pb-10 px-3">
                     <span
@@ -36,7 +34,6 @@
                     <div
                     class="progress-bar"
                     role="progressbar"
-                    aria-label="Progress bar dell'indice della pagina"
                     style="width: 15%"
                     aria-valuenow="15"
                     aria-valuemin="0"
@@ -53,8 +50,6 @@
                     <a
                     class="list-item"
                     href="#office"
-                    aria-label="Vai alla sezione Ufficio"
-                    title="Vai alla sezione Ufficio"
                     >
                     <span class="title-medium">Ufficio</span>
                     </a>
@@ -83,8 +78,6 @@
                 aria-expanded="true"
                 aria-controls="collapse-one"
                 data-focus-mouse="true"
-                aria-label="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
-                title="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
             >
                 <span class="list-item-title-icon-wrapper pb-10 px-3">
                 <span
@@ -103,7 +96,6 @@
                 <div
                     class="progress-bar"
                     role="progressbar"
-                    aria-label="Progress bar dell'indice della pagina"
                     style="width: 15%"
                     aria-valuenow="15"
                     aria-valuemin="0"
@@ -120,8 +112,6 @@
                 <a
                     class="list-item"
                     href="#appointment-available"
-                    aria-label="Vai alla sezione Appuntamenti disponibili"
-                    title="Vai alla sezione Appuntamenti disponibili"
                 >
                     <span class="title-medium"
                     >Appuntamenti disponibili</span
@@ -132,8 +122,6 @@
                 <a
                     class="list-item"
                     href="#office-2"
-                    aria-label="Vai alla sezione Ufficio"
-                    title="Vai alla sezione Ufficio"
                 >
                     <span class="title-medium">Ufficio</span>
                 </a>
@@ -162,8 +150,6 @@
             aria-expanded="true"
             aria-controls="collapse-one"
             data-focus-mouse="true"
-            aria-label="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
-            title="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
             >
             <span class="list-item-title-icon-wrapper pb-10 px-3">
                 <span
@@ -182,7 +168,6 @@
                 <div
                 class="progress-bar"
                 role="progressbar"
-                aria-label="Progress bar dell'indice della pagina"
                 style="width: 15%"
                 aria-valuenow="15"
                 aria-valuemin="0"
@@ -199,8 +184,6 @@
                 <a
                 class="list-item"
                 href="#reason"
-                aria-label="Vai alla sezione Motivo"
-                title="Vai alla sezione Motivo"
                 >
                 <span class="title-medium">Motivo</span>
                 </a>
@@ -209,8 +192,6 @@
                 <a
                 class="list-item"
                 href="#details"
-                aria-label="Vai alla sezione Dettagli"
-                title="Vai alla sezione Dettagli"
                 >
                 <span class="title-medium">Dettagli</span>
                 </a>
@@ -239,8 +220,6 @@
                 aria-expanded="true"
                 aria-controls="collapse-one"
                 data-focus-mouse="true"
-                aria-label="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
-                title="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
                 >
                 <span class="list-item-title-icon-wrapper pb-10 px-3">
                     <span
@@ -259,7 +238,6 @@
                     <div
                     class="progress-bar"
                     role="progressbar"
-                    aria-label="Progress bar dell'indice della pagina"
                     style="width: 15%"
                     aria-valuenow="15"
                     aria-valuemin="0"
@@ -276,7 +254,6 @@
                     <a
                     class="list-item"
                     href="#applicant"
-                    aria-label="Vai alla sezione Ufficio"
                     title="Vai alla sezione Ufficio"
                     >
                     <span class="title-medium">Richiedente</span>

@@ -11,7 +11,7 @@
     </svg>
     <div class="card-body">
         <h5 class="card-title">
-            <a class="text-decoration-none" href="<?php echo get_permalink($luogo->ID); ?>" aria-label="Vai alla Pagina di <?php echo $luogo->post_title; ?>" title="Vai alla pagina di <?php echo $luogo->post_title; ?>">
+            <a class="text-decoration-none" href="<?php echo get_permalink($luogo->ID); ?>">
                 <?php echo $luogo->post_title; ?>
             </a>
         </h5>

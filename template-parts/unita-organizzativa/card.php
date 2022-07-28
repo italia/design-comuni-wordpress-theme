@@ -22,7 +22,7 @@
 <div class="card card-teaser card-teaser-info rounded shadow-sm p-3">
     <div class="card-body pe-3">
         <p class="card-title text-paragraph-regular-medium-semi mb-3">
-            <a class="text-decoration-none" href="<?php echo get_permalink($ufficio->ID); ?>" title="Vai alla pagina <?php echo $ufficio->post_title; ?>" aria-label="Vai alla pagina <?php echo $ufficio->post_title; ?>" data-element="service-area">
+            <a class="text-decoration-none" href="<?php echo get_permalink($ufficio->ID); ?>" data-element="service-area">
             <?php echo $ufficio->post_title; ?>
             </a>
         </p>
@@ -42,7 +42,7 @@
 <div class="card card-teaser border rounded shadow p-4">
     <div class="card-body pe-3">
         <h4 class="u-main-black mb-1 title-small-semi-bold-medium">
-            <a class="text-decoration-none" href="<?php echo get_permalink($ufficio->ID); ?>" title="Vai alla pagina <?php echo $ufficio->post_title; ?>" aria-label="Vai alla pagina <?php echo $ufficio->post_title; ?>">
+            <a class="text-decoration-none" href="<?php echo get_permalink($ufficio->ID); ?>">
             <?php echo $ufficio->post_title; ?>
             </a>
         </h4>

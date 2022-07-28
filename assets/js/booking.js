@@ -464,8 +464,7 @@ async function successFeedback() {
   document.getElementById("office-recap").innerHTML = `
     <a
       href="#"
-      aria-label="Vai a ${answers?.office?.name}"
-      title="Vai a ${answers?.office?.name}"
+      class="text-decoration-none"
       >${answers?.office?.name}</a
     >  
   `;

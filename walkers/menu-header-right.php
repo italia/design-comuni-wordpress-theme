@@ -26,7 +26,7 @@ class Menu_Header_Right_Walker extends Walker_Nav_Menu {
 		else if ( strpos($item->url, '/argomenti') ) $data_element="data-element='all-topics'";
 
 
-		$output .= '<a class="nav-link" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" '.$data_element.'>';
+		$output .= '<a class="nav-link" href="' . $item->url . '" '.$data_element.'>';
 		if ($item->menu_order == $args->menu->count) {
 			$output .= '<span class="fw-bold">'.$item->title.'</span>';
 		} else {

@@ -13,7 +13,7 @@ if ($count % 3 == 1) $bg_color = 'warning';
 if ($count % 3 == 2) $bg_color = 'dark';
 ?>
 
-<a href="<?php echo $st_link ?>" aria-label="Vai al sito <?php echo $sito_tematico->post_title ?> - link esterno" title="Vai al sito <?php echo $sito_tematico->post_title ?> - link esterno" class="card card-teaser card-bg-<?php echo $bg_color; ?> rounded mt-0 p-3" target="_blank">
+<a href="<?php echo $st_link ?>" class="card card-teaser card-bg-<?php echo $bg_color; ?> rounded mt-0 p-3" target="_blank">
     <?php if($st_img) { ?>
         <div class="avatar size-lg me-3">
             <?php dci_get_img($st_img); ?>

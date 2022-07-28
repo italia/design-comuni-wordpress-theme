@@ -46,7 +46,7 @@
                             <?php } ?>
                             <div class="card-body p-4">
                                 <div class="category-top">
-                                    <a class="text-decoration-none fw-semibold" href="<?php echo $url_eventi; ?>" aria-label="Vai alla pagina Eventi" title="Vai alla pagina Eventi">
+                                    <a class="text-decoration-none fw-semibold" href="<?php echo $url_eventi; ?>">
                                         Eventi
                                     </a>
                                     <span class="data u-grey-light">
@@ -54,7 +54,7 @@
                                     </span>
                                 </div>
                                 <h4 class="title-small-semi-bold-big mb-0 ">
-                                    <a class="text-decoration-none" href="<?php echo get_permalink(); ?>" aria-label="Visualizza scheda <?php echo the_title(); ?>" title="Visualizza scheda <?php echo the_title(); ?>">
+                                    <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
                                     <?php echo the_title(); ?>
                                     </a>
                                 </h4>
@@ -84,7 +84,7 @@
                             <?php } ?>
                             <div class="card-body p-4">
                                 <div class="category-top">
-                                    <a class="text-decoration-none fw-semibold" href="<?php echo get_term_link($tipo_notizia->term_id); ?>" aria-label="Vai alla sezione <?php echo $tipo_notizia->name; ?>" title="Vai alla sezione <?php echo $tipo_notizia->name; ?>">
+                                    <a class="text-decoration-none fw-semibold" href="<?php echo get_term_link($tipo_notizia->term_id); ?>">
                                         <?php echo $tipo_notizia->name; ?>
                                     </a>
                                     <span class="data u-grey-light">
@@ -92,7 +92,7 @@
                                     </span>
                                 </div>
                                 <h4 class="title-small-semi-bold-big mb-0 ">
-                                    <a class="text-decoration-none" href="<?php echo get_permalink(); ?>" aria-label="Visualizza scheda <?php echo the_title(); ?>" title="Visualizza scheda <?php echo the_title(); ?>">
+                                    <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
                                     <?php echo the_title(); ?>
                                     </a>
                                 </h4>
@@ -112,7 +112,6 @@
                     class="btn btn-primary text-button w-100"
                     onclick="location.href='<?php echo dci_get_template_page_url('page-templates/novita.php'); ?>'"
                     aria-label = "Vai alla pagina tutte le novità"
-                    title = "Vai alla pagina tutte le novità"
                 >
                     Tutte le novità
                 </button>

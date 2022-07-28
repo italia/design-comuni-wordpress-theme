@@ -22,11 +22,11 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">
-                <a class="text-decoration-none" href="<?php echo get_permalink($appuntamento->ID); ?>" aria-label="Vai alla scheda <?php echo $appuntamento->post_title; ?>" title="Vai alla scheda <?php echo $appuntamento->post_title; ?>">
+                <a class="text-decoration-none" href="<?php echo get_permalink($appuntamento->ID); ?>">
                 <?php echo $appuntamento->post_title; ?></a>
             </h5>
             <p class="card-text"></p>
-            <a class="read-more" href="<?php echo get_permalink($appuntamento->ID); ?>" title="leggi di più - <?php echo $appuntamento->post_title; ?>" aria-label="leggi di più - <?php echo $appuntamento->post_title; ?>">
+            <a class="read-more" href="<?php echo get_permalink($appuntamento->ID); ?>" aria-label="leggi di più - <?php echo $appuntamento->post_title; ?>">
             <span class="text">Leggi di più</span>
             <span class="visually-hidden"></span>
             <svg class="icon">

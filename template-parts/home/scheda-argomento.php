@@ -43,7 +43,7 @@ $links = $argomento_full['argomento_'.$count.'_contenuti'];
                     $link_obj = get_post($link_id);
                 ?>
                 <li>
-                    <a class="list-item active icon-left mb-2" href="<?php echo get_permalink(intval($link_id)); ?>" aria-label="Vai alla pagina <?php echo $link_obj->post_title; ?>" title="Vai alla pagina <?php echo $link_obj->post_title; ?>">
+                    <a class="list-item active icon-left mb-2" href="<?php echo get_permalink(intval($link_id)); ?>">
                     <span class="list-item-title-icon-wrapper">
                         <!-- <svg class="icon icon-primary">
                         <use
@@ -59,7 +59,7 @@ $links = $argomento_full['argomento_'.$count.'_contenuti'];
         </div>
         <?php } ?>
     </div>
-    <a class="read-more pt-0" href="<?php echo get_term_link(intval($argomento->term_id),'argomenti'); ?>" aria-label="Vai all'argomento <?php echo $argomento->name; ?>" title="Vai all'argomento <?php echo $argomento->name; ?>">
+    <a class="read-more pt-0" href="<?php echo get_term_link(intval($argomento->term_id),'argomenti'); ?>">
         <span class="list-item-title-icon-wrapper">
             <span class="text">Esplora argomento</span>
             <svg class="icon">

@@ -76,8 +76,6 @@ get_header();
                                     aria-expanded="true"
                                     aria-controls="collapse-one"
                                     data-focus-mouse="true"
-                                    aria-label="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
-                                    title="Apri e chiudi il menù INFORMAZIONI RICHIESTE"
                                 >
                                     <span class="list-item-title-icon-wrapper pb-10 px-3">
                                     <span
@@ -96,7 +94,6 @@ get_header();
                                     <div
                                         class="progress-bar"
                                         role="progressbar"
-                                        aria-label="Progress bar dell'indice della pagina"
                                         style="width: 15%"
                                         aria-valuenow="15"
                                         aria-valuemin="0"
@@ -113,8 +110,6 @@ get_header();
                                     <a
                                         class="list-item"
                                         href="#applicant"
-                                        aria-label="Vai alla sezione Richiedente"
-                                        title="Vai alla sezione Richiedente"
                                     >
                                         <span class="title-medium">Richiedente</span>
                                     </a>
@@ -123,8 +118,6 @@ get_header();
                                     <a
                                         class="list-item"
                                         href="#request"
-                                        aria-label="Vai alla sezione Richiesta"
-                                        title="Vai alla sezione Richiesta"
                                     >
                                         <span class="title-medium">Richiesta</span>
                                     </a>
@@ -287,9 +280,7 @@ get_header();
                             Per i dettagli sul trattamento dei dati personali consulta l’
                             <a
                                 href="#"
-                                class="t-primary underline"
-                                aria-label="Vai alla pagina dell'informativa sulla privacy"
-                                title="Vai alla pagina dell'informativa sulla privacy"
+                                class="t-primary"
                                 >informativa sulla privacy.</a
                             >
                             </p>
@@ -316,7 +307,6 @@ get_header();
                             <button
                                 type="button"
                                 class="btn btn-sm steppers-btn-prev p-0"
-                                aria-label="Torna indietro allo step precedente"
                             >
                                 <svg class="icon icon-primary icon-sm" aria-hidden="true">
                                 <use
@@ -330,7 +320,6 @@ get_header();
                                 type="submit"
                                 class="btn btn-primary btn-sm steppers-btn-confirm send"
                                 data-bs-validate="validate"
-                                aria-label="Invia la richiesta"
                             >
                                 <span class="text-button-sm">Invia</span>
                                 <svg class="icon icon-white icon-sm">

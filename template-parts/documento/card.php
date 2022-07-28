@@ -7,7 +7,7 @@ global $documento;
 	</svg>
 	<div class="card-body">
 		<h5 class="card-title">
-			<a href="<?php echo get_permalink($documento->ID); ?>" aria-label="Vai alla pagina <?php echo $documento->post_title; ?>" title="Vai alla pagina <?php echo $documento->post_title; ?>">
+			<a href="<?php echo get_permalink($documento->ID); ?>">
 				<?php echo $documento->post_title; ?>
 			</a>
 		</h5>

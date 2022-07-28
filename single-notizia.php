@@ -72,7 +72,6 @@ get_header();
                                 type="button"
                                 aria-controls="navbarNav"
                                 aria-expanded="false"
-                                aria-label="Toggle navigation"
                                 data-bs-target="#navbarNav"
                             >
                                 <span class="it-list"></span>Indice della pagina
@@ -97,25 +96,21 @@ get_header();
                                     <h3 class="no_toc border-light">Indice della pagina</h3>
                                     <ul class="link-list">
                                     <li class="nav-item active">
-                                        <a class="nav-link active" href="#descrizione" aria-label="Vai alla sezione Descrizione " title="Vai alla sezione Descrizione "
-                                        ><span>Descrizione</span></a
+                                        <a class="nav-link active" href="#descrizione"><span>Descrizione</span></a
                                         >
                                     </li>
                                     <?php if( is_array($documenti) && count($documenti) ) { ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#documenti" aria-label="Vai alla sezione Documenti " title="Vai alla sezione Documenti "
-                                        ><span>Documenti</span></a
+                                        <a class="nav-link" href="#documenti"><span>Documenti</span></a
                                         >
                                     </li>
                                     <?php } ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#a-cura-di" aria-label="Vai alla sezione A cura di " title="Vai alla sezione A cura di "
-                                        ><span>A cura di</span></a
+                                        <a class="nav-link" href="#a-cura-di"><span>A cura di</span></a
                                         >
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#ulteriori-informazioni" aria-label="Vai alla sezione Ulteriori informazioni " title="Vai alla sezione Ulteriori informazioni "
-                                        ><span>Ulteriori informazioni</span></a
+                                        <a class="nav-link" href="#ulteriori-informazioni"><span>Ulteriori informazioni</span></a
                                         >
                                     </li>
                                     </ul>
@@ -147,7 +142,7 @@ get_header();
                                 </svg>
                                 <div class="card-body">
                                 <h5 class="card-title">
-                                    <a class="text-decoration-none" href="<?php echo get_permalink($doc_id); ?>" aria-label="Vai al documento <?php echo $documento->post_title; ?>">
+                                    <a class="text-decoration-none" href="<?php echo get_permalink($doc_id); ?>" aria-label="Scarica il documento <?php echo $documento->post_title; ?>" title="Scarica il documento <?php echo $documento->post_title; ?>">
                                         <?php echo $documento->post_title; ?>
                                     </a>
                                 </h5>

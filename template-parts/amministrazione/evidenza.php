@@ -22,7 +22,7 @@
                 <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
                     <div class="card shadow-sm rounded">
                         <div class="card-body">
-                            <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>" aria-label="Vai all'argomento <?php echo $post->post_title; ?>" title="Vai all'argomento <?php echo $post->post_title; ?>" data-element="administration-element">
+                            <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>" data-element="administration-element">
                                 <h3 class="card-title t-primary title-xlarge">
                                     <?php echo $post->post_title; ?>
                                 </h3>

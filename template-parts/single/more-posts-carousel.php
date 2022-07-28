@@ -48,12 +48,12 @@ if(count($argomenti)) {
                             <ul class="link-list card-body__list">
                             <?php foreach (array_slice($amministrazione, 0, 4) as $item) { ?>
                               <li>
-                              <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione amministrazione - <?php echo $item->post_title; ?>" aria-label="vai alla sezione amministrazione - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                              <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>"><span><?php echo $item->post_title; ?></span></a>
                               </li>
                             <?php } ?>
                             <?php if (count($amministrazione) > 4) { ?>
                                 <li>
-                                  <a class="show-more px-0" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" aria-label="Vedi altri risultati" title="Vedi altri risultati">
+                                  <a class="show-more px-0" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                     <span class="show-more d-flex align-items-center">Vedi altri <?php echo count($amministrazione) - 4;?>
                                       <svg class="icon icon-primary icon-md">
                                         <use href="#it-expand"></use>
@@ -63,7 +63,7 @@ if(count($argomenti)) {
                                   <ul class="collapse" id="collapseExample">
                                   <?php foreach (array_slice($amministrazione, 4) as $item) { ?>
                                   <li>
-                                    <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione amministrazione - <?php echo $item->post_title; ?>" aria-label="vai alla sezione amministrazione - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                                    <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>"><span><?php echo $item->post_title; ?></span></a>
                                   </li>
                                   <?php } ?>
                                   </ul>
@@ -91,12 +91,12 @@ if(count($argomenti)) {
                             <ul class="link-list card-body__list">
                             <?php foreach (array_slice($servizi, 0, 4) as $item) { ?>
                               <li>
-                              <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione servizi - <?php echo $item->post_title; ?>" aria-label="vai alla sezione servizi - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                              <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>"><span><?php echo $item->post_title; ?></span></a>
                               </li>
                             <?php } ?>
                             <?php if (count($servizi) > 4) { ?>
                                 <li>
-                                  <a class="show-more px-0" data-bs-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" aria-label="Vedi altri risultati" title="Vedi altri risultati">
+                                  <a class="show-more px-0" data-bs-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
                                     <span class="show-more d-flex align-items-center">Vedi altri <?php echo count($servizi) - 4;?>
                                       <svg class="icon icon-primary icon-md">
                                         <use href="#it-expand"></use>
@@ -106,7 +106,7 @@ if(count($argomenti)) {
                                   <ul class="collapse" id="collapseExample2">
                                   <?php foreach (array_slice($servizi, 4) as $item) { ?>
                                   <li>
-                                    <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione servizi - <?php echo $item->post_title; ?>" aria-label="vai alla sezione servizi - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                                    <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>"><span><?php echo $item->post_title; ?></span></a>
                                   </li>
                                   <?php } ?>
                                   </ul>
@@ -134,12 +134,12 @@ if(count($argomenti)) {
                             <ul class="link-list card-body__list">
                             <?php foreach (array_slice($documenti, 0, 4) as $item) { ?>
                               <li>
-                              <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione documenti - <?php echo $item->post_title; ?>" aria-label="vai alla sezione documenti - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                              <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>"><span><?php echo $item->post_title; ?></span></a>
                               </li>
                             <?php } ?>
                             <?php if (count($documenti) > 4) { ?>
                                 <li>
-                                  <a class="show-more px-0" data-bs-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" aria-label="Vedi altri risultati" title="Vedi altri risultati">
+                                  <a class="show-more px-0" data-bs-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
                                     <span class="show-more d-flex align-items-center">Vedi altri <?php echo count($documenti) - 4;?>
                                       <svg class="icon icon-primary icon-md">
                                         <use href="#it-expand"></use>
@@ -149,7 +149,7 @@ if(count($argomenti)) {
                                   <ul class="collapse" id="collapseExample3">
                                   <?php foreach (array_slice($documenti, 4) as $item) { ?>
                                   <li>
-                                    <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione documenti - <?php echo $item->post_title; ?>" aria-label="vai alla sezione documenti - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                                    <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>"><span><?php echo $item->post_title; ?></span></a>
                                   </li>
                                   <?php } ?>
                                   </ul>
@@ -177,12 +177,12 @@ if(count($argomenti)) {
                             <ul class="link-list card-body__list">
                             <?php foreach (array_slice($notizie, 0, 4) as $item) { ?>
                               <li>
-                              <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione notizie - <?php echo $item->post_title; ?>" aria-label="vai alla sezione notizie - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                              <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>"><span><?php echo $item->post_title; ?></span></a>
                               </li>
                             <?php } ?>
                             <?php if (count($notizie) > 4) { ?>
                                 <li>
-                                  <a class="show-more px-0" data-bs-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4" aria-label="Vedi altri risultati" title="Vedi altri risultati">
+                                  <a class="show-more px-0" data-bs-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">
                                     <span class="show-more d-flex align-items-center">Vedi altri <?php echo count($notizie) - 4;?>
                                       <svg class="icon icon-primary icon-md">
                                         <use href="#it-expand"></use>
@@ -192,7 +192,7 @@ if(count($argomenti)) {
                                   <ul class="collapse" id="collapseExample4">
                                   <?php foreach (array_slice($notizie, 4) as $item) { ?>
                                   <li>
-                                    <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>" title="vai alla sezione notizie - <?php echo $item->post_title; ?>" aria-label="vai alla sezione notizie - <?php echo $item->post_title; ?>"><span><?php echo $item->post_title; ?></span></a>
+                                    <a class="list-item px-0" href="<?php echo get_permalink($item->ID); ?>"><span><?php echo $item->post_title; ?></span></a>
                                   </li>
                                   <?php } ?>
                                   </ul>

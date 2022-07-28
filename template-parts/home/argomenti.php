@@ -38,14 +38,14 @@ $altri_argomenti = dci_get_option('argomenti_altri','homepage');
                             $url = get_term_link(intval($arg_id),'argomenti');
                     ?>
                     <div class="chip chip-simple pb-0 mb-2">
-                        <a href="<?php echo $url ?>" class="chip-label" aria-label="Vai all'argomento <?php echo $argomento->name; ?>" title="Vai all'argomento <?php echo $argomento->name; ?>"><?php echo $argomento->name ?></a>
+                        <a href="<?php echo $url ?>" class="chip-label"><?php echo $argomento->name ?></a>
                     </div>
                     <?php } } ?>
                 </div>
             </div>
         </div>
         <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 text-center">
-            <a href="<?php echo dci_get_template_page_url("page-templates/argomenti.php"); ?>" class="btn btn-primary mt-40" aria-label="Vai alla pagina argomenti" title="Vai alla pagina argomenti">Vedi tutti</a>
+            <a href="<?php echo dci_get_template_page_url("page-templates/argomenti.php"); ?>" class="btn btn-primary mt-40" aria-label="Vedi tutti gli argomenti">Vedi tutti</a>
         </div>
     </div>
 </div>

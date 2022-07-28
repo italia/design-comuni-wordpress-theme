@@ -30,7 +30,7 @@
     </svg>
     <div class="card-body">
         <h5 class="card-title">
-            <a class="text-decoration-none" href="<?php echo get_permalink($ufficio->ID); ?>" aria-label="Vai alla pagina <?php echo $ufficio->post_title; ?>" title="Vai alla pagina <?php echo $ufficio->post_title; ?>">
+            <a class="text-decoration-none" href="<?php echo get_permalink($ufficio->ID); ?>">
                 <?php echo $ufficio->post_title; ?>
             </a>
         </h5>
@@ -53,7 +53,6 @@
                                 <a 
                                 target="_blank" 
                                 aria-label="scopri di più su <?php echo $value; ?> - link esterno - apertura nuova scheda" 
-                                title="vai sul sito <?php echo $value; ?>" 
                                 href="<?php echo $value; ?>">
                                     <?php echo $value; ?>
                                 </a>
@@ -66,7 +65,6 @@
                                 <a  
                                 target="_blank" 
                                 aria-label="invia un'email a <?php echo $value; ?>"
-                                title="invia un'email a <?php echo $value; ?>" 
                                 href="mailto:<?php echo $value; ?>">
                                     <?php echo $value; ?>
                                 </a>
@@ -93,7 +91,7 @@
             </svg>
             <div class="card-body pe-3">
                 <h5 class="card-title">
-                    <a href="<?php echo get_permalink($ufficio->ID); ?>" aria-label="Vai alla pagina <?php echo $ufficio->post_title; ?>" title="Vai alla pagina <?php echo $ufficio->post_title; ?>">
+                    <a href="<?php echo get_permalink($ufficio->ID); ?>">
                         <?php echo $ufficio->post_title; ?>
                     </a>
                 </h5>
@@ -115,8 +113,7 @@
                                     <p>
                                         <a 
                                         target="_blank" 
-                                        aria-label="scopri di più su <?php echo $value; ?> - link esterno - apertura nuova scheda" 
-                                        title="vai sul sito <?php echo $value; ?>" 
+                                        aria-label="scopri di più su <?php echo $value; ?> - link esterno - apertura nuova scheda"
                                         href="<?php echo $value; ?>">
                                             <?php echo $value; ?>
                                         </a>
@@ -129,7 +126,6 @@
                                         <a  
                                         target="_blank" 
                                         aria-label="invia un'email a <?php echo $value; ?>"
-                                        title="invia un'email a <?php echo $value; ?>" 
                                         href="mailto:<?php echo $value; ?>">
                                             <?php echo $value; ?>
                                         </a>

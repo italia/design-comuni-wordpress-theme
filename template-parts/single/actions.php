@@ -25,7 +25,7 @@ if ($hide_arguments) $argomenti = array();
         <div class="link-list-wrapper">
             <ul class="link-list" role="menu">
                 <li role="none">
-                <a class="list-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su facebook" title="Condividi questo articolo su facebook" target="_blank" role="menuitem">
+                <a class="list-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su facebook" target="_blank" role="menuitem">
                 <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-facebook"
@@ -35,7 +35,7 @@ if ($hide_arguments) $argomenti = array();
                 >
                 </li>
                 <li role="none">
-                <a class="list-item" href="https://twitter.com/intent/tweet?text=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su twitter" title="Condividi questo articolo su twitter" target="_blank" role="menuitem">
+                <a class="list-item" href="https://twitter.com/intent/tweet?text=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su twitter" target="_blank" role="menuitem">
                 <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-twitter"
@@ -45,7 +45,7 @@ if ($hide_arguments) $argomenti = array();
                 >
                 </li>
                 <li role="none">
-                <a class="list-item" href="https://www.linkedin.com/shareArticle?url=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su linkedin" title="Condividi questo articolo su linkedin" target="_blank" role="menuitem">
+                <a class="list-item" href="https://www.linkedin.com/shareArticle?url=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su linkedin" target="_blank" role="menuitem">
                 <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-linkedin"
@@ -55,7 +55,7 @@ if ($hide_arguments) $argomenti = array();
                 >
                 </li>
                 <li role="none">
-                <a class="list-item" href="https://api.whatsapp.com/send?text=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su whatsapp" title="Condividi questo articolo su whatsapp" target="_blank" role="menuitem">
+                <a class="list-item" href="https://api.whatsapp.com/send?text=<?php echo $post_url; ?>" aria-label="Condividi questo articolo su whatsapp" target="_blank" role="menuitem">
                 <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-whatsapp"
@@ -88,7 +88,7 @@ if ($hide_arguments) $argomenti = array();
         <div class="link-list-wrapper">
             <ul class="link-list" role="menu">
                 <li role="none">
-                <a class="list-item" href="#" aria-label="Scarica notizia" title="Scarica notizia" role="menuitem"
+                <a class="list-item" href="#" aria-label="Scarica notizia" role="menuitem"
                     ><svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-download"
@@ -98,7 +98,7 @@ if ($hide_arguments) $argomenti = array();
                 >
                 </li>
                 <li role="none">
-                <a class="list-item" href="#" onclick="window.print()"  aria-label="Stampa notizia" title="Stampa notizia" role="menuitem">
+                <a class="list-item" href="#" onclick="window.print()"  aria-label="Stampa notizia" role="menuitem">
                     <svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-print"
@@ -108,7 +108,7 @@ if ($hide_arguments) $argomenti = array();
                 >
                 </li>
                 <li role="none">
-                <a class="list-item" href="#"  aria-label="Ascolta notizia" title="Ascolta notizia" role="menuitem"
+                <a class="list-item" href="#"  aria-label="Ascolta notizia" role="menuitem"
                     ><svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-hearing"
@@ -118,7 +118,7 @@ if ($hide_arguments) $argomenti = array();
                 >
                 </li>
                 <li role="none">
-                <a class="list-item" href="mailto:?subject=<?php echo the_title(); ?>&body=<?php echo get_permalink(); ?>" aria-label="Invia notizia" title="Invia notizia" role="menuitem"
+                <a class="list-item" href="mailto:?subject=<?php echo the_title(); ?>&body=<?php echo get_permalink(); ?>" aria-label="Invia notizia" role="menuitem"
                     ><svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-mail"
@@ -136,7 +136,7 @@ if ($hide_arguments) $argomenti = array();
     <span class="subtitle-small">Argomenti</span>
     <div class="chip-wrapper mt-2">
         <?php foreach ($argomenti as $argomento) { ?>
-        <a class="text-decoration-none" href="<?php echo get_term_link($argomento->term_id); ?>" aria-label="Vai all'argomento: <?php echo $argomento->name; ?>" title="Vai all'argomento: <?php echo $argomento->name; ?>" data-element="service-topic">
+        <a class="text-decoration-none" href="<?php echo get_term_link($argomento->term_id); ?>" data-element="service-topic">
             <div class="chip chip-simple chip-primary">
                 <span class="chip-label"><?php echo $argomento->name; ?></span>
             </div>
