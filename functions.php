@@ -8,11 +8,6 @@
  */
 
 /**
- * Define
- */
-//require get_template_directory() . '/inc/define.php';
-
-/**
  * Funzionalità Trasversali
  */
 require get_template_directory() . '/inc/funzionalita_trasversali.php';
@@ -165,7 +160,13 @@ function dci_scripts() {
 
 	wp_enqueue_style( 'dci-wp-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'dci-font', get_template_directory_uri() . '/assets/css/fonts.css');
-	wp_enqueue_style( 'dci-boostrap-italia-min', get_template_directory_uri() . '/assets/css/bootstrap-italia.min.css');
+	//load Bootstrap Italia latest css if exists in node_modules
+    if (file_exists(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'node_modules/bootstrap-italia/dist/css/bootstrap-italia-comuni.min.css')) {
+        wp_enqueue_style( 'dci-boostrap-italia-min', get_template_directory_uri() . '/node_modules/bootstrap-italia/dist/css/bootstrap-italia-comuni.min.css');
+    }
+    else {
+        wp_enqueue_style( 'dci-boostrap-italia-min', get_template_directory_uri() . '/assets/css/bootstrap-italia.min.css');
+    }
 	wp_enqueue_style( 'dci-comuni', get_template_directory_uri() . '/assets/css/comuni.css');
 
 	wp_enqueue_script( 'dci-modernizr', get_template_directory_uri() . '/assets/js/modernizr.custom.js');
@@ -175,10 +176,15 @@ function dci_scripts() {
 
 	// footer
 	wp_enqueue_script( 'dci-boostrap-italia-js', get_template_directory_uri() . '/assets/js/bootstrap-italia.js', array(), false, true);
-	wp_enqueue_script( 'dci-boostrap-italia-min-js', get_template_directory_uri() . '/assets/js/bootstrap-italia.bundle.min.js', array(), false, true);
+    //load Bootstrap Italia latest js if exists in node_modules
+    if (file_exists(dirname(__FILE__) . DIRECTORY_SEPARATOR . '/node_modules/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js')) {
+        wp_enqueue_script( 'dci-boostrap-italia-min-js', get_template_directory_uri() . '/node_modules/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js', array(), false, true);
+    }
+    else {
+        wp_enqueue_script( 'dci-boostrap-italia-min-js', get_template_directory_uri() . '/assets/js/bootstrap-italia.bundle.min.js', array(), false, true);
+    }
 	wp_enqueue_script( 'dci-comuni', get_template_directory_uri() . '/assets/js/comuni.js', array(), false, true);
 
-    /*TODO: da definire se minifizzare*/
 	wp_enqueue_script( 'dci-jquery-easing', get_template_directory_uri() . '/assets/js/components/jquery-easing/jquery.easing.js', array(), false, true);
 	wp_enqueue_script( 'dci-jquery-scrollto', get_template_directory_uri() . '/assets/js/components/jquery.scrollto/jquery.scrollTo.js', array(), false, true);
 	wp_enqueue_script( 'dci-jquery-responsive-dom', get_template_directory_uri() . '/assets/js/components/ResponsiveDom/js/jquery.responsive-dom.js', array(), false, true);
@@ -194,12 +200,6 @@ function dci_scripts() {
 	if(is_singular(array("servizio", "struttura", "luogo", "evento", "scheda_progetto", "post", "circolare", "indirizzo")) || is_archive() || is_search() || is_post_type_archive("luogo")) {
 		wp_enqueue_script( 'dci-leaflet-js', get_template_directory_uri() . '/assets/js/components/leaflet/leaflet.js', array(), false, true);
     }
-/*
-	if(is_singular()){
-        wp_enqueue_style( 'basictable-css', get_template_directory_uri() . '/assets/components/basictable/basictable.css');
-        wp_enqueue_script( 'basictable-js', get_template_directory_uri() . '/assets/components/basictable/jquery.basictable.js');
-
-    }*/
 
 	if(is_singular(array("evento","scheda_progetto")) || is_home() || is_archive() ){
 		wp_enqueue_script( 'dci-clndr-json2', get_template_directory_uri() . '/assets/js/components/clndr/json2.js', array(), false, false);
