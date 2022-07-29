@@ -164,8 +164,6 @@
         <a
         class="title-small-semi-bold t-primary underline"
         href="./iscrizione-graduatoria-accedere-servizio.html"
-        title="Accedi all'area riservata tramite SPID o CIE"
-        aria-label="Accedi all'area riservata tramite SPID o CIE"
         >Accedi</a
         >
     </p>

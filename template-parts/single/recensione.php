@@ -108,7 +108,7 @@
             <?php --$c; } ?>
         </fieldset>
         <div class="ms-3">
-        <a class="btn btn-outline-primary btn-sm" aria-label="invia valutazione dell'evento" >
+        <a class="btn btn-outline-primary btn-sm">
             <span>Invia valutazione</span>
         </a>
         </div>

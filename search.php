@@ -61,7 +61,6 @@ get_header();
                             data-bs-toggle="modal"
                             data-bs-target="#modal-categories"
                             class="btn p-0 pe-2 d-lg-none"
-                            aria-label="Filtra i risultati"
                             >
                             <span class="rounded-icon">
                                 <svg class="icon icon-primary icon-xs mb-1" aria-hidden="true">
@@ -78,7 +77,6 @@ get_header();
                             data-bs-target="#"
                             class="btn p-0 pe-2 d-none d-lg-block"
                             onclick="location.href='?s=<?php echo get_search_query(); ?>'"
-                            aria-label="Rimuovi tutti i filtri"
                             >
                             <span class="title-xsmall-semi-bold ms-1">Rimuovi tutti filtri</span>
                             </button>

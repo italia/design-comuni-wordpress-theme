@@ -58,7 +58,6 @@ $schede = array($scheda1,$scheda2,$scheda3 );
             <a
               class="read-more pb-3"
               href="<?php echo dci_get_template_page_url("page-templates/novita.php"); ?>"
-              aria-label="Visualizza tutte le novità"
             >
               <span class="text">Tutte le novità</span>
               <svg class="icon">

@@ -154,8 +154,6 @@
                 <a
                     class="list-item icon-left t-primary title-small-semi-bold"
                     href="#"
-                    title="aggiungi al calendario Outlook"
-                    aria-label="aggiungi al calendario Outlook"
                 >
                     <span class="list-item-title-icon-wrapper">
                     <svg
@@ -176,8 +174,6 @@
                 <a
                     class="list-item icon-left t-primary title-small-semi-bold"
                     href="#"
-                    title="aggiungi al calendario Google Calendar"
-                    aria-label="aggiungi al calendario Google Calendar"
                 >
                     <span class="list-item-title-icon-wrapper">
                     <svg
@@ -198,8 +194,6 @@
                 <a
                     class="list-item icon-left t-primary title-small-semi-bold"
                     href="#"
-                    title="aggiungi al calendario iCloud Calendar"
-                    aria-label="aggiungi al calendario iCloud Calendar"
                 >
                     <span class="list-item-title-icon-wrapper">
                     <svg

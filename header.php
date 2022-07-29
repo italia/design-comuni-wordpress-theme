@@ -61,8 +61,10 @@ $current_group = dci_get_current_group();
                         <ul>
                             <?php foreach ($socials as $social) { ?>
                               <li>
-                                <a href="<?php echo $social['url_social'] ?>" aria-label="<?php echo 'Vai alla pagina '.$social['nome_social'] ?>" title="<?php echo 'Vai alla pagina '.$social['nome_social'] ?>" target="_blank">
-                                    <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#<?php echo $social['icona_social'] ?>"></use></svg>
+                                <a href="<?php echo $social['url_social'] ?>" target="_blank">
+                                    <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#<?php echo $social['icona_social'] ?>"></use>
+                                  </svg>
+                                  <span class="visually-hidden"><?php echo $social['nome_social']; ?></span>
                                 </a>
                             </li>
                             <?php } ?>                            
@@ -116,7 +118,7 @@ $current_group = dci_get_current_group();
                   </button>
                 </div>
                 <div class="menu-wrapper">
-                <a href="<?php echo home_url(); ?>" title="Vai alla home" aria-label="Vai alla homepage" class="logo-hamburger">
+                <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" class="logo-hamburger">
                     <?php get_template_part("template-parts/common/logo"); ?>
                   <div class="it-brand-text">
                     <div class="it-brand-title"><?php echo dci_get_option("nome_comune"); ?></div>
@@ -162,8 +164,10 @@ $current_group = dci_get_current_group();
                         <ul>
                             <?php foreach ($socials as $social) { ?>
                               <li>
-                                <a href="<?php echo $social['url_social'] ?>" aria-label="<?php echo 'Vai alla pagina '.$social['nome_social'] ?>" title="<?php echo 'Vai alla pagina '.$social['nome_social'] ?>" target="_blank">
-                                    <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#<?php echo $social['icona_social'] ?>"></use></svg>
+                                <a href="<?php echo $social['url_social'] ?>" target="_blank">
+                                    <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#<?php echo $social['icona_social'] ?>"></use>
+                                  </svg>
+                                  <span class="visually-hidden"><?php echo $social['nome_social']; ?></span>
                                 </a>
                             </li>
                             <?php } ?>                            

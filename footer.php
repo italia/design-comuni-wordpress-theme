@@ -169,8 +169,10 @@
                         <ul class="list-inline text-start social">
                             <?php foreach ($socials as $social) { ?>
                                     <li class="list-inline-item">
-                                        <a href="<?php echo $social['url_social'] ?>" aria-label="<?php echo 'Vai alla pagina '.$social['nome_social'] ?>" title="<?php echo 'Vai alla pagina '.$social['nome_social'] ?>" target="_blank" class="p-2 text-white">
-                                            <svg class="icon icon-sm icon-white align-top"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#<?php echo $social['icona_social'] ?>"></use></svg>
+                                        <a href="<?php echo $social['url_social'] ?>" target="_blank" class="p-2 text-white">
+                                            <svg class="icon icon-sm icon-white align-top"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#<?php echo $social['icona_social'] ?>"></use>
+                                            </svg>
+                                            <span class="visually-hidden"><?php echo $social['nome_social']; ?></span>
                                         </a>
                                     </li>
                                 <?php } ?>
