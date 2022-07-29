@@ -1,6 +1,6 @@
 {
   "name": "design-comuni-wordpress-theme-npm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Libreria Bootstrap Italia per il Tema Wordpress dei Comuni Italiani",
   "main": "index.js",
   "scripts": {
