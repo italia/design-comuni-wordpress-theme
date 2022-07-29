@@ -50,8 +50,6 @@ get_header();
                             <a
                                 class="title-small-semi-bold t-primary text-decoration-none"
                                 href="#"
-                                title="Accedi all'area riservata tramite SPID o CIE"
-                                aria-label="Accedi all'area riservata tramite SPID o CIE"
                                 >Accedi</a
                             >
                             </p>

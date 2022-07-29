@@ -26,8 +26,7 @@
                     data-bs-target="#"
                     class="btn btn-primary px-5 py-3 full-mb"
                     label="Tutti gli eventi" 
-                    buttonNext=true 
-                    aria-label="Vedi tutti gli eventi"
+                    buttonNext=true
                 >
                     <span class="">Tutti gli eventi</span>
                 </button>

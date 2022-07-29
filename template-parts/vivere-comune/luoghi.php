@@ -26,8 +26,7 @@
                     data-bs-target="#"
                     class="btn btn-primary px-5 py-3 full-mb"
                     label="Tutti i luoghi" 
-                    buttonNext=true 
-                    aria-label="Vedi tutti i luoghi"
+                    buttonNext=true
                 >
                     <span class="">Tutti i luoghi</span>
                 </button>

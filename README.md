@@ -4,7 +4,7 @@
 
 ## **Un sito per i Comuni Italiani**
 
-### I primi passi con il tema Wordpress (v1.0)
+### I primi passi con il tema Wordpress (v1.0.1)
 
 **Design Comuni Italia** è il tema WordPress che permette di aderire al [modello di sito istituzionale dei Comuni Italiani](https://designers.italia.it/modello/comuni/), progettato dal Dipartimento per la trasformazione digitale.
 
@@ -35,8 +35,8 @@ Se il tema viene scaricato come file `.zip` puoi estrarre l'archivio e inserirlo
 Se si desidera aggiornare la libreria Bootstrap Italia è possibile lanciare il seguente comando nella folder di installazione del tema (è necessario avere installato una versione di node >= 14.18.0):
 
 ```node
- npm install 
- ```
+ npm install
+```
 
 #### Come abilitare il tema
 
@@ -169,7 +169,6 @@ Cliccando su `Configurazione`, è possibile definire:
 - **Link Utili**: i link utili che compaiono in homepage nella sezione di ricerca;
 - **Ricerca**: i contenuti suggeriti nella pagina di ricerca globale.
 
-
 #### **Servizi esterni**
 
 Il tema Wordpress è realizzato per supportare il collegamento a API esterne per quel che concerne le funzionalità di valutazione, prenotazione appuntamento e richiesta di assistenza. Ogni amministrazione comunale dovrà quindi provvedere ad integrare i form forniti con il tema con un servizio esterno realizzato a propria discrezione.
@@ -266,7 +265,6 @@ Al termine della richiesta assistenza viene creato un payload nel seguente forma
 Il file da mofificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
 
 - `assets > js > assistenza.js `.
-
 
 #### **La community di riferimento**
 

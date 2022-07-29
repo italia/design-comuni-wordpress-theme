@@ -227,7 +227,7 @@
 
       /***/
     },
-    /* 3 */
+    /* 2 */
     /***/ function (module, exports) {
       /* eslint-disable */
       var toggleInput = document.querySelector("#toggle-toggle");
@@ -244,7 +244,7 @@
 
       /***/
     },
-    /* 4 */
+    /* 3 */
     /***/ function (module, exports) {
       function _toConsumableArray(arr) {
         return (
@@ -319,7 +319,7 @@
 
       /***/
     },
-    /* 5 */
+    /* 4 */
     /***/ function (module, exports) {
       function _toConsumableArray(arr) {
         return (
@@ -393,7 +393,7 @@
 
       /***/
     },
-    /* 6 */
+    /* 5 */
     /***/ function (module, exports) {
       /* eslint-disable */
       var formInputs = document.querySelectorAll('input[type="text"]');
@@ -408,7 +408,7 @@
               if (!cleanBtn) {
                 input.insertAdjacentHTML(
                   "afterend",
-                  '\n          <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">\n            <svg class="icon">\n              <use xlink:href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-close"></use>\n            </svg>\n          </button>\n          '
+                  '\n          <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">\n            <svg class="icon">\n              <use xlink:href="#it-close"></use>\n            </svg>\n          </button>\n          '
                 );
                 var clean = input.parentElement.querySelector(".clean-input");
                 var label =
@@ -432,12 +432,12 @@
 
       /***/
     },
-    /* 7 */
+    /* 6 */
     /***/ function (module, exports, __webpack_require__) {
       // extracted by mini-css-extract-plugin
       /***/
     },
-    /* 8 */
+    /* 7 */
     /***/ function (module, __webpack_exports__, __webpack_require__) {
       "use strict";
       // ESM COMPAT FLAG
@@ -4637,26 +4637,24 @@
         return SplideRenderer;
       })();
 
-      // EXTERNAL MODULE: ./javascripts/pageStep.js
-      var pageStep = __webpack_require__(1);
-
       // EXTERNAL MODULE: ./components/cmp-rating/cmp-rating.js
-      var cmp_rating = __webpack_require__(2);
+      var cmp_rating = __webpack_require__(1);
 
       // EXTERNAL MODULE: ./components/partials/toggle/toggle.js
-      var toggle = __webpack_require__(3);
+      var toggle = __webpack_require__(2);
 
       // EXTERNAL MODULE: ./components/cmp-info-button-card/cmp-info-button-card.js
-      var cmp_info_button_card = __webpack_require__(4);
+      var cmp_info_button_card = __webpack_require__(3);
 
       // EXTERNAL MODULE: ./components/cmp-info-checkbox/cmp-info-checkbox.js
-      var cmp_info_checkbox = __webpack_require__(5);
+      var cmp_info_checkbox = __webpack_require__(4);
 
       // EXTERNAL MODULE: ./components/partials/input/input.js
-      var input = __webpack_require__(6);
+      var input = __webpack_require__(5);
 
       // CONCATENATED MODULE: ./javascripts/scripts.js
       /* eslint-disable */
+      // import './pageStep';
 
       var alertMessage = document.getElementById("alert-message");
       var saveBtns = document.querySelectorAll(".saveBtn");
@@ -4808,7 +4806,6 @@
             }
           });
       }
-
       validateFormMulta();
       /* Header Hamburger Menu aria-expanded */
 

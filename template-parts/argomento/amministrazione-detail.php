@@ -45,7 +45,6 @@
                 type="button" 
                 class="btn btn-primary text-button w-100"
                 onclick="location.href='<?php echo dci_get_template_page_url('page-templates/amministrazione.php'); ?>'"
-                aria-label = "Vai alla pagina tutta l'amministrazione"
             >
                 Tutta l’amministrazione
             </button>

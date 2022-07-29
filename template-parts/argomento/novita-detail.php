@@ -111,7 +111,6 @@
                     type="button" 
                     class="btn btn-primary text-button w-100"
                     onclick="location.href='<?php echo dci_get_template_page_url('page-templates/novita.php'); ?>'"
-                    aria-label = "Vai alla pagina tutte le novità"
                 >
                     Tutte le novità
                 </button>
