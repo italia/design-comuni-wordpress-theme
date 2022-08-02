@@ -136,11 +136,12 @@ get_header();
                             </div>
                         </div>
                     </div>
-                    <hr class="d-none d-lg-block mt-2"/>
+                    
                 </div>
             </div>
+            <?php get_template_part('template-parts/single/image-large'); ?>
             <div class="container">
-                <div class="row mt-4 mt-lg-80 pb-lg-80 pb-40">
+                <div class="row border-top border-light mt-4 mt-lg-80 pb-lg-80 pb-40">
                     <div class="col-12 col-lg-3 mb-4 border-col">
                         <aside class="cmp-navscroll sticky-top" aria-labelledby="accordion-title">
                         <div class="inline-menu">
