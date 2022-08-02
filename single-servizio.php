@@ -317,14 +317,12 @@ get_header();
                         <section class="mb-30 has-bg-grey p-4">
                             <h2 class="mb-3" id="submit-request">Accedi al servizio</h2>
                             <?php if ($canale_digitale_link) { ?>
-                            <p class="text-paragraph lora mb-4">Puoi richiedere l’iscrizione alla Scuola dell’infanzia direttamente online
-                                tramite identità digitale.</p>
+                            <p class="text-paragraph lora mb-4"><?php echo $canale_digitale_text; ?></p>
                             <button type="button" class="btn btn-primary mobile-full" onclick="location.href='<?php echo $canale_digitale_link; ?>';">
                                 <span class=""><?php echo $canale_digitale_label; ?></span>
                             </button>
                             <?php } ?>
-                            <p class="text-paragraph lora mt-4">Puoi prenotare un appuntamento e presentarti presso gli uffici.
-                            </p>
+                            <p class="text-paragraph lora mt-4"><?php echo $canale_fisico_text; ?></p>
                             <button type="button" class="btn btn-outline-primary t-primary bg-white mobile-full" onclick="location.href='<?php echo dci_get_template_page_url('page-templates/prenota-appuntamento.php'); ?>';">
                                 <span class="">Prenota appuntamento</span>
                             </button>
