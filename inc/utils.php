@@ -228,19 +228,23 @@ if(!function_exists("dci_get_grouped_posts_by_term")) {
         $post_types = dci_get_post_types_grouped($group);
         if ( is_array($term_name) ) $terms = $term_name;
         else $terms = array($term_name);
-        $posts = get_posts(array(
-                'showposts' => $amount,
-                'post_type' => $post_types,
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => $taxonomy_name,
-                        'field' => 'name',
-                        'terms' => $terms)
-                ),
-                'orderby' => 'date',
-                'order' => 'DESC',
-                'post__not_in' => [get_the_ID()])
+
+        $args = array(
+            'showposts' => $amount,
+            'post_type' => $post_types,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => $taxonomy_name,
+                    'field' => 'name',
+                    'terms' => $terms)
+            ),
+            'orderby' => 'date',
+            'order' => 'DESC',
         );
+        if (get_class(get_queried_object())== "WP_Post"){
+            $args['post__not_in'] = get_queried_object()->ID;
+        }
+        $posts = get_posts($args);
         return $posts;
     }
 }
