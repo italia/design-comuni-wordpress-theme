@@ -591,7 +591,7 @@ add_action( 'admin_print_scripts-post.php', 'dci_servizio_admin_script', 11 );
 function dci_servizio_admin_script() {
     global $post_type;
     if( 'servizio' == $post_type )
-        wp_enqueue_script( 'servizio-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/servizio.js' );
+        wp_enqueue_script( 'servizio-admin-script', get_template_directory_uri() . '/inc/admin-js/servizio.js' );
 }
 
 /**

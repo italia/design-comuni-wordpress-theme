@@ -158,7 +158,7 @@ function dci_scripts() {
 
     //wp_deregister_script('jquery');
 
-	wp_enqueue_style( 'dci-wp-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'dci-wp-style', get_template_directory_uri()."/style.css" );
 	wp_enqueue_style( 'dci-font', get_template_directory_uri() . '/assets/css/fonts.css');
 	//load Bootstrap Italia latest css if exists in node_modules
     if (file_exists(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'node_modules/bootstrap-italia/dist/css/bootstrap-italia-comuni.min.css')) {

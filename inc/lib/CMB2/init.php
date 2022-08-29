@@ -179,7 +179,7 @@ if ( ! class_exists( 'CMB2_Bootstrap_2101', false ) ) {
 			}
 
 			if ( ! $loaded ) {
-				$loaded = load_theme_textdomain( 'cmb2', get_stylesheet_directory() . '/languages/' );
+				$loaded = load_theme_textdomain( 'cmb2', get_template_directory_uri() . '/languages/' );
 			}
 
 			if ( ! $loaded ) {

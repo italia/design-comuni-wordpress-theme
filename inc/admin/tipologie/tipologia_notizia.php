@@ -290,7 +290,7 @@ add_action( 'admin_print_scripts-post.php', 'dci_notizia_admin_script', 11 );
 function dci_notizia_admin_script() {
     global $post_type;
     if( 'notizia' == $post_type )
-        wp_enqueue_script( 'notizia-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/notizia.js' );
+        wp_enqueue_script( 'notizia-admin-script', get_template_directory_uri() . '/inc/admin-js/notizia.js' );
 }
 
 /**

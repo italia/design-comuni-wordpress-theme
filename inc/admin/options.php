@@ -104,9 +104,9 @@ function dci_options_assets() {
     $current_screen = get_current_screen();
 
     if(strpos($current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dci_options') {
-        wp_enqueue_style( 'dci_options_dialog', get_stylesheet_directory_uri() . '/inc/admin-css/jquery-ui.css' );
+        wp_enqueue_style( 'dci_options_dialog', get_template_directory_uri() . '/inc/admin-css/jquery-ui.css' );
         //load js to manage field icon
-        wp_enqueue_script( 'dci_options_dialog', get_stylesheet_directory_uri() . '/inc/admin-js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog'), '1.0', true );
+        wp_enqueue_script( 'dci_options_dialog', get_template_directory_uri() . '/inc/admin-js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog'), '1.0', true );
     }
 
 }

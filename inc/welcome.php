@@ -10,7 +10,7 @@ add_action( 'welcome_panel', 'dci_welcome_panel' );
 function dci_welcome_panel(){
     ?>
     <div class="welcome-panel-content" style="padding-bottom:30px;">
-        <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/designers-italia-wordpress-dashboard.png'?>"  style="float:left; margin:0px 0px 20px 0px;" />
+        <img src="<?php echo get_template_directory_uri() . '/assets/img/designers-italia-wordpress-dashboard.png'?>"  style="float:left; margin:0px 0px 20px 0px;" />
         <h2><?php _e( 'Design Comuni Italia: il tema di Developers Italia per i Comuni Italiani', "design_comuni_italia" ); ?></h2>
     </div>
     <?php
