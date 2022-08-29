@@ -139,7 +139,7 @@ function dci_add_notizia_metaboxes() {
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'data_scadenza',
         'name'    => __( 'Data di scadenza', 'design_comuni_italia' ),
-        'desc' => __( 'Data di pubblicazione della notiziaEventuale data di scadenza (in caso di avviso pubblicato)' , 'design_comuni_italia' ),
+        'desc' => __( 'Data di pubblicazione della notizia. Eventuale data di scadenza (in caso di avviso pubblicato)' , 'design_comuni_italia' ),
         'type'    => 'text_date_timestamp',
         'date_format' => 'd-m-Y',
     ) );
@@ -147,7 +147,7 @@ function dci_add_notizia_metaboxes() {
     $cmb_apertura->add_field( array(
         'id' => $prefix . 'persone',
         'name'    => __( 'Persone', 'design_comuni_italia' ),
-        'desc' => __( 'Riferimenti a persone dell\'amminsitrazione citate nella notizia' , 'design_comuni_italia' ),
+        'desc' => __( 'Riferimenti a persone dell\'amministrazione citate nella notizia' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('persona_pubblica'),
         'attributes' => array(
