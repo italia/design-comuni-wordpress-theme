@@ -150,10 +150,10 @@
         var btnBack = wrapper.querySelector(".btn-back");
         radios.forEach(function (radio) {
           radio.addEventListener("change", function () {
+            /* changing the rating resets and restarts the flow */
+            resetBlock()
             if (radio.checked) {
-              if (activeStep == 0) {
-                openNextStep();
-              }
+              openNextStep();
             }
           });
         });
@@ -174,53 +174,82 @@
       }
 
       function openNextStep() {
-        var steps = wrapper.querySelectorAll("[data-step]");
-        var formWrapper = wrapper.querySelector(".form-rating");
-        var cardRating = wrapper.querySelector(".cmp-rating__card-first");
-        var stepOneWrapper = wrapper.querySelector(
-          '[data-step="'.concat(activeStep + 1, '"]')
-        );
-        formWrapper.classList.remove("d-none");
-        stepOneWrapper.classList.remove("d-none");
-        stepOneWrapper.classList.add("active");
+        var formWrapper = wrapper.querySelector('.form-rating');
+        formWrapper.classList.remove('d-none');
+
+        var inputRadio = document.querySelector('[name="ratingA"]:checked');
+        var currentFieldset = parseInt(inputRadio.value) > 3
+          ? document.querySelector('.fieldset-rating-one')
+          : document.querySelector('.fieldset-rating-two');
+        currentFieldset.classList.remove('d-none')
+
+        var currentStepWrapper = wrapper.querySelector("[data-step=\"".concat(activeStep + 1, "\"]"));
+        currentStepWrapper.classList.remove('d-none');
+        currentStepWrapper.classList.add('active');
+
+        var steps = wrapper.querySelectorAll('[data-step]');
         activeStep = activeStep + 1;
 
         if (activeStep == steps.length) {
-          formWrapper.classList.add("d-none");
-          cardRating.classList.add("d-none");
-          var event = new Event("feedback-submit");
+          var cardRating = wrapper.querySelector('.cmp-rating__card-first');
+          formWrapper.classList.add('d-none');
+          cardRating.classList.add('d-none');
+          var event = new Event('feedback-submit');
           document.dispatchEvent(event);
         }
       }
 
       function backToPrevious() {
-        var steps = wrapper.querySelectorAll("[data-step]");
-        var formWrapper = wrapper.querySelector(".form-rating");
-        var cardRating = wrapper.querySelector(".cmp-rating__card-first");
-        var previousWrapper = wrapper.querySelector(
-          '[data-step="'.concat(activeStep - 1, '"]')
-        );
-        var currentWrapper = wrapper.querySelector(
-          '[data-step="'.concat(activeStep, '"]')
-        );
-        formWrapper.classList.remove("d-none");
+        // var steps = wrapper.querySelectorAll('[data-step]');
+        var formWrapper = wrapper.querySelector('.form-rating');
+        formWrapper.classList.remove('d-none');
+
         activeStep = activeStep - 1;
 
         if (activeStep == 0) {
-          formWrapper.classList.add("d-none");
-          cardRating.classList.remove("d-none");
+          formWrapper.classList.add('d-none');
+
+          var cardRating = wrapper.querySelector('.cmp-rating__card-first');
+          cardRating.classList.remove('d-none');
+
+          resetFieldsets();
+
+          document.querySelector('[name="ratingA"]:checked').checked = false;
         } else {
-          previousWrapper.classList.remove("d-none");
-          previousWrapper.classList.add("active");
-          currentWrapper.classList.add("d-none");
-          currentWrapper.classList.remove("active");
+          var previousWrapper = wrapper.querySelector("[data-step=\"".concat(activeStep + 1, "\"]"));
+          previousWrapper.classList.add('d-none');
+          previousWrapper.classList.remove('active');
+
+          var currentWrapper = wrapper.querySelector("[data-step=\"".concat(activeStep, "\"]"));
+          currentWrapper.classList.remove('d-none');
+          currentWrapper.classList.add('active');
         }
       }
 
+      function resetBlock() {
+        closePreviousStep();
+
+        var formWrapper = wrapper.querySelector('.form-rating');
+        formWrapper.classList.add('d-none');
+
+        resetFieldsets();
+
+        activeStep = 0;
+      }
+
+      function resetFieldsets() {
+        var fieldset1 = document.querySelector('.fieldset-rating-one')
+        var fieldset2 = document.querySelector('.fieldset-rating-two')
+        fieldset1.classList.add('d-none');
+        fieldset2.classList.add('d-none');
+      }
+
       function closePreviousStep() {
-        var stepWrapper = wrapper.querySelector("[data-step].active");
-        stepWrapper.classList.add("d-none");
-        stepWrapper.classList.remove("active");
+        var stepWrapper = wrapper.querySelector('[data-step].active');
+        if (stepWrapper) {
+          stepWrapper.classList.add('d-none');
+          stepWrapper.classList.remove('active');
+        }
       }
 
       initRatings();

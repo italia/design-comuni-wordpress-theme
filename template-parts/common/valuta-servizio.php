@@ -7,12 +7,12 @@
                 <div class="cmp-rating__card-first">
                 <div class="card-header border-0">
                     <h2 class="title-medium-2-semi-bold mb-0">
-                    Quanto sono utili le informazioni in questa pagina?
+                        Le informazioni sulla pagina sono chiare?
                     </h2>
                 </div>
                 <div class="card-body">
                     <fieldset class="rating">
-                        <?php 
+                        <?php
                             $c = 5;
                             while ($c > 0) { ?>
                             <input
@@ -43,13 +43,13 @@
                 <div class="form-rating d-none">
                 <div class="d-none rating-shadow" data-step="1">
                     <div class="cmp-steps-rating">
-                        <fieldset>
+                        <fieldset class="fieldset-rating-one d-none">
                             <div class="iscrizioni-header w-100">
                                 <h3
                                 class="step-title d-flex align-items-center justify-content-between drop-shadow"
                                 >
                                 <legend class="d-block d-lg-inline"
-                                    >Cosa ha funzionato meglio? </legend
+                                    >Quali sono stati gli aspetti che hai preferito? </legend
                                 ><span class="step">1/2</span>
                                 </h3>
                             </div>
@@ -62,47 +62,116 @@
                                         class="radio-body border-bottom border-light cmp-radio-list__item"
                                         >
                                         <input
-                                            name="rating"
+                                            name="rating1"
                                             type="radio"
                                             id="radio-1"
                                         />
                                         <label for="radio-1"
-                                            >Alcune indicazioni non erano chiare</label
+                                            >Le indicazioni erano chiare</label
                                         >
                                         </div>
                                         <div
                                         class="radio-body border-bottom border-light cmp-radio-list__item"
                                         >
                                         <input
-                                            name="rating"
+                                            name="rating1"
                                             type="radio"
                                             id="radio-2"
                                         />
                                         <label for="radio-2"
-                                            >Alcune indicazioni non erano corrette</label
+                                            >Le indicazioni erano complete</label
                                         >
                                         </div>
                                         <div
                                         class="radio-body border-bottom border-light cmp-radio-list__item"
                                         >
                                         <input
-                                            name="rating"
+                                            name="rating1"
                                             type="radio"
                                             id="radio-3"
                                         />
                                         <label for="radio-3"
-                                            >Non capivo se quello che facevo era corretto</label
+                                            >Capivo sempre che stavo procedendo correttamente</label
                                         >
                                         </div>
                                         <div
                                         class="radio-body border-bottom border-light cmp-radio-list__item"
                                         >
                                         <input
-                                            name="rating"
+                                            name="rating1"
                                             type="radio"
                                             id="radio-4"
                                         />
                                         <label for="radio-4"
+                                            >Non ho avuto problemi tecnici</label
+                                        >
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="fieldset-rating-two d-none">
+                            <div class="iscrizioni-header w-100">
+                                <h3
+                                class="step-title d-flex align-items-center justify-content-between drop-shadow"
+                                >
+                                <legend class="d-block d-lg-inline"
+                                    >Dove hai incontrato le maggiori difficoltà?</legend
+                                ><span class="step">1/2</span>
+                                </h3>
+                            </div>
+                            <div class="cmp-steps-rating__body">
+                                <div class="cmp-radio-list">
+                                <div class="card card-teaser shadow-rating">
+                                    <div class="card-body">
+                                    <div class="form-check m-0">
+                                        <div
+                                        class="radio-body border-bottom border-light cmp-radio-list__item"
+                                        >
+                                        <input
+                                            name="rating2"
+                                            type="radio"
+                                            id="radio-5"
+                                        />
+                                        <label for="radio-5"
+                                            >A volte le indicazioni non erano chiare</label
+                                        >
+                                        </div>
+                                        <div
+                                        class="radio-body border-bottom border-light cmp-radio-list__item"
+                                        >
+                                        <input
+                                            name="rating2"
+                                            type="radio"
+                                            id="radio-6"
+                                        />
+                                        <label for="radio-6"
+                                            >A volte le indicazioni non erano complete</label
+                                        >
+                                        </div>
+                                        <div
+                                        class="radio-body border-bottom border-light cmp-radio-list__item"
+                                        >
+                                        <input
+                                            name="rating2"
+                                            type="radio"
+                                            id="radio-7"
+                                        />
+                                        <label for="radio-7"
+                                            >A volte non capivo se stavo procedendo correttamente</label
+                                        >
+                                        </div>
+                                        <div
+                                        class="radio-body border-bottom border-light cmp-radio-list__item"
+                                        >
+                                        <input
+                                            name="rating2"
+                                            type="radio"
+                                            id="radio-8"
+                                        />
+                                        <label for="radio-8"
                                             >Ho avuto problemi tecnici</label
                                         >
                                         </div>
