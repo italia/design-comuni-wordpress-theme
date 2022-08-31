@@ -55,7 +55,7 @@
                             </div>
                             <div class="cmp-steps-rating__body">
                                 <div class="cmp-radio-list">
-                                <div class="card card-teaser shadow-rating">
+                                <div class="card-teaser shadow-rating">
                                     <div class="card-body">
                                     <div class="form-check m-0">
                                         <div
@@ -124,7 +124,7 @@
                             </div>
                             <div class="cmp-steps-rating__body">
                                 <div class="cmp-radio-list">
-                                <div class="card card-teaser shadow-rating">
+                                <div class="card-teaser shadow-rating">
                                     <div class="card-body">
                                     <div class="form-check m-0">
                                         <div
