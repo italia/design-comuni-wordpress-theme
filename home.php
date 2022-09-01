@@ -11,6 +11,12 @@ get_header();
 ?>
     <main id="main-container" class="main-container redbrown">
         <section id="head-section">
+        <?php
+			$messages = dci_get_option( "messages", "home_messages" );
+            if($messages && !empty($messages)) {
+                get_template_part("template-parts/home/messages");
+            }
+		?>
             <?php get_template_part("template-parts/home/notizie"); ?>
             <?php get_template_part("template-parts/home/calendario"); ?>
         </section>
