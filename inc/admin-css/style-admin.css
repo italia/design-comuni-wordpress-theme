@@ -236,3 +236,14 @@
 .field-required-msg {
     padding: 5px;
 }
+
+.highlighted_alternative_field{
+    padding-left: 5px !important;
+
+    background: #ffebe8 !important;
+    border: 1px solid #c00 !important;
+}
+
+.field-alternative-msg {
+    padding: 5px;
+}
