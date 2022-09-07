@@ -7,7 +7,7 @@
                 <div class="cmp-rating__card-first">
                 <div class="card-header border-0">
                     <h2 class="title-medium-2-semi-bold mb-0">
-                        Le informazioni sulla pagina sono chiare?
+                        Quanto sono chiare le informazioni su questa pagina?
                     </h2>
                 </div>
                 <div class="card-body">
