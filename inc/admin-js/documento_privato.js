@@ -7,6 +7,11 @@ jQuery( document ).ready(function() {
         });
     });
 
+    jQuery("body").on('click', "#_dci_documento_privato_box_documento", function() {
+        dci_remove_highlight_alternative_field('#_dci_documento_privato_box_documento');
+    });
+
+
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
 
         /**
@@ -14,6 +19,19 @@ jQuery( document ).ready(function() {
          */
         if(jQuery('input[name^="_dci_documento_privato_argomenti"]:checked').length == 0){
             dci_highlight_missing_field('.cmb2-id--dci-documento-privato-argomenti');
+            return false;
+        }
+
+        /**
+         * controllo compilazione alternativa url documento - file documento
+         */
+        if((!jQuery('input[name^="_dci_documento_privato_url_documento"]').val() && jQuery('#_dci_documento_privato_file_documento-status').children().length == 0 && !jQuery('input[name^="_dci_documento_privato_file_documento"]').val())){
+            dci_highlight_alternative_field('#_dci_documento_privato_box_documento', 'Campo obbligatorio');
+            return false;
+        }
+
+        if((jQuery('input[name^="_dci_documento_privato_url_documento"]').val() && (jQuery('#_dci_documento_privato_file_documento-status').children().length != 0 || jQuery('input[name^="_dci_documento_privato_file_documento"]').val()))){
+            dci_highlight_alternative_field('#_dci_documento_privato_box_documento', 'Inserire alternativamente un URL o un allegato');
             return false;
         }
 
@@ -33,8 +51,23 @@ function dci_highlight_missing_field(fieldClass) {
 
 }
 
-
 function dci_remove_highlight_missing_field(fieldClass) {
     jQuery(fieldClass).removeClass("highlighted_missing_field");
     jQuery('.field-required-msg').remove();
 }
+
+
+function dci_highlight_alternative_field(fieldClass, message) {
+    jQuery(fieldClass).addClass("highlighted_alternative_field")
+        .append('<div id ="field-alternative-msg" class="field-alternative-msg"><em>'+message+'</em></div>')
+    ;
+    jQuery('html,body').animate({
+        scrollTop: jQuery("#field-alternative-msg").parent().offset().top - 100
+    }, 'slow');
+}
+
+function dci_remove_highlight_alternative_field(fieldClass) {
+    jQuery(fieldClass).removeClass("highlighted_alternative_field");
+    jQuery('.field-alternative-msg').remove();
+}
+

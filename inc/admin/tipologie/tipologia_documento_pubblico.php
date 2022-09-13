@@ -173,6 +173,38 @@ function dci_add_documento_pubblico_metaboxes()
         ),
     ));
 
+    //DOCUMENTO
+    $cmb_documento = new_cmb2_box(array(
+        'id' => $prefix . 'box_documento',
+        'title' => __('Documento *', 'design_comuni_italia'),
+        'object_types' => array('documento_pubblico'),
+        'context' => 'normal',
+        'priority' => 'high',
+    ));
+
+    $cmb_documento->add_field(array(
+        'id' => $prefix . 'url_documento',
+        'name' => __('Documento: URL', 'design_comuni_italia'),
+        'desc' => __('Link al documento vero e proprio', 'design_comuni_italia'),
+        'type' => 'text_url'
+    ));
+
+    $cmb_documento->add_field(array(
+        'id' => $prefix . 'file_documento',
+        'name' => __('Documento: Carica file', 'design_comuni_italia'),
+        'desc' => __('Se non è presente un link a risorsa esterna, bisogna ricordarsi di allegare il documento vero e proprio, in un formato scaricabile e stampabile da parte dell\'utente', 'design_comuni_italia'),
+        'type' => 'file',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
+        // Optional, override default text strings
+        'text' => array(
+            'add_upload_files_text' => __('Aggiungi un nuovo allegato', 'design_comuni_italia'), // default: "Add or Upload Files"
+            'remove_image_text' => __('Rimuovi allegato', 'design_comuni_italia'), // default: "Remove Image"
+            'remove_text' => __('Rimuovi', 'design_comuni_italia'), // default: "Remove"
+        ),
+    ));
+
+
     //DESCRIZIONE
     $cmb_descrizione = new_cmb2_box(array(
         'id' => $prefix . 'box_descrizione',
@@ -202,32 +234,6 @@ function dci_add_documento_pubblico_metaboxes()
         // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
         'query_args' => array('type' => 'image'), // Only images attachment
     ));
-
-    $cmb_descrizione->add_field(array(
-        'id' => $prefix . 'url_documento',
-        'name' => __('URL Documento *', 'design_comuni_italia'),
-        'desc' => __('Link al documento vero e proprio, in un formato scaricabile attraverso una URL', 'design_comuni_italia'),
-        'type' => 'text_url',
-        'attributes' => array(
-            'required' => 'required'
-        ),
-    ));
-
-    $cmb_descrizione->add_field(array(
-        'id' => $prefix . 'file_documento',
-        'name' => __('Documento: Carica file', 'design_comuni_italia'),
-        'desc' => __('Se non è presente un link a risorsa esterna, bisogna ricordarsi di allegare il documento vero e proprio, in un formato scaricabile e stampabile da parte dell\'utente.', 'design_comuni_italia'),
-        'type' => 'file',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo allegato', 'design_comuni_italia'), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi allegato', 'design_comuni_italia'), // default: "Remove Image"
-            'remove_text' => __('Rimuovi', 'design_comuni_italia'), // default: "Remove"
-        ),
-    ));
-
 
     $cmb_descrizione->add_field(array(
         'id' => $prefix . 'ufficio_responsabile',
