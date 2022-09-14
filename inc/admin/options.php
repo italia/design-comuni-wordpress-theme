@@ -12,6 +12,8 @@ function dci_register_main_options_metabox() {
 
     dci_register_comune_options();
 
+    dci_register_pagina_avvisi_options();
+
     dci_register_pagina_home_options();
 
     dci_register_social_options();
