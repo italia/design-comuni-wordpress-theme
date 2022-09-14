@@ -41,7 +41,7 @@
                                         <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
                                         INDICE DELLA PAGINA
                                         <svg class="icon icon-xs right">
-                                            <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
+                                            <use xlink:href="#it-expand"></use>
                                         </svg>
                                         </button>
                                     </span>

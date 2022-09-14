@@ -96,7 +96,7 @@ get_header();
                                                         data-bs-target="#collapse-one"
                                                     >INDICE DELLA PAGINA
                                                         <svg class="icon icon-sm icon-primary align-top">
-                                                            <use xlink:href="#it-chevron-left"></use>
+                                                            <use xlink:href="#it-expand"></use>
                                                         </svg>
                                                     </button>
                                                     </span>
