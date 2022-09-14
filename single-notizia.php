@@ -18,14 +18,14 @@ get_header();
             the_post();
             $user_can_view_post = dci_members_can_user_view_post(get_current_user_id(), $post->ID);
 
-            $prefix= '_dci_notizia_';    
+            $prefix= '_dci_notizia_';
             $descrizione_breve = dci_get_meta("descrizione_breve", $prefix, $post->ID);
             $data_pubblicazione_arr = dci_get_data_pubblicazione_arr("data_pubblicazione", $prefix, $post->ID);
             $date = date_i18n('d F Y', mktime(0, 0, 0, $data_pubblicazione_arr[1], $data_pubblicazione_arr[0], $data_pubblicazione_arr[2]));
             $persone = dci_get_meta("persone", $prefix, $post->ID);
             $descrizione = dci_get_meta("testo_completo", $prefix, $post->ID);
             $documenti = dci_get_meta("documenti", $prefix, $post->ID);
-            $a_cura_di = dci_get_meta("a_cura_di", $prefix, $post->ID);    
+            $a_cura_di = dci_get_meta("a_cura_di", $prefix, $post->ID);
             ?>
             <div class="container" id="main-container">
                 <div class="row">
@@ -54,9 +54,9 @@ get_header();
                         </div>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
-                        <?php 
+                        <?php
                         $inline = true;
-                        get_template_part('template-parts/single/actions'); 
+                        get_template_part('template-parts/single/actions');
                         ?>
                     </div>
                 </div>
@@ -65,58 +65,63 @@ get_header();
             <div class="container">
                 <div class="row border-top row-column-border row-column-menu-left border-light">
                     <aside class="col-lg-4">
-                        <div class="d-none d-lg-block sticky-wrapper navbar-wrapper">
-                            <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg">
-                            <button
-                                class="custom-navbar-toggler"
-                                type="button"
-                                aria-controls="navbarNav"
-                                aria-expanded="false"
-                                data-bs-target="#navbarNav"
-                            >
-                                <span class="it-list"></span>Indice della pagina
-                            </button>
-                            <div class="navbar-collapsable" id="navbarNav">
-                                <div class="overlay"></div>
-                                <div class="close-div visually-hidden">
-                                <button class="btn close-menu" type="button">
-                                    <span class="it-close"></span>Chiudi
-                                </button>
+                        <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+                            <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg" data-bs-navscroll>
+                                <div class="navbar-custom" id="navbarNavProgress">
+                                    <div class="menu-wrapper">
+                                        <div class="link-list-wrapper">
+                                            <div class="accordion">
+                                                <div class="accordion-item">
+                                                    <span class="accordion-header" id="accordion-title-one">
+                                                        <button
+                                                            class="accordion-button pb-10 px-3"
+                                                            type="button"
+                                                            aria-controls="collapse-one"
+                                                            aria-expanded="true"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#collapse-one"
+                                                        >INDICE DELLA PAGINA
+                                                            <svg class="icon icon-sm icon-primary align-top">
+                                                                <use xlink:href="#it-chevron-left"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                                        <div class="accordion-body">
+                                                            <ul class="link-list" data-element="page-index">
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#descrizione">
+                                                                    <span class="title-medium">Descrizione</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php if( is_array($documenti) && count($documenti) ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#documenti">
+                                                                    <span class="title-medium">Documenti</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#a-cura-di">
+                                                                    <span class="title-medium">A cura di</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#ulteriori-informazioni">
+                                                                    <span class="title-medium">Ulteriori informazioni</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a class="it-back-button" href="#"
-                                ><svg class="icon icon-sm icon-primary align-top">
-                                    <use
-                                    xlink:href="#it-chevron-left"
-                                    ></use>
-                                </svg>
-                                <span>Torna indietro</span></a
-                                >
-                                <div class="menu-wrapper">
-                                <div class="link-list-wrapper menu-link-list">
-                                    <h3 class="no_toc border-light">Indice della pagina</h3>
-                                    <ul class="link-list">
-                                    <li class="nav-item active">
-                                        <a class="nav-link active" href="#descrizione"><span>Descrizione</span></a
-                                        >
-                                    </li>
-                                    <?php if( is_array($documenti) && count($documenti) ) { ?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#documenti"><span>Documenti</span></a
-                                        >
-                                    </li>
-                                    <?php } ?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#a-cura-di"><span>A cura di</span></a
-                                        >
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#ulteriori-informazioni"><span>Ulteriori informazioni</span></a
-                                        >
-                                    </li>
-                                    </ul>
-                                </div>
-                                </div>
-                            </div>
                             </nav>
                         </div>
                     </aside>
@@ -131,7 +136,7 @@ get_header();
                     <article id="documenti" class="it-page-section anchor-offset mt-5">
                         <h4>Documenti</h4>
                         <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
-                            <?php foreach ($documenti as $doc_id) { 
+                            <?php foreach ($documenti as $doc_id) {
                                 $documento = get_post($doc_id);
                             ?>
                             <div class="card card-teaser shadow-sm p-4 mt-3 rounded border border-light flex-nowrap">
@@ -164,9 +169,9 @@ get_header();
                         </div>
                         <div class="col-12 col-sm-4">
                             <h6><small>Persone</small></h6>
-                            <?php 
+                            <?php
                             if(is_array($persone) && count($persone)) {
-                                get_template_part("template-parts/single/persone"); 
+                                get_template_part("template-parts/single/persone");
                             } ?>
                         </div>
                         </div>

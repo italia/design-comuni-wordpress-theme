@@ -40,7 +40,7 @@ get_header();
             $canale_fisico_uffici = dci_get_meta("canale_fisico_uffici");
 
             $more_info = dci_get_meta("ulteriori_informazioni");
-            $condizioni_servizio = dci_get_meta("condizioni_servizio");     
+            $condizioni_servizio = dci_get_meta("condizioni_servizio");
             $uo_id = intval(dci_get_meta("unita_responsabile"));
             $argomenti = get_the_terms($post, 'argomenti');
 
@@ -128,9 +128,9 @@ get_header();
                                     <?php } ?>
                                 </div>
                                 <div class="col-lg-3 offset-lg-1 mt-5 mt-lg-0">
-                                    <?php 
+                                    <?php
                                         $hide_arguments = true;
-                                        get_template_part('template-parts/single/actions'); 
+                                        get_template_part('template-parts/single/actions');
                                     ?>
                                 </div>
                             </div>
@@ -142,104 +142,112 @@ get_header();
             <div class="container">
                 <div class="row mt-4 mt-lg-80 pb-lg-80 pb-40">
                     <div class="col-12 col-lg-3 mb-4 border-col">
-                        <aside class="cmp-navscroll sticky-top" aria-labelledby="accordion-title">
-                        <div class="inline-menu">
-                            <div class="link-list-wrapper">
-                            <ul class="link-list">
-                                <li>
-                                    <a class="list-item large medium right-icon p-0 text-decoration-none" href="#collapseOne" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseOne" data-focus-mouse="true">
-                                        <span class="list-item-title-icon-wrapper pb-10 px-3">
-                                        <span id="accordion-title" class="title-xsmall-semi-bold">INDICE DELLA PAGINA</span>
-                                        <svg class="icon icon-xs right">
-                                            <use href="#it-expand"></use>
-                                        </svg>
-                                        </span>
-                                        <!-- Progress Bar -->
-                                        <div class="progress bg-light">
-                                        <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+                                <div class="navbar-custom" id="navbarNavProgress">
+                                    <div class="menu-wrapper">
+                                        <div class="link-list-wrapper">
+                                            <div class="accordion">
+                                                <div class="accordion-item">
+                                                    <span class="accordion-header" id="accordion-title-one">
+                                                        <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                                            INDICE DELLA PAGINA
+                                                            <svg class="icon icon-xs right">
+                                                                <use href="#it-expand"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                                        <div class="accordion-body">
+                                                            <ul class="link-list" data-element="page-index">
+                                                                <?php if ($destinatari ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#who-needs">
+                                                                        <span class="title-medium">A chi è rivolto</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <?php if ( $descrizione ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#description">
+                                                                        <span class="title-medium">Descrizione</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <?php if ( $come_fare ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#how-to">
+                                                                        <span class="title-medium">Come fare</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <?php if ( is_array($cosa_serve_list) ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#needed">
+                                                                        <span class="title-medium">Cosa serve</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <?php if ( $output ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#obtain">
+                                                                        <span class="title-medium">Cosa si ottiene</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <?php if ( is_array($fasi_scadenze) && count($fasi_scadenze)) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#deadlines">
+                                                                        <span class="title-medium">Tempi e scadenze</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <?php if ( $costi ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#costs">
+                                                                        <span class="title-medium">Quanto costa</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#submit-request">
+                                                                        <span class="title-medium">Accedi al servizio</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php if ( $more_info ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#more-info">
+                                                                        <span class="title-medium">Ulteriori informazioni</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <?php if ( $condizioni_servizio ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#conditions">
+                                                                        <span class="title-medium">Condizioni di servizio</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <?php if ( $uo_id ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#contacts">
+                                                                        <span class="title-medium">Contatti</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </a>
-                                    <ul class="link-sublist collapse show" id="collapseOne" data-element="page-index">
-                                    <?php if ($destinatari ) { ?>
-                                        <li>
-                                            <a class="list-item" href="#who-needs"><span class="title-medium">A chi è rivolto</span></a
-                                            >
-                                        </li>
-                                        <?php } ?>
-                                        <?php if ( $descrizione ) { ?>
-                                            <li>
-                                                <a class="list-item" href="#description">
-                                                <span class="title-medium">Descrizione</span>
-                                                </a>
-                                            </li>
-                                        <?php } ?>
-                                        <?php if ( $come_fare ) { ?>
-                                            <li>
-                                            <a class="list-item" href="#how-to">
-                                                <span class="title-medium">Come fare</span>
-                                            </a>
-                                            </li>
-                                        <?php } ?>
-                                        <?php if ( is_array($cosa_serve_list) ) { ?>
-                                            <li>
-                                            <a class="list-item" href="#needed">
-                                                <span class="title-medium">Cosa serve</span>
-                                            </a>
-                                            </li>
-                                        <?php } ?>
-                                        <?php if ( $output ) { ?>
-                                            <li>
-                                            <a class="list-item" href="#obtain">
-                                                <span class="title-medium">Cosa si ottiene</span>
-                                            </a>
-                                            </li>
-                                        <?php } ?>
-                                        <?php if ( is_array($fasi_scadenze) && count($fasi_scadenze)) { ?>
-                                            <li>
-                                            <a class="list-item" href="#deadlines">
-                                                <span class="title-medium">Tempi e scadenze</span>
-                                            </a>
-                                            </li>
-                                        <?php } ?>
-                                        <?php if ( $costi ) { ?>
-                                            <li>
-                                            <a class="list-item" href="#costs">
-                                                <span class="title-medium">Quanto costa</span>
-                                            </a>
-                                            </li>
-                                        <?php } ?>
-                                        <li>
-                                        <a class="list-item" href="#submit-request">
-                                            <span class="title-medium">Accedi al servizio</span>
-                                        </a>
-                                        </li>
-                                        <?php if ( $more_info ) { ?>
-                                            <li>
-                                            <a class="list-item" href="#more-info">
-                                                <span class="title-medium">Ulteriori informazioni</span>
-                                            </a>
-                                            </li>
-                                        <?php } ?>
-                                        <?php if ( $condizioni_servizio ) { ?>
-                                            <li>
-                                            <a class="list-item" href="#conditions">
-                                                <span class="title-medium">Condizioni di servizio</span>
-                                            </a>
-                                            </li>
-                                        <?php } ?>
-                                        <?php if ( $uo_id ) { ?>
-                                            <li>
-                                            <a class="list-item" href="#contacts">
-                                                <span class="title-medium">Contatti</span>
-                                            </a>
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
-                                </li>
-                            </ul>
-                            </div>
+                                    </div>
+                                </div>
+                            </nav>
                         </div>
-                        </aside>      
                     </div>
                     <div class="col-12 col-lg-8 offset-lg-1">
                         <section class="mb-30">
@@ -256,7 +264,7 @@ get_header();
                         <?php } ?>
                         <section class="mb-30">
                             <h2 class="title-xxlarge mb-3" id="how-to">Come fare</h2>
-                            <div class="richtext-wrapper lora"> 
+                            <div class="richtext-wrapper lora">
                                 <?php echo $come_fare ?>
                             </div>
                         </section>
@@ -283,8 +291,8 @@ get_header();
                                     <?php echo $fasi_scadenze_intro; ?>
                                 </p>
                                 <div class="calendar-vertical mb-3">
-                                    <?php foreach ($fasi_scadenze as $fase_id) {        
-                                        $fase = get_post($fase_id);              
+                                    <?php foreach ($fasi_scadenze as $fase_id) {
+                                        $fase = get_post($fase_id);
                                         $data = dci_get_meta('data_fase', '_dci_fase_', $fase_id);
                                         $arrdata =  explode("-", $data);
                                         $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
@@ -303,7 +311,7 @@ get_header();
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php } ?>                            
+                                    <?php } ?>
                                 </div>
                             </div>
                         </section>
@@ -336,7 +344,7 @@ get_header();
                             </div>
                         </section>
                         <?php }  ?>
-                        <?php if ( $condizioni_servizio ) { 
+                        <?php if ( $condizioni_servizio ) {
                             $file_url = $condizioni_servizio;
                         ?>
                         <section class="mb-30">
@@ -353,9 +361,9 @@ get_header();
                             <div class="row">
                                 <div class="col-12 col-md-8 col-lg-6 mb-30">
                                     <div class="card-wrapper rounded h-auto mt-10">
-                                        <?php 
+                                        <?php
                                             $with_border = true;
-                                            get_template_part("template-parts/unita-organizzativa/card"); 
+                                            get_template_part("template-parts/unita-organizzativa/card");
                                         ?>
                                     </div>
                                 </div>

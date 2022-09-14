@@ -18,7 +18,7 @@ get_header();
             the_post();
             $user_can_view_post = dci_members_can_user_view_post(get_current_user_id(), $post->ID);
 
-            $prefix= '_dci_evento_';    
+            $prefix= '_dci_evento_';
             $descrizione_breve = dci_get_meta("descrizione_breve", $prefix, $post->ID);
             //dates
             $start_timestamp = dci_get_meta("data_orario_inizio", $prefix, $post->ID);
@@ -34,13 +34,13 @@ get_header();
             $trascrizione = dci_get_meta("trascrizione", $prefix, $post->ID);
             $persone = dci_get_meta("persone", $prefix, $post->ID);
             $luogo_evento = get_post(dci_get_meta("luogo_evento", $prefix, $post->ID));
-            $costi = dci_get_meta( 'costi' );            
+            $costi = dci_get_meta( 'costi' );
             $documenti = dci_get_meta("allegati", $prefix, $post->ID);
             $punti_contatto = dci_get_meta("punti_contatto", $prefix, $post->ID);
             $organizzatori = dci_get_meta("organizzatore", $prefix, $post->ID);
             $appuntamenti = dci_get_eventi_figli();
             $patrocinato = dci_get_meta("patrocinato", $prefix, $post->ID);
-            $sponsor = dci_get_meta("sponsor", $prefix, $post->ID);     
+            $sponsor = dci_get_meta("sponsor", $prefix, $post->ID);
             $more_info = dci_get_meta("ulteriori_informazioni", $prefix, $post->ID);
             ?>
             <div class="container px-4 my-4" id="main-container">
@@ -60,9 +60,9 @@ get_header();
                         </p>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
-                        <?php 
+                        <?php
                             $inline = true;
-                            get_template_part('template-parts/single/actions'); 
+                            get_template_part('template-parts/single/actions');
                         ?>
                         <div class="mt-5">
                             <a target="_blank" href="https://calendar.google.com/calendar/r" class="btn btn-outline-primary btn-icon">
@@ -79,84 +79,93 @@ get_header();
             <div class="container">
                 <div class="row border-top row-column-border row-column-menu-left border-light">
                     <aside class="col-lg-4">
-                        <div class="d-none d-lg-block sticky-wrapper navbar-wrapper">
-                            <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg">
-                            <button
-                                class="custom-navbar-toggler"
-                                type="button"
-                                aria-controls="navbarNav"
-                                aria-expanded="false"
-                                data-bs-target="#navbarNav"
-                            >
-                                <span class="it-list"></span>Indice della pagina
-                            </button>
-                            <div class="navbar-collapsable" id="navbarNav">
-                                <div class="overlay"></div>
-                                <div class="close-div visually-hidden">
-                                <button class="btn close-menu" type="button">
-                                    <span class="it-close"></span>Chiudi
-                                </button>
+                        <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+                            <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg" data-bs-navscroll>
+                                <div class="navbar-custom" id="navbarNavProgress">
+                                    <div class="menu-wrapper">
+                                        <div class="link-list-wrapper">
+                                            <div class="accordion">
+                                                <div class="accordion-item">
+                                                    <span class="accordion-header" id="accordion-title-one">
+                                                    <button
+                                                        class="accordion-button pb-10 px-3"
+                                                        type="button"
+                                                        aria-controls="collapse-one"
+                                                        aria-expanded="true"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#collapse-one"
+                                                    >INDICE DELLA PAGINA
+                                                        <svg class="icon icon-sm icon-primary align-top">
+                                                            <use xlink:href="#it-chevron-left"></use>
+                                                        </svg>
+                                                    </button>
+                                                    </span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                                        <div class="accordion-body">
+                                                            <ul class="link-list" data-element="page-index">
+                                                                <li class="nav-item">
+                                                                <a class="nav-link" href="#cos-e">
+                                                                <span class="title-medium">Cos'è</span>
+                                                                </a>
+                                                                </li>
+                                                            <?php if( $luogo_evento) { ?>
+                                                                <li class="nav-item">
+                                                                <a class="nav-link" href="#luogo">
+                                                                <span class="title-medium">Luogo</span>
+                                                                </a>
+                                                                </li>
+                                                            <?php } ?>
+                                                            <?php if ($start_timestamp && $end_timestamp) { ?>
+                                                                <li class="nav-item">
+                                                                <a class="nav-link" href="#date-e-orari">
+                                                                <span class="title-medium">Date e orari</span>
+                                                                </a>
+                                                                </li>
+                                                            <?php } ?>
+                                                            <?php if( is_array($costi) && count($costi) ) { ?>
+                                                                <li class="nav-item">
+                                                                <a class="nav-link" href="#costi">
+                                                                <span class="title-medium">Costi</span>
+                                                                </a>
+                                                                </li>
+                                                            <?php } ?>
+                                                            <?php if( $documenti ) { ?>
+                                                                <li class="nav-item">
+                                                                <a class="nav-link" href="#documenti">
+                                                                <span class="title-medium">Documenti</span>
+                                                                </a>
+                                                                </li>
+                                                            <?php } ?>
+                                                            <?php if( is_array($punti_contatto) && count($punti_contatto) ) { ?>
+                                                            <li class="nav-item">
+                                                            <a class="nav-link" href="#contatti">
+                                                            <span class="title-medium">Contatti</span>
+                                                            </a>
+                                                            </li>
+                                                            <?php } ?>
+                                                            <?php if( is_array($appuntamenti) && count($appuntamenti) ) { ?>
+                                                            <li class="nav-item">
+                                                            <a class="nav-link" href="#appuntamenti">
+                                                            <span class="title-medium">Appuntamenti</span>
+                                                            </a>
+                                                            </li>
+                                                            <?php } ?>
+                                                            <li class="nav-item">
+                                                            <a class="nav-link" href="#ulteriori-informazioni">
+                                                            <span class="title-medium">Ulteriori informazioni</span>
+                                                            </a>
+                                                            </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a class="it-back-button" href="#"
-                                ><svg class="icon icon-sm icon-primary align-top">
-                                    <use
-                                    xlink:href="#it-chevron-left"
-                                    ></use>
-                                </svg>
-                                <span>Torna indietro</span></a
-                                >
-                                <div class="menu-wrapper">
-                                <div class="link-list-wrapper menu-link-list">
-                                    <h3 class="no_toc border-light">Indice della pagina</h3>
-                                    <ul class="link-list">
-                                    <li class="nav-item active">
-                                        <a class="nav-link active" href="#cos-e"><span>Cos'è</span></a
-                                        >
-                                    </li>
-                                    <?php if( $luogo_evento) { ?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#luogo"><span>Luogo</span></a
-                                        >
-                                    </li>
-                                    <?php } ?>
-                                    <?php if ($start_timestamp && $end_timestamp) { ?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#date-e-orari"><span>Date e orari</span></a
-                                        >
-                                    </li>
-                                    <?php } ?>
-                                    <?php if( is_array($costi) && count($costi) ) { ?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#costi"><span>Costi</span></a
-                                        >
-                                    </li>
-                                    <?php } ?>
-                                    <?php if( $documenti ) { ?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#documenti"><span>Documenti</span></a
-                                        >
-                                    </li>
-                                    <?php } ?>
-                                    <?php if( is_array($punti_contatto) && count($punti_contatto) ) { ?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#contatti"><span>Contatti</span></a
-                                        >
-                                    </li>
-                                    <?php } ?>
-                                    <?php if( is_array($appuntamenti) && count($appuntamenti) ) { ?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#appuntamenti"><span>Appuntamenti</span></a
-                                        >
-                                    </li>
-                                    <?php } ?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#ulteriori-informazioni"><span>Ulteriori informazioni</span></a
-                                        >
-                                    </li>
-                                    </ul>
-                                </div>
-                                </div>
-                            </div>
                             </nav>
                         </div>
                     </aside>
@@ -167,24 +176,24 @@ get_header();
                             <?php echo $descrizione; ?>
                         </p>
                     </article>
-                    <?php if (is_array($gallery) && count($gallery)) { 
+                    <?php if (is_array($gallery) && count($gallery)) {
                         get_template_part("template-parts/single/gallery");
                     } ?>
-                    <?php if ($video) { 
+                    <?php if ($video) {
                         get_template_part("template-parts/single/video");
                     } ?>
                     <?php if(is_array($persone) && count($persone)) {?>
                         <div class="pt-3 pb-5">
                             <h5 class="h6 font-serif fw-bold">Parteciperanno:</h5>
-                            <?php get_template_part("template-parts/single/persone"); ?>                            
+                            <?php get_template_part("template-parts/single/persone"); ?>
                         </div>
                     <?php  } ?>
                     <?php if($luogo_evento) {?>
                         <article id="luogo" class="it-page-section anchor-offset">
                             <h4>Luogo</h4>
-                            <?php 
+                            <?php
                                 $luogo = $luogo_evento;
-                                get_template_part("template-parts/single/luogo"); 
+                                get_template_part("template-parts/single/luogo");
                             ?>
                         </article>
                     <?php } ?>
@@ -227,7 +236,7 @@ get_header();
                             Per informazioni sul programma dettagliato degli appuntamenti religiosi e civili, consultare il programma
                             nella sezione documenti.
                         </p>
-                        <?php                     
+                        <?php
                         $data_inizio = date_i18n("Ymd\THi00", date($start_timestamp));
                         $data_fine = date_i18n("Ymd\THi00", date($end_timestamp));
                         $luogo = $luogo_evento->post_title;
@@ -245,7 +254,7 @@ get_header();
                     <?php if( is_array($costi) && count($costi) ) { ?>
                     <article id="costi" class="it-page-section anchor-offset mt-5">
                         <h4>Costi</h4>
-                        <?php foreach ($costi as $costo) { ?>                            
+                        <?php foreach ($costi as $costo) { ?>
                         <div class="card no-after border-start mt-3">
                             <div class="card-body">
                                 <h5>
@@ -264,7 +273,7 @@ get_header();
                     <?php } ?>
                     </article>
                     <?php } ?>
-                    <?php if( $documenti ) { 
+                    <?php if( $documenti ) {
                         $doc = get_post( attachment_url_to_postid($documenti) );
                     ?>
                     <article id="documenti" class="it-page-section anchor-offset mt-5">
@@ -285,7 +294,7 @@ get_header();
                         <?php if( is_array($punti_contatto) && count($punti_contatto) ) { ?>
                             <h4>Contatti</h4>
                             <?php foreach ($punti_contatto as $pc_id) {
-                                get_template_part('template-parts/single/punto-contatto'); 
+                                get_template_part('template-parts/single/punto-contatto');
                             } ?>
                         <?php } ?>
                         <?php if( is_array($organizzatori) && count($organizzatori) ) { ?>
@@ -307,7 +316,7 @@ get_header();
                     <?php }?>
                     <article id="ulteriori-informazioni" class="it-page-section anchor-offset mt-5">
                     <h4 class="mb-3">Ulteriori informazioni</h4>
-                    <?php 
+                    <?php
                         if ( is_array($patrocinato) && count($patrocinato) ) {
                             echo '<strong>Patrocinato da:</strong>';
                             echo '<div class="link-list-wrapper"><ul class="link-list">';
