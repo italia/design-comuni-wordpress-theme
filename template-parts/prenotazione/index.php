@@ -1,268 +1,168 @@
 
 <!-- Step 1 -->
 <div class="col-12 col-lg-3 mb-4 d-none" data-index="1">
-    <aside
-        class="cmp-navscroll sticky-top"
-        aria-labelledby="accordion-title-one"
-    >
-        <div class="inline-menu">
-        <div class="link-list-wrapper">
-            <ul>
-            <li>
-                <a
-                class="list-item large medium right-icon p-0 text-decoration-none"
-                href="#collapse-one"
-                data-bs-toggle="collapse"
-                aria-expanded="true"
-                aria-controls="collapse-one"
-                data-focus-mouse="true"
-                >
-                <span class="list-item-title-icon-wrapper pb-10 px-3">
-                    <span
-                    id="accordion-title-one"
-                    class="title-xsmall-semi-bold"
-                    >INFORMAZIONI RICHIESTE</span
-                    >
-                    <svg class="icon icon-xs right">
-                    <use
-                        href="#it-expand"
-                    ></use>
-                    </svg>
-                </span>
-                <!-- Progress Bar -->
-                <div class="progress bg-light">
-                    <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 15%"
-                    aria-valuenow="15"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    ></div>
+    <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+        <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+            <div class="navbar-custom" id="navbarNavProgress">
+                <div class="menu-wrapper">
+                    <div class="link-list-wrapper">
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <span class="accordion-header" id="accordion-title-one">
+                                    <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                        INFORMAZIONI RICHIESTE
+                                        <svg class="icon icon-xs right">
+                                            <use href="#it-expand"></use>
+                                        </svg>
+                                    </button>
+                                </span>
+                                <div class="progress">
+                                    <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                    <div class="accordion-body">
+                                        <ul class="link-list" data-element="page-index">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#office">
+                                                <span class="title-medium">Ufficio</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </a>
-                <ul
-                class="link-sublist collapse show"
-                id="collapse-one"
-                data-element="page-index"
-                >
-                <li>
-                    <a
-                    class="list-item"
-                    href="#office"
-                    >
-                    <span class="title-medium">Ufficio</span>
-                    </a>
-                </li>
-                </ul>
-            </li>
-            </ul>
-        </div>
-        </div>
-    </aside>
+            </div>
+        </nav>
+    </div>
 </div>
 <!-- Step 2 -->
 <div class="col-12 col-lg-3 mb-4 d-none" data-index="2">
-    <aside
-    class="cmp-navscroll sticky-top"
-    aria-labelledby="accordion-title-one"
-    >
-    <div class="inline-menu">
-        <div class="link-list-wrapper">
-        <ul>
-            <li>
-            <a
-                class="list-item large medium right-icon p-0 text-decoration-none"
-                href="#collapse-one"
-                data-bs-toggle="collapse"
-                aria-expanded="true"
-                aria-controls="collapse-one"
-                data-focus-mouse="true"
-            >
-                <span class="list-item-title-icon-wrapper pb-10 px-3">
-                <span
-                    id="accordion-title-one"
-                    class="title-xsmall-semi-bold"
-                    >INFORMAZIONI RICHIESTE</span
-                >
-                <svg class="icon icon-xs right">
-                    <use
-                    href="#it-expand"
-                    ></use>
-                </svg>
-                </span>
-                <!-- Progress Bar -->
-                <div class="progress bg-light">
-                <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 15%"
-                    aria-valuenow="15"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                ></div>
+    <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+        <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+            <div class="navbar-custom" id="navbarNavProgress">
+                <div class="menu-wrapper">
+                    <div class="link-list-wrapper">
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <span class="accordion-header" id="accordion-title-one">
+                                    <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                        INFORMAZIONI RICHIESTE
+                                        <svg class="icon icon-xs right">
+                                            <use href="#it-expand"></use>
+                                        </svg>
+
+                                    </button>
+                                </span>
+                                <div class="progress">
+                                    <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                    <div class="accordion-body">
+                                        <ul class="link-list" data-element="page-index">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#appointment-available">
+                                                <span class="title-medium">Appuntamenti disponibili</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#office">
+                                                <span class="title-medium">Ufficio</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </a>
-            <ul
-                class="link-sublist collapse show"
-                id="collapse-one"
-                data-element="page-index"
-            >
-                <li>
-                <a
-                    class="list-item"
-                    href="#appointment-available"
-                >
-                    <span class="title-medium"
-                    >Appuntamenti disponibili</span
-                    >
-                </a>
-                </li>
-                <li>
-                <a
-                    class="list-item"
-                    href="#office-2"
-                >
-                    <span class="title-medium">Ufficio</span>
-                </a>
-                </li>
-            </ul>
-            </li>
-        </ul>
-        </div>
+            </div>
+        </nav>
     </div>
-    </aside>
 </div>
 <!-- Step 3 -->
 <div class="col-12 col-lg-3 mb-4 d-none" data-index="3">
-<aside
-    class="cmp-navscroll sticky-top"
-    aria-labelledby="accordion-title-one"
->
-    <div class="inline-menu">
-    <div class="link-list-wrapper">
-        <ul>
-        <li>
-            <a
-            class="list-item large medium right-icon p-0 text-decoration-none"
-            href="#collapse-one"
-            data-bs-toggle="collapse"
-            aria-expanded="true"
-            aria-controls="collapse-one"
-            data-focus-mouse="true"
-            >
-            <span class="list-item-title-icon-wrapper pb-10 px-3">
-                <span
-                id="accordion-title-one"
-                class="title-xsmall-semi-bold"
-                >INFORMAZIONI RICHIESTE</span
-                >
-                <svg class="icon icon-xs right">
-                <use
-                    href="#it-expand"
-                ></use>
-                </svg>
-            </span>
-            <!-- Progress Bar -->
-            <div class="progress bg-light">
-                <div
-                class="progress-bar"
-                role="progressbar"
-                style="width: 15%"
-                aria-valuenow="15"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                ></div>
+    <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+        <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+            <div class="navbar-custom" id="navbarNavProgress">
+                <div class="menu-wrapper">
+                    <div class="link-list-wrapper">
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <span class="accordion-header" id="accordion-title-one">
+                                    <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                        INFORMAZIONI RICHIESTE
+                                        <svg class="icon icon-xs right">
+                                            <use href="#it-expand"></use>
+                                        </svg>
+                                    </button>
+                                </span>
+                                <div class="progress">
+                                    <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                    <div class="accordion-body">
+                                        <ul class="link-list" data-element="page-index">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#reason">
+                                                <span class="title-medium">Motivo</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#details">
+                                                <span class="title-medium">Dettagli</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </a>
-            <ul
-            class="link-sublist collapse show"
-            id="collapse-one"
-            data-element="page-index"
-            >
-            <li>
-                <a
-                class="list-item"
-                href="#reason"
-                >
-                <span class="title-medium">Motivo</span>
-                </a>
-            </li>
-            <li>
-                <a
-                class="list-item"
-                href="#details"
-                >
-                <span class="title-medium">Dettagli</span>
-                </a>
-            </li>
-            </ul>
-        </li>
-        </ul>
+        </nav>
     </div>
-    </div>
-</aside>
 </div>
 <!-- Step 4 -->
 <div class="col-12 col-lg-3 mb-4 d-none" data-index="4">
-    <aside
-        class="cmp-navscroll sticky-top"
-        aria-labelledby="accordion-title-one"
-    >
-        <div class="inline-menu">
-        <div class="link-list-wrapper">
-            <ul>
-            <li>
-                <a
-                class="list-item large medium right-icon p-0 text-decoration-none"
-                href="#collapse-one"
-                data-bs-toggle="collapse"
-                aria-expanded="true"
-                aria-controls="collapse-one"
-                data-focus-mouse="true"
-                >
-                <span class="list-item-title-icon-wrapper pb-10 px-3">
-                    <span
-                    id="accordion-title-one"
-                    class="title-xsmall-semi-bold"
-                    >INFORMAZIONI RICHIESTE</span
-                    >
-                    <svg class="icon icon-xs right">
-                    <use
-                        href="#it-expand"
-                    ></use>
-                    </svg>
-                </span>
-                <!-- Progress Bar -->
-                <div class="progress bg-light">
-                    <div
-                    class="progress-bar"
-                    role="progressbar"
-                    style="width: 15%"
-                    aria-valuenow="15"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    ></div>
+    <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+        <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+            <div class="navbar-custom" id="navbarNavProgress">
+                <div class="menu-wrapper">
+                    <div class="link-list-wrapper">
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <span class="accordion-header" id="accordion-title-one">
+                                    <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                        INFORMAZIONI RICHIESTE
+                                        <svg class="icon icon-xs right">
+                                            <use href="#it-expand"></use>
+                                        </svg>
+                                    </button>
+                                </span>
+                                <div class="progress">
+                                    <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                    <div class="accordion-body">
+                                        <ul class="link-list" data-element="page-index">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#applicant">
+                                                <span class="title-medium">Richiedente</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </a>
-                <ul
-                class="link-sublist collapse show"
-                id="collapse-one"
-                data-element="page-index"
-                >
-                <li>
-                    <a
-                    class="list-item"
-                    href="#applicant"
-                    title="Vai alla sezione Ufficio"
-                    >
-                    <span class="title-medium">Richiedente</span>
-                    </a>
-                </li>
-                </ul>
-            </li>
-            </ul>
-        </div>
-        </div>
-    </aside>
+            </div>
+        </nav>
+    </div>
 </div>

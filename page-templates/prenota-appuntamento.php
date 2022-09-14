@@ -25,20 +25,26 @@ get_header();
                         <?php get_template_part("template-parts/common/breadcrumb"); ?>
                     </div>
                 </div>
-            </div>   
-            <div id="form-steps"> 
+            </div>
+            <div id="form-steps">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-lg-10">
-                            <div class="cmp-heading pb-3 pb-lg-4">
-                                <h1>Prenotazione appuntamento</h1>
+                            <div class="cmp-hero">
+                                <section class="it-hero-wrapper bg-white align-items-start">
+                                    <div class="it-hero-text-wrapper pt-0 ps-0 pb-3 pb-lg-4">
+                                        <h1 class="text-black hero-title" data-element="page-name">
+                                            Prenotazione appuntamento
+                                        </h1>
+                                    </div>
+                                </section>
                             </div>
                         </div>
                     </div>
                 </div>
                 <?php get_template_part("template-parts/prenotazione/tabs"); ?>
                 <div class="container">
-                    <div class="row justify-content-center">
+                    <div class="row">
                         <?php get_template_part("template-parts/prenotazione/index"); ?>
                         <div class="col-12 col-lg-8 offset-lg-1 section-wrapper">
                             <div class="steppers-content" aria-live="polite">
@@ -56,8 +62,8 @@ get_header();
 
 
 			<?php get_template_part("template-parts/common/assistenza-contatti"); ?>
-							
-		<?php 
+
+		<?php
 			endwhile; // End of the loop.
 		?>
 	</main>

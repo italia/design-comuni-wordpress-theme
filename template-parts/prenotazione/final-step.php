@@ -29,85 +29,52 @@
 </div>
 
 <div class="container">
-    <div class="row mb-4 mb-lg-80">
+    <div class="row mb-4 mt-lg-80">
         <div class="d-none d-sm-none d-lg-block col-lg-3">
-        <aside
-            class="cmp-navscroll sticky-top"
-            aria-labelledby="accordion-title-one"
-        >
-            <div class="inline-menu">
-            <div class="link-list-wrapper">
-                <ul>
-                <li>
-                    <a
-                    class="list-item large medium right-icon p-0 text-decoration-none"
-                    href="#collapse-one"
-                    data-bs-toggle="collapse"
-                    aria-expanded="true"
-                    aria-controls="collapse-one"
-                    data-focus-mouse="true"
-                    >
-                    <span class="list-item-title-icon-wrapper pb-10 px-3">
-                        <span
-                        id="accordion-title-one"
-                        class="title-xsmall-semi-bold"
-                        >INDICE DELLA PAGINA</span
-                        >
-                        <svg class="icon icon-xs right">
-                        <use
-                            href="#it-expand"
-                        ></use>
-                        </svg>
-                    </span>
-                    <!-- Progress Bar -->
-                    <div class="progress bg-light">
-                        <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: 15%"
-                        aria-valuenow="15"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                        ></div>
+            <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+                <div class="navbar-custom" id="navbarNavProgress">
+                    <div class="menu-wrapper">
+                        <div class="link-list-wrapper">
+                            <div class="accordion">
+                                <div class="accordion-item">
+                                    <span class="accordion-header" id="accordion-title-one">
+                                        <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                        INDICE DELLA PAGINA
+                                        <svg class="icon icon-xs right">
+                                            <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
+                                        </svg>
+                                        </button>
+                                    </span>
+                                    <div class="progress">
+                                        <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                        <div class="accordion-body">
+                                            <ul class="link-list" data-element="page-index">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#needed">
+                                                        <span class="title-medium">Cosa serve</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#address">
+                                                        <span class="title-medium">Indirizzo</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#calendar">
+                                                        <span class="title-medium">Aggiungi al tuo calendario</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    </a>
-                    <ul
-                    class="link-sublist collapse show"
-                    id="collapse-one"
-                    data-element="index-link-list"
-                    >
-                    <li>
-                        <a
-                        class="list-item"
-                        href="#needed"
-                        >
-                        <span class="title-medium">Cosa serve</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                        class="list-item"
-                        href="#address"
-                        >
-                        <span class="title-medium">Indirizzo</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                        class="list-item"
-                        href="#calendar"
-                        >
-                        <span class="title-medium"
-                            >Aggiungi al tuo calendario</span
-                        >
-                        </a>
-                    </li>
-                    </ul>
-                </li>
-                </ul>
+                </div>
             </div>
-            </div>
-        </aside>
         </div>
 
         <div class="col-12 col-lg-8 offset-lg-1">

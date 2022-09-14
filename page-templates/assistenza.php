@@ -18,7 +18,7 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			
+
 			$description = dci_get_meta('descrizione','_dci_page_',$post->ID);
             $categorie_servizio = get_terms(array (
                 'taxonomy' => 'categorie_servizio',
@@ -59,73 +59,48 @@ get_header();
                 <div class="container container-assistenza">
                     <div class="row mt-lg-50">
                     <div class="col-12 col-lg-3 d-lg-block mb-4 d-none">
-                        <aside
-                        class="cmp-navscroll sticky-top"
-                        aria-labelledby="accordion-title-one"
-                        >
-                        <div class="inline-menu">
-                            <div class="link-list-wrapper">
-                            <ul class="link-list">
-                                <li>
-                                <a
-                                    class="list-item large medium right-icon p-0 text-decoration-none"
-                                    href="#collapse-one"
-                                    data-bs-toggle="collapse"
-                                    aria-expanded="true"
-                                    aria-controls="collapse-one"
-                                    data-focus-mouse="true"
-                                >
-                                    <span class="list-item-title-icon-wrapper pb-10 px-3">
-                                    <span
-                                        id="accordion-title-one"
-                                        class="title-xsmall-semi-bold"
-                                        >INFORMAZIONI RICHIESTE</span
-                                    >
-                                    <svg class="icon icon-xs right">
-                                        <use
-                                        href="#it-expand"
-                                        ></use>
-                                    </svg>
-                                    </span>
-                                    <!-- Progress Bar -->
-                                    <div class="progress bg-light">
-                                    <div
-                                        class="progress-bar"
-                                        role="progressbar"
-                                        style="width: 15%"
-                                        aria-valuenow="15"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"
-                                    ></div>
+                        <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+                                <div class="navbar-custom" id="navbarNavProgress">
+                                    <div class="menu-wrapper">
+                                        <div class="link-list-wrapper">
+                                            <div class="accordion">
+                                                <div class="accordion-item">
+                                                    <span class="accordion-header" id="accordion-title-one">
+                                                        <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                                            INFORMAZIONI RICHIESTE
+                                                            <svg class="icon icon-xs right">
+                                                                <use href="#it-expand"
+                                                                ></use>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                                        <div class="accordion-body">
+                                                            <ul class="link-list" data-element="page-index">
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#applicant">
+                                                                        <span class="title-medium">Richiedente</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#request">
+                                                                        <span class="title-medium">Richiesta</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </a>
-                                <ul
-                                    class="link-sublist collapse show"
-                                    id="collapse-one"
-                                    data-element="page-index"
-                                >
-                                    <li>
-                                    <a
-                                        class="list-item"
-                                        href="#applicant"
-                                    >
-                                        <span class="title-medium">Richiedente</span>
-                                    </a>
-                                    </li>
-                                    <li>
-                                    <a
-                                        class="list-item"
-                                        href="#request"
-                                    >
-                                        <span class="title-medium">Richiesta</span>
-                                    </a>
-                                    </li>
-                                </ul>
-                                </li>
-                            </ul>
-                            </div>
+                                </div>
+                            </nav>
                         </div>
-                        </aside>
                     </div>
                     <div class="col-12 col-lg-8 offset-lg-1">
                         <form
@@ -356,13 +331,13 @@ get_header();
                                     </svg>
                                     <h1 class="text-black hero-title" data-element="page-name">Richiesta inviata</h1>
                                     </div>
-                            
+
                                 <p class="titillium hero-text">La richiesta di assistenza è stata inviata con successo, sarai ricontattato presto.<br><br>
                                     Abbiamo inviato il riepilogo all’email:<br>
                                     <strong id="email-recap"></strong></p>
                                 </div>
                             </section>
-                            </div>      
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -370,7 +345,7 @@ get_header();
             </div>
 
 			<?php get_template_part("template-parts/common/assistenza-contatti"); ?>
-		<?php 
+		<?php
 			endwhile; // End of the loop.
 		?>
 	</main>
