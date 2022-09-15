@@ -68,7 +68,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#office">
+                                                <a class="nav-link" href="#office-2">
                                                 <span class="title-medium">Ufficio</span>
                                                 </a>
                                             </li>

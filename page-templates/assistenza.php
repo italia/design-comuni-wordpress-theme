@@ -177,7 +177,7 @@ get_header();
                                             </div>
                                         </div>
                                     </section>
-                                    <section class="it-page-section" id="applicant">
+                                    <section class="it-page-section" id="request">
                                         <div class="cmp-card mb-40">
                                             <div class="card has-bkg-grey shadow-sm p-big">
                                             <div class="card-header border-0 p-0 mb-lg-30">
