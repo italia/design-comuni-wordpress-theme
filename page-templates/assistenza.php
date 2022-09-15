@@ -58,263 +58,267 @@ get_header();
                 </div>
                 <div class="container container-assistenza">
                     <div class="row mt-lg-50">
-                    <div class="col-12 col-lg-3 d-lg-block mb-4 d-none">
-                        <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
-                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
-                                <div class="navbar-custom" id="navbarNavProgress">
-                                    <div class="menu-wrapper">
-                                        <div class="link-list-wrapper">
-                                            <div class="accordion">
-                                                <div class="accordion-item">
-                                                    <span class="accordion-header" id="accordion-title-one">
-                                                        <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
-                                                            INFORMAZIONI RICHIESTE
-                                                            <svg class="icon icon-xs right">
-                                                                <use href="#it-expand"
-                                                                ></use>
-                                                            </svg>
-                                                        </button>
-                                                    </span>
-                                                    <div class="progress">
-                                                        <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
-                                                        <div class="accordion-body">
-                                                            <ul class="link-list" data-element="page-index">
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="#applicant">
-                                                                        <span class="title-medium">Richiedente</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="#request">
-                                                                        <span class="title-medium">Richiesta</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
+                        <div class="col-12 col-lg-3 d-lg-block mb-4 d-none">
+                            <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+                                <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+                                    <div class="navbar-custom" id="navbarNavProgress">
+                                        <div class="menu-wrapper">
+                                            <div class="link-list-wrapper">
+                                                <div class="accordion">
+                                                    <div class="accordion-item">
+                                                        <span class="accordion-header" id="accordion-title-one">
+                                                            <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                                                INFORMAZIONI RICHIESTE
+                                                                <svg class="icon icon-xs right">
+                                                                    <use href="#it-expand"
+                                                                    ></use>
+                                                                </svg>
+                                                            </button>
+                                                        </span>
+                                                        <div class="progress">
+                                                            <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                                            <div class="accordion-body">
+                                                                <ul class="link-list" data-element="page-index">
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" href="#applicant">
+                                                                            <span class="title-medium">Richiedente</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" href="#request">
+                                                                            <span class="title-medium">Richiesta</span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-8 offset-lg-1">
-                        <form
-                        class="steppers-content"
-                        aria-live="polite"
-                        id="justValidateForm"
-                        >
-                        <div class="cmp-card mb-40">
-                            <div class="card has-bkg-grey shadow-sm p-big">
-                            <div class="card-header border-0 p-0 mb-lg-30">
-                                <div class="d-flex">
-                                <h2 class="title-xxlarge mb-0" id="applicant">
-                                    Richiedente
-                                </h2>
-                                </div>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="form-wrapper bg-white p-4">
-                                <div class="form-group cmp-input mb-0">
-                                    <label class="cmp-input__label" for="name">Nome*</label>
-                                    <input
-                                    type="text"
-                                    class="form-control mt-4"
-                                    id="name"
-                                    name="name"
-                                    required
-                                    />
-                                    <div class="d-flex">
-                                    <span class="form-text cmp-input__text">
-                                        Inserisci il tuo nome</span
-                                    >
-                                    </div>
-                                </div>
-
-                                <div class="form-group cmp-input mb-0">
-                                    <label class="cmp-input__label" for="surname"
-                                    >Cognome*</label
-                                    >
-                                    <input
-                                    type="text"
-                                    class="form-control"
-                                    id="surname"
-                                    name="surname"
-                                    required
-                                    />
-                                    <div class="d-flex">
-                                    <span class="form-text cmp-input__text">
-                                        Inserisci il tuo cognome</span
-                                    >
-                                    </div>
-                                </div>
-
-                                <div class="form-group cmp-input mb-0">
-                                    <label class="cmp-input__label" for="email"
-                                    >Email*</label
-                                    >
-                                    <input
-                                    type="email"
-                                    class="form-control"
-                                    id="email"
-                                    name="email"
-                                    required
-                                    />
-                                    <div class="d-flex">
-                                    <span class="form-text cmp-input__text">
-                                        Inserisci la tua email</span
-                                    >
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
+                                </nav>
                             </div>
                         </div>
+                        <div class="col-12 col-lg-8 offset-lg-1">
+                            <form
+                            class="steppers-content"
+                            aria-live="polite"
+                            id="justValidateForm"
+                            >
+                                <div class="it-page-sections-container">
+                                    <section class="it-page-section" id="applicant">
+                                        <div class="cmp-card mb-40">
+                                            <div class="card has-bkg-grey shadow-sm p-big">
+                                            <div class="card-header border-0 p-0 mb-lg-30">
+                                                <div class="d-flex">
+                                                <h2 class="title-xxlarge mb-0">
+                                                    Richiedente
+                                                </h2>
+                                                </div>
+                                            </div>
+                                            <div class="card-body p-0">
+                                                <div class="form-wrapper bg-white p-4">
+                                                <div class="form-group cmp-input mb-0">
+                                                    <label class="cmp-input__label" for="name">Nome*</label>
+                                                    <input
+                                                    type="text"
+                                                    class="form-control mt-4"
+                                                    id="name"
+                                                    name="name"
+                                                    required
+                                                    />
+                                                    <div class="d-flex">
+                                                    <span class="form-text cmp-input__text">
+                                                        Inserisci il tuo nome</span
+                                                    >
+                                                    </div>
+                                                </div>
 
-                        <div class="cmp-card mb-40">
-                            <div class="card has-bkg-grey shadow-sm p-big">
-                            <div class="card-header border-0 p-0 mb-lg-30">
-                                <div class="d-flex">
-                                <h2 class="title-xxlarge mb-0" id="request">Richiesta</h2>
-                                </div>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="form-wrapper bg-white p-4">
-                                <div class="select-wrapper mb-40 mt-4 bg-transparent p-0">
-                                    <label for="category" class=""
-                                    >Categoria di servizio*</label
-                                    >
-                                    <select
-                                    id="category"
-                                    class="bg-transparent form-control"
-                                    required
-                                    >
-                                        <option selected="selected" value="">
-                                            Seleziona categoria
-                                        </option>
-                                        <?php foreach ($categorie_servizio as $categoria) {
-                                            echo '<option value="'.$categoria->term_id.'">'.$categoria->name.'</option>';
-                                        } ?>
-                                    </select>
-                                    <div class="d-flex">
-                                    <span class="form-text cmp-input__text">
-                                        Seleziona la categoria del servizio per cui vuoi
-                                        richiedere assistenza</span
-                                    >
+                                                <div class="form-group cmp-input mb-0">
+                                                    <label class="cmp-input__label" for="surname"
+                                                    >Cognome*</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="surname"
+                                                    name="surname"
+                                                    required
+                                                    />
+                                                    <div class="d-flex">
+                                                    <span class="form-text cmp-input__text">
+                                                        Inserisci il tuo cognome</span
+                                                    >
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group cmp-input mb-0">
+                                                    <label class="cmp-input__label" for="email"
+                                                    >Email*</label
+                                                    >
+                                                    <input
+                                                    type="email"
+                                                    class="form-control"
+                                                    id="email"
+                                                    name="email"
+                                                    required
+                                                    />
+                                                    <div class="d-flex">
+                                                    <span class="form-text cmp-input__text">
+                                                        Inserisci la tua email</span
+                                                    >
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="it-page-section" id="applicant">
+                                        <div class="cmp-card mb-40">
+                                            <div class="card has-bkg-grey shadow-sm p-big">
+                                            <div class="card-header border-0 p-0 mb-lg-30">
+                                                <div class="d-flex">
+                                                <h2 class="title-xxlarge mb-0" id="request">Richiesta</h2>
+                                                </div>
+                                            </div>
+                                            <div class="card-body p-0">
+                                                <div class="form-wrapper bg-white p-4">
+                                                <div class="select-wrapper mb-40 mt-4 bg-transparent p-0">
+                                                    <label for="category" class=""
+                                                    >Categoria di servizio*</label
+                                                    >
+                                                    <select
+                                                    id="category"
+                                                    class="bg-transparent form-control"
+                                                    required
+                                                    >
+                                                        <option selected="selected" value="">
+                                                            Seleziona categoria
+                                                        </option>
+                                                        <?php foreach ($categorie_servizio as $categoria) {
+                                                            echo '<option value="'.$categoria->term_id.'">'.$categoria->name.'</option>';
+                                                        } ?>
+                                                    </select>
+                                                    <div class="d-flex">
+                                                    <span class="form-text cmp-input__text">
+                                                        Seleziona la categoria del servizio per cui vuoi
+                                                        richiedere assistenza</span
+                                                    >
+                                                    </div>
+                                                </div>
+
+                                                <div class="select-wrapper p-big bg-transparent p-0">
+                                                    <label for="service" class="">Servizio*</label>
+                                                    <select
+                                                    id="service"
+                                                    class="bg-transparent form-control"
+                                                    required
+                                                    >
+                                                        <option selected="selected" value="">
+                                                            Scegli il servizio
+                                                        </option>
+                                                    </select>
+                                                    <div class="d-flex">
+                                                    <span class="form-text cmp-input__text">
+                                                        Seleziona il servizio per cui vuoi richiedere
+                                                        assistenza</span
+                                                    >
+                                                    </div>
+                                                </div>
+
+                                                <div class="cmp-text-area p-0 mt-40">
+                                                    <div class="form-group">
+                                                    <label for="description" class="d-block"
+                                                        >Dettagli*</label
+                                                    >
+                                                    <textarea
+                                                        class="text-area form-control"
+                                                        id="description"
+                                                        rows="2"
+                                                        required
+                                                    ></textarea>
+                                                    <span class="label"
+                                                        >Inserire massimo 600 caratteri</span
+                                                    >
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <div class="privacy-wrapper">
+                                        <p class="text-paragraph mb-3">
+                                        Per i dettagli sul trattamento dei dati personali consulta l’
+                                        <a
+                                            href="#"
+                                            class="t-primary"
+                                            >informativa sulla privacy.</a
+                                        >
+                                        </p>
+
+                                        <div class="form-check mb-2">
+                                        <div
+                                            class="checkbox-body d-flex align-items-center flex-wrap"
+                                        >
+                                            <input
+                                            type="checkbox"
+                                            id="privacy"
+                                            name="privacy-field"
+                                            value="privacy-field"
+                                            required
+                                            />
+                                            <label class="title-small-semi-bold pt-1 mb-0" for="privacy"
+                                            >Ho letto e compreso l’informativa sulla privacy</label
+                                            >
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="cmp-nav-steps">
+                                        <nav class="steppers-nav">
+                                        <button
+                                            type="button"
+                                            class="btn btn-sm steppers-btn-prev p-0"
+                                        >
+                                            <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                            <use
+                                                href="#it-chevron-left"
+                                            ></use>
+                                            </svg>
+                                            <span class="text-button-sm t-primary">Indietro</span>
+                                        </button>
+
+                                        <button
+                                            type="submit"
+                                            class="btn btn-primary btn-sm steppers-btn-confirm send"
+                                            data-bs-validate="validate"
+                                        >
+                                            <span class="text-button-sm">Invia</span>
+                                            <svg class="icon icon-white icon-sm">
+                                            <use
+                                                href="#it-chevron-right"
+                                            ></use>
+                                            </svg>
+                                        </button>
+                                        </nav>
+                                        <div
+                                        id="alert-message"
+                                        class="alert alert-success cmp-disclaimer rounded d-none"
+                                        role="alert"
+                                        >
+                                        <span
+                                            class="d-inline-block text-uppercase cmp-disclaimer__message"
+                                            >Richiesta salvata con successo</span
+                                        >
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="select-wrapper p-big bg-transparent p-0">
-                                    <label for="service" class="">Servizio*</label>
-                                    <select
-                                    id="service"
-                                    class="bg-transparent form-control"
-                                    required
-                                    >
-                                        <option selected="selected" value="">
-                                            Scegli il servizio
-                                        </option>
-                                    </select>
-                                    <div class="d-flex">
-                                    <span class="form-text cmp-input__text">
-                                        Seleziona il servizio per cui vuoi richiedere
-                                        assistenza</span
-                                    >
-                                    </div>
-                                </div>
-
-                                <div class="cmp-text-area p-0 mt-40">
-                                    <div class="form-group">
-                                    <label for="description" class="d-block"
-                                        >Dettagli*</label
-                                    >
-                                    <textarea
-                                        class="text-area form-control"
-                                        id="description"
-                                        rows="2"
-                                        required
-                                    ></textarea>
-                                    <span class="label"
-                                        >Inserire massimo 600 caratteri</span
-                                    >
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
+                            </form>
                         </div>
-
-                        <div class="privacy-wrapper">
-                            <p class="text-paragraph mb-3">
-                            Per i dettagli sul trattamento dei dati personali consulta l’
-                            <a
-                                href="#"
-                                class="t-primary"
-                                >informativa sulla privacy.</a
-                            >
-                            </p>
-
-                            <div class="form-check mb-2">
-                            <div
-                                class="checkbox-body d-flex align-items-center flex-wrap"
-                            >
-                                <input
-                                type="checkbox"
-                                id="privacy"
-                                name="privacy-field"
-                                value="privacy-field"
-                                required
-                                />
-                                <label class="title-small-semi-bold pt-1 mb-0" for="privacy"
-                                >Ho letto e compreso l’informativa sulla privacy</label
-                                >
-                            </div>
-                            </div>
-                        </div>
-                        <div class="cmp-nav-steps">
-                            <nav class="steppers-nav">
-                            <button
-                                type="button"
-                                class="btn btn-sm steppers-btn-prev p-0"
-                            >
-                                <svg class="icon icon-primary icon-sm" aria-hidden="true">
-                                <use
-                                    href="#it-chevron-left"
-                                ></use>
-                                </svg>
-                                <span class="text-button-sm t-primary">Indietro</span>
-                            </button>
-
-                            <button
-                                type="submit"
-                                class="btn btn-primary btn-sm steppers-btn-confirm send"
-                                data-bs-validate="validate"
-                            >
-                                <span class="text-button-sm">Invia</span>
-                                <svg class="icon icon-white icon-sm">
-                                <use
-                                    href="#it-chevron-right"
-                                ></use>
-                                </svg>
-                            </button>
-                            </nav>
-                            <div
-                            id="alert-message"
-                            class="alert alert-success cmp-disclaimer rounded d-none"
-                            role="alert"
-                            >
-                            <span
-                                class="d-inline-block text-uppercase cmp-disclaimer__message"
-                                >Richiesta salvata con successo</span
-                            >
-                            </div>
-                        </div>
-                        </form>
-                    </div>
                     </div>
                 </div>
             </div>
