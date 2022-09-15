@@ -334,11 +334,14 @@ Prima di tutto assicurati che sia un problema relativo al tema WordPress e non a
 
 ## Come contribuire
 
-Vorresti dare una mano su Bootstrap Italia? Sei nel posto giusto!
+Vorresti dare una mano contribuendo allo sviluppo del tema?
 
-Se non l'hai già fatto, inizia spendendo qualche minuto per approfondire la tua conoscenza sulle [linee guida di design per i servizi web della PA](https://design-italia.readthedocs.io/it/stable/index.html), e fai riferimento alle [indicazioni su come contribuire a Bootstrap Italia](https://github.com/italia/bootstrap-italia/blob/master/CONTRIBUTING.md).
+Se non l'hai già fatto, inizia spendendo qualche minuto per approfondire la tua conoscenza su l'[Architettura dell'Informazione dei siti web dei Comuni Italiani](https://docs.google.com/spreadsheets/d/1D4KbaA__xO9x_iBm08KvZASjrrFLYLKX/edit#gid=1529184526) e fai riferimento alle [indicazioni su come contribuire](https://github.com/italia/design-comuni-wordpress-theme/blob/main/CONTRIBUTING.md).
 
-A questo punto, è necessario impostare il tuo ambiente locale per la compilazione dei file sorgente e la generazione della documentazione. Alla [pagina relativa agli strumenti di compilazione](https://italia.github.io/bootstrap-italia/docs/come-iniziare/strumenti-di-compilazione/) è possibile avere tutte le informazioni necessarie a questo scopo.
+A questo punto, è necessario scaricare una copia in locale del tema tramite il comando `git fork https://github.com/italia/design-comuni-wordpress-theme.git` da terminale o cliccando sul pulsante Fork <br>
+![fork](https://user-images.githubusercontent.com/69706/188419656-21fa5b0e-c52a-4168-a1d1-8ea9a149da6a.png)
+
+Una volta terminate le modifiche, è necessario aprire una _pull request_ per sottoporle alla revisione del team. 
 
 ---
 
