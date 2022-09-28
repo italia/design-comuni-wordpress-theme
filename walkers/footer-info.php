@@ -31,7 +31,5 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
 		$output .= '<a href="' . $item->url . '" '.$data_element.'>';
 		$output .= $item->title;		
 		$output .= '</a>';
-
-		$output .= "</li>";
 	}
 }
