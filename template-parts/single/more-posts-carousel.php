@@ -8,15 +8,15 @@ $oldpost = $post;
 $argomenti = dci_get_argomenti_of_post();
 if(count($argomenti)) {
 	// estraggo i nomi
-	$arr_ids = array();
+	$arr_slugs = array();
 	foreach ( $argomenti as $item ) {
-		$arr_ids[] = $item->name;
+		$arr_slugs[] = $item->slug;
 	}
   $amount = 10;
-	$amministrazione = dci_get_grouped_posts_by_term('amministrazione', 'argomenti', $arr_ids, $amount);
-	$servizi = dci_get_grouped_posts_by_term('servizi', 'argomenti', $arr_ids, $amount);
-	$documenti = dci_get_grouped_posts_by_term('documenti-e-dati', 'argomenti', $arr_ids, $amount);
-	$notizie = dci_get_grouped_posts_by_term('novita', 'argomenti', $arr_ids, $amount);
+	$amministrazione = dci_get_grouped_posts_by_term('amministrazione', 'argomenti', $arr_slugs, $amount);
+	$servizi = dci_get_grouped_posts_by_term('servizi', 'argomenti', $arr_slugs, $amount);
+	$documenti = dci_get_grouped_posts_by_term('documenti-e-dati', 'argomenti', $arr_slugs, $amount);
+	$notizie = dci_get_grouped_posts_by_term('novita', 'argomenti', $arr_slugs, $amount);
 
 	$posts_found = count($amministrazione) + count($servizi) + count($documenti) + count($notizie);
 
