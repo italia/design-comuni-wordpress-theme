@@ -118,7 +118,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         ),
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
+            'textarea_rows' => 10, // rows="..."
             'teeny' => true, // output the minimal editor config used in Press This
         ),
     ) );
@@ -298,7 +298,7 @@ function dci_add_unita_organizzativa_metaboxes() {
         'type' => 'wysiwyg',
         'options' => array(
             'media_buttons' => false,
-            'textarea_rows' => 6,
+            'textarea_rows' => 10,
             'teeny' => true,
         ),
     ) );

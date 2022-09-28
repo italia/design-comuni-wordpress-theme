@@ -182,7 +182,7 @@ function dci_add_notizia_metaboxes() {
             'required'    => 'required'
         ),
         'options' => array(
-            'textarea_rows' => 7, // rows="..."
+            'textarea_rows' => 10, // rows="..."
             'teeny' => true, // output the minimal editor config used in Press This
         ),
     ) );
