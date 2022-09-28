@@ -47,7 +47,6 @@ function dci_evento_add_content_after_title($post) {
         _e('<span><i>il <b>Titolo</b> è il <b>Nome dell\'Evento</b>.</i></span><br><br>', 'design_comuni_italia' );
 }
 
-
 /**
  * Crea i metabox del post type eventi
  */
@@ -485,10 +484,18 @@ function dci_evento_set_post_content( $data ) {
         }
 
         $content = $descrizione_breve.'<br>'.$descrizione_estesa.'<br>'.$info;
-
         $data['post_content'] = $content;
-    }
 
+        /**
+         * Pulizia field data per campi non compilati
+         */
+        if (isset($_POST['_dci_evento_data_orario_inizio']) && isset($_POST['_dci_evento_data_orario_inizio']['date']) && $_POST['_dci_evento_data_orario_inizio']['date'] == "") {
+            unset($_POST["_dci_evento_data_orario_inizio"]);
+        }
+        if (isset($_POST['_dci_evento_data_orario_fine']) && isset($_POST['_dci_evento_data_orario_fine']['date']) && $_POST['_dci_evento_data_orario_fine']['date'] == "") {
+            unset($_POST["_dci_evento_data_orario_fine"]);
+        }
+    }
     return $data;
 }
 add_filter( 'wp_insert_post_data' , 'dci_evento_set_post_content' , '99', 1 );
