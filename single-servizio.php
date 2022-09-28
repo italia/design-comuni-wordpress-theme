@@ -279,7 +279,7 @@ get_header();
                         <section class="mb-30">
                             <div class="cmp-timeline">
                                 <h2 class="title-xxlarge mb-3" id="deadlines">Tempi e scadenze</h2>
-                                <p class="text-paragraph mb-3 lora">
+                                <p class="richtext-wrapper lora">
                                     <?php echo $fasi_scadenze_intro; ?>
                                 </p>
                                 <div class="calendar-vertical mb-3">
