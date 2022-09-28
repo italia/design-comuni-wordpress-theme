@@ -275,6 +275,7 @@ appointment.addEventListener("change", () => {
       return response.json();
     })
     .then((data) => {
+      data = data[appointment?.value]
       document.querySelector("#radio-appointment").innerHTML =
         '<legend class="visually-hidden">Seleziona un giorno e orario</legend>';
       for (const dates of data) {
