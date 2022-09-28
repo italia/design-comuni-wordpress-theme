@@ -20,7 +20,7 @@ if($luogo->post_parent == 0){
 	//$telefono = dci_get_meta("telefono", "_dci_luogo_", $luogo->post_parent);
 }
 
-$orario_pubblico = dci_get_meta("orario_pubblico", '_dci_luogo_', $luogo->ID);
+$orario_pubblico = dci_get_wysiwyg_field("orario_pubblico", '_dci_luogo_', $luogo->ID);
 /*
 if(isset($struttura->ID) && dci_get_meta("telefono", '_dci_struttura_', $struttura->ID) != "")
 	$telefono = dci_get_meta("telefono", '_dci_struttura_', $struttura->ID);
