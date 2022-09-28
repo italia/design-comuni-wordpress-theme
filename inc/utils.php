@@ -258,7 +258,7 @@ if(!function_exists("dci_get_grouped_posts_by_term")) {
             'order' => 'DESC',
         );
         if (get_class(get_queried_object())== "WP_Post"){
-            $args['post__not_in'] = get_queried_object()->ID;
+            $args['post__not_in'] = array(get_queried_object()->ID);
         }
         $posts = get_posts($args);
         return $posts;
