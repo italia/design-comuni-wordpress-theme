@@ -198,7 +198,6 @@ function dci_add_servizi_metaboxes() {
         'object_types' => array( 'servizio' ),
         'context'      => 'normal',
         'priority'     => 'high',
-        'show_in_rest' => WP_REST_Server::READABLE
     ) );
 
     $cmb_come_fare->add_field( array(
@@ -223,7 +222,6 @@ function dci_add_servizi_metaboxes() {
         'object_types' => array( 'servizio' ),
         'context'      => 'normal',
         'priority'     => 'high',
-        'show_in_rest' => WP_REST_Server::READABLE
     ) );
 
     $cmb_cosa_serve->add_field( array(
@@ -256,7 +254,6 @@ function dci_add_servizi_metaboxes() {
         'object_types' => array( 'servizio' ),
         'context'      => 'normal',
         'priority'     => 'high',
-        'show_in_rest' => WP_REST_Server::READABLE
     ) );
 
     $cmb_cosa_ottieni->add_field( array(
@@ -333,6 +330,7 @@ function dci_add_servizi_metaboxes() {
         'object_types' => array( 'servizio' ),
         'context'      => 'normal',
         'priority'     => 'high',
+        'show_in_rest' => WP_REST_Server::READABLE
     ) );
 
     $cmb_accesso->add_field( array(
