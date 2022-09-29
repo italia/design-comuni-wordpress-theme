@@ -11,11 +11,10 @@ jQuery( document ).ready(function() {
         /**
          * controllo compilazione campo Argomenti
          */
-        if(jQuery('input[name^="_dci_evento_argomenti"]:checked').length == 0){
+        if(document.activeElement.id === 'publish' && jQuery('input[name^="_dci_evento_argomenti"]:checked').length == 0){
             dci_highlight_missing_field('.cmb2-id--dci-evento-argomenti');
             return false;
         }
-
         return true;
     });
 });

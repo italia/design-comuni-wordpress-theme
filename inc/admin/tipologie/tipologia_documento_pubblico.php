@@ -332,7 +332,6 @@ function dci_add_documento_pubblico_metaboxes()
         'date_format' => 'd-m-Y',
     ));
 
-
     //dataset
     $cmb_dataset = new_cmb2_box(array(
         'id' => $prefix . 'box_dataset',
@@ -342,7 +341,7 @@ function dci_add_documento_pubblico_metaboxes()
         'priority' => 'high',
     ));
 
-    $cmb_servizi->add_field( array(
+    $cmb_dataset->add_field( array(
         'id' => $prefix . 'dataset',
         'desc' => __( 'Schede Dataset collegate al documento' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
@@ -421,8 +420,6 @@ function dci_add_documento_pubblico_metaboxes()
         'show_option_none' => false,
         'remove_default' => 'true',
     ) );
-
-
 }
 
 /**

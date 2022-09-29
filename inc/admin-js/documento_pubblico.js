@@ -30,7 +30,7 @@ jQuery( document ).ready(function() {
         /**
          * controllo compilazione campo Argomenti
          */
-        if(jQuery('input[name^="_dci_documento_pubblico_argomenti"]:checked').length == 0){
+        if(document.activeElement.id === 'publish' && jQuery('input[name^="_dci_documento_pubblico_argomenti"]:checked').length == 0){
             dci_highlight_missing_field('.cmb2-id--dci-documento-pubblico-argomenti');
             return false;
         }
@@ -38,7 +38,7 @@ jQuery( document ).ready(function() {
         /**
          * controllo compilaziono tassonomia tipi_doc_albo_pretorio se tassonomia tipi_dcoumento è 'documento albo pretorio'
          */
-        if((jQuery('input[name^="_dci_documento_pubblico_tipo_doc_albo_pretorio"]:checked').length == 0) && (jQuery('input[name^="_dci_documento_pubblico_file_documento"]:checked').val() == 'documento-albo-pretorio')){
+        if(document.activeElement.id === 'publish' && (jQuery('input[name^="_dci_documento_pubblico_tipo_doc_albo_pretorio"]:checked').length == 0) && (jQuery('input[name^="_dci_documento_pubblico_file_documento"]:checked').val() == 'documento-albo-pretorio')){
             dci_highlight_missing_field ('.cmb2-id--dci-documento-pubblico-tipo-doc-albo-pretorio');
             return false;
         }
@@ -46,12 +46,12 @@ jQuery( document ).ready(function() {
         /**
          * controllo compilazione alternativa url documento - file documento
          */
-        if((!jQuery('input[name^="_dci_documento_pubblico_url_documento"]').val() && jQuery('#_dci_documento_pubblico_file_documento-status').children().length == 0 && !jQuery('input[name^="_dci_documento_pubblico_file_documento"]').val())){
+        if(document.activeElement.id === 'publish' &&(!jQuery('input[name^="_dci_documento_pubblico_url_documento"]').val() && jQuery('#_dci_documento_pubblico_file_documento-status').children().length == 0 && !jQuery('input[name^="_dci_documento_pubblico_file_documento"]').val())){
             dci_highlight_alternative_field('#_dci_documento_pubblico_box_documento', 'Campo obbligatorio');
             return false;
         }
 
-        if((jQuery('input[name^="_dci_documento_pubblico_url_documento"]').val() && (jQuery('#_dci_documento_pubblico_file_documento-status').children().length != 0 || jQuery('input[name^="_dci_documento_pubblico_file_documento"]').val()))){
+        if(document.activeElement.id === 'publish' && (jQuery('input[name^="_dci_documento_pubblico_url_documento"]').val() && (jQuery('#_dci_documento_pubblico_file_documento-status').children().length != 0 || jQuery('input[name^="_dci_documento_pubblico_file_documento"]').val()))){
             dci_highlight_alternative_field('#_dci_documento_pubblico_box_documento','Inserire alternativamente un URL o un allegato');
             return false;
         }

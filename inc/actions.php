@@ -1,12 +1,10 @@
 <?php
 
 /**
- * Require post title for custom post types
+ * Require post title and given wysiwyg fields for custom post types
  */
 add_action( 'edit_form_advanced', 'force_post_title' );
 function force_post_title( $post )  {
-
-    // List of post types that we want to require post titles for.
     $post_types = dci_get_tipologie_names();
 
     //remove control for persona_pubblica
@@ -27,77 +25,85 @@ function force_post_title( $post )  {
     ?>
     <script type='text/javascript'>
         ( function ( $ ) {
-
-            const required_dci_cmb2_wysiwyg_fields = [
-                '_dci_unita_organizzativa_competenze',
-                '_dci_luogo_modalita_accesso',
-                '_dci_dataset_distribuzione',
-                '_dci_documento_privato_formati',
-                '_dci_documento_pubblico_formati',
-                '_dci_evento_descrizione_completa',
-                '_dci_evento_a_chi_e_rivolto',
-                '_dci_messaggio_testo_messaggio',
-                '_dci_notizia_testo_completo',
-                '_dci_pagamento_descrizione_pagamento',
-                '_dci_pagamento_modalita_pagamento',
-                '_dci_pratica_descrizione',
-                '_dci_servizio_a_chi_e_rivolto',
-                '_dci_servizio_come_fare',
-                '_dci_servizio_cosa_serve_introduzione',
-                '_dci_servizio_output',
-                '_dci_servizio_procedure_collegate',
-                '_dci_servizio_tempi_text',
-            ]
-
             $( document ).ready( function () {
+
+                jQuery("#title").on('change keyup paste', function(){
+                    jQuery("#titlewrap").removeClass("highlighted_missing_field");
+                    jQuery( "#title-required-msj").remove()
+                });
+
                 //Require post title when adding/editing Project Summaries
-
                 $( 'body' ).on( 'submit.edit-post', '#post', function () {
-
+                    //validate only if publishing
+                    if (document.activeElement.id !== 'publish') {
+                        return true;
+                    }
+                    const required_dci_cmb2_wysiwyg_fields = [
+                        '_dci_unita_organizzativa_competenze',
+                        '_dci_luogo_modalita_accesso',
+                        '_dci_dataset_distribuzione',
+                        '_dci_documento_privato_formati',
+                        '_dci_documento_pubblico_formati',
+                        '_dci_evento_descrizione_completa',
+                        '_dci_evento_a_chi_e_rivolto',
+                        '_dci_messaggio_testo_messaggio',
+                        '_dci_notizia_testo_completo',
+                        '_dci_pagamento_descrizione_pagamento',
+                        '_dci_pagamento_modalita_pagamento',
+                        '_dci_pratica_descrizione',
+                        '_dci_servizio_a_chi_e_rivolto',
+                        '_dci_servizio_come_fare',
+                        '_dci_servizio_cosa_serve_introduzione',
+                        '_dci_servizio_output',
+                        '_dci_servizio_procedure_collegate',
+                        '_dci_servizio_tempi_text',
+                    ]
                     for (const field_id of required_dci_cmb2_wysiwyg_fields) {
-
-                        if ( $( "#"+field_id ).val() !== undefined && !$( "#"+field_id ).val()) {
+                        if ( jQuery( "#"+field_id ).val() !== undefined && !jQuery( "#"+field_id ).val()) {
                             // Show the alert
                             var alertid = field_id+"-required-msj"
-                            if ( !$( "#"+alertid ).length ) {
-                                $( "#wp-"+field_id+"-wrap" )
+                            if ( !jQuery( "#"+alertid ).length ) {
+                                jQuery( "#wp-"+field_id+"-wrap" )
                                     .append( '<div id="'+alertid+'"><em>Campo obbligatorio</em></div>' )
-                                    .css({
-                                        "padding": "5px",
-                                        "margin": "5px 0",
-                                        "background": "#ffebe8",
-                                        "border": "1px solid #c00"
-                                    });
+                                    .addClass("highlighted_missing_field")
+                                setTimeout( function(){
+                                    jQuery("#wp-"+field_id+"-wrap").removeClass("highlighted_missing_field");
+                                    jQuery("#"+alertid).remove()
+                                } , 3000);
                             }
                             // Hide the spinner
-                            $( '#major-publishing-actions .spinner' ).hide();
+                            jQuery( '#major-publishing-actions .spinner' ).hide();
                             // The buttons get "disabled" added to them on submit. Remove that class.
-                            $( '#major-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
-                            // Focus on the title field.
-                            $( "#"+field_id).focus();
+                            jQuery( '#major-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
+                            jQuery( '#minor-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
+                            // Focus on the field.
+                            //jQuery( "#"+field_id).focus();
+                            jQuery('html,body').animate({
+                                scrollTop: jQuery("#"+field_id).parent().offset().top - 100
+                            }, 'slow');
+
                             return false;
                         }
                     }
 
                     // If the title isn't set
-                    if ( $( "#title" ).val().replace( / /g, '' ).length === 0 ) {
+                    if ( jQuery( "#title" ).val().replace( / /g, '' ).length === 0 ) {
                         // Show the alert
-                        if ( !$( "#title-required-msj" ).length ) {
-                            $( "#titlewrap" )
+                        if ( !jQuery( "#title-required-msj" ).length ) {
+                            jQuery( "#titlewrap" )
                                 .append( '<div id="title-required-msj"><em>il Titolo è obbligatorio</em></div>' )
-                                .css({
-                                    "padding": "5px",
-                                    "margin": "5px 0",
-                                    "background": "#ffebe8",
-                                    "border": "1px solid #c00"
-                                });
+                                .addClass("highlighted_missing_field")
                         }
                         // Hide the spinner
-                        $( '#major-publishing-actions .spinner' ).hide();
+                        jQuery( '#major-publishing-actions .spinner' ).hide();
                         // The buttons get "disabled" added to them on submit. Remove that class.
-                        $( '#major-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
+                        jQuery( '#major-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
+                        jQuery( '#minor-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
                         // Focus on the title field.
-                        $( "#title" ).focus();
+                        //jQuery( "#title" ).focus();
+                        jQuery('html,body').animate({
+                            scrollTop: jQuery("#title").parent().offset().top - 100
+                        }, 'slow');
                         return false;
                     }
                 });
