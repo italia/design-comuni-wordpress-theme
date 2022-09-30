@@ -112,7 +112,7 @@ function dci_add_dataset_metaboxes() {
         ),
         'options' => array(
             'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'teeny' => false, // output the minimal editor config used in Press This
         ),
     ) );
 
