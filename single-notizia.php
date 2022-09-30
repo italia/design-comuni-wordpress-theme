@@ -63,10 +63,10 @@ get_header();
             </div>
             <?php get_template_part('template-parts/single/image-large'); ?>
             <div class="container">
-                <div class="row border-top row-column-border row-column-menu-left border-light">
+                <div class="row border-top border-light row-column-border row-column-menu-left">
                     <aside class="col-lg-4">
                         <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
-                            <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg" data-bs-navscroll>
+                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
                                 <div class="navbar-custom" id="navbarNavProgress">
                                     <div class="menu-wrapper">
                                         <div class="link-list-wrapper">
