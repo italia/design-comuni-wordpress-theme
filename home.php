@@ -10,13 +10,17 @@
 get_header();
 ?>
     <main id="main-container" class="main-container redbrown">
+        <h1 class="visually-hidden" id="main-container">
+            <?php echo dci_get_option("nome_comune"); ?>
+        </h1>
         <section id="head-section">
-        <?php
+            <h2 class="visually-hidden">Ultime notizie</h2>
+            <?php
 			$messages = dci_get_option( "messages", "home_messages" );
             if($messages && !empty($messages)) {
                 get_template_part("template-parts/home/messages");
             }
-		?>
+		    ?>
             <?php get_template_part("template-parts/home/notizie"); ?>
             <?php get_template_part("template-parts/home/calendario"); ?>
         </section>
