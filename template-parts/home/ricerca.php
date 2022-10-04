@@ -3,7 +3,7 @@
 ?>
 
 <section id="novita" class="useful-links-section">
-    <div class="section section-muted pt-35 pb-35 pt-lg-45 pb-lg-45">
+    <div class="section section-muted p-0 py-5">
         <div class="container">
             <div class="row">
                 <div class="col col-sm-10 offset-sm-1 col-md-8 offset-md-2 px-0">
@@ -20,7 +20,6 @@
                                     <svg class="icon icon-sm icon-primary"><use href="#it-search"></use></svg>
                                 </span>
                             </div>
-                        
                         </div>
                     </div>
                 </form>
