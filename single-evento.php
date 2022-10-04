@@ -336,7 +336,6 @@ get_header();
                             echo '</ul></div>';
                         }
                     ?>
-                    <?php get_template_part('template-parts/single/recensione'); ?>
                     <?php if ($more_info) { ?>
                         <div class="mt-5">
                             <div class="callout">
