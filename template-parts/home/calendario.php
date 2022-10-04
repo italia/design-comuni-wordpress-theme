@@ -37,15 +37,15 @@ foreach ($date as $data) {
 		>
 			<div class="it-header-block">
 				<div class="it-header-block-title">
-					<h4 class="mb-0 text-center home-carousel-title"><?php echo $full_date; ?></h4>
+					<h3 class="mb-0 text-center home-carousel-title"><?php echo $full_date; ?></h3>
 				</div>
 			</div>
 			<div class="splide__track">
 				<ul class="splide__list it-carousel-all">
-					<?php foreach ($date as $data) { 
+					<?php foreach ($date as $data) {
 					$arrdata =  explode("-", $data);
 					$dayName = date_i18n('D', mktime(0, 0, 0,intval($arrdata[1]), intval($arrdata[2])));
-					
+
 					if ( is_array($calendario[$data]) && count($calendario[$data]) )
 					$eventi = $calendario[$data]['eventi'];
 					else $eventi = [];
@@ -56,7 +56,7 @@ foreach ($date as $data) {
 							<div class="card card-bg">
 							<div class="card-body">
 								<h4 class="card-title pb-4 mb-10"><?php echo $arrdata[2] ?><span><?php echo $dayName; ?></span></h4>
-								<?php 
+								<?php
 								if(is_array($eventi) && count($eventi)) {
 									foreach ($eventi as $evento) {
 										$img = dci_get_meta('immagine', '_dci_evento_', $evento['id']);
@@ -73,7 +73,7 @@ foreach ($date as $data) {
 					</li>
 					<?php } ?>
 				</ul>
-			</div>			
+			</div>
 		</div>
 		<?php } else {?>
 		<div class="it-carousel-wrapper it-carousel-landscape-abstract-four-cols it-calendar-wrapper">
