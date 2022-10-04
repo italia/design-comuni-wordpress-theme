@@ -22,8 +22,6 @@
             <div class="d-flex justify-content-end">
                 <button
                     type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#"
                     class="btn btn-primary px-5 py-3 full-mb"
                     label="Tutti gli eventi" 
                     buttonNext=true
