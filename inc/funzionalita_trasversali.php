@@ -64,7 +64,7 @@ function dci_get_sedi_ufficio(WP_REST_Request $request) {
 
     foreach ($sedi as $sede) {
         $sede -> indirizzo = dci_get_meta('indirizzo','_dci_luogo_', $sede ->ID);
-        $sede -> apertura = dci_get_meta('orario_pubblico','_dci_luogo_', $sede ->ID);
+        $sede -> apertura = dci_get_wysiwyg_field('orario_pubblico','_dci_luogo_', $sede ->ID);
         $sede -> identificativo = dci_get_meta('id','_dci_luogo_', $sede ->ID);
     }
 

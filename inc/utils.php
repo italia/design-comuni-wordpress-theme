@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Wrapper function around cmb2_get_option
  * @since  0.1.0
@@ -27,6 +28,8 @@ if(!function_exists("dci_get_option")) {
 		return $val;
 	}
 }
+
+
 
 if(!function_exists("dci_get_post_type_icon_by_id")) {
     function dci_get_post_type_icon_by_id($id) {
@@ -128,6 +131,19 @@ if(!function_exists("dci_get_meta")){
         }
 		return get_post_meta( $post_id, $key, true );
 	}
+}
+
+/**
+ * Wysiwyg fields wrapper function with wpautop()
+ * @param string $key
+ * @param string $prefix
+ * @param string $post_id
+ * @return mixed
+ */
+if(!function_exists("dci_get_wysiwyg_field")) {
+    function dci_get_wysiwyg_field($key = '', $prefix = "", $post_id = "") {
+        return wpautop(dci_get_meta ($key,$prefix,$post_id));
+    }
 }
 
 if(!function_exists("dci_get_term_meta")){
