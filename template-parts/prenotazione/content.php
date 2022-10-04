@@ -7,8 +7,10 @@
     $months = array();
     $currentMonth = intval(date('m'));
 
-    for ($i=$currentMonth; $i < $currentMonth + 12; $i++) {
-        if ($i <= 12) array_push($months, $i);
+    for ($i=0; $i < 12; $i++) {
+        array_push($months, $currentMonth);
+        if($currentMonth >= 12) $currentMonth = 0;
+        $currentMonth++;
     }
 ?>
 
