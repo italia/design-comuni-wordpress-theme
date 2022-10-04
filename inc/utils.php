@@ -235,7 +235,7 @@ if(!function_exists("dci_get_grouped_posts_by_term")) {
             'tax_query' => array(
                 array(
                     'taxonomy' => $taxonomy_name,
-                    'field' => 'name',
+                    'field' => 'slug',
                     'terms' => $terms)
             ),
             'orderby' => 'date',

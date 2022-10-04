@@ -16,7 +16,7 @@ $args = array(
     's' => $query,
     'posts_per_page' => $max_posts,
     'post_type'      => 'servizio',
-    'categorie_servizio' => $obj->name,
+    'categorie_servizio' => $obj->slug,
     'orderby'        => 'post_title',
     'order'          => 'ASC'
 );
@@ -24,7 +24,7 @@ $the_query = new WP_Query( $args );
 $servizi = $the_query->posts;
 
 $additional_filter = array();
-$additional_filter['categorie_servizio'] = $obj->name;
+$additional_filter['categorie_servizio'] = $obj->slug;
 
 $amministrazione = dci_get_related_unita_amministrative();
 $bandi = dci_get_related_bandi();
