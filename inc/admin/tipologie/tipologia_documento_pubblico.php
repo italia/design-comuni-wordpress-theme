@@ -38,9 +38,8 @@ function dci_register_post_type_documento_pubblico() {
 add_action( 'edit_form_after_title', 'dci_documento_pubblico_add_content_after_title' );
 function dci_documento_pubblico_add_content_after_title($post) {
     if($post->post_type == "documento_pubblico")
-        _e('<span><i>il <b>Titolo</b> è il <b>Nome del Documento</b>.<i></span><br><br>', 'design_comuni_italia' );
+        _e('<span><i>il <b>Titolo</b> è il <b>Nome del Documento</b>.</i></span><br><br>', 'design_comuni_italia' );
 }
-
 
 /**
  * Crea i metabox del post type eventi
@@ -332,7 +331,6 @@ function dci_add_documento_pubblico_metaboxes()
         'date_format' => 'd-m-Y',
     ));
 
-
     //dataset
     $cmb_dataset = new_cmb2_box(array(
         'id' => $prefix . 'box_dataset',
@@ -342,7 +340,7 @@ function dci_add_documento_pubblico_metaboxes()
         'priority' => 'high',
     ));
 
-    $cmb_servizi->add_field( array(
+    $cmb_dataset->add_field( array(
         'id' => $prefix . 'dataset',
         'desc' => __( 'Schede Dataset collegate al documento' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
@@ -421,8 +419,6 @@ function dci_add_documento_pubblico_metaboxes()
         'show_option_none' => false,
         'remove_default' => 'true',
     ) );
-
-
 }
 
 /**
@@ -462,7 +458,6 @@ function dci_documento_pubblico_set_post_content( $data ) {
         }
 
         $content = $descrizione_breve.'<br>'.$descrizione_estesa.'<br>'.$info;
-
         $data['post_content'] = $content;
     }
 
