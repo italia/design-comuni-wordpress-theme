@@ -46,7 +46,5 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 		} else {
 			$output .= '</span>';
 		}
-
-		$output .= "</li>";
 	}
 }
