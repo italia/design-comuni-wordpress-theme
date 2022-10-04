@@ -179,7 +179,7 @@ function dci_add_eventi_metaboxes() {
         'type' => 'wysiwyg',
         'options' => array(
             'media_buttons' => false,
-            'textarea_rows' => 4,
+            'textarea_rows' => 10,
             'teeny' => true,
         ),
         'attributes'    => array(
@@ -197,7 +197,7 @@ function dci_add_eventi_metaboxes() {
         ),
         'options' => array(
             'media_buttons' => false,
-            'textarea_rows' => 4,
+            'textarea_rows' => 10,
             'teeny' => true,
         ),
     ) );
@@ -440,7 +440,7 @@ function dci_add_eventi_metaboxes() {
         'type'       => 'wysiwyg',
         'options' => array(
             'media_buttons' => false,
-            'textarea_rows' => 4,
+            'textarea_rows' => 10,
             'teeny' => true,
         ),
     ) );

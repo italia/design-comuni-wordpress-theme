@@ -141,7 +141,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Se Persona Politica, descrizione testuale del ruolo, comprensiva delle deleghe <br> OPPURE se Persona Amministrativa, descrizione dei compiti di cui si occupa la persona.' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4,
+            'textarea_rows' => 10,
             'teeny' => true,
         ),
     ) );
@@ -152,7 +152,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Elenco delle deleghe a capo della persona' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4,
+            'textarea_rows' => 10,
             'teeny' => true,
         ),
     ) );
@@ -163,7 +163,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Solo per Persona Politica: testo descrittivo che riporta la biografia della persona.' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4,
+            'textarea_rows' => 10,
             'teeny' => true,
         ),
     ) );
@@ -204,7 +204,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Solo per Persona Politica: situazione patrimoniale della persona' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4,
+            'textarea_rows' => 10,
             'teeny' => true,
         ),
     ) );
@@ -243,7 +243,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'desc' => __( 'Ulteriori informazioni relative alla persona.' , 'design_comuni_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
-            'textarea_rows' => 4,
+            'textarea_rows' => 10,
             'teeny' => true,
         ),
     ) );
