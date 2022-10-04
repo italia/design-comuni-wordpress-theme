@@ -29,14 +29,12 @@ jQuery( document ).ready(function() {
         attributes: true //configure it to listen to attribute changes
     });
 
-
-
     jQuery( 'form[name="post"]' ).on('submit', function(e) {
 
         /**
          * controllo compilazione campo GPS
          */
-        if(jQuery('input[name^="_dci_luogo_posizione_gps[lat]"]').attr('value') === '' || jQuery('input[name^="_dci_luogo_posizione_gps[lng]"]').attr('value') === '') {
+        if(document.activeElement.id === 'publish' && (jQuery('input[name^="_dci_luogo_posizione_gps[lat]"]').attr('value') === '' || jQuery('input[name^="_dci_luogo_posizione_gps[lng]"]').attr('value') === '')) {
             dci_highlight_missing_field('.cmb2-id--dci-luogo-posizione-gps');
             return false;
         }

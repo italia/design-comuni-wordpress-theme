@@ -28,7 +28,7 @@ jQuery( document ).ready(function() {
         /**
          * controllo compilazione campo Categorie Servizio
          */
-        if(jQuery('input[name^="_dci_servizio_categorie"]:checked').length === 0){
+        if(document.activeElement.id === 'publish' && jQuery('input[name^="_dci_servizio_categorie"]:checked').length === 0){
             dci_highlight_missing_field('.cmb2-id--dci-servizio-categorie');
             return false;
         }
@@ -36,7 +36,7 @@ jQuery( document ).ready(function() {
         /**
          * controllo compilazione campo Argomenti
          */
-        if(jQuery('input[name^="_dci_servizio_argomenti"]:checked').length === 0){
+        if(document.activeElement.id === 'publish' && jQuery('input[name^="_dci_servizio_argomenti"]:checked').length === 0){
             dci_highlight_missing_field('.cmb2-id--dci-servizio-argomenti');
             return false;
         }
@@ -44,17 +44,14 @@ jQuery( document ).ready(function() {
         /**
          * controllo compilazione campo Motivo dello stato
          */
-        if (jQuery('input[name^="_dci_servizio_stato"]:checked').val() === 'false'  && !jQuery('textarea[name^="_dci_servizio_motivo_stato"]').val()) {
+        if (document.activeElement.id === 'publish' && jQuery('input[name^="_dci_servizio_stato"]:checked').val() === 'false'  && !jQuery('textarea[name^="_dci_servizio_motivo_stato"]').val()) {
             dci_highlight_missing_field('.cmb2-id--dci-servizio-motivo-stato');
             return false;
         }
 
         return true;
     });
-
 });
-
-
 
 function dci_highlight_missing_field(fieldClass) {
 
@@ -66,7 +63,6 @@ function dci_highlight_missing_field(fieldClass) {
     }, 'slow');
 
 }
-
 
 function dci_remove_highlight_missing_field(fieldClass) {
     jQuery(fieldClass).removeClass("highlighted_missing_field");

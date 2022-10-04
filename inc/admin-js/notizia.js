@@ -12,11 +12,10 @@ jQuery( document ).ready(function() {
         /**
          * controllo compilazione campo Argomenti
          */
-        if(jQuery('input[name^="_dci_notizia_argomenti"]:checked').length == 0){
+        if(document.activeElement.id === 'publish' && jQuery('input[name^="_dci_notizia_argomenti"]:checked').length == 0){
             dci_highlight_missing_field('.cmb2-id--dci-notizia-argomenti');
             return false;
         }
-
         return true;
     });
 });

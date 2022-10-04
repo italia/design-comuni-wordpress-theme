@@ -1,20 +1,30 @@
 const theme_folder = dci_data.stylesheet_directory_uri;
 
 jQuery( document ).ready(function() {
-
+    //inject bootstrap-italia icons
     loadSvg();
-
     jQuery('#wpcontent').click(function () {
             loadSvg();
         }
     );
-
     jQuery('.selector-search input').on('input',function () {
         setTimeout( function(){
             loadSvg();
         }  , 200);
     });
 
+    //avoid edit form html validation if saving as draft
+    jQuery('#save-post').on('click', function(){
+        jQuery(':input').filter("[required='required']").attr('required', false)
+    })
+
+    //validate edit form fields
+    jQuery( 'body' ).on( 'submit.edit-post', '#post', function () {
+        //validate only if publishing
+        if (document.activeElement.id !== 'publish') {
+            return true;
+        }
+    });
 });
 
 function loadSvg(){
@@ -141,6 +151,5 @@ function loadSvg(){
         'it-designers-italia',
         'it-team-digitale',
     ];
-
     options.forEach(element => jQuery('.' + element).html('<img src= "' + theme_folder +'/assets/svg/' + element + '.svg" alt="'+element+'" style="width:30px; margin-right:10px;">'));
 }

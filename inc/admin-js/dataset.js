@@ -11,17 +11,13 @@ jQuery( document ).ready(function() {
         /**
          * controllo compilazione campo Temi di un Dataset
          */
-        if(jQuery('input[name^="_dci_dataset_temi"]:checked').length == 0){
+        if(document.activeElement.id === 'publish' && jQuery('input[name^="_dci_dataset_temi"]:checked').length == 0){
             dci_highlight_missing_field('.cmb2-id--dci-dataset-temi');
             return false;
         }
-
-
         return true;
     });
 });
-
-
 
 function dci_highlight_missing_field(fieldClass) {
     jQuery(fieldClass).addClass("highlighted_missing_field")
@@ -32,7 +28,6 @@ function dci_highlight_missing_field(fieldClass) {
     }, 'slow');
 
 }
-
 
 function dci_remove_highlight_missing_field(fieldClass) {
     jQuery(fieldClass).removeClass("highlighted_missing_field");
