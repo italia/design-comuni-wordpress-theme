@@ -142,7 +142,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'type' => 'wysiwyg',
         'options' => array(
             'textarea_rows' => 10,
-            'teeny' => true,
+            'teeny' => false,
         ),
     ) );
 
@@ -153,7 +153,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'type' => 'wysiwyg',
         'options' => array(
             'textarea_rows' => 10,
-            'teeny' => true,
+            'teeny' => false,
         ),
     ) );
 
@@ -164,7 +164,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'type' => 'wysiwyg',
         'options' => array(
             'textarea_rows' => 10,
-            'teeny' => true,
+            'teeny' => false,
         ),
     ) );
 
@@ -205,7 +205,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'type' => 'wysiwyg',
         'options' => array(
             'textarea_rows' => 10,
-            'teeny' => true,
+            'teeny' => false,
         ),
     ) );
 
@@ -244,7 +244,7 @@ function dci_add_persona_pubblica_metaboxes() {
         'type' => 'wysiwyg',
         'options' => array(
             'textarea_rows' => 10,
-            'teeny' => true,
+            'teeny' => false,
         ),
     ) );
 

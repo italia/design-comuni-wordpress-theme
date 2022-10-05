@@ -183,7 +183,7 @@ function dci_add_notizia_metaboxes() {
         ),
         'options' => array(
             'textarea_rows' => 10, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'teeny' => false, // output the minimal editor config used in Press This
         ),
     ) );
     $cmb_corpo->add_field( array(

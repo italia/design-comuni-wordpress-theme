@@ -138,7 +138,7 @@ function dci_add_pagamento_metaboxes() {
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
             'textarea_rows' => 10, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'teeny' => false, // output the minimal editor config used in Press This
         ),
         'attributes' => array(
             'required' => 'required'
@@ -153,7 +153,7 @@ function dci_add_pagamento_metaboxes() {
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
             'textarea_rows' => 10, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'teeny' => false, // output the minimal editor config used in Press This
         ),
         'attributes' => array(
             'required' => 'required'

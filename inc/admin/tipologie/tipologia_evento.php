@@ -180,7 +180,7 @@ function dci_add_eventi_metaboxes() {
         'options' => array(
             'media_buttons' => false,
             'textarea_rows' => 10,
-            'teeny' => true,
+            'teeny' => false,
         ),
         'attributes'    => array(
             'required'    => 'required'
@@ -198,7 +198,7 @@ function dci_add_eventi_metaboxes() {
         'options' => array(
             'media_buttons' => false,
             'textarea_rows' => 10,
-            'teeny' => true,
+            'teeny' => false,
         ),
     ) );
 
@@ -441,7 +441,7 @@ function dci_add_eventi_metaboxes() {
         'options' => array(
             'media_buttons' => false,
             'textarea_rows' => 10,
-            'teeny' => true,
+            'teeny' => false,
         ),
     ) );
 }
