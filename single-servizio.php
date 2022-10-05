@@ -140,7 +140,7 @@ get_header();
                 </div>
             </div>
             <div class="container">
-                <div class="row mt-4 mt-lg-80 pb-lg-80 pb-40">
+                <div class="row row-column-menu-left mt-4 mt-lg-80 pb-lg-80 pb-40">
                     <div class="col-12 col-lg-3 mb-4 border-col">
                         <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
                             <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
