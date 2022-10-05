@@ -265,6 +265,7 @@ function dci_persona_pubblica_set_post_title( $data ) {
             $cognome = $_POST['_dci_persona_pubblica_cognome'];
             $title = $nome.' '.$cognome;
             $data['post_title'] =  $title ;
+            unset($data['post_name']);
         }
         
         $descrizione_breve = '';
