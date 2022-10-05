@@ -33,8 +33,9 @@ get_header();
             $video = dci_get_meta("video", $prefix, $post->ID);
             $trascrizione = dci_get_meta("trascrizione", $prefix, $post->ID);
             $persone = dci_get_meta("persone", $prefix, $post->ID);
-            $luogo_evento = get_post(dci_get_meta("luogo_evento", $prefix, $post->ID));
-            $costi = dci_get_meta( 'costi' );
+            $luogo_evento_id = dci_get_meta("luogo_evento", $prefix, $post->ID);
+            if ($luogo_evento_id) $luogo_evento = get_post($luogo_evento_id);
+            $costi = dci_get_meta( 'costi' );            
             $documenti = dci_get_meta("allegati", $prefix, $post->ID);
             $punti_contatto = dci_get_meta("punti_contatto", $prefix, $post->ID);
             $organizzatori = dci_get_meta("organizzatore", $prefix, $post->ID);
@@ -153,11 +154,14 @@ get_header();
                                                             </a>
                                                             </li>
                                                             <?php } ?>
+                                                            <?php if ( (is_array($patrocinato) && count($patrocinato)) || 
+                                                                (is_array($sponsor) && count($sponsor)) ) {  ?>
                                                             <li class="nav-item">
                                                             <a class="nav-link" href="#ulteriori-informazioni">
                                                             <span class="title-medium">Ulteriori informazioni</span>
                                                             </a>
                                                             </li>
+                                                            <?php } ?>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -172,9 +176,9 @@ get_header();
                     <section class="col-lg-8 it-page-sections-container border-light">
                     <article id="cos-e" class="it-page-section anchor-offset">
                         <h4>Cos'è</h4>
-                        <p class="font-serif">
+                        <div class="richtext-wrapper font-serif">
                             <?php echo $descrizione; ?>
-                        </p>
+                        </div>
                     </article>
                     <?php if (is_array($gallery) && count($gallery)) {
                         get_template_part("template-parts/single/gallery");
@@ -315,6 +319,9 @@ get_header();
                     </article>
                     <?php }?>
                     <article id="ulteriori-informazioni" class="it-page-section anchor-offset mt-5">
+                    <?php 
+                        if ( (is_array($patrocinato) && count($patrocinato)) || 
+                        (is_array($sponsor) && count($sponsor)) ) { ?>
                     <h4 class="mb-3">Ulteriori informazioni</h4>
                     <?php
                         if ( is_array($patrocinato) && count($patrocinato) ) {
@@ -334,7 +341,7 @@ get_header();
                                 </li>
                             <?php }
                             echo '</ul></div>';
-                        }
+                        }}
                     ?>
                     <?php if ($more_info) { ?>
                         <div class="mt-5">

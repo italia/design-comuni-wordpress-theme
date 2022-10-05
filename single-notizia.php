@@ -109,11 +109,6 @@ get_header();
                                                                     <span class="title-medium">A cura di</span>
                                                                     </a>
                                                                 </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="#ulteriori-informazioni">
-                                                                    <span class="title-medium">Ulteriori informazioni</span>
-                                                                    </a>
-                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -167,21 +162,20 @@ get_header();
                                 get_template_part("template-parts/unita-organizzativa/card");
                             } ?>
                         </div>
-                        <div class="col-12 col-sm-4">
-                            <h6><small>Persone</small></h6>
-                            <?php
-                            if(is_array($persone) && count($persone)) {
-                                get_template_part("template-parts/single/persone");
-                            } ?>
-                        </div>
+                        <?php if(is_array($persone) && count($persone)) { ?>
+                            <div class="col-12 col-sm-4">
+                                <h6><small>Persone</small></h6>
+                                <?php get_template_part("template-parts/single/persone"); ?>
+                            </div>
+                        <?php } ?>
                         </div>
                     </article>
-                    <article
+                    <!-- <article
                         id="ulteriori-informazioni"
                         class="it-page-section anchor-offset mt-5"
                     >
                         <h4 class="mb-3">Ulteriori informazioni</h4>
-                    </article>
+                    </article> -->
                     <?php get_template_part('template-parts/single/page_bottom'); ?>
                     </section>
                 </div>
