@@ -81,7 +81,7 @@
             <div class="col-12 col-lg-4 pt-30 pt-lg-5 ps-lg-5 order-first order-md-last">
                 <div class="link-list-wrap">
                     <div class="title-xsmall-semi-bold">
-                        <span>IN EVIDENZA</span>
+                        <span>SERVIZI IN EVIDENZA</span>
                     </div>
                     <ul class="link-list t-primary">
                         <?php foreach ($servizi_evidenza as $servizio_id) { 

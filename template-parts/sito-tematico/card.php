@@ -20,9 +20,9 @@ if ($count % 3 == 2) $bg_color = 'dark';
         </div>
     <?php } ?>
     <div class="card-body">
-        <h4 class="card-title text-white sito-tematico">
+        <h3 class="card-title text-white sito-tematico">
             <?php echo $sito_tematico->post_title ?>
-        </h4>
+        </h3>
         <p class="card-text text-sans-serif text-white">
             <?php echo $st_descrizione; ?>
         </p>
