@@ -194,6 +194,7 @@ function dci_add_notizia_metaboxes() {
         // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
     ) );
 
+    /**
     $cmb_gallerie_multimediali = new_cmb2_box( array(
         'id'           => $prefix . 'box_gallerie_multimediali',
         'title'        => __( 'Gallerie multimediali', 'design_comuni_italia' ),
