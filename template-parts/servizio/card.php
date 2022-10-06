@@ -10,6 +10,7 @@ if($servizio->post_status == "publish") {
         <div class="cmp-card-latest-messages mb-3 mb-30" data-bs-toggle="modal" data-bs-target="#" id="">
             <div class="card drop-shadow px-4 pt-4 pb-4 rounded">
                 <?php if (!$hide_categories) { ?>
+                <span class="visually-hidden">Categoria:</span>
                 <div class="card-header border-0 p-0">
                     <?php if (is_array($categorie) && count($categorie)) {
                         $count = 1;

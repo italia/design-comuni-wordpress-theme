@@ -38,7 +38,9 @@ $current_group = dci_get_current_group();
           <div class="col-12">
             <div class="it-header-center-content-wrapper">
               <div class="it-brand-wrapper">
-                <a href="<?php echo home_url(); ?>" aria-label="Vai alla Homepage di <?php echo dci_get_option("nome_comune"); ?> <?php echo dci_get_option("motto_comune"); ?>" title="Vai alla Homepage">
+                <a 
+                href="<?php echo home_url(); ?>" 
+                <?php if(!is_front_page()) echo 'title="Vai alla Homepage"'; ?>>
                     <div class="it-brand-text d-flex align-items-center">
                       <?php get_template_part("template-parts/common/logo"); ?>
                       <div>
@@ -101,7 +103,6 @@ $current_group = dci_get_current_group();
                 aria-label="Mostra/Nascondi la navigazione"
                 data-bs-target="#nav4"
                 data-bs-toggle="navbarcollapsible"
-                role="navigation"
               >
                 <svg class="icon">
                   <use href="#it-burger"></use>

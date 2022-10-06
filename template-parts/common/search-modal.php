@@ -7,7 +7,6 @@
     id="search-modal"
     tabindex="-1"
     role="dialog"
-    aria-labelledby="searchModal"
     aria-hidden="true"
   >
   <div class="modal-dialog modal-lg" role="document">
