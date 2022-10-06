@@ -1,7 +1,7 @@
 {
-  "name": "design-comuni-wordpress-theme-npm",
+  "name": "design-comuni-wordpress-theme",
   "version": "1.2.0",
-  "description": "Libreria Bootstrap Italia per il Tema Wordpress dei Comuni Italiani",
+  "description": "Tema Wordpress dei Comuni Italiani",
   "main": "index.js",
   "scripts": {
     "version": "node scripts/config-sync && git add style.css && git add README.md",
