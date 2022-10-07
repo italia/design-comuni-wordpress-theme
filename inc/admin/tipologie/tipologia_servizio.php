@@ -285,19 +285,55 @@ function dci_add_servizi_metaboxes() {
         'type' => 'wysiwyg',
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 10, // rows="..."
+            'textarea_rows' => 4, // rows="..."
             'teeny' => false, // output the minimal editor config used in Press This
         ),
     ) );
 
+    /**  repeater fasi_scadenze **/
+    $group_field_id = $cmb_tempi->add_field( array(
+        'id'          => $prefix . 'scadenze',
+        //'name'        => __('Fasi' , 'design_scuole_italia' ),
+        'type'        => 'group',
+        'description' => __( 'Aggiungi le fasi specifiche per questo servizio (è possibile specificare il numero di giorni)', 'design_scuole_italia' ),
+        'options'     => array(
+            'group_title'    => __( 'Fase {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
+            'add_button'     => __( 'Aggiungi fase', 'design_scuole_italia' ),
+            'remove_button'  => __( 'Rimuovi', 'design_scuole_italia' ),
+            'sortable'       => true,
+            'closed'      => true
+        ),
+    ) );
+    $cmb_tempi->add_group_field( $group_field_id,  array(
+        'id'      => 'titolo',
+        'name'    => __( 'Titolo della fase *', 'design_comuni_italia' ),
+        'type' => 'text',
+    ) );
+    $cmb_tempi->add_group_field( $group_field_id,  array(
+        'id'      => 'giorni',
+        'name'    => __( 'Giorni', 'design_comuni_italia' ),
+        //'desc'    => __( 'giorni', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'attributes' => array(
+            'type' => 'number',
+        ),
+    ) );
+    $cmb_tempi->add_group_field( $group_field_id,  array(
+        'id'      => 'descrizione',
+        'name'    => __( 'Descrizione', 'design_comuni_italia' ),
+        //'desc'    => __( 'Descrizione', 'design_scuole_italia' ),
+        'type'             => 'textarea',
+    ) );
+    /*** fine repeater fasi e scadenze **/
+
     $cmb_tempi->add_field( array(
         'id' => $prefix . 'fasi',
-        'name'        => __( 'Fasi del servizio', 'design_comuni_italia' ),
+        'name'        => __( 'Fasi esistenti', 'design_comuni_italia' ),
         'desc' => __( 'Seleziona le fasi del Servizio. <br><a href="post-new.php?post_type=fase">Inserisci Fase</a>' , 'design_comuni_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dci_get_posts_options('fase'),
         'attributes' => array(
-            'required' => true,
+            //'required' => true,
             'placeholder' => __( 'Seleziona le fasi del Servizio', 'design_comuni_italia')
         )
     ) );
