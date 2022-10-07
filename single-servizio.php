@@ -294,7 +294,7 @@ get_header();
                                     </p>
                                     <?php if ((is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) || (is_array($fasi_scadenze) && count($fasi_scadenze))) { ?>
                                         <div class="calendar-vertical mb-3">
-                                            <?php foreach ($fasi_group_simple_scadenze as $fase) {
+                                            <?php if (!empty($fasi_group_simple_scadenze)) foreach ($fasi_group_simple_scadenze as $fase) {
                                                 ?>
                                                 <div class="calendar-date">
                                                     <?php if (empty($fase['giorni'])) {
