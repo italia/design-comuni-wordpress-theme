@@ -30,6 +30,7 @@ get_header();
             $cosa_serve_list = dci_get_meta("cosa_serve_list");
             $output = dci_get_wysiwyg_field("output");
             $fasi_scadenze_intro = dci_get_wysiwyg_field("tempi_text");
+            $fasi_group_simple_scadenze = dci_get_meta("scadenze");
             $fasi_scadenze = dci_get_meta("fasi");
             $costi = dci_get_wysiwyg_field("costi");
             //canali di prenotazione
@@ -198,7 +199,7 @@ get_header();
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
-                                                                <?php if ( is_array($fasi_scadenze) && count($fasi_scadenze)) { ?>
+                                                                <?php if ( !empty($fasi_scadenze_intro) || (is_array($fasi_scadenze) && count($fasi_scadenze)) || (is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#deadlines">
                                                                         <span class="title-medium">Tempi e scadenze</span>
@@ -284,36 +285,66 @@ get_header();
                                 <h2 class="title-xxlarge mb-3" id="obtain">Cosa si ottiene</h2>
                                 <div class="richtext-wrapper lora"><?php echo $output ?></div>
                             </section>
-                            <?php if ( is_array($fasi_scadenze) && count($fasi_scadenze) ) { ?>
+                            <?php if ( !empty($fasi_scadenze_intro) || (is_array($fasi_scadenze) && count($fasi_scadenze)) || (is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) ) { ?>
                             <section class="it-page-section mb-30">
                                 <div class="cmp-timeline">
                                     <h2 class="title-xxlarge mb-3" id="deadlines">Tempi e scadenze</h2>
                                     <p class="richtext-wrapper lora">
                                         <?php echo $fasi_scadenze_intro; ?>
                                     </p>
-                                    <div class="calendar-vertical mb-3">
-                                        <?php foreach ($fasi_scadenze as $fase_id) {
-                                            $fase = get_post($fase_id);
-                                            $data = dci_get_meta('data_fase', '_dci_fase_', $fase_id);
-                                            $arrdata =  explode("-", $data);
-                                            $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
-                                            ?>
-                                            <div class="calendar-date">
-                                                <div class="calendar-date-day">
-                                                    <small class="calendar-date-day__year"><?php echo $arrdata[2]; ?></small>
-                                                    <span class="title-xxlarge-regular d-flex justify-content-center"><?php echo $arrdata[0]; ?></span>
-                                                    <small class="calendar-date-day__month"><?php echo $monthName; ?></small>
-                                                </div>
-                                                <div class="calendar-date-description rounded">
-                                                    <div class="calendar-date-description-content">
-                                                        <h3 class="title-medium-2 mb-0">
-                                                            <?php echo $fase->post_title; ?>
-                                                        </h3>
+                                    <?php if ((is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) || (is_array($fasi_scadenze) && count($fasi_scadenze))) { ?>
+                                        <div class="calendar-vertical mb-3">
+                                            <?php if (!empty($fasi_group_simple_scadenze)) foreach ($fasi_group_simple_scadenze as $fase) {
+                                                ?>
+                                                <div class="calendar-date">
+                                                    <?php if (empty($fase['giorni'])) {
+                                                        $fase['giorni'] = "";
+                                                    } ?>
+                                                    <div class="calendar-date-day">
+                                                        <span class="title-xxlarge-regular d-flex justify-content-center"><?php echo  $fase['giorni']; ?></span>
+                                                        <small class="calendar-date-day__month"><?php echo ($fase['giorni'] != "")?'giorni': ''; ?></small>
+                                                    </div>
+                                                    <?php if (!empty($fase['titolo']) || !empty($fase['descrizione'])) { ?>
+                                                        <div class="calendar-date-description rounded">
+                                                            <div class="calendar-date-description-content">
+                                                                <?php if (!empty($fase['titolo'])) { ?>
+                                                                    <h3 class="title-medium-2 mb-0">
+                                                                        <?php echo  $fase['titolo']; ?>
+                                                                    </h3>
+                                                                <?php }?>
+                                                                <?php if (!empty($fase['descrizione'])) { ?>
+                                                                    <p class="info-text mt-1 mb-0"><?php echo $fase['descrizione']; ?></p>
+                                                                <?php }?>
+                                                            </div>
+                                                        </div>
+                                                    <?php }?>                                                </div>
+                                            <?php } ?>
+                                            <?php if (!empty($fasi_scadenze)) foreach ($fasi_scadenze as $fase_id) {
+                                                $fase = get_post($fase_id);
+                                                $data = dci_get_meta('data_fase', '_dci_fase_', $fase_id);
+                                                $arrdata =  explode("-", $data);
+                                                $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
+                                                ?>
+                                                <div class="calendar-date">
+                                                    <div class="calendar-date-day">
+                                                        <small class="calendar-date-day__year"><?php echo $arrdata[2]; ?></small>
+                                                        <span class="title-xxlarge-regular d-flex justify-content-center"><?php echo $arrdata[0]; ?></span>
+                                                        <small class="calendar-date-day__month"><?php echo $monthName; ?></small>
+                                                    </div>
+                                                    <div class="calendar-date-description rounded">
+                                                        <div class="calendar-date-description-content">
+                                                            <h3 class="title-medium-2 mb-0">
+                                                                <?php echo $fase->post_title; ?>
+                                                            </h3>
+                                                            <?php if (!empty(dci_get_meta('desc_fase','_dci_fase_', $fase->ID))) { ?>
+                                                                <p class="info-text mt-1 mb-0"><?php echo dci_get_meta('desc_fase','_dci_fase_', $fase->ID); ?></p>
+                                                            <?php }?>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
+                                            <?php } ?>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </section>
                             <?php } ?>
