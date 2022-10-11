@@ -848,12 +848,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
   padding-bottom: 56.25%;
 }
 
+/** CODICE AGGIUNTIVO PER IL TEMA **/
+
 /* avvisi homepage */
 .home-message .msg {
   font-size: 1rem !important;
-	font-weight:bold;
+  font-weight:bold;
   line-height: 1.5 !important;
-	text-align:center;
+  text-align:center;
   padding: 0;
   margin: 0;
 }
