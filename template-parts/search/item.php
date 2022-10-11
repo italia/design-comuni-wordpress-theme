@@ -5,7 +5,7 @@ $descrizione = dci_get_meta('descrizione_breve');
 ?>
 
 <div class="cmp-card-latest-messages mb-3 mb-30" data-bs-toggle="modal" data-bs-target="#" id="">
-	<div class="card drop-shadow px-4 pt-4 pb-4 rounded">
+	<div class="card shadow-sm px-4 pt-4 pb-4 rounded">
 		<div class="card-header border-0 p-0">
 			<a 
 			class="text-decoration-none title-xsmall-bold mb-2 category text-uppercase" 

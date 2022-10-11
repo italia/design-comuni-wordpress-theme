@@ -29,7 +29,7 @@ $schede = array($scheda1,$scheda2,$scheda3 );
   <div class="container">
     <?php if ($post_id) { ?>
     <div class="row">
-      <div class="col-lg-5 order-lg-1">
+      <div class="col-lg-5 order-2 order-lg-1">
         <div class="card mb-1">
           <div class="card-body pb-5">
             <div class="category-top">
@@ -62,7 +62,7 @@ $schede = array($scheda1,$scheda2,$scheda3 );
           </div>
         </div>
       </div>
-      <div class="col-lg-6 offset-lg-1 order-lg-2 px-0 px-lg-2">
+      <div class="col-lg-6 offset-lg-1 order-1 order-lg-2 px-0 px-lg-2">
         <?php if ($img) { 
           dci_get_img($img, 'img-fluid');
         } ?>
