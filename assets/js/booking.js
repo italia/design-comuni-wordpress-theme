@@ -450,16 +450,18 @@ async function successFeedback() {
   } alle ore ${getHour()[1]}`;
   //service
   const service = await getServiceDetail(answers?.service?.id);
-  if (service?._dci_servizio_cosa_serve_list?.length > 0) {
+  if (service?._dci_servizio_cosa_serve_list?.length > 0 || service?._dci_servizio_cosa_serve_introduzione) {
     const neededBox = document.getElementById("needed-recap");
     neededBox.innerHTML = `
       <p class="font-serif">${service?._dci_servizio_cosa_serve_introduzione}</p>
-      <ul>
     `;
-    service._dci_servizio_cosa_serve_list.forEach((item) => {
-      neededBox.innerHTML += `<li>${item}</li>`;
-    });
-    neededBox.innerHTML += "</ul>";
+    if (service?._dci_servizio_cosa_serve_list?.length > 0) {
+      neededBox.innerHTML += "<ul>";
+      service._dci_servizio_cosa_serve_list.forEach((item) => {
+        neededBox.innerHTML += `<li>${item}</li>`;
+      });
+      neededBox.innerHTML += "</ul>";
+    }
   }
   //office
   document.getElementById("office-recap").innerHTML = `
@@ -524,7 +526,7 @@ async function getServiceDetail(id) {
         return response.json();
       })
       .then((data) => {
-        return data?.cmb2?._dci_servizio_box_accesso;
+        return data?.cmb2?._dci_servizio_box_cosa_serve;
       })
       .catch((err) => {
         console.log("err", err);
