@@ -123,13 +123,12 @@
                                             <?php echo $ufficio->post_title ?>
                                         </a>
                                 <?php } ?>
-                                <br />Numero verde: <?php echo dci_get_option("numero_verde",'footer'); ?>
-                                <br />SMS e WhatsApp: <?php echo dci_get_option("SMS_Whatsapp",'footer'); ?>
-                                <br /><?php
-                                    if (dci_get_option("contatti_PEC",'footer')) {?>
-                                        <a href="mailto:<?php echo dci_get_option("contatti_PEC",'footer'); ?>" class="list-item" title="Vai alla pagina: Posta Elettronica Certificata">Posta Elettronica Certificata</a>
-                                    <?php } ?>
-                                <br />Centralino unico: <?php echo dci_get_option("centralino_unico",'footer'); ?>
+                                <?php if(dci_get_option("numero_verde",'footer')) echo '<br />Numero verde: ' . dci_get_option("numero_verde",'footer'); ?>
+                                <?php if(dci_get_option("SMS_Whatsapp",'footer')) echo '<br />SMS e WhatsApp: ' . dci_get_option("SMS_Whatsapp",'footer'); ?>
+                                <?php
+                                    if (dci_get_option("contatti_PEC",'footer')) echo '<br />PEC: '; ?>
+                                        <a href="mailto:<?php echo dci_get_option("contatti_PEC",'footer'); ?>" class="list-item" title="PEC <?php echo dci_get_option("nome_comune");?>"><?php echo dci_get_option("contatti_PEC",'footer'); ?></a>
+								<?php if(dci_get_option("centralino_unico",'footer')) echo '<br />Centralino unico: ' . dci_get_option("centralino_unico",'footer'); ?>
                             </p>
                         </div>
                         <div class="col-md-4">
@@ -183,8 +182,12 @@
             <div class="row">
                 <div class="col-12 footer-items-wrapper">
                     <div class="footer-bottom">
-                        <a href="<?php echo dci_get_option("media_policy",'footer'); ?>">Media policy</a>
-                        <a href="<?php echo dci_get_option("sitemap",'footer'); ?>">Mappa del sito</a>
+						<?php if(dci_get_option("media_policy",'footer')) { ?>
+							<a href="<?php echo dci_get_option("media_policy",'footer'); ?>">Media policy</a>
+						<?php } ?>
+						<?php if(dci_get_option("sitemap",'footer')) { ?>
+							<a href="<?php echo dci_get_option("sitemap",'footer'); ?>">Mappa del sito</a>
+						<?php } ?>
                     </div>
                 </div>
             </div>
