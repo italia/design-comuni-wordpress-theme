@@ -95,10 +95,6 @@ Inserendo i contenuti negli appositi campi predisposti per le varie tipologie di
 
 #### **Da dove iniziare**
 
-Inizia guardando gli esempi di Comuni italiani che hanno già adottato il modello, per prendere ispirazione su come scrivere i contenuti del sito:
-
-[Il Comune di Cagliari](https://www.comune.cagliari.it/portale/)
-
 Consigliamo di cominciare a creare i diversi contenuti in questo ordine:
 
 - punti di contatto;
