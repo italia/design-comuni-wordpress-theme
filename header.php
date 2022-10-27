@@ -91,9 +91,8 @@ $current_group = dci_get_current_group();
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <nav
+            <div
               class="navbar navbar-expand-lg has-megamenu"
-              aria-label="Navigazione principale"
             >
               <button
                 class="custom-navbar-toggler"
@@ -125,22 +124,25 @@ $current_group = dci_get_current_group();
                     <div class="it-brand-title"><?php echo dci_get_option("nome_comune"); ?></div>
                   </div>
                 </a>
-                <?php
-                    $location = "menu-header-main";
-                    if ( has_nav_menu( $location ) ) {
-                        wp_nav_menu(array(
-                          "theme_location" => $location, 
-                          "depth" => 0,  
-                          "menu_class" => "navbar-nav", 
-                          'items_wrap' => '<ul class="%2$s" id="%1$s" data-element="main-navigation">%3$s</ul>',
-                          "container" => "",
-                          'list_item_class'  => 'nav-item',
-                          'link_class'   => 'nav-link',
-                          'current_group' => $current_group,
-                          'walker' => new Main_Menu_Walker()
-                        ));
-                    }
+                <nav aria-label="Principale">
+                  <?php
+                      $location = "menu-header-main";
+                      if ( has_nav_menu( $location ) ) {
+                          wp_nav_menu(array(
+                            "theme_location" => $location, 
+                            "depth" => 0,  
+                            "menu_class" => "navbar-nav", 
+                            'items_wrap' => '<ul class="%2$s" id="%1$s" data-element="main-navigation">%3$s</ul>',
+                            "container" => "",
+                            'list_item_class'  => 'nav-item',
+                            'link_class'   => 'nav-link',
+                            'current_group' => $current_group,
+                            'walker' => new Main_Menu_Walker()
+                          ));
+                      }
                     ?>
+                </nav>
+                <nav aria-label="Secondaria">
                   <?php
                     $location = "menu-header-right";
                     if ( has_nav_menu( $location ) ) {
@@ -155,6 +157,7 @@ $current_group = dci_get_current_group();
                         ));
                     }
                     ?>
+                </nav>
                   <?php
                     $show_socials = dci_get_option( "show_socials", "socials" );
                     if($show_socials == "true") : 
@@ -177,7 +180,7 @@ $current_group = dci_get_current_group();
                     <?php endif ?>
                 </div>
               </div>
-            </nav>
+            </div>
           </div>
         </div>
       </div>

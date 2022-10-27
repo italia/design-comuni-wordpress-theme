@@ -60,7 +60,7 @@ get_header();
                     <div class="row mt-lg-50">
                         <div class="col-12 col-lg-3 d-lg-block mb-4 d-none">
                             <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
-                                <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+                                <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="INFORMAZIONI RICHIESTE" data-bs-navscroll>
                                     <div class="navbar-custom" id="navbarNavProgress">
                                         <div class="menu-wrapper">
                                             <div class="link-list-wrapper">
@@ -279,7 +279,7 @@ get_header();
                                         </div>
                                     </div>
                                     <div class="cmp-nav-steps">
-                                        <nav class="steppers-nav">
+                                        <nav class="steppers-nav" aria-label="Step">
                                         <button
                                             type="button"
                                             class="btn btn-sm steppers-btn-prev p-0"

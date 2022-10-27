@@ -1,5 +1,5 @@
 <div class="cmp-nav-steps">
-    <nav class="steppers-nav">
+    <nav class="steppers-nav" aria-label="Step">
         <button
         type="button"
         class="btn btn-sm steppers-btn-prev p-0 btn-back-step"
