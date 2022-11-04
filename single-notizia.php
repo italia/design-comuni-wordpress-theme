@@ -66,7 +66,7 @@ get_header();
                 <div class="row border-top border-light row-column-border row-column-menu-left">
                     <aside class="col-lg-4">
                         <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
-                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="INIDCE DELLA PAGINA" data-bs-navscroll>
                                 <div class="navbar-custom" id="navbarNavProgress">
                                     <div class="menu-wrapper">
                                         <div class="link-list-wrapper">

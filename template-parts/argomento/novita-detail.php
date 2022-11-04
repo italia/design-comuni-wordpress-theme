@@ -19,12 +19,15 @@
                     $description = dci_get_meta('descrizione_breve');
                     $img = dci_get_meta('immagine');
                     if ($post->post_type == 'evento') {
-                        $start_date = date('d-m-y', dci_get_meta('data_orario_inizio'));
-                        $end_date = date('d-m-y', dci_get_meta('data_orario_fine'));
-
-                        $start_date_arr = explode('-', $start_date);
-                        $end_date_arr = explode('-', $end_date);
-                        $monthName = date_i18n('M', mktime(0, 0, 0, $end_date_arr[1], 10));
+                        if (dci_get_meta('data_orario_inizio')) {
+                            $start_date = date('d-m-y', dci_get_meta('data_orario_inizio'));
+                            $start_date_arr = explode('-', $start_date);
+                        }
+                        if (dci_get_meta('data_orario_fine')) {
+                            $end_date = date('d-m-y', dci_get_meta('data_orario_fine'));
+                            $end_date_arr = explode('-', $end_date);
+                            $monthName = date_i18n('M', mktime(0, 0, 0, $end_date_arr[1], 10));
+                        }
 
                         $url_eventi = get_permalink( get_page_by_title('Eventi') );
                 ?>
@@ -49,9 +52,11 @@
                                     <a class="text-decoration-none fw-semibold" href="<?php echo $url_eventi; ?>">
                                         Eventi
                                     </a>
+                                    <?php if (isset($start_date_arr) && isset($end_date_arr) && $monthName) { ?>
                                     <span class="data u-grey-light">
                                         DAL <?php echo $start_date_arr[0] . ' AL ' . $end_date_arr[0] . ' ' . $monthName . ' ' . $end_date_arr[2]?>
                                     </span>
+                                    <?php } ?>
                                 </div>
                                 <h4 class="title-small-semi-bold-big mb-0 ">
                                     <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
