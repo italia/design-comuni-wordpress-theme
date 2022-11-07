@@ -74,7 +74,7 @@ get_header();
                                                 <div class="accordion-item">
                                                     <span class="accordion-header" id="accordion-title-one">
                                                         <button
-                                                            class="accordion-button pb-10 px-3"
+                                                            class="accordion-button pb-10 px-3 text-uppercase"
                                                             type="button"
                                                             aria-controls="collapse-one"
                                                             aria-expanded="true"

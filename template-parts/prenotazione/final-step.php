@@ -39,8 +39,8 @@
                                 <div class="accordion">
                                     <div class="accordion-item">
                                         <span class="accordion-header" id="accordion-title-one">
-                                            <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
-                                            INDICE della pagina
+                                            <button class="accordion-button pb-10 px-3 text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                            Indice della pagina
                                             <svg class="icon icon-xs right">
                                                 <use xlink:href="#it-expand"></use>
                                             </svg>
