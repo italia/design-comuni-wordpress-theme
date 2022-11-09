@@ -26,6 +26,7 @@ jobs:
           cd design-comuni-pagine-statiche && npm i && npm run build && cd ..
           cp ./design-comuni-pagine-statiche/dist/assets/css/style.css ./assets/css/comuni.css
           rm -rf design-comuni-pagine-statiche
+          npm i
           npm run build
           git add .
           git commit -m "chore(deps) update assets"
