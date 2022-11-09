@@ -20,7 +20,7 @@
                     $tipo_documento = get_the_terms($post->ID, 'tipi_documento')[0];
                 ?>
                     <div class="col-lg-4">
-                        <div class="card-teaser card-teaser-image card-flex rounded border border-light">
+                        <div class="card-teaser card-teaser-image card-flex rounded border border-light arguments-card">
                             <div class="card-body d-flex justify-content-between">
                                 <div class="teaser-content">
                                     <div class="category-top">
