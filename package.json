@@ -4,6 +4,7 @@
   "description": "Tema Wordpress dei Comuni Italiani",
   "main": "index.js",
   "scripts": {
+    "build": "./copy_assets.sh",
     "version": "node scripts/config-sync && git add style.css && git add README.md",
     "postversion": "echo \"You can now publish your tag with 'git push --follow-tags'\""
   },
@@ -18,7 +19,7 @@
   },
   "homepage": "https://github.com/italia/design-comuni-wordpress-theme#readme",
   "dependencies": {
-    "bootstrap-italia": "^2.0.2"
+    "bootstrap-italia": "^2.0.9"
   },
   "devDependencies": {
     "replace-in-file": "^6.3.5"

@@ -1,0 +1,36 @@
+name: assets update
+
+on:
+  schedule:
+    - cron:  '30 18 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Setup Git
+        uses: fregante/setup-git-user@v1
+      - name: Run comuni.css update
+        run: | 
+          npm install clean-css-cli -g
+          git clone https://github.com/italia/design-comuni-pagine-statiche
+          cd design-comuni-pagine-statiche && npm i && npm run build && cd ..
+          cp ./design-comuni-pagine-statiche/dist/assets/css/style.css ./assets/css/comuni.css
+          rm -rf design-comuni-pagine-statiche
+          npm run build
+          git add .
+          git commit -m "chore(deps) update assets"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "chore(deps) update assets"
+          branch: feature/update-assets
