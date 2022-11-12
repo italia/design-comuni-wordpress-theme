@@ -13,7 +13,7 @@ get_header();
 ?>
 
     <main>
-        <?php
+        <?php 
         while ( have_posts() ) :
             the_post();
             $user_can_view_post = dci_members_can_user_view_post(get_current_user_id(), $post->ID);
