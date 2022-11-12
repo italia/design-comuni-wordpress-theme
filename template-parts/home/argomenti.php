@@ -1,15 +1,24 @@
 <?php
 global $argomento_full, $count;
 
-$arg1 = dci_get_option('argomenti_evidenziati_1','homepage')[0];
-$arg2 = dci_get_option('argomenti_evidenziati_2','homepage')[0];
-$arg3 = dci_get_option('argomenti_evidenziati_3','homepage')[0];
-$argomenti_evidenza = array($arg1, $arg2, $arg3);
+$argomenti_evidenza = null;
+$arg1 = dci_get_option('argomenti_evidenziati_1','homepage')[0] ?? null;
+if ($arg1)
+    $argomenti_evidenza = array_push($arg1);
+
+$arg2 = dci_get_option('argomenti_evidenziati_2','homepage')[0] ?? null;
+if ($arg2)
+    $argomenti_evidenza = array_push($arg2);
+
+$arg3 = dci_get_option('argomenti_evidenziati_3','homepage')[0] ?? null;
+if ($arg3)
+    $argomenti_evidenza = array_push($arg3);
 
 $altri_argomenti = dci_get_option('argomenti_altri','homepage');
 ?>
 
 <div class="container">
+    <?php if ($argomenti_evidenza) { ?>
     <div class="row">
         <h2 class="text-white title-xlarge mb-3">In evidenza</h2>
     </div>
@@ -17,12 +26,17 @@ $altri_argomenti = dci_get_option('argomenti_altri','homepage');
         <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3">
             <?php $count=1;
             foreach ($argomenti_evidenza as $argomento_full) {
-                if($argomento_full['argomento_'.$count.'_argomento'])
-                    get_template_part("template-parts/home/scheda-argomento");
+                if ($argomento_full){
+                    if($argomento_full['argomento_'.$count.'_argomento']){
+                        get_template_part("template-parts/home/scheda-argomento");
+                    }
+                }
                 ++$count;
             } ?>
         </div>
     </div>
+    <?php } 
+    if ($altri_argomenti) { ?>
     <div class="row pt-30">
         <div class="col-lg-10 col-xl-6 offset-lg-1 offset-xl-2">
             <div class="row d-lg-inline-flex">
@@ -48,4 +62,5 @@ $altri_argomenti = dci_get_option('argomenti_altri','homepage');
             <a href="<?php echo dci_get_template_page_url("page-templates/argomenti.php"); ?>" class="btn btn-primary mt-40">Vedi tutti</a>
         </div>
     </div>
+    <?php } ?>
 </div>
