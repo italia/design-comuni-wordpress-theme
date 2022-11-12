@@ -25,6 +25,7 @@ get_header();
             $persone = dci_get_meta("persone", $prefix, $post->ID);
             $descrizione = dci_get_wysiwyg_field("testo_completo", $prefix, $post->ID);
             $documenti = dci_get_meta("documenti", $prefix, $post->ID);
+            $allegati = dci_get_meta("allegati", $prefix, $post->ID);
             $a_cura_di = dci_get_meta("a_cura_di", $prefix, $post->ID);
             ?>
             <div class="container" id="main-container">
@@ -104,6 +105,13 @@ get_header();
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
+                                                                <?php if( is_array($allegati) && count($allegati) ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#allegati">
+                                                                    <span class="title-medium">Allegati</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#a-cura-di">
                                                                     <span class="title-medium">A cura di</span>
@@ -144,6 +152,32 @@ get_header();
                                 <h5 class="card-title">
                                     <a class="text-decoration-none" href="<?php echo get_permalink($doc_id); ?>" aria-label="Scarica il documento <?php echo $documento->post_title; ?>" title="Scarica il documento <?php echo $documento->post_title; ?>">
                                         <?php echo $documento->post_title; ?>
+                                    </a>
+                                </h5>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </article>
+                    <?php } ?>
+                    <?php if( is_array($allegati) && count($allegati) ) { ?>
+                    <article id="allegati" class="it-page-section anchor-offset mt-5">
+                        <h4>Allegati</h4>
+                        <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
+                            <?php foreach ($allegati as $all_url) {
+                                $all_id = attachment_url_to_postid($all_url);
+                                $allegato = get_post($all_id);
+                            ?>
+                            <div class="card card-teaser shadow-sm p-4 mt-3 rounded border border-light flex-nowrap">
+                                <svg class="icon" aria-hidden="true">
+                                <use
+                                    xlink:href="#it-clip"
+                                ></use>
+                                </svg>
+                                <div class="card-body">
+                                <h5 class="card-title">
+                                    <a class="text-decoration-none" href="<?php echo get_the_guid($allegato); ?>" aria-label="Scarica l'allegato <?php echo $allegato->post_title; ?>" title="Scarica l'allegato <?php echo $allegato->post_title; ?>">
+                                        <?php echo $allegato->post_title; ?>
                                     </a>
                                 </h5>
                                 </div>
