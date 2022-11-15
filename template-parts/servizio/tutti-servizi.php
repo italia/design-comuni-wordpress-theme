@@ -80,9 +80,9 @@
             <?php if (is_array($servizi_evidenza) && count($servizi_evidenza)) { ?>
             <div class="col-12 col-lg-4 pt-30 pt-lg-5 ps-lg-5 order-first order-md-last">
                 <div class="link-list-wrap">
-                    <div class="title-xsmall-semi-bold">
+                    <h2 class="title-xsmall-semi-bold">
                         <span>SERVIZI IN EVIDENZA</span>
-                    </div>
+                    </h2>
                     <ul class="link-list t-primary">
                         <?php foreach ($servizi_evidenza as $servizio_id) { 
                             $post = get_post($servizio_id);    

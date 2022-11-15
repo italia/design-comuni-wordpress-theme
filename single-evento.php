@@ -81,7 +81,7 @@ get_header();
                 <div class="row border-top row-column-border row-column-menu-left border-light">
                     <aside class="col-lg-4">
                         <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
-                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+                            <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="Indice della pagina" data-bs-navscroll>
                                 <div class="navbar-custom" id="navbarNavProgress">
                                     <div class="menu-wrapper">
                                         <div class="link-list-wrapper">
@@ -89,13 +89,13 @@ get_header();
                                                 <div class="accordion-item">
                                                     <span class="accordion-header" id="accordion-title-one">
                                                     <button
-                                                        class="accordion-button pb-10 px-3"
+                                                        class="accordion-button pb-10 px-3 text-uppercase"
                                                         type="button"
                                                         aria-controls="collapse-one"
                                                         aria-expanded="true"
                                                         data-bs-toggle="collapse"
                                                         data-bs-target="#collapse-one"
-                                                    >INDICE DELLA PAGINA
+                                                    >Indice della pagina
                                                         <svg class="icon icon-sm icon-primary align-top">
                                                             <use xlink:href="#it-expand"></use>
                                                         </svg>

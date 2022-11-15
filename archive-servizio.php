@@ -82,7 +82,7 @@ get_header();
               <?php if ( is_array($amministrazione) && count($amministrazione) ) { ?>
                 <div class="col-12 col-lg-4 pt-50 pb-30 pt-lg-5 ps-lg-5">
                   <div class="link-list-wrap">
-                    <div class="title-xsmall-semi-bold"><span>UFFICI</span></div>
+                    <h2 class="title-xsmall-semi-bold"><span>UFFICI</span></h2>
                     <ul class="link-list t-primary">
                       <?php foreach ($amministrazione as $item) { ?>
                         <li class="mb-3 mt-3">

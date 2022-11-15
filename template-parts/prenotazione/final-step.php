@@ -32,15 +32,15 @@
     <div class="row mb-4 mt-lg-80">
         <div class="d-none d-sm-none d-lg-block col-lg-3">
             <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
-                <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll="">
+                <nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="Indice della pagina" data-bs-navscroll>
                     <div class="navbar-custom" id="navbarNavProgress">
                         <div class="menu-wrapper">
                             <div class="link-list-wrapper">
                                 <div class="accordion">
                                     <div class="accordion-item">
                                         <span class="accordion-header" id="accordion-title-one">
-                                            <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
-                                            INDICE DELLA PAGINA
+                                            <button class="accordion-button pb-10 px-3 text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                            Indice della pagina
                                             <svg class="icon icon-xs right">
                                                 <use xlink:href="#it-expand"></use>
                                             </svg>

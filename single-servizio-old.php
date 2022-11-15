@@ -80,7 +80,7 @@ get_header();
                         <div class="d-none d-lg-block sticky-wrapper navbar-wrapper">
                             <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg">
                             <button
-                                class="custom-navbar-toggler"
+                                class="custom-navbar-toggler text-uppercase"
                                 type="button"
                                 aria-controls="navbarNav"
                                 aria-expanded="false"
