@@ -25,8 +25,8 @@ get_header();
                 </div>
                 <div class="row">
                     <div class="col-lg-8 px-lg-4 py-lg-2">
-                        <h1><?php the_title(); ?></h1>
-                        <p>
+                        <h1 data-audio><?php the_title(); ?></h1>
+                        <p data-audio>
                             <?php echo $descrizione_breve; ?>
                         </p>
                     </div>
@@ -37,7 +37,7 @@ get_header();
             </div>
 
             <div class="container ">
-                <article class="article-wrapper">
+                <article class="article-wrapper" data-audio>
 
                     <div class="row variable-gutters">
                         <div class="col-lg-12">

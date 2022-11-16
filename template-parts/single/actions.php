@@ -98,8 +98,7 @@ if ($hide_arguments) $argomenti = array();
                 >
                 </li>
                 <li role="none">
-                <a class="list-item" href="#" role="menuitem"
-                    ><svg class="icon" aria-hidden="true">
+                <a class="list-item" href="#" role="menuitem" onclick="listenElements(this, '[data-audio]')"><svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-hearing"
                     ></use>
