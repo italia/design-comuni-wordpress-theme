@@ -9,7 +9,7 @@ global $count, $scheda;
 // $posts = get_posts($args);
 // $post = array_shift($posts);
 
-$post_id = dci_get_option('notizia_evidenziata','homepage', true )[0];
+$post_id = dci_get_option('notizia_evidenziata','homepage', true )[0] ?? null;
 if($post_id) $post = get_post($post_id);
 
 $img = dci_get_meta("immagine", '_dci_notizia_', $post->ID);
@@ -18,9 +18,9 @@ $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10));
 $descrizione_breve = dci_get_meta("descrizione_breve", '_dci_notizia_', $post->ID);
 $argomenti = dci_get_meta("argomenti", '_dci_notizia_', $post->ID);
 
-$scheda1 = dci_get_option('schede_evidenziate_1','homepage', true )[0];
-$scheda2 = dci_get_option('schede_evidenziate_2','homepage', true )[0];
-$scheda3 = dci_get_option('schede_evidenziate_3','homepage', true )[0];
+$scheda1 = dci_get_option('schede_evidenziate_1','homepage', true )[0] ?? null;
+$scheda2 = dci_get_option('schede_evidenziate_2','homepage', true )[0] ?? null;
+$scheda3 = dci_get_option('schede_evidenziate_3','homepage', true )[0] ?? null;
 $schede = array($scheda1,$scheda2,$scheda3 );
 
 

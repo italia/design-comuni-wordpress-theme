@@ -23,6 +23,7 @@
                         </div>
                     </div>
                 </form>
+                <?php if ($links) { ?>
                 <div class="link-list-wrapper">
                     <div
                     class="link-list-heading text-uppercase mt-2 mt-lg-4 mb-3 ps-0"
@@ -41,7 +42,7 @@
                         <?php } ?>
                     </ul>
                 </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
