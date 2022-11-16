@@ -278,7 +278,7 @@ L’uso del tema non impatta le modalità con cui viene abitualmente gestito il 
 
 ➔ **Non ho WordPress. Cosa devo fare?**
 
-Puoi passare a[ WordPress](https://it.wordpress.org/) in qualunque momento, oppure usare le [altre risorse per la creazione del sito comunale](https://designers.italia.it/modello/comuni/).
+Puoi passare a [WordPress](https://it.wordpress.org/) in qualunque momento, oppure usare le [altre risorse per la creazione del sito comunale](https://designers.italia.it/modello/comuni/).
 
 ➔ **Quali sono i benefici dell’uso del tema WordPress?**
 
