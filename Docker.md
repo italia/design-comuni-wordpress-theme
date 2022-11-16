@@ -22,7 +22,6 @@ services:
       - MYSQL_PASSWORD=wordpress
     expose:
       - 3306
-      - 33060
   wordpress:
     image: wordpress:latest
     ports:
@@ -35,7 +34,8 @@ services:
       - WORDPRESS_DB_NAME=wordpress
     volumes:
       - ./wp-content:/var/www/html/wp-content
-      - ./.htaccess:/var/www/html/.htaccess
+    expose:
+      - 8080
 volumes:
   db_data:
 ```
