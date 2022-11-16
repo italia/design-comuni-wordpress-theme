@@ -88,16 +88,6 @@ if ($hide_arguments) $argomenti = array();
         <div class="link-list-wrapper">
             <ul class="link-list" role="menu">
                 <li role="none">
-                <a class="list-item" href="#" role="menuitem"
-                    ><svg class="icon" aria-hidden="true">
-                    <use
-                        xlink:href="#it-download"
-                    ></use>
-                    </svg>
-                    <span>Scarica</span></a
-                >
-                </li>
-                <li role="none">
                 <a class="list-item" href="#" onclick="window.print()" role="menuitem">
                     <svg class="icon" aria-hidden="true">
                     <use
