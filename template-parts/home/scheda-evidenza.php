@@ -30,7 +30,7 @@ $page_macro = get_page_by_path($page_macro_slug);
         </div>
     </div>
     <a
-    class="read-more ps-3 position-absolute bottom-0 mb-3"
+    class="read-more ps-3"
     href="<?php echo get_permalink($post->ID); ?>"
     aria-label="Vai alla pagina <?php echo $post->post_title ?>" 
     title="Vai alla pagina <?php echo $post->post_title ?>"
