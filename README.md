@@ -183,7 +183,7 @@ Al termine del processo di valutazione viene creato un payload nel seguente form
 }
 ```
 
-Il file da mofificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
+Il file da modificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
 
 - `assets > js > rating.js `.
 
