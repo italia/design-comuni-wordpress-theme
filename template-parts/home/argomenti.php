@@ -20,19 +20,21 @@ $altri_argomenti = dci_get_option('argomenti_altri','homepage');
 <div class="container">
     <?php if ($argomenti_evidenza) { ?>
     <div class="row">
-        <h2 class="text-white title-xlarge mb-3">In evidenza</h2>
+        <h2 class="text-white title-xlarge mb-3">Argomenti in evidenza</h2>
     </div>
     <div>
         <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3">
             <?php $count=1;
-            foreach ($argomenti_evidenza as $argomento_full) {
-                if ($argomento_full){
-                    if($argomento_full['argomento_'.$count.'_argomento']){
-                        get_template_part("template-parts/home/scheda-argomento");
+            if(is_array($argomenti_evidenza)) {
+                foreach ($argomenti_evidenza as $argomento_full) {
+                    if ($argomento_full){
+                        if($argomento_full['argomento_'.$count.'_argomento']){
+                            get_template_part("template-parts/home/scheda-argomento");
+                        }
                     }
-                }
-                ++$count;
-            } ?>
+                    ++$count;
+                } 
+            }?>
         </div>
     </div>
     <?php } 
@@ -45,16 +47,20 @@ $altri_argomenti = dci_get_option('argomenti_altri','homepage');
                         Altri argomenti
                     </h3>
                 </div>
-                <div class="col-lg-9 argomenti">
-                    <?php if (is_array($altri_argomenti)) {
-                        foreach ($altri_argomenti as $arg_id) {
-                            $argomento = get_term_by('term_taxonomy_id', $arg_id);
-                            $url = get_term_link(intval($arg_id),'argomenti');
-                    ?>
-                    <div class="chip chip-simple pb-0 mb-2">
-                        <a href="<?php echo $url ?>" class="chip-label"><?php echo $argomento->name ?></a>
-                    </div>
-                    <?php } } ?>
+                <div class="col-lg-9">
+                    <ul class="d-flex flex-wrap gap-1">
+                        <?php if (is_array($altri_argomenti)) {
+                            foreach ($altri_argomenti as $arg_id) {
+                                $argomento = get_term_by('term_taxonomy_id', $arg_id);
+                                $url = get_term_link(intval($arg_id),'argomenti');
+                        ?>
+                        <li>
+                            <a href="<?php echo $url ?>" class="chip chip-simple">
+                                <span class="chip-label"><?php echo $argomento->name ?></span>
+                            </a>
+                        </li>
+                        <?php } } ?>
+                    </ul>
                 </div>
             </div>
         </div>
