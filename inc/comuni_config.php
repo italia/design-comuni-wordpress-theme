@@ -20,7 +20,7 @@ function dci_get_pagine_obj(){
  * @return mixed
  */
 function dci_get_group($tipologia) {
-    return COMUNI_TIPOLOGIE[$tipologia]['group_id'];
+    return COMUNI_TIPOLOGIE[$tipologia]['group_id'] ?? null;
 }
 
 /**

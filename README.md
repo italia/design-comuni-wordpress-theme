@@ -183,7 +183,7 @@ Al termine del processo di valutazione viene creato un payload nel seguente form
 }
 ```
 
-Il file da mofificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
+Il file da modificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
 
 - `assets > js > rating.js `.
 
@@ -278,7 +278,7 @@ L’uso del tema non impatta le modalità con cui viene abitualmente gestito il 
 
 ➔ **Non ho WordPress. Cosa devo fare?**
 
-Puoi passare a[ WordPress](https://it.wordpress.org/) in qualunque momento, oppure usare le [altre risorse per la creazione del sito comunale](https://designers.italia.it/modello/comuni/).
+Puoi passare a [WordPress](https://it.wordpress.org/) in qualunque momento, oppure usare le [altre risorse per la creazione del sito comunale](https://designers.italia.it/modello/comuni/).
 
 ➔ **Quali sono i benefici dell’uso del tema WordPress?**
 

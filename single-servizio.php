@@ -50,7 +50,7 @@ get_header();
             $categoria_servizio = $categorie[0]->name;
             $ipa = dci_get_meta('codice_ente_erogatore');
             $copertura_geografica = dci_get_wysiwyg_field("copertura_geografica");
-            if ($canale_fisico_uffici[0]) {
+            if ($canale_fisico_uffici[0]??null) {
                 $ufficio = get_post($canale_fisico_uffici[0]);
                 $luogo_id = dci_get_meta('sede_principale', '_dci_unita_organizzativa_', $ufficio->ID);
                 $indirizzo = dci_get_meta('indirizzo', '_dci_luogo_', $luogo_id);

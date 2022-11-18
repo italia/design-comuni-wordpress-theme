@@ -76,6 +76,7 @@
                   </div>
               </div>
             </div>
+            <?php if ($links) { ?>
             <div class="row variable-gutters">
               <div class="col-lg-5">
                 <div class="searches-list-wrapper">
@@ -96,6 +97,7 @@
                 </div>
               </div>
             </div>
+            <?php } ?>
           </div>
         </form>
       </div>
