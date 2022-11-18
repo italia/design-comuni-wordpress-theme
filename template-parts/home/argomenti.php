@@ -1,18 +1,15 @@
 <?php
 global $argomento_full, $count;
 
-$argomenti_evidenza = null;
+$argomenti_evidenza = array();
 $arg1 = dci_get_option('argomenti_evidenziati_1','homepage')[0] ?? null;
-if ($arg1)
-    $argomenti_evidenza = array_push($arg1);
+if ($arg1) $argomenti_evidenza[1] = $arg1;
 
 $arg2 = dci_get_option('argomenti_evidenziati_2','homepage')[0] ?? null;
-if ($arg2)
-    $argomenti_evidenza = array_push($arg2);
+if ($arg2) $argomenti_evidenza[2] = $arg2;
 
 $arg3 = dci_get_option('argomenti_evidenziati_3','homepage')[0] ?? null;
-if ($arg3)
-    $argomenti_evidenza = array_push($arg3);
+if ($arg3) $argomenti_evidenza[3] = $arg3;
 
 $altri_argomenti = dci_get_option('argomenti_altri','homepage');
 ?>
@@ -24,15 +21,15 @@ $altri_argomenti = dci_get_option('argomenti_altri','homepage');
     </div>
     <div>
         <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3">
-            <?php $count=1;
+            <?php
             if(is_array($argomenti_evidenza)) {
-                foreach ($argomenti_evidenza as $argomento_full) {
+                foreach ($argomenti_evidenza as $key => $argomento_full) {
+                    $count = $key;
                     if ($argomento_full){
                         if($argomento_full['argomento_'.$count.'_argomento']){
                             get_template_part("template-parts/home/scheda-argomento");
                         }
                     }
-                    ++$count;
                 } 
             }?>
         </div>
