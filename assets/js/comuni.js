@@ -4007,6 +4007,12 @@ var cmp_info_checkbox = __webpack_require__(4);
 var input = __webpack_require__(5);
 
 // CONCATENATED MODULE: ./javascripts/scripts.js
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 /* eslint-disable */
 
 
@@ -4017,6 +4023,102 @@ var input = __webpack_require__(5);
 var alertMessage = document.getElementById('alert-message');
 var saveBtns = document.querySelectorAll('.saveBtn');
 var stepperNav = document.querySelector('.steppers-nav');
+
+var initT2S = function initT2S() {
+  if ("speechSynthesis" in window || speechSynthesis) {
+    var _T2S = window.speechSynthesis || speechSynthesis;
+
+    var _message = new SpeechSynthesisUtterance();
+
+    _message.voiceURI = 'native';
+    _message.volume = 1;
+    _message.rate = 0.8;
+    _message.pitch = 1;
+    _message.lang = 'it-IT', 'Paulina';
+
+    var resetLanguage = function resetLanguage() {
+      var voices = [];
+      voices = _T2S.getVoices();
+      _message.voice = voices.find(function (voice) {
+        return voice.lang === 'it-IT';
+      }, 'Paulina');
+    };
+
+    resetLanguage();
+
+    if (_T2S.onvoiceschanged !== undefined) {
+      _T2S.onvoiceschanged = resetLanguage;
+    }
+
+    return {
+      T2S: _T2S,
+      message: _message
+    };
+  }
+};
+
+var t2sPlay = false;
+var srcElement;
+
+var _initT2S = initT2S(),
+    T2S = _initT2S.T2S,
+    message = _initT2S.message;
+
+var play = function play(text) {
+  srcElement.children[1].innerText = "Ferma audio";
+  t2sPlay = true;
+  message.text = text;
+  T2S.cancel();
+  T2S.speak(message);
+
+  window.onbeforeunload = function () {
+    T2S.cancel();
+  };
+};
+
+var stop = function stop() {
+  srcElement.children[1].innerText = "Ascolta";
+  t2sPlay = false;
+  T2S.cancel();
+};
+
+message.addEventListener('end', function () {
+  stop();
+});
+
+var cleanHtml = function cleanHtml(html) {
+  var div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
+
+window.listenElements = function (sourceElement, elements) {
+  srcElement = sourceElement;
+
+  if (t2sPlay === true) {
+    stop();
+    return;
+  }
+
+  var text = "";
+
+  var _iterator = _createForOfIteratorHelper(document.querySelectorAll(elements)),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var element = _step.value;
+      text = text + cleanHtml(element.innerHTML) + " ";
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  play(text);
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
     getSplide();
