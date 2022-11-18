@@ -3914,106 +3914,158 @@
       html += this.renderArrow(true);
       html += this.renderArrow(false);
       html += "</div>";
-      return html;
+      html += afterSlider || "";
+    }
+
+    html += "</div>";
+    return html;
+  };
+
+  return SplideRenderer;
+}();
+
+
+
+// EXTERNAL MODULE: ./components/cmp-rating/cmp-rating.js
+var cmp_rating = __webpack_require__(1);
+
+// EXTERNAL MODULE: ./components/partials/toggle/toggle.js
+var toggle = __webpack_require__(2);
+
+// EXTERNAL MODULE: ./components/cmp-info-button-card/cmp-info-button-card.js
+var cmp_info_button_card = __webpack_require__(3);
+
+// EXTERNAL MODULE: ./components/cmp-info-checkbox/cmp-info-checkbox.js
+var cmp_info_checkbox = __webpack_require__(4);
+
+// EXTERNAL MODULE: ./components/partials/input/input.js
+var input = __webpack_require__(5);
+
+// CONCATENATED MODULE: ./javascripts/scripts.js
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+/* eslint-disable */
+
+
+
+
+
+
+var alertMessage = document.getElementById('alert-message');
+var saveBtns = document.querySelectorAll('.saveBtn');
+var stepperNav = document.querySelector('.steppers-nav');
+
+var initT2S = function initT2S() {
+  if ("speechSynthesis" in window || speechSynthesis) {
+    var _T2S = window.speechSynthesis || speechSynthesis;
+
+    var _message = new SpeechSynthesisUtterance();
+
+    _message.voiceURI = 'native';
+    _message.volume = 1;
+    _message.rate = 0.8;
+    _message.pitch = 1;
+    _message.lang = 'it-IT', 'Paulina';
+
+    var resetLanguage = function resetLanguage() {
+      var voices = [];
+      voices = _T2S.getVoices();
+      _message.voice = voices.find(function (voice) {
+        return voice.lang === 'it-IT';
+      }, 'Paulina');
     };
-  
-    _proto3.renderArrow = function renderArrow(prev) {
-      var _this$options = this.options,
-          classes = _this$options.classes,
-          i18n = _this$options.i18n;
-      var attrs = {
-        class: classes.arrow + " " + (prev ? classes.prev : classes.next),
-        type: "button",
-        ariaLabel: prev ? i18n.prev : i18n.next
-      };
-      return "<button " + this.buildAttrs(attrs) + "><svg xmlns=\"" + XML_NAME_SPACE + "\" viewBox=\"0 0 " + SIZE + " " + SIZE + "\" width=\"" + SIZE + "\" height=\"" + SIZE + "\"><path d=\"" + (this.options.arrowPath || PATH) + "\" /></svg></button>";
+
+    resetLanguage();
+
+    if (_T2S.onvoiceschanged !== undefined) {
+      _T2S.onvoiceschanged = resetLanguage;
+    }
+
+    return {
+      T2S: _T2S,
+      message: _message
     };
-  
-    _proto3.html = function html() {
-      var _this$config = this.config,
-          rootClass = _this$config.rootClass,
-          listTag = _this$config.listTag,
-          arrows = _this$config.arrows,
-          beforeTrack = _this$config.beforeTrack,
-          afterTrack = _this$config.afterTrack,
-          slider = _this$config.slider,
-          beforeSlider = _this$config.beforeSlider,
-          afterSlider = _this$config.afterSlider;
-      var html = "";
-      html += "<div id=\"" + this.id + "\" class=\"" + this.buildClasses() + " " + (rootClass || "") + "\">";
-      html += "<style>" + this.Style.build() + "</style>";
-  
-      if (slider) {
-        html += beforeSlider || "";
-        html += "<div class=\"splide__slider\">";
-      }
-  
-      html += beforeTrack || "";
-  
-      if (arrows) {
-        html += this.renderArrows();
-      }
-  
-      html += "<div class=\"splide__track\">";
-      html += "<" + listTag + " class=\"splide__list\">";
-      html += this.renderSlides();
-      html += "</" + listTag + ">";
-      html += "</div>";
-      html += afterTrack || "";
-  
-      if (slider) {
-        html += "</div>";
-        html += afterSlider || "";
-      }
-  
-      html += "</div>";
-      return html;
-    };
-  
-    return SplideRenderer;
-  }();
-  
-  
-  
-  // EXTERNAL MODULE: ./components/cmp-rating/cmp-rating.js
-  var cmp_rating = __webpack_require__(1);
-  
-  // EXTERNAL MODULE: ./components/partials/toggle/toggle.js
-  var toggle = __webpack_require__(2);
-  
-  // EXTERNAL MODULE: ./components/cmp-info-button-card/cmp-info-button-card.js
-  var cmp_info_button_card = __webpack_require__(3);
-  
-  // EXTERNAL MODULE: ./components/cmp-info-checkbox/cmp-info-checkbox.js
-  var cmp_info_checkbox = __webpack_require__(4);
-  
-  // EXTERNAL MODULE: ./components/partials/input/input.js
-  var input = __webpack_require__(5);
-  
-  // CONCATENATED MODULE: ./javascripts/scripts.js
-  /* eslint-disable */
-  
-  
-  
-  
-  
-  
-  var alertMessage = document.getElementById('alert-message');
-  var saveBtns = document.querySelectorAll('.saveBtn');
-  var stepperNav = document.querySelector('.steppers-nav');
-  document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(function () {
-      getSplide();
-    }, 400);
-    saveBtns.forEach(function (e) {
-      e.addEventListener('click', function () {
-        alertMessage.classList.remove('d-none');
-        stepperNav.classList.add('pb-4');
-        setTimeout(function () {
-          alertMessage.classList.add('d-none');
-          stepperNav.classList.remove('pb-4');
-        }, 3000);
-      });
+  }
+};
+
+var t2sPlay = false;
+var srcElement;
+
+var _initT2S = initT2S(),
+    T2S = _initT2S.T2S,
+    message = _initT2S.message;
+
+var play = function play(text) {
+  srcElement.children[1].innerText = "Ferma audio";
+  t2sPlay = true;
+  message.text = text;
+  T2S.cancel();
+  T2S.speak(message);
+
+  window.onbeforeunload = function () {
+    T2S.cancel();
+  };
+};
+
+var stop = function stop() {
+  srcElement.children[1].innerText = "Ascolta";
+  t2sPlay = false;
+  T2S.cancel();
+};
+
+message.addEventListener('end', function () {
+  stop();
+});
+
+var cleanHtml = function cleanHtml(html) {
+  var div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
+
+window.listenElements = function (sourceElement, elements) {
+  srcElement = sourceElement;
+
+  if (t2sPlay === true) {
+    stop();
+    return;
+  }
+
+  var text = "";
+
+  var _iterator = _createForOfIteratorHelper(document.querySelectorAll(elements)),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var element = _step.value;
+      text = text + cleanHtml(element.innerHTML) + " ";
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  play(text);
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(function () {
+    getSplide();
+  }, 400);
+  saveBtns.forEach(function (e) {
+    e.addEventListener('click', function () {
+      alertMessage.classList.remove('d-none');
+      stepperNav.classList.add('pb-4');
+      setTimeout(function () {
+        alertMessage.classList.add('d-none');
+        stepperNav.classList.remove('pb-4');
+      }, 3000);
     });
   });
   function getSplide() {
