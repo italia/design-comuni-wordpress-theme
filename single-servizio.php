@@ -370,7 +370,6 @@ get_header();
                             <?php if ( $more_info ) {  ?>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="more-info">Ulteriori informazioni</h2>
-                                <h3 class="mb-3 subtitle-medium">Graduatorie di accesso</h3>
                                 <div class="richtext-wrapper lora">
                                     <?php echo $more_info ?>
                                 </div>
