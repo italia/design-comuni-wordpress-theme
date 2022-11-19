@@ -3,18 +3,19 @@ global $with_page_bottom;
 $argomenti = dci_get_argomenti_of_post();
 if(count($argomenti)) {?>
 
-<div class="col-lg-9 argomenti">
+<ul class="d-flex flex-wrap gap-1">
     <?php foreach ( $argomenti as $item ) { ?>
-        <div class="chip chip-simple">
-            <a 
-            class="chip-label" 
+        <li>
+            <a class="chip chip-simple"
             href="<?php echo get_term_link($item); ?>"
             >
-                <?php echo $item->name; ?>
+                <span class="chip-label"> 
+                    <?php echo $item->name; ?>
+                </span>
             </a>
-        </div>
+        </li>
     <?php } ?>
-</div>
+</ul>
 <?php if ( $with_page_bottom )
     get_template_part("template-parts/single/bottom"); 
 ?>

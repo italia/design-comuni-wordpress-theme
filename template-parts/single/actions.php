@@ -98,8 +98,7 @@ if ($hide_arguments) $argomenti = array();
                 >
                 </li>
                 <li role="none">
-                <a class="list-item" href="#" role="menuitem"
-                    ><svg class="icon" aria-hidden="true">
+                <a class="list-item" href="#" role="menuitem" onclick="listenElements(this, '[data-audio]')"><svg class="icon" aria-hidden="true">
                     <use
                         xlink:href="#it-hearing"
                     ></use>
@@ -124,14 +123,14 @@ if ($hide_arguments) $argomenti = array();
 <?php if (is_array($argomenti) && count($argomenti) ) { ?>
 <div class="mt-4 mb-4">
     <span class="subtitle-small">Argomenti</span>
-    <div class="chip-wrapper mt-2">
+    <ul class="d-flex flex-wrap gap-1">
         <?php foreach ($argomenti as $argomento) { ?>
-        <a class="text-decoration-none" href="<?php echo get_term_link($argomento->term_id); ?>" data-element="service-topic">
-            <div class="chip chip-simple chip-primary">
+        <li>
+            <a class="chip chip-simple" href="<?php echo get_term_link($argomento->term_id); ?>" data-element="service-topic">
                 <span class="chip-label"><?php echo $argomento->name; ?></span>
-            </div>
-        </a>
+            </a>
+        </li>
         <?php } ?>
-    </div>
+    </ul>
 </div>
 <?php } ?>
