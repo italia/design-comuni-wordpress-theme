@@ -52,11 +52,11 @@ get_header();
                 </div>
                 <div class="row">
                     <div class="col-lg-8 px-lg-4 py-lg-2">
-                        <h1><?php the_title(); ?></h1>
+                        <h1 data-audio><?php the_title(); ?></h1>
                         <?php if ($start_timestamp && $end_timestamp) { ?>
-                            <h2 class="h4 py-2">dal <?php echo $start_date; ?> al <?php echo $end_date; ?></h2>
+                            <h2 class="h4 py-2" data-audio>dal <?php echo $start_date; ?> al <?php echo $end_date; ?></h2>
                         <?php } ?>
-                        <p>
+                        <p data-audio>
                             <?php echo $descrizione_breve; ?>
                         </p>
                     </div>
@@ -174,7 +174,7 @@ get_header();
                         </div>
                     </aside>
                     <section class="col-lg-8 it-page-sections-container border-light">
-                    <article id="cos-e" class="it-page-section anchor-offset">
+                    <article id="cos-e" class="it-page-section anchor-offset" data-audio>
                         <h4>Cos'è</h4>
                         <div class="richtext-wrapper font-serif">
                             <?php echo $descrizione; ?>

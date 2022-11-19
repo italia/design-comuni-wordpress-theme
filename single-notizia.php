@@ -36,9 +36,9 @@ get_header();
                 </div>
                 <div class="row">
                     <div class="col-lg-8 px-lg-4 py-lg-2">
-                        <h1><?php the_title(); ?></h1>
-                        <h2 class="visually-hidden">Dettagli della notizia</h2>
-                        <p>
+                        <h1 data-audio><?php the_title(); ?></h1>
+                        <h2 class="visually-hidden" data-audio>Dettagli della notizia</h2>
+                        <p data-audio>
                             <?php echo $descrizione_breve; ?>
                         </p>
                         <div class="row mt-5 mb-4">
@@ -129,7 +129,7 @@ get_header();
                         </div>
                     </aside>
                     <section class="col-lg-8 it-page-sections-container border-light">
-                    <article id="descrizione" class="it-page-section anchor-offset">
+                    <article id="descrizione" class="it-page-section anchor-offset" data-audio>
                         <h4>Descrizione</h4>
                         <div class="richtext-wrapper lora">
                             <?php echo $descrizione; ?>

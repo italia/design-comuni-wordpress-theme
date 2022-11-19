@@ -105,20 +105,18 @@ get_header();
                                     <h1 class="title-xxxlarge" data-element="service-title">
                                         <?php the_title(); ?>
                                     </h1>
-                                    <?php if ( $stato == 'true' ) {?>
-                                        <div class="d-flex flex-wrap cmp-heading__tag">
-                                            <div class="cmp-tag">
-                                            <span class="cmp-tag__tag title-xsmall" data-element="service-status">Servizio attivo</span>
+                                    <ul class="d-flex flex-wrap gap-1 my-3">
+                                        <li>
+                                            <div class="chip chip-simple text-button" data-element="service-status">
+                                                <span class="chip-label">
+                                                <?php if ( $stato == 'true' ) {
+                                                    echo 'Servizio attivo';
+                                                } else echo 'Servizio non attivo'
+                                                ?>
+                                                </span>
                                             </div>
-                                        </div>
-                                    <?php } else {?>
-                                        <div class="d-flex flex-wrap gap-2 cmp-heading__tag">
-                                            <div class="cmp-tag">
-                                            <span class="cmp-tag__tag title-xsmall" data-element="service-status">Servizio non attivo</span>
-                                            </div>
-                                            <!-- <div><?php #echo $motivo_stato; ?></div> -->
-                                        </div>
-                                    <?php } ?>
+                                        </li>
+                                    </ul>
                                     <p class="subtitle-small mb-3" data-element="service-description">
                                         <?php echo $descrizione_breve ?>
                                     </p>
@@ -400,15 +398,17 @@ get_header();
                                     </div>
                                     <div class="col-12 mb-30">
                                         <span class="text-paragraph-small">Argomenti:</span>
-                                        <div class="d-flex flex-wrap gap-2 mt-10 mb-30">
+                                        <ul class="d-flex flex-wrap gap-2 mt-10 mb-30">
                                             <?php foreach ( $argomenti as $item ) { ?>
-                                                <div class="cmp-tag">
-                                                    <a class="chip chip-simple t-primary bg-tag text-decoration-none" href="<?php echo get_term_link($item); ?>" data-element="service-topic">
-                                                    <span class="chip-label"><?php echo $item->name; ?></span>
+                                                <li>
+                                                    <a href="<?php echo get_term_link($item); ?>" class="chip chip-simple" data-element="service-topic">
+                                                        <span class="chip-label">
+                                                            <?php echo $item->name; ?>
+                                                        </span>
                                                     </a>
-                                                </div>
+                                                </li>
                                             <?php } ?>
-                                        </div>
+                                        </ul>
                                         <?php get_template_part('template-parts/single/page_bottom',"simple"); ?>
                                     </div>
                                 </div>
