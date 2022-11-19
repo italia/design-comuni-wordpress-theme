@@ -1,7 +1,7 @@
 <?php
 global $documento;
 ?>
-<div class="card card-teaser shadow-sm p-4s rounded border border-light flex-nowrap">
+<div class="card card-teaser shadow-sm p-4s rounded border border-light flex-nowrap m-1">
 	<svg class="icon" aria-hidden="true">
 		<use xlink:href="#it-clip"></use>
 	</svg>
