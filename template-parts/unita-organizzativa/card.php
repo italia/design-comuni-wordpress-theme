@@ -19,7 +19,7 @@
     if($with_border) {
 ?>
 
-<div class="card card-teaser card-teaser-info rounded shadow-sm p-3">
+<div class="card card-teaser card-teaser-info rounded shadow-sm p-3 m-1">
     <div class="card-body pe-3">
         <p class="card-title text-paragraph-regular-medium-semi mb-3">
             <a class="text-decoration-none" href="<?php echo get_permalink($ufficio->ID); ?>" data-element="service-area">
