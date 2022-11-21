@@ -1,4 +1,4 @@
-name: assets update
+name: Assets update
 
 on:
   schedule:
@@ -21,7 +21,6 @@ jobs:
         uses: fregante/setup-git-user@v1
       - name: Run comuni.css update
         run: | 
-          npm install clean-css-cli -g
           git clone https://github.com/italia/design-comuni-pagine-statiche
           cd design-comuni-pagine-statiche && npm i && npm run build && cd ..
           cp ./design-comuni-pagine-statiche/dist/assets/css/style.css ./assets/css/comuni.css
