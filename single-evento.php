@@ -176,15 +176,14 @@ get_header();
               <div class="richtext-wrapper font-serif">
                   <?php echo $descrizione; ?>
               </div>
+              <?php if (is_array($gallery) && count($gallery)) {
+                  get_template_part("template-parts/single/gallery");
+              } ?>
+              <?php if ($video) {
+                  get_template_part("template-parts/single/video");
+              } ?>
           </article>
 
-          <?php if (is_array($gallery) && count($gallery)) {
-              get_template_part("template-parts/single/gallery");
-          } ?>
-
-          <?php if ($video) {
-              get_template_part("template-parts/single/video");
-          } ?>
 
           <?php if(is_array($persone) && count($persone)) {?>
             <div class="pt-3">
@@ -194,13 +193,13 @@ get_header();
           <?php  } ?>
 
           <?php if($luogo_evento) {?>
-              <article id="luogo" class="it-page-section">
-                  <h2>Luogo</h2>
-                  <?php
-                      $luogo = $luogo_evento;
-                      get_template_part("template-parts/single/luogo");
-                  ?>
-              </article>
+            <article id="luogo" class="it-page-section">
+              <h2 class="mb-3">Luogo</h2>
+              <?php
+                  $luogo = $luogo_evento;
+                  get_template_part("template-parts/single/luogo");
+              ?>
+            </article>
           <?php } ?>
 
           <?php if ($start_timestamp && $end_timestamp) { ?>
