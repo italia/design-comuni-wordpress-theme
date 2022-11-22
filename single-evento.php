@@ -185,6 +185,11 @@ get_header();
               } ?>
           </article>
 
+          <?php if($destinatari) {?>
+            <article id="destinatari" class="it-page-section mb-5">
+              <h2 class="mb-3">A chi è rivolto</h2>
+              <p><?php echo $destinatari; ?></p>
+            </article>
 
           <?php if(is_array($persone) && count($persone)) {?>
             <div class="pt-3">
