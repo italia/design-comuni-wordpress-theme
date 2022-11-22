@@ -28,6 +28,7 @@ get_header();
     $end_date = date_i18n('d F Y', date($end_timestamp));
     $end_date_arr = explode('-', date_i18n('d-M-Y-H-i', date($end_timestamp)));
     $descrizione = dci_get_wysiwyg_field("descrizione_completa", $prefix, $post->ID);
+    $destinatari = dci_get_wysiwyg_field("a_chi_e_rivolto", $prefix, $post->ID);
     //media
     $gallery = dci_get_meta("gallery", $prefix, $post->ID);
     $video = dci_get_meta("video", $prefix, $post->ID);
