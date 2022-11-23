@@ -4,7 +4,7 @@ global $gallery;
  <div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide>
 	<div class="it-header-block">
 		<div class="it-header-block-title">
-			<h4>Galleria di immagini</h4>
+			<h3 class="h4">Galleria di immagini</h4>
 		</div>
 	</div>
 	<div class="splide__track">
