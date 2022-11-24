@@ -19,7 +19,7 @@ jobs:
           node-version: 16
       - name: Setup Git
         uses: fregante/setup-git-user@v1
-      - name: Run comuni.css update
+      - name: Run assets update
         run: | 
           git clone https://github.com/italia/design-comuni-pagine-statiche
           cd design-comuni-pagine-statiche && npm i && npm run build && cd ..
@@ -28,10 +28,11 @@ jobs:
           rm -rf design-comuni-pagine-statiche
           npm i
           npm run build
-          git add ./assets/css/comuni.css ./assets/js/comuni.js
+          git add assets/css/comuni.css assets/js/comuni.js
           git commit -m "chore(deps) update assets"
+          git checkout .
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
-          title: "chore(deps) update assets"
+          title: "chore(deps): update assets"
           branch: feature/update-assets
