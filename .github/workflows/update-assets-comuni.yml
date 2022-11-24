@@ -28,7 +28,7 @@ jobs:
           rm -rf design-comuni-pagine-statiche
           npm i
           npm run build
-          git add .
+          git add ./assets/css/comuni.css ./assets/js/comuni.js
           git commit -m "chore(deps) update assets"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
