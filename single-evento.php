@@ -183,6 +183,12 @@ get_header();
               <div class="richtext-wrapper font-serif">
                   <?php echo $descrizione; ?>
               </div>
+              <?php if(is_array($persone) && count($persone)) {?>
+              <div class="pt-3 mb-4">
+                <h3 class="h4">Parteciperanno</h3>
+                <?php get_template_part("template-parts/single/persone"); ?>
+              </div>
+              <?php  } ?>
               <?php if (is_array($gallery) && count($gallery)) {
                   get_template_part("template-parts/single/gallery");
               } ?>
@@ -198,12 +204,7 @@ get_header();
           </article>
           <?php  } ?>
 
-          <?php if(is_array($persone) && count($persone)) {?>
-          <div class="pt-3">
-            <h5 class="h6 font-serif fw-bold">Parteciperanno:</h5>
-            <?php get_template_part("template-parts/single/persone"); ?>
-          </div>
-          <?php  } ?>
+          
 
           <?php if($luogo_evento) {?>
           <article id="luogo" class="it-page-section mb-5">
@@ -380,7 +381,7 @@ get_header();
       </div>
     </div>
 
-    <?php get_template_part('template-parts/single/more-posts', 'carousel'); ?>
+    <!-- <?php get_template_part('template-parts/single/more-posts', 'carousel'); ?> -->
 
   <?php
   endwhile; // End of the loop.
