@@ -204,8 +204,6 @@ get_header();
           </article>
           <?php  } ?>
 
-          
-
           <?php if($luogo_evento) {?>
           <article id="luogo" class="it-page-section mb-5">
             <h2 class="mb-3">Luogo</h2>
