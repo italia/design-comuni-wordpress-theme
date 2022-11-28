@@ -167,11 +167,15 @@ Cliccando su `Configurazione`, è possibile definire:
 
 #### **Servizi esterni**
 
-Il tema Wordpress è realizzato per supportare il collegamento a API esterne per quel che concerne le funzionalità di valutazione, prenotazione appuntamento e richiesta di assistenza. Ogni amministrazione comunale dovrà quindi provvedere ad integrare i form forniti con il tema con un servizio esterno realizzato a propria discrezione andando a modificare i file che andremo ad elencare di seguito. Per l'effettivo inserimento dei file all'interno del progetto è necessario avviare un processo di build tramite `npm` come verrà descritto in seguito. Assicurarsi di aver installato [Node.js](https://nodejs.org/it/download/) almeno della versione 16.x e installato le dipendenze con il comando
+Il tema Wordpress è realizzato per supportare il collegamento a API esterne per quel che concerne le funzionalità di valutazione, prenotazione appuntamento e richiesta di assistenza. Ogni amministrazione comunale dovrà quindi provvedere ad integrare i form forniti con il tema con un servizio esterno realizzato a propria discrezione andando a modificare i file che andremo ad elencare di seguito. Per l'effettivo inserimento dei file all'interno del progetto si può agire in due modi
+
+- se vogliamo che i file siano minificati per un incremento delle performance del sito è necessario avviare un processo di build tramite `npm` dopo la modifica del file, come verrà descritto in seguito. Assicurarsi di aver installato [Node.js](https://nodejs.org/it/download/) almeno della versione 16.x e installato le dipendenze con il comando
 
 ```sh
 npm install
 ```
+
+- se non abbiamo modo di minificare il file (scelta sconsigliata) possiamo copiare e incollare i file da `assets-src` verso `assets` così come sono e modificarli.
 
 **_Valutazione_**
 
