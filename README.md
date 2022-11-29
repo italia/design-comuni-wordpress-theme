@@ -175,6 +175,12 @@ Il tema Wordpress è realizzato per supportare il collegamento a API esterne per
 npm install
 ```
 
+successivamente occorre lanciare il comando per minificare e rendere disponibile il file
+
+```sh
+npm run build
+```
+
 - se non abbiamo modo di minificare il file (scelta sconsigliata) possiamo copiare e incollare i file da `assets-src` verso `assets` così come sono e modificarli.
 
 **_Valutazione_**
@@ -194,12 +200,6 @@ Al termine del processo di valutazione viene creato un payload nel seguente form
 Il file da modificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
 
 - `assets-src > js > rating.js `.
-
-successivamente occorre lanciare il comando per minificare e rendere disponibile il file
-
-```sh
-npm run build
-```
 
 **_Prenotazione appuntamento_**
 
@@ -255,12 +255,6 @@ Il file da mofificare per integrare un servizio esterno si trova all'interno del
 
 - `assets-src > js > booking.js `.
 
-successivamente occorre lanciare il comando per minificare e rendere disponibile il file
-
-```sh
-npm run build
-```
-
 **_Richiesta di assistenza_**
 
 Al termine della richiesta assistenza viene creato un payload nel seguente formato:
@@ -281,12 +275,6 @@ Al termine della richiesta assistenza viene creato un payload nel seguente forma
 Il file da mofificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
 
 - `assets-src > js > assistenza.js `.
-
-successivamente occorre lanciare il comando per minificare e rendere disponibile il file
-
-```sh
-npm run build
-```
 
 #### **La community di riferimento**
 
