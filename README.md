@@ -167,7 +167,21 @@ Cliccando su `Configurazione`, è possibile definire:
 
 #### **Servizi esterni**
 
-Il tema Wordpress è realizzato per supportare il collegamento a API esterne per quel che concerne le funzionalità di valutazione, prenotazione appuntamento e richiesta di assistenza. Ogni amministrazione comunale dovrà quindi provvedere ad integrare i form forniti con il tema con un servizio esterno realizzato a propria discrezione.
+Il tema Wordpress è realizzato per supportare il collegamento a API esterne per quel che concerne le funzionalità di valutazione, prenotazione appuntamento e richiesta di assistenza. Ogni amministrazione comunale dovrà quindi provvedere ad integrare i form forniti con il tema con un servizio esterno realizzato a propria discrezione andando a modificare i file che andremo ad elencare di seguito. Per l'effettivo inserimento dei file all'interno del progetto si può agire in due modi
+
+- se vogliamo che i file siano minificati per un incremento delle performance del sito è necessario avviare un processo di build tramite `npm` dopo la modifica del file, come verrà descritto in seguito. Assicurarsi di aver installato [Node.js](https://nodejs.org/it/download/) almeno della versione 16.x e installato le dipendenze con il comando
+
+```sh
+npm install
+```
+
+successivamente occorre lanciare il comando per minificare e rendere disponibile il file
+
+```sh
+npm run build
+```
+
+- se non abbiamo modo di minificare il file (scelta sconsigliata) possiamo copiare e incollare i file da `assets-src` verso `assets` così come sono e modificarli.
 
 **_Valutazione_**
 
@@ -185,7 +199,7 @@ Al termine del processo di valutazione viene creato un payload nel seguente form
 
 Il file da modificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
 
-- `assets > js > rating.js `.
+- `assets-src > js > rating.js `.
 
 **_Prenotazione appuntamento_**
 
@@ -239,7 +253,7 @@ Al termine della procedura per la prenotazione viene creato un payload nel segue
 
 Il file da mofificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
 
-- `assets > js > booking.js `.
+- `assets-src > js > booking.js `.
 
 **_Richiesta di assistenza_**
 
@@ -260,7 +274,7 @@ Al termine della richiesta assistenza viene creato un payload nel seguente forma
 
 Il file da mofificare per integrare un servizio esterno si trova all'interno della cartella del tema in:
 
-- `assets > js > assistenza.js `.
+- `assets-src > js > assistenza.js `.
 
 #### **La community di riferimento**
 
