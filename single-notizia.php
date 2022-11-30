@@ -26,6 +26,7 @@ get_header();
             $descrizione = dci_get_wysiwyg_field("testo_completo", $prefix, $post->ID);
             $documenti = dci_get_meta("documenti", $prefix, $post->ID);
             $allegati = dci_get_meta("allegati", $prefix, $post->ID);
+            $datasets = dci_get_meta("dataset", $prefix, $post->ID);
             $a_cura_di = dci_get_meta("a_cura_di", $prefix, $post->ID);
             ?>
             <div class="container" id="main-container">
@@ -186,6 +187,31 @@ get_header();
                         </div>
                     </article>
                     <?php } ?>
+                        <?php if( is_array($datasets) && count($datasets) ) { ?>
+                        <article id="dataset" class="it-page-section anchor-offset mt-5">
+                            <h4>Dataset</h4>
+                            <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
+                                <?php foreach ($datasets as $dataset_id) {
+                                    $dataset = get_post($dataset_id);
+                                    ?>
+                                    <div class="card card-teaser shadow-sm p-4 mt-3 rounded border border-light flex-nowrap">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use
+                                                    xlink:href="#it-clip"
+                                            ></use>
+                                        </svg>
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <a class="text-decoration-none" href="<?php echo get_permalink($dataset_id); ?>" aria-label="Visualizza il dataset <?php echo $dataset->post_title; ?>" title="Visualizza il dataset <?php echo $dataset->post_title; ?>">
+                                                    <?php echo $dataset->post_title; ?>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </article>
+                        <?php } ?>
                     <article id="a-cura-di" class="it-page-section anchor-offset mt-5">
                         <h4>A cura di</h4>
                         <div class="row">
