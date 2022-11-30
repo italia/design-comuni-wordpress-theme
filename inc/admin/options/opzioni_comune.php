@@ -71,14 +71,25 @@ function dci_register_comune_options(){
     ));
 
     $header_options->add_field( array(
-            'id'    => $prefix . 'stemma_comune',
-            'name' => __('Stemma', 'design_comuni_italia' ),
-            'desc' => __( 'Lo stemma del Comune. Si raccomanda di caricare un\'immagine in formato svg' , 'design_comuni_italia' ),
-            'type' => 'file',
-            'query_args'   => array(
-            'type' => array(
-                'image/svg',
-            ))
+        'id'    => $prefix . 'stemma_comune',
+        'name' => __('Stemma', 'design_comuni_italia' ),
+        'desc' => __( 'Lo stemma del Comune. Si raccomanda di caricare un\'immagine in formato svg' , 'design_comuni_italia' ),
+        'type' => 'file',
+        'query_args'   => array(
+        'type' => array(
+            'image/svg',
+        ))
+    ));
+
+    $header_options->add_field( array(
+        'id'    => $prefix . 'stemma_comune_mobile',
+        'name' => __('Stemma per mobile', 'design_comuni_italia' ),
+        'desc' => __( 'Utilizzare questo campo per caricare un\'immagine alternativa dello stemma del Comune visibile dal menu hamburger (mobile). Si raccomanda di caricare un\'immagine in formato svg' , 'design_comuni_italia' ),
+        'type' => 'file',
+        'query_args'   => array(
+        'type' => array(
+            'image/svg',
+        ))
     ));
 
 }
