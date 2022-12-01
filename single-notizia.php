@@ -115,8 +115,8 @@ get_header();
                                                                 <?php } ?>
                                                                 <?php if( is_array($datasets) && count($datasets) ) { ?>
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link" href="#datasets">
-                                                                    <span class="title-medium">Datasets</span>
+                                                                    <a class="nav-link" href="#dataset">
+                                                                    <span class="title-medium">Dataset</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
@@ -196,7 +196,7 @@ get_header();
                     <?php } ?>
                         <?php if( is_array($datasets) && count($datasets) ) { ?>
                         <article class="it-page-section anchor-offset mt-5">
-                            <h4 id="datasets">Dataset</h4>
+                            <h4 id="dataset">Dataset</h4>
                             <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
                                 <?php foreach ($datasets as $dataset_id) {
                                     $dataset = get_post($dataset_id);
