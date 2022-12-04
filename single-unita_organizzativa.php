@@ -259,7 +259,7 @@ get_header();
                                 <h3>Sede principale</h3>
                                 <?php
                                 $luogo = $sede_principale;
-                                $with_map = false;
+                                $with_map = true;
                                 get_template_part("template-parts/single/luogo");
                                 ?>
                                 <?php if ($altre_sedi && is_array($altre_sedi) && count($altre_sedi)) {
@@ -267,7 +267,7 @@ get_header();
                                     <h3>Altre sedi</h3>
                                     <?php foreach ($altre_sedi as $sede_id) {
                                         $luogo = get_post($sede_id);
-                                        $with_map = false;
+                                        $with_map = true;
                                         get_template_part("template-parts/single/luogo");
                                     } ?>
                                 <?php
