@@ -14,6 +14,9 @@ function borderCardRadio() {
   });
 }
 
+var getUrl = window.location;
+var baseurl =  getUrl.origin + '/' +getUrl.pathname.split('/')[1];
+
 /* Steps Page - Next and Back button */
 var content = document.querySelector(".section-wrapper");
 var currentStep = 1;
@@ -178,7 +181,7 @@ officeSelect.addEventListener("change", () => {
 
   if (officeSelect?.value) {
     const urlParam = new URLSearchParams({ id: officeSelect.value });
-    fetch(`/wp-json/wp/v2/sedi/ufficio/?${urlParam}`)
+    fetch(baseurl + `/wp-json/wp/v2/sedi/ufficio/?${urlParam}`)
       .then((response) => response.json())
       .then((data) => {
         document.querySelector("#place-cards-wrapper").innerHTML =
@@ -240,7 +243,7 @@ officeSelect.addEventListener("change", () => {
       });
 
     /* Get Servizi by Unità organizzativa - Step 3 */
-    fetch(`/wp-json/wp/v2/servizi/ufficio?${urlParam}`)
+    fetch(baseurl + `/wp-json/wp/v2/servizi/ufficio?${urlParam}`)
       .then((response) => response.json())
       .then((data) => {
         document.querySelector("#motivo-appuntamento").innerHTML =
@@ -518,7 +521,7 @@ const confirmAppointment = () => {
 
 async function getServiceDetail(id) {
   try {
-    const res = await fetch(`/wp-json/wp/v2/servizi/${id}`)
+    const res = await fetch( baseurl + `/wp-json/wp/v2/servizi/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("HTTP error " + response.status);

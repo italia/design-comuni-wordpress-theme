@@ -23,6 +23,7 @@ node_modules/
 *.sqlite
 
 # OS or Editor folders
+.gitignore
 ._*
 .cache
 .DS_Store
@@ -38,3 +39,6 @@ node_modules/
 nbproject
 Thumbs.db
 .vscode
+composer.json
+composer.lock
+vendor
