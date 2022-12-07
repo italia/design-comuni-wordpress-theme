@@ -6,11 +6,14 @@
  * @package Design_Comuni_Italia
  */
 
-wp_enqueue_script( 'dci-assistenza', get_template_directory_uri() . '/assets/js/assistenza.js', array('jquery'), null, true );
+function dci_enqueue_dci_assistence_script()  {
+    wp_enqueue_script( 'dci-assistenza', get_template_directory_uri() . '/assets/js/assistenza.js', array('jquery'), null, true );
     $variables = array(
         'url' => admin_url( 'admin-ajax.php' )
     );
-wp_localize_script('dci-assistenza', "data_assistenza", $variables);
+    wp_localize_script('dci-assistenza', "data_assistenza", $variables);
+}
+add_action( 'wp_enqueue_scripts', 'dci_enqueue_dci_assistence_script' );
 
 get_header();
 ?>
