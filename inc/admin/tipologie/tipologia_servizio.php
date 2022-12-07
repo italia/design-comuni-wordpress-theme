@@ -176,7 +176,12 @@ function dci_add_servizi_metaboxes() {
         'id' => $prefix . 'descrizione_estesa',
         'name'        => __( 'Descrizione estesa', 'design_comuni_italia' ),
         'desc' => __( 'Descrizione estesa e completa del servizio.' , 'design_comuni_italia' ),
-        'type' => 'textarea',
+        'type' => 'wysiwyg',
+        'options'    => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 10, // rows="..."
+            'teeny' => false, // output the minimal editor config used in Press This
+        ),
     ) );
 
     $cmb_descrizione->add_field( array(
