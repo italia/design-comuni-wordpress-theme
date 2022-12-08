@@ -7,7 +7,7 @@ define('COMUNI_PAGINE',jsonToArray(get_template_directory()."/inc/comuni_pagine.
 define('COMUNI_TIPOLOGIE',jsonToArray(get_template_directory()."/inc/comuni_tipologie.json")['tipologie']);
 
 /**
- * restituisce l'oggetto che descrive le Pagine del Sito dei Comuni
+ * Restituisce l'oggetto che descrive le Pagine del Sito dei Comuni
  * @return mixed
  */
 function dci_get_pagine_obj(){
@@ -15,7 +15,7 @@ function dci_get_pagine_obj(){
 }
 
 /**
- * restituisce l'id del gruppo di appartenenza della tipologia
+ * Restituisce l'id del gruppo di appartenenza della tipologia
  * @param $tipologia
  * @return mixed
  */
@@ -24,7 +24,7 @@ function dci_get_group($tipologia) {
 }
 
 /**
- * restituisce il nome del gruppo di appartenenza della tipologia
+ * Restituisce il nome del gruppo di appartenenza della tipologia
  * @param $tipologia
  * @return mixed
  */
@@ -36,7 +36,7 @@ function dci_get_group_name($tipologia) {
 }
 
 /**
- * restituisce le tipologie associate ad una data tassonomia (es: 'argomenti')
+ * Restituisce le tipologie associate ad una data tassonomia (es: 'argomenti')
  * @param $taxonomy
  * @return array
  */
@@ -51,7 +51,7 @@ function dci_get_tipologie_related_to_taxonomy($taxonomy) {
 }
 
 /**
- * restituisce tutti i nomi delle tipologie del Sito dei Comuni
+ * Restituisce tutti i nomi delle tipologie del Sito dei Comuni
  */
 function dci_get_tipologie_names() {
     $result = array();
@@ -62,7 +62,7 @@ function dci_get_tipologie_names() {
 }
 
 /**
- * restituisce tutti i prefix dei custom types del sito dei Comuni Italiani
+ * Restituisce tutti i prefix dei custom types del sito dei Comuni Italiani
  */
 function dci_get_tipologie_prefixes(){
     $result = array();
@@ -73,7 +73,7 @@ function dci_get_tipologie_prefixes(){
 }
 
 /**
- * restituisce tuttle capability dei custom types del Sito dei Comuni
+ * Restituisce tuttle capability dei custom types del Sito dei Comuni
  */
 function dci_get_tipologie_capabilities(){
     $result = array();
@@ -84,7 +84,7 @@ function dci_get_tipologie_capabilities(){
 }
 
 /**
- * restituisce tutti i nomi delle taxonomy del sito dei Comuni Italiani
+ * Restituisce tutti i nomi delle taxonomy del sito dei Comuni Italiani
  */
 function dci_get_tassonomie_names(){
     $tassonomie = array(
@@ -109,21 +109,21 @@ function dci_get_tassonomie_names(){
 }
 
 /**
- * restituisce tutti gli slug delle pagine di default del Sito dei Comuni
+ * Restituisce tutti gli slug delle pagine di default del Sito dei Comuni
  */
 function dci_get_pagine_slugs(){
     return dci_get_all_values(COMUNI_PAGINE,'slug');
 }
 
 /**
- * restituisce tutti gli i nomi dei template delle pagine di default del Sito dei Comuni
+ * Restituisce tutti gli i nomi dei template delle pagine di default del Sito dei Comuni
  */
 function dci_get_pagine_template_names(){
     return dci_get_all_values(COMUNI_PAGINE,'template_name');
 }
 
 /**
- * restituisce un array contenente i post type ricercabili dalla ricerca globale
+ * Restituisce un array contenente i post type ricercabili dalla ricerca globale
  * @return string[]
  */
 function dci_get_sercheable_tipologie() {
@@ -140,7 +140,7 @@ function dci_get_sercheable_tipologie() {
 }
 
 /**
- * restituisce l'associazione tra i type ricercabili e i post_type wordpress
+ * Restituisce l'associazione tra i type ricercabili e i post_type wordpress
  * @param string $type
  *
  * @return array
@@ -174,7 +174,7 @@ function dci_get_post_types_grouped($group = "", $tag = false)
 }
 
 /**
- * restityuisce gli id dei gruppi del Sito dei Comuni
+ * Restituisce gli id dei gruppi del Sito dei Comuni
  * @return string[]
  */
 function dci_get_group_ids() {
@@ -188,7 +188,7 @@ function dci_get_group_ids() {
 }
 
 /**
- * restituisce label per costruzione breadcrumb
+ * Restituisce label per costruzione breadcrumb
  * @param $name
  * @param string $type
  * @return mixed|string
@@ -200,15 +200,12 @@ function dci_get_breadcrumb_label($name , $type = 'term') {
         'avviso' => 'Avvisi'
     );
 
-    if ($terms[$name]) {
-        return $terms[$name];
-    }
+    return $terms[$name] ?? ucfirst($name);
 
-    return ucfirst($name);
 }
 
 /**
- * restituisce l'array per ordinare le voci del menu admin di wordpress
+ * Restituisce l'array per ordinare le voci del menu admin di wordpress
  * @return string[]
  */
 function dci_get_admin_menu_order() {
@@ -246,7 +243,7 @@ function dci_get_admin_menu_order() {
 //utility
 
 /**
- * restituisce un array a partire da un file JSON
+ * Restituisce un array a partire da un file JSON
  * @param $filename
  * @return mixed
  */
