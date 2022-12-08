@@ -22,11 +22,11 @@ $other_contacts = array(
         <use xlink:href="#it-telephone"></use>
     </svg>
     <div class="card-body">
-        <h5 class="card-title">
+        <h3 class="card-title h5">
             <a class="text-decoration-none" href="#">
             <?php echo $contatto->post_title; ?>
             </a>
-        </h5>
+        </h3>
         <div class="card-text">
             <?php if ( isset($full_contatto['indirizzo']) && is_array($full_contatto['indirizzo']) && count ($full_contatto['indirizzo']) ) {
                 foreach ($full_contatto['indirizzo'] as $value) {

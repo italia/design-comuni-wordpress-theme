@@ -119,7 +119,7 @@ $current_group = dci_get_current_group();
                 </div>
                 <div class="menu-wrapper">
                 <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" class="logo-hamburger">
-                    <?php get_template_part("template-parts/common/logo"); ?>
+                    <?php get_template_part("template-parts/common/logo-mobile"); ?>
                   <div class="it-brand-text">
                     <div class="it-brand-title"><?php echo dci_get_option("nome_comune"); ?></div>
                   </div>

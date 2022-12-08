@@ -10,11 +10,11 @@ $indirizzo = dci_get_meta('indirizzo', $prefix, $luogo->ID);
             <use xlink:href="#it-pin" aria-hidden="true"></use>
         </svg>
         <div class="card-body">
-            <h5 class="card-title">
+            <h3 class="card-title h5">
                 <a class="text-decoration-none" href="<?php echo get_permalink($luogo->ID); ?>">
                     <?php echo $luogo->post_title; ?>
                 </a>
-            </h5>
+            </h3>
             <div class="card-text">
                 <p><?php echo $indirizzo; ?></p>
                 <p class="mt-3">Ulteriori dettagli</p>
