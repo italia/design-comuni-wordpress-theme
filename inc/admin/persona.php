@@ -117,7 +117,7 @@ function remove_avatar_from_users_list( $avatar ) {
 //add_action( 'cmb2_init', 'dci_add_persone_metaboxes' );
 function dci_add_persone_metaboxes() {
 
-	$prefix = '_dci_persona_';
+	$prefix = '_dci_persona_pubblica_';
 
 	$cmb_user = new_cmb2_box( array(
 		'id'               => $prefix . 'persona_box',
@@ -151,6 +151,7 @@ function dci_add_persone_metaboxes() {
 		'desc'    => __( 'Inserire una fotografia che ritrae il soggetto descritto nella scheda', 'design_comuni_italia' ),
 		'id'      => $prefix . 'foto',
 		'type'    => 'file',
+        'query_args' => array( 'type' => 'image' ), // Only images attachment
 	) );
 
 	$cmb_user->add_field( array(

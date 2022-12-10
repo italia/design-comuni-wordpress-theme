@@ -1,4 +1,199 @@
-function borderCardRadio(){var t=document.querySelectorAll(".radio-card");document.querySelectorAll(".radio-input").forEach(function(e,n){e.addEventListener("change",function(){t.forEach(function(e,t){n==t?e.classList.add("has-border-green"):e.classList.remove("has-border-green")})})})}var content=document.querySelector(".section-wrapper"),currentStep=1,navscroll=document.querySelector('[data-index="'.concat(currentStep,'"]')),progressBar=document.querySelector('[data-progress="'.concat(currentStep,'"]')),btnNext=content.querySelector(".btn-next-step"),btnBack=content.querySelector(".btn-back-step");function pageSteps(){var e;content&&(e=content.querySelectorAll(".saveBtn"),navscroll.classList.add("d-lg-block"),progressBar.classList.remove("d-none"),e.forEach(function(e){e.classList.add("invisible")}),btnNext&&btnNext.addEventListener("click",function(){openNext()}),btnBack)&&btnBack.addEventListener("click",function(){backPrevious()})}function openNext(){btnBack.disabled=!1;var e=content.querySelectorAll(".saveBtn"),t=content.querySelectorAll("[data-steps]"),n=content.querySelector('[data-steps="'.concat(currentStep+1,'"]')),r=content.querySelector("[data-steps].active");navscroll.classList.remove("d-lg-block"),progressBar.classList.remove("d-block"),progressBar.classList.add("d-none"),currentStep==t.length?confirmAppointment():(r.classList.add("d-none"),r.classList.remove("active"),n.classList.add("active"),n.classList.remove("d-none"),currentStep+=1,checkMandatoryFields(),(progressBar=document.querySelector('[data-progress="'.concat(currentStep,'"]'))).classList.add("d-block"),progressBar.classList.remove("d-none"),currentStep<t.length&&(navscroll=document.querySelector('[data-index="'.concat(currentStep,'"]'))).classList.add("d-lg-block"),currentStep==t.length&&content.classList.remove("offset-lg-1"),currentStep==t.length&&(btnNext.disabled=!1,content.querySelector(".steppers-btn-confirm span").innerHTML="Invia",e.forEach(function(e){e.classList.remove("invisible"),e.classList.add("visible"),setReviews()})))}function backPrevious(){btnNext.disabled=!1;var e=content.querySelectorAll(".saveBtn"),t=content.querySelectorAll("[data-steps]"),n=content.querySelector("[data-steps].active"),r=content.querySelector('[data-steps="'.concat(currentStep-1,'"]'));1!=currentStep&&(r.classList.remove("d-none"),r.classList.add("active"),n.classList.add("d-none"),n.classList.remove("active"),navscroll.classList.remove("d-lg-block"),progressBar.classList.add("d-none"),currentStep-=1,(progressBar=document.querySelector('[data-progress="'.concat(currentStep,'"]'))).classList.toggle("d-none"),content.querySelector(".steppers-btn-confirm span").innerHTML="Avanti",currentStep<t.length&&((navscroll=document.querySelector('[data-index="'.concat(currentStep,'"]'))).classList.add("d-lg-block"),content.classList.add("offset-lg-1")),currentStep<t.length&&e.forEach(function(e){e.classList.remove("visible"),e.classList.add("invisible")}),1==currentStep)&&(btnBack.disabled=!0)}pageSteps();const answers={},encodeObject=e=>encodeURIComponent(JSON.stringify(e)),decodeObj=e=>JSON.parse(decodeURIComponent(e)),saveAnswerByValue=(e,t,n=!1)=>{if("office"==e)for(k in answers)delete answers[k];n?(n=decodeObj(t),answers[e]=n):answers[e]=t,checkMandatoryFields()},saveAnswerById=(e,t,n)=>{t=document.getElementById(t)?.value;answers[e]=JSON.parse(t),"function"==typeof n&&n(),checkMandatoryFields()},officeSelect=document.getElementById("office-choice"),appointment=(officeSelect.addEventListener("change",()=>{var e=officeSelect?.value,t=officeSelect?.querySelector(`[value="${e}"]`)?.innerText;saveAnswerByValue("office",encodeObject({id:e,name:t}),!0),officeSelect?.value?(e=new URLSearchParams({id:officeSelect.value}),fetch("/wp-json/wp/v2/sedi/ufficio/?"+e).then(e=>e.json()).then(e=>{document.querySelector("#place-cards-wrapper").innerHTML='<legend class="visually-hidden">Seleziona un ufficio</legend>';for(const n of e){var t={nome:n.post_title,indirizzo:n.indirizzo,apertura:n.apertura,id:n.identificativo};document.querySelector("#place-cards-wrapper").innerHTML+=`
+//show green border on selected card
+function borderCardRadio() {
+    var cardsRadio = document.querySelectorAll(".radio-card");
+    var inputsRadio = document.querySelectorAll(".radio-input");
+
+    inputsRadio.forEach(function (inputRadio, indexInput) {
+        inputRadio.addEventListener("change", function () {
+            cardsRadio.forEach(function (cardRadio, indexCard) {
+                if (indexInput == indexCard)
+                    cardRadio.classList.add("has-border-green");
+                else cardRadio.classList.remove("has-border-green");
+            });
+        });
+    });
+}
+
+var getUrl = window.location;
+var baseurl =  getUrl.origin + '/' +getUrl.pathname.split('/')[1];
+
+/* Steps Page - Next and Back button */
+var content = document.querySelector(".section-wrapper");
+var currentStep = 1;
+var navscroll = document.querySelector(
+    '[data-index="'.concat(currentStep, '"]')
+);
+var progressBar = document.querySelector(
+    '[data-progress="'.concat(currentStep, '"]')
+);
+// need to define btns globally
+var btnNext = content.querySelector(".btn-next-step");
+var btnBack = content.querySelector(".btn-back-step");
+
+function pageSteps() {
+    if (!content) return;
+    var btnSave = content.querySelectorAll(".saveBtn");
+    navscroll.classList.add("d-lg-block");
+    progressBar.classList.remove("d-none");
+    btnSave.forEach(function (element) {
+        element.classList.add("invisible");
+    });
+
+    if (btnNext) {
+        btnNext.addEventListener("click", function () {
+            openNext();
+        });
+    }
+
+    if (btnBack) {
+        btnBack.addEventListener("click", function () {
+            backPrevious();
+        });
+    }
+}
+
+function openNext() {
+    btnBack.disabled = false;
+    var btnSave = content.querySelectorAll(".saveBtn");
+    var steps = content.querySelectorAll("[data-steps]");
+    var nextStep = content.querySelector(
+        '[data-steps="'.concat(currentStep + 1, '"]')
+    );
+    var stepWrapper = content.querySelector("[data-steps].active");
+    navscroll.classList.remove("d-lg-block");
+    progressBar.classList.remove("d-block");
+    progressBar.classList.add("d-none");
+
+    if (currentStep == steps.length) {
+        confirmAppointment();
+        return;
+    } else {
+        stepWrapper.classList.add("d-none");
+        stepWrapper.classList.remove("active");
+        nextStep.classList.add("active");
+        nextStep.classList.remove("d-none");
+        currentStep = currentStep + 1;
+        checkMandatoryFields();
+        progressBar = document.querySelector(
+            '[data-progress="'.concat(currentStep, '"]')
+        );
+        progressBar.classList.add("d-block");
+        progressBar.classList.remove("d-none");
+
+        if (currentStep < steps.length) {
+            navscroll = document.querySelector(
+                '[data-index="'.concat(currentStep, '"]')
+            );
+            navscroll.classList.add("d-lg-block");
+        }
+
+        if (currentStep == steps.length) {
+            content.classList.remove("offset-lg-1");
+        }
+
+        if (currentStep == steps.length) {
+            btnNext.disabled = false;
+            content.querySelector(".steppers-btn-confirm span").innerHTML = "Invia";
+            btnSave.forEach(function (element) {
+                element.classList.remove("invisible");
+                element.classList.add("visible");
+                setReviews();
+            });
+        }
+    }
+}
+
+function backPrevious() {
+    btnNext.disabled = false;
+    var btnSave = content.querySelectorAll(".saveBtn");
+    var steps = content.querySelectorAll("[data-steps]");
+    var stepWrapper = content.querySelector("[data-steps].active");
+    var previousStep = content.querySelector(
+        '[data-steps="'.concat(currentStep - 1, '"]')
+    );
+
+    if (currentStep == 1) {
+        return;
+    } else {
+        previousStep.classList.remove("d-none");
+        previousStep.classList.add("active");
+        stepWrapper.classList.add("d-none");
+        stepWrapper.classList.remove("active");
+        navscroll.classList.remove("d-lg-block");
+        progressBar.classList.add("d-none");
+        currentStep = currentStep - 1;
+        progressBar = document.querySelector(
+            '[data-progress="'.concat(currentStep, '"]')
+        );
+        progressBar.classList.toggle("d-none");
+        content.querySelector(".steppers-btn-confirm span").innerHTML = "Avanti";
+
+        if (currentStep < steps.length) {
+            navscroll = document.querySelector(
+                '[data-index="'.concat(currentStep, '"]')
+            );
+            navscroll.classList.add("d-lg-block");
+            content.classList.add("offset-lg-1");
+        }
+
+        if (currentStep < steps.length) {
+            btnSave.forEach(function (element) {
+                element.classList.remove("visible");
+                element.classList.add("invisible");
+            });
+        }
+
+        if (currentStep == 1) {
+            btnBack.disabled = true;
+        }
+    }
+}
+
+pageSteps();
+
+/* Define an empty object to collect answers */
+const answers = {};
+
+const encodeObject = (obj) => encodeURIComponent(JSON.stringify(obj));
+const decodeObj = (str) => JSON.parse(decodeURIComponent(str));
+
+const saveAnswerByValue = (key, value, toBeDecoded = false) => {
+    if (key == "office") for (k in answers) delete answers[k];
+    if (toBeDecoded) {
+        const newValue = decodeObj(value);
+        answers[key] = newValue;
+    } else answers[key] = value;
+    checkMandatoryFields();
+};
+const saveAnswerById = (key, id, callback) => {
+    const value = document.getElementById(id)?.value;
+    answers[key] = JSON.parse(value);
+    if (typeof callback == "function") callback();
+    checkMandatoryFields();
+};
+
+/* Get Luoghi by Unità organizzativa - Step 1 */
+const officeSelect = document.getElementById("office-choice");
+officeSelect.addEventListener("change", () => {
+    const id = officeSelect?.value;
+    const name = officeSelect?.querySelector(`[value="${id}"]`)?.innerText;
+    saveAnswerByValue("office", encodeObject({ id, name }), true);
+
+    if (officeSelect?.value) {
+        const urlParam = new URLSearchParams({ id: officeSelect.value });
+        fetch(baseurl + `/wp-json/wp/v2/sedi/ufficio/?${urlParam}`)
+            .then((response) => response.json())
+            .then((data) => {
+                document.querySelector("#place-cards-wrapper").innerHTML =
+                    '<legend class="visually-hidden">Seleziona un ufficio</legend>';
+                for (const place of data) {
+                    const reducedPlace = {
+                        nome: place.post_title,
+                        indirizzo: place.indirizzo,
+                        apertura: place.apertura,
+                        id: place.identificativo,
+                    };
+                    document.querySelector("#place-cards-wrapper").innerHTML += `
           <div class="cmp-info-radio radio-card">
             <div class="card p-3 p-lg-4">
               <div class="card-header mb-0 p-0">
@@ -7,13 +202,14 @@ function borderCardRadio(){var t=document.querySelectorAll(".radio-card");docume
                     class="radio-input"
                     name="beneficiaries"
                     type="radio"
-                    id=${n?.ID}
-                    value='${JSON.stringify(t)}'
-                    onclick="saveAnswerById('place', ${n?.ID}, ${()=>setSelectedPlace()})"
+                    id=${place?.ID}
+                    value='${JSON.stringify(reducedPlace)}'
+                    onclick="saveAnswerById('place', ${place?.ID}, ${() =>
+                        setSelectedPlace()})"
                     />
-                    <label for=${n?.ID}>
+                    <label for=${place?.ID}>
                     <h3 class="big-title mb-0 pb-0">
-                        ${n?.post_title}
+                        ${place?.post_title}
                     </h3></label
                     >
                 </div>
@@ -26,35 +222,105 @@ function borderCardRadio(){var t=document.querySelectorAll(".radio-card");docume
                 <div class="info-wrapper">
                   <span class="info-wrapper__label">Indirizzo</span>
                   <p class="info-wrapper__value">
-                  ${n?.indirizzo}
+                  ${place?.indirizzo}
                   </p>
                 </div>
                 <div class="info-wrapper">
                     <span class="info-wrapper__label">Apertura</span>
                     <p class="info-wrapper__value">
-                    ${n?.apertura}
+                    ${place?.apertura}
                     </p>
                 </div>
               </div>
             </div>
           </div>
-          `}borderCardRadio()}).catch(e=>{console.log("err",e)}),fetch("/wp-json/wp/v2/servizi/ufficio?"+e).then(e=>e.json()).then(e=>{document.querySelector("#motivo-appuntamento").innerHTML='<option selected="selected" value="">Seleziona opzione</option>';for(const t of e)document.querySelector("#motivo-appuntamento").innerHTML+=`
-          <option value="${t?.ID}">${t?.post_title}</option>
-          `}).catch(e=>{console.log("err",e)})):document.querySelector("#place-cards-wrapper").innerHTML=""}),document.getElementById("appointment")),setSelectedPlace=(appointment.addEventListener("change",()=>{answers.appointment=null,checkMandatoryFields(),fetch(url+(`?month=${appointment?.value}&office=`+answers?.place?.id)).then(e=>{if(e.ok)return e.json();throw new Error("HTTP error "+e.status)}).then(e=>{e=e[appointment?.value],document.querySelector("#radio-appointment").innerHTML='<legend class="visually-hidden">Seleziona un giorno e orario</legend>';for(const s of e){var{startDate:t,endDate:n}=s,r=t.split("T")[0],r=new Date(r).toLocaleString([],{weekday:"long",day:"2-digit",month:"long",year:"numeric"}),a=t+"/"+n,n=encodeObject({startDate:t,endDate:n});document.querySelector("#radio-appointment").innerHTML+=`
+          `;
+                }
+                borderCardRadio();
+            })
+            .catch((err) => {
+                console.log("err", err);
+            });
+
+        /* Get Servizi by Unità organizzativa - Step 3 */
+        fetch(baseurl + `/wp-json/wp/v2/servizi/ufficio?${urlParam}`)
+            .then((response) => response.json())
+            .then((data) => {
+                document.querySelector("#motivo-appuntamento").innerHTML =
+                    '<option selected="selected" value="">Seleziona opzione</option>';
+                for (const service of data) {
+                    document.querySelector("#motivo-appuntamento").innerHTML += `
+          <option value="${service?.ID}">${service?.post_title}</option>
+          `;
+                }
+            })
+            .catch((err) => {
+                console.log("err", err);
+            });
+    } else {
+        document.querySelector("#place-cards-wrapper").innerHTML = "";
+    }
+});
+
+/* Step 2 */
+/* Get appointments calendar */
+const appointment = document.getElementById("appointment");
+appointment.addEventListener("change", () => {
+    answers.appointment = null;
+    checkMandatoryFields();
+
+    // modificare l'url se si vuole integrare con un servizio esterno
+    fetch(url + `?month=${appointment?.value}&office=${answers?.place?.id}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            data = data[appointment?.value]
+            document.querySelector("#radio-appointment").innerHTML =
+                '<legend class="visually-hidden">Seleziona un giorno e orario</legend>';
+            for (const dates of data) {
+                const { startDate, endDate } = dates;
+                const startDay = startDate.split("T")[0];
+                const startDayStr = new Date(startDay).toLocaleString([], {
+                    weekday: "long",
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                });
+                const id = startDate + "/" + endDate;
+                const value = encodeObject({ startDate, endDate });
+
+                document.querySelector("#radio-appointment").innerHTML += `
         <div
         class="radio-body border-bottom border-light"
         >
-        <input name="radio" type="radio" id="${a}" onclick="saveAnswerByValue('appointment', '${n}', true)"/>
-        <label for="${a}" class="text-capitalize">${r} ore ${t.split("T")[1]}</label>
+        <input name="radio" type="radio" id="${id}" onclick="saveAnswerByValue('appointment', '${value}', true)"/>
+        <label for="${id}" class="text-capitalize">${startDayStr} ore ${
+                    startDate.split("T")[1]
+                }</label>
         </div>
-        `}}).catch(e=>{console.log("err",e)})}),()=>{var e=answers?.place;document.querySelector("#selected-place-card").innerHTML=`  
+        `;
+            }
+        })
+        .catch((err) => {
+            console.log("err", err);
+        });
+});
+
+/* Get selected office */
+const setSelectedPlace = () => {
+    const place = answers?.place;
+    document.querySelector("#selected-place-card").innerHTML = `  
   <div class="cmp-info-summary bg-white mb-4 mb-lg-30 p-4">
   <div class="card">
       <div
       class="card-header border-bottom border-light p-0 mb-0 d-flex justify-content-between d-flex justify-content-end"
       >
       <h3 class="title-large-semi-bold mb-3">
-        ${e?.nome}
+        ${place?.nome}
       </h3>
       </div>
 
@@ -69,7 +335,7 @@ function borderCardRadio(){var t=document.querySelectorAll(".radio-card");docume
           <div class="text-paragraph-small">Indirizzo</div>
           <div class="border-light">
           <p class="data-text">
-            ${e?.indirizzo}
+            ${place?.indirizzo}
           </p>
           </div>
       </div>
@@ -77,7 +343,7 @@ function borderCardRadio(){var t=document.querySelectorAll(".radio-card");docume
           <div class="text-paragraph-small">Apertura</div>
           <div class="border-light">
           <p class="data-text">
-            ${e?.apertura}
+            ${place?.apertura}
           </p>
           </div>
       </div>
@@ -86,12 +352,191 @@ function borderCardRadio(){var t=document.querySelectorAll(".radio-card");docume
   </div>
   </div>
 </div>
-  `}),serviceSelect=document.getElementById("motivo-appuntamento"),moreDetailsText=(serviceSelect.addEventListener("change",()=>{var e=serviceSelect?.value,t=serviceSelect?.querySelector(`[value="${e}"]`)?.innerText;saveAnswerByValue("service",encodeObject({id:e,name:t}),!0)}),document.getElementById("form-details")),nameInput=(moreDetailsText.addEventListener("input",()=>{saveAnswerByValue("moreDetails",moreDetailsText?.value)}),document.getElementById("name")),surnameInput=(nameInput.addEventListener("input",()=>{saveAnswerByValue("name",nameInput?.value)}),document.getElementById("surname")),emailInput=(surnameInput.addEventListener("input",()=>{saveAnswerByValue("surname",surnameInput?.value)}),document.getElementById("email")),getDay=(emailInput.addEventListener("input",()=>{saveAnswerByValue("email",emailInput?.value)}),()=>{var e=answers?.appointment?.startDate?.split("T")[0];return new Date(e).toLocaleString([],{weekday:"long",day:"2-digit",month:"long",year:"numeric"})}),getHour=()=>{var e=answers?.appointment;return[e?.startDate?.split("T")[1],e?.endDate?.split("T")[1]]},setReviews=()=>{document.getElementById("review-office").innerHTML=answers?.office?.name,document.getElementById("review-place").innerHTML=answers?.place?.nome,document.getElementById("review-date").innerHTML=getDay(),document.getElementById("review-hour").innerHTML=getHour()[0]+" - "+getHour()[1],document.getElementById("review-service").innerHTML=answers?.service?.name,document.getElementById("review-details").innerHTML=answers?.moreDetails,document.getElementById("review-name").innerHTML=answers?.name,document.getElementById("review-surname").innerHTML=answers?.surname,document.getElementById("review-email").innerHTML=answers?.email},checkMandatoryFields=()=>{switch(currentStep){case 1:answers?.office&&answers?.place?btnNext.disabled=!1:btnNext.disabled=!0;break;case 2:answers?.appointment?btnNext.disabled=!1:btnNext.disabled=!0;break;case 3:answers?.service&&answers?.moreDetails?btnNext.disabled=!1:btnNext.disabled=!0;break;case 4:answers?.name&&answers?.surname&&answers?.email?btnNext.disabled=!1:btnNext.disabled=!0}};async function successFeedback(){document.getElementById("email-recap").innerText=answers?.email,document.getElementById("date-recap").innerText=` ${getDay()} dalle ore ${getHour()[0]} alle ore `+getHour()[1];var e=await getServiceDetail(answers?.service?.id);if(0<e?._dci_servizio_cosa_serve_list?.length||e?._dci_servizio_cosa_serve_introduzione){const t=document.getElementById("needed-recap");t.innerHTML=`
-      <p class="font-serif">${e?._dci_servizio_cosa_serve_introduzione}</p>
-    `,0<e?._dci_servizio_cosa_serve_list?.length&&(t.innerHTML+="<ul>",e._dci_servizio_cosa_serve_list.forEach(e=>{t.innerHTML+=`<li>${e}</li>`}),t.innerHTML+="</ul>")}document.getElementById("office-recap").innerHTML=`
+  `;
+};
+
+/* Step 3 */
+const serviceSelect = document.getElementById("motivo-appuntamento");
+serviceSelect.addEventListener("change", () => {
+    const id = serviceSelect?.value;
+    const name = serviceSelect?.querySelector(`[value="${id}"]`)?.innerText;
+    saveAnswerByValue("service", encodeObject({ id, name }), true);
+});
+
+const moreDetailsText = document.getElementById("form-details");
+moreDetailsText.addEventListener("input", () => {
+    saveAnswerByValue("moreDetails", moreDetailsText?.value);
+});
+
+/* Step 4 */
+const nameInput = document.getElementById("name");
+nameInput.addEventListener("input", () => {
+    saveAnswerByValue("name", nameInput?.value);
+});
+
+const surnameInput = document.getElementById("surname");
+surnameInput.addEventListener("input", () => {
+    saveAnswerByValue("surname", surnameInput?.value);
+});
+
+const emailInput = document.getElementById("email");
+emailInput.addEventListener("input", () => {
+    saveAnswerByValue("email", emailInput?.value);
+});
+
+/* Step 5 */
+const getDay = () => {
+    const day = answers?.appointment?.startDate?.split("T")[0];
+    return new Date(day).toLocaleString([], {
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+    });
+};
+
+const getHour = () => {
+    const dates = answers?.appointment;
+    return [dates?.startDate?.split("T")[1], dates?.endDate?.split("T")[1]];
+};
+
+const setReviews = () => {
+    //set all values
+    document.getElementById("review-office").innerHTML = answers?.office?.name;
+    document.getElementById("review-place").innerHTML = answers?.place?.nome;
+    document.getElementById("review-date").innerHTML = getDay();
+    document.getElementById("review-hour").innerHTML = `${getHour()[0]} - ${
+        getHour()[1]
+    }`;
+    document.getElementById("review-service").innerHTML = answers?.service?.name;
+    document.getElementById("review-details").innerHTML = answers?.moreDetails;
+    document.getElementById("review-name").innerHTML = answers?.name;
+    document.getElementById("review-surname").innerHTML = answers?.surname;
+    document.getElementById("review-email").innerHTML = answers?.email;
+};
+
+/* Check mandatory fields */
+const checkMandatoryFields = () => {
+    switch (currentStep) {
+        case 1:
+            if (answers?.office && answers?.place) btnNext.disabled = false;
+            else btnNext.disabled = true;
+            break;
+
+        case 2:
+            if (answers?.appointment) btnNext.disabled = false;
+            else btnNext.disabled = true;
+            break;
+
+        case 3:
+            if (answers?.service && answers?.moreDetails) btnNext.disabled = false;
+            else btnNext.disabled = true;
+            break;
+
+        case 4:
+            if (answers?.name && answers?.surname && answers?.email)
+                btnNext.disabled = false;
+            else btnNext.disabled = true;
+            break;
+
+        default:
+            break;
+    }
+};
+
+/* confirm appointment - Submit */
+
+async function successFeedback() {
+    document.getElementById("email-recap").innerText = answers?.email;
+    document.getElementById("date-recap").innerText = ` ${getDay()} dalle ore ${
+        getHour()[0]
+    } alle ore ${getHour()[1]}`;
+    //service
+    const service = await getServiceDetail(answers?.service?.id);
+    if (service?._dci_servizio_cosa_serve_list?.length > 0 || service?._dci_servizio_cosa_serve_introduzione) {
+        const neededBox = document.getElementById("needed-recap");
+        neededBox.innerHTML = `
+      <p class="font-serif">${service?._dci_servizio_cosa_serve_introduzione}</p>
+    `;
+        if (service?._dci_servizio_cosa_serve_list?.length > 0) {
+            neededBox.innerHTML += "<ul>";
+            service._dci_servizio_cosa_serve_list.forEach((item) => {
+                neededBox.innerHTML += `<li>${item}</li>`;
+            });
+            neededBox.innerHTML += "</ul>";
+        }
+    }
+    //office
+    document.getElementById("office-recap").innerHTML = `
     <a
       href="#"
       class="text-decoration-none"
       >${answers?.office?.name}</a
     >  
-  `,document.getElementById("address-recap").innerHTML=answers?.place?.nome,document.getElementById("form-steps").classList.add("d-none"),document.getElementById("final-step").classList.remove("d-none")}const confirmAppointment=()=>{var e,t=new URLSearchParams;for(e in answers)"object"==typeof answers[e]?t.append(e,JSON.stringify(answers[e])):t.append(e,answers[e]);t.append("action","save_appuntamento"),fetch(urlConfirm,{method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/x-www-form-urlencoded","Cache-Control":"no-cache"},body:t}).then(e=>{if(e.ok)return e.json();throw new Error("HTTP error "+e.status)}).then(e=>{successFeedback();var t=document.querySelector("#main-container");t&&t.scrollIntoView({behavior:"smooth"})}).catch(e=>{console.log("err",e)})};async function getServiceDetail(e){try{return await fetch("/wp-json/wp/v2/servizi/"+e).then(e=>{if(e.ok)return e.json();throw new Error("HTTP error "+e.status)}).then(e=>e?.cmb2?._dci_servizio_box_cosa_serve).catch(e=>{console.log("err",e)})}catch(e){console.error(e)}}
+  `;
+    document.getElementById("address-recap").innerHTML = answers?.place?.nome;
+
+    // show final step
+    document.getElementById("form-steps").classList.add("d-none");
+    document.getElementById("final-step").classList.remove("d-none");
+}
+
+const confirmAppointment = () => {
+    const body = new URLSearchParams();
+
+    for (var key in answers) {
+        if (typeof answers[key] == "object") {
+            body.append(key, JSON.stringify(answers[key]));
+        } else body.append(key, answers[key]);
+    }
+    body.append("action", "save_appuntamento");
+
+    // modificare l'url se si vuole integrare con un servizio esterno
+    fetch(urlConfirm, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Cache-Control": "no-cache",
+        },
+        body,
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            /* show success message */
+            successFeedback();
+            /* scroll to top of page */
+            const mainContainer = document.querySelector("#main-container");
+            if (mainContainer) mainContainer.scrollIntoView({ behavior: "smooth" });
+        })
+        .catch((err) => {
+            console.log("err", err);
+        });
+};
+
+async function getServiceDetail(id) {
+    try {
+        const res = await fetch( baseurl + `/wp-json/wp/v2/servizi/${id}`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("HTTP error " + response.status);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                return data?.cmb2?._dci_servizio_box_cosa_serve;
+            })
+            .catch((err) => {
+                console.log("err", err);
+            });
+
+        return res;
+    } catch (e) {
+        console.error(e);
+    }
+}

@@ -93,10 +93,15 @@ function dci_add_unita_organizzativa_metaboxes() {
         'id' => $prefix . 'descrizione_breve',
         'name'        => __( 'Descrizione breve *', 'design_comuni_italia' ),
         'desc' => __( ' Descrizione sintetica (inferiore ai 255 caratteri) della struttura' , 'design_comuni_italia' ),
-        'type' => 'textarea',
+        'type' => 'wysiwyg',
         'attributes'    => array(
             'maxlength'  => '255',
             'required'    => 'required'
+        ),
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 10, // rows="..."
+            'teeny' => false, // output the minimal editor config used in Press This
         ),
     ) );
 
