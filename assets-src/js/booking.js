@@ -213,10 +213,6 @@ officeSelect.addEventListener("change", () => {
               </div>
               <div class="card-body p-0">
                 <div class="info-wrapper">
-                  <span class="info-wrapper__label">Sportello</span>
-                  <p class="info-wrapper__value">CIE</p>
-                </div>
-                <div class="info-wrapper">
                   <span class="info-wrapper__label">Indirizzo</span>
                   <p class="info-wrapper__value">
                   ${place?.indirizzo}
@@ -322,12 +318,6 @@ const setSelectedPlace = () => {
       </div>
 
       <div class="card-body p-0">
-      <div class="single-line-info border-light">
-          <div class="text-paragraph-small">Sportello</div>
-          <div class="border-light">
-          <p class="data-text">CIE</p>
-          </div>
-      </div>
       <div class="single-line-info border-light">
           <div class="text-paragraph-small">Indirizzo</div>
           <div class="border-light">
