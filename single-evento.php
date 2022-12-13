@@ -323,7 +323,7 @@ get_header();
 
           <article id="contatti" class="it-page-section mb-5">
           <?php if( is_array($punti_contatto) && count($punti_contatto) ) { ?>
-            <h2 class="mb-3>Contatti</h2>
+            <h2 class="mb-3">Contatti</h2>
             <?php foreach ($punti_contatto as $pc_id) {
                 get_template_part('template-parts/single/punto-contatto');
             } ?>
