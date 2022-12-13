@@ -26,6 +26,7 @@ get_header();
             $descrizione = dci_get_wysiwyg_field("testo_completo", $prefix, $post->ID);
             $documenti = dci_get_meta("documenti", $prefix, $post->ID);
             $allegati = dci_get_meta("allegati", $prefix, $post->ID);
+            $datasets = dci_get_meta("dataset", $prefix, $post->ID);
             $a_cura_di = dci_get_meta("a_cura_di", $prefix, $post->ID);
             ?>
             <div class="container" id="main-container">
@@ -112,6 +113,13 @@ get_header();
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
+                                                                <?php if( is_array($datasets) && count($datasets) ) { ?>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#dataset">
+                                                                    <span class="title-medium">Dataset</span>
+                                                                    </a>
+                                                                </li>
+                                                                <?php } ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#a-cura-di">
                                                                     <span class="title-medium">A cura di</span>
@@ -129,15 +137,15 @@ get_header();
                         </div>
                     </aside>
                     <section class="col-lg-8 it-page-sections-container border-light">
-                    <article id="descrizione" class="it-page-section anchor-offset" data-audio>
-                        <h4>Descrizione</h4>
+                    <article class="it-page-section anchor-offset" data-audio>
+                        <h4 id="descrizione">Descrizione</h4>
                         <div class="richtext-wrapper lora">
                             <?php echo $descrizione; ?>
                         </div>
                     </article>
                     <?php if( is_array($documenti) && count($documenti) ) { ?>
-                    <article id="documenti" class="it-page-section anchor-offset mt-5">
-                        <h4>Documenti</h4>
+                    <article class="it-page-section anchor-offset mt-5">
+                        <h4 id="documenti">Documenti</h4>
                         <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
                             <?php foreach ($documenti as $doc_id) {
                                 $documento = get_post($doc_id);
@@ -150,7 +158,7 @@ get_header();
                                 </svg>
                                 <div class="card-body">
                                 <h5 class="card-title">
-                                    <a class="text-decoration-none" href="<?php echo get_permalink($doc_id); ?>" aria-label="Scarica il documento <?php echo $documento->post_title; ?>" title="Scarica il documento <?php echo $documento->post_title; ?>">
+                                    <a class="text-decoration-none" href="<?php echo get_permalink($doc_id); ?>" aria-label="Visualizza il documento <?php echo $documento->post_title; ?>" title="Visualizza il documento <?php echo $documento->post_title; ?>">
                                         <?php echo $documento->post_title; ?>
                                     </a>
                                 </h5>
@@ -161,8 +169,8 @@ get_header();
                     </article>
                     <?php } ?>
                     <?php if( is_array($allegati) && count($allegati) ) { ?>
-                    <article id="allegati" class="it-page-section anchor-offset mt-5">
-                        <h4>Allegati</h4>
+                    <article class="it-page-section anchor-offset mt-5">
+                        <h4 id="allegati">Allegati</h4>
                         <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
                             <?php foreach ($allegati as $all_url) {
                                 $all_id = attachment_url_to_postid($all_url);
@@ -186,8 +194,33 @@ get_header();
                         </div>
                     </article>
                     <?php } ?>
-                    <article id="a-cura-di" class="it-page-section anchor-offset mt-5">
-                        <h4>A cura di</h4>
+                        <?php if( is_array($datasets) && count($datasets) ) { ?>
+                        <article class="it-page-section anchor-offset mt-5">
+                            <h4 id="dataset">Dataset</h4>
+                            <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
+                                <?php foreach ($datasets as $dataset_id) {
+                                    $dataset = get_post($dataset_id);
+                                    ?>
+                                    <div class="card card-teaser shadow-sm p-4 mt-3 rounded border border-light flex-nowrap">
+                                        <svg class="icon" aria-hidden="true">
+                                            <use
+                                                    xlink:href="#it-clip"
+                                            ></use>
+                                        </svg>
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <a class="text-decoration-none" href="<?php echo get_permalink($dataset_id); ?>" aria-label="Visualizza il dataset <?php echo $dataset->post_title; ?>" title="Visualizza il dataset <?php echo $dataset->post_title; ?>">
+                                                    <?php echo $dataset->post_title; ?>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </article>
+                        <?php } ?>
+                    <article class="it-page-section anchor-offset mt-5">
+                        <h4 id="a-cura-di">A cura di</h4>
                         <div class="row">
                         <div class="col-12 col-sm-8">
                             <h6><small>Questa pagina è gestita da</small></h6>
