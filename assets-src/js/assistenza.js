@@ -5,7 +5,7 @@
     async function getServices(categoria) {
       try {
         const res = await fetch(
-          `/wp-json/wp/v2/servizi${
+          `${window.wpRestApi}wp/v2/servizi${
             !!categoria ? `?categorie_servizio=${categoria}` : ""
           }`
         );
