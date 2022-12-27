@@ -926,6 +926,28 @@ if(!function_exists("dci_get_data_pubblicazione_arr")) {
     }
 }
 
+
+/**
+ * Returns the post_date in timestamp format of a post
+ * @param  string  $key
+ * @param  string  $prefix
+ * @param  int     $post_id
+ * @return string
+ */
+if(!function_exists("dci_get_data_pubblicazione_ts")) {
+    function dci_get_data_pubblicazione_ts($key = '', $prefix = '', $post_id) {
+        global $post;
+        if (!$post) $post = get_post($post_id);
+
+        $data_pubblicazione = dci_get_meta($key, $prefix , $post_id);
+        if (!$data_pubblicazione) {
+        $data_pubblicazione = strtotime(explode(' ',$post->post_date)[0]);
+        }
+        return $data_pubblicazione;
+    }
+}
+
+
 /**
  * Returns the a formatted version of punto-contatto from id
  * @param  int     $post_id
