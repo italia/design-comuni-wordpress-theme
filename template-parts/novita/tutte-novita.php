@@ -14,9 +14,7 @@ global $the_query, $load_posts, $load_card_type;
      $posts = $the_query->posts;
 
     usort($posts, function($a, $b) {
-        $a_ts = dci_get_data_pubblicazione_ts("data_pubblicazione", '_dci_notizia_', $a->ID);
-        $b_ts = dci_get_data_pubblicazione_ts("data_pubblicazione", '_dci_notizia_', $b->ID);
-        return $a_ts < $b_ts;
+        return dci_get_data_pubblicazione_ts("data_pubblicazione", '_dci_notizia_', $b->ID) - dci_get_data_pubblicazione_ts("data_pubblicazione", '_dci_notizia_', $a->ID);
     });
 ?>
 
