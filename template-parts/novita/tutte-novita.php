@@ -7,9 +7,7 @@ global $the_query, $load_posts, $load_card_type;
     $args = array(
         's' => $query,
         'posts_per_page' => $max_posts,
-        'post_type'      => 'notizia',
-        'orderby'        => 'post_title',
-        'order'          => 'ASC'
+        'post_type'      => 'notizia'
      );
      $the_query = new WP_Query( $args );
 
