@@ -178,7 +178,7 @@ officeSelect.addEventListener("change", () => {
 
   if (officeSelect?.value) {
     const urlParam = new URLSearchParams({ id: officeSelect.value });
-    fetch(`/wp-json/wp/v2/sedi/ufficio/?${urlParam}`)
+    fetch(`${window.wpRestApi}wp/v2/sedi/ufficio/?${urlParam}`)
       .then((response) => response.json())
       .then((data) => {
         document.querySelector("#place-cards-wrapper").innerHTML =
@@ -213,10 +213,6 @@ officeSelect.addEventListener("change", () => {
               </div>
               <div class="card-body p-0">
                 <div class="info-wrapper">
-                  <span class="info-wrapper__label">Sportello</span>
-                  <p class="info-wrapper__value">CIE</p>
-                </div>
-                <div class="info-wrapper">
                   <span class="info-wrapper__label">Indirizzo</span>
                   <p class="info-wrapper__value">
                   ${place?.indirizzo}
@@ -240,7 +236,7 @@ officeSelect.addEventListener("change", () => {
       });
 
     /* Get Servizi by Unità organizzativa - Step 3 */
-    fetch(`/wp-json/wp/v2/servizi/ufficio?${urlParam}`)
+    fetch(`${window.wpRestApi}wp/v2/servizi/ufficio?${urlParam}`)
       .then((response) => response.json())
       .then((data) => {
         document.querySelector("#motivo-appuntamento").innerHTML =
@@ -322,12 +318,6 @@ const setSelectedPlace = () => {
       </div>
 
       <div class="card-body p-0">
-      <div class="single-line-info border-light">
-          <div class="text-paragraph-small">Sportello</div>
-          <div class="border-light">
-          <p class="data-text">CIE</p>
-          </div>
-      </div>
       <div class="single-line-info border-light">
           <div class="text-paragraph-small">Indirizzo</div>
           <div class="border-light">
@@ -518,7 +508,7 @@ const confirmAppointment = () => {
 
 async function getServiceDetail(id) {
   try {
-    const res = await fetch(`/wp-json/wp/v2/servizi/${id}`)
+    const res = await fetch(`${window.wpRestApi}wp/v2/servizi/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("HTTP error " + response.status);

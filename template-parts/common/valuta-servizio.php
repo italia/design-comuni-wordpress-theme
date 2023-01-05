@@ -106,6 +106,12 @@
                                             >Non ho avuto problemi tecnici</label
                                         >
                                         </div>
+                                        <div class="radio-body border-bottom border-light cmp-radio-list__item">
+                                            <input name="rating1" type="radio" id="radio-5">
+                                            <label for="radio-5">
+                                                Altro
+                                            </label>
+                                        </div>
                                     </div>
                                     </div>
                                 </div>
@@ -133,22 +139,10 @@
                                         <input
                                             name="rating2"
                                             type="radio"
-                                            id="radio-5"
-                                        />
-                                        <label for="radio-5"
-                                            >A volte le indicazioni non erano chiare</label
-                                        >
-                                        </div>
-                                        <div
-                                        class="radio-body border-bottom border-light cmp-radio-list__item"
-                                        >
-                                        <input
-                                            name="rating2"
-                                            type="radio"
                                             id="radio-6"
                                         />
                                         <label for="radio-6"
-                                            >A volte le indicazioni non erano complete</label
+                                            >A volte le indicazioni non erano chiare</label
                                         >
                                         </div>
                                         <div
@@ -160,7 +154,7 @@
                                             id="radio-7"
                                         />
                                         <label for="radio-7"
-                                            >A volte non capivo se stavo procedendo correttamente</label
+                                            >A volte le indicazioni non erano complete</label
                                         >
                                         </div>
                                         <div
@@ -172,8 +166,24 @@
                                             id="radio-8"
                                         />
                                         <label for="radio-8"
+                                            >A volte non capivo se stavo procedendo correttamente</label
+                                        >
+                                        </div>
+                                        <div
+                                        class="radio-body border-bottom border-light cmp-radio-list__item"
+                                        >
+                                        <input
+                                            name="rating2"
+                                            type="radio"
+                                            id="radio-9"
+                                        />
+                                        <label for="radio-9"
                                             >Ho avuto problemi tecnici</label
                                         >
+                                        </div>
+                                        <div class="radio-body border-bottom border-light cmp-radio-list__item">
+                                            <input name="rating2" type="radio" id="radio-10">
+                                            <label for="radio-10">Altro</label>
                                         </div>
                                     </div>
                                     </div>
