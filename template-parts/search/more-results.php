@@ -25,7 +25,10 @@ $query_params = '?post_count='.$the_query->post_count.'&load_posts='.$load_posts
 if($the_query->post_count < $the_query->found_posts) {
 ?> 
 <div class="d-flex justify-content-center mt-4" id="load-more-btn">
-    <button type="button" class="<?php echo $classes; ?>" onclick='handleOnClick(`<?php echo $query_params; ?>`)'>
+    <button type="button"
+        class="<?php echo $classes; ?>" onclick='handleOnClick(`<?php echo $query_params; ?>`)'
+        data-element="load-other-services"
+    >
     <span class=""><?php echo $label; ?></span>
     </button>
 </div>
