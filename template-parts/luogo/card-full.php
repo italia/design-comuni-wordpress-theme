@@ -25,7 +25,10 @@ $tipi_luogo = get_the_terms($post->ID,'tipi_luogo');
                         foreach ($tipi_luogo as $tipo_luogo) {
                     ?>
                         <?php echo $count == 1 ? '' : ' - '; ?>
-                        <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title" href="<?php echo get_term_link($tipo_luogo->term_id); ?>">
+                        <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title"
+                            href="<?php echo get_term_link($tipo_luogo->term_id); ?>"
+                            data-element="live-category-link"
+                        >
                             <?php 
                                 echo $tipo_luogo->name; 
                             ?>
@@ -38,17 +41,15 @@ $tipi_luogo = get_the_terms($post->ID,'tipi_luogo');
                 <p class="cmp-list-card-img__body-description">
                     <?php echo $descrizione; ?>
                 </p>
-                <a
-                    class="read-more t-primary text-uppercase cmp-list-card-img__body-link"
-                    href="<?php echo get_permalink($post->ID); ?>" aria-label="Leggi di più sulla pagina di <?php echo $post->post_title ?>">
+                <a class="read-more t-primary text-uppercase cmp-list-card-img__body-link"
+                    href="<?php echo get_permalink($post->ID); ?>"
+                    aria-label="Leggi di più sulla pagina di <?php echo $post->post_title ?>"
+                >
                     <span class="text">Leggi di più</span>
-                    <span class="visually-hidden"
-                    ></span
-                    >
+                    <span class="visually-hidden"></span>
                     <svg class="icon icon-primary icon-xs ml-10">
-                    <use
-                        href="#it-arrow-right"
-                    ></use></svg>
+                        <use href="#it-arrow-right"></use>
+                    </svg>
                 </a>
             </div>
         </div>
