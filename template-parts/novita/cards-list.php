@@ -18,10 +18,14 @@
                 <div class="col-8 order-1 order-md-2">
                 <div class="card-body">
                     <div class="category-top cmp-list-card-img__body">
-                    <span class="category cmp-list-card-img__body-heading-title underline"><?php echo strtoupper($tipo->name); ?></span>
+                    <span class="category cmp-list-card-img__body-heading-title underline">
+                        <?php echo strtoupper($tipo->name); ?>
+                    </span>
                     <span class="data"><?php echo $arrdata[0].' '.strtoupper($monthName).' '.$arrdata[2] ?></span>
                     </div>
-                    <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
+                    <a class="text-decoration-none" href="<?php echo get_permalink(); ?>"
+                        data-element="news-category-link"
+                    >
                         <h3 class="h5 card-title u-grey-light"><?php echo the_title(); ?></h3>
                     </a>
                     <p class="card-text d-none d-md-block">
@@ -46,7 +50,9 @@
                                 </span>
                                 <span class="data"><?php echo $arrdata[0].' '.strtoupper($monthName).' '.$arrdata[2] ?></span>
                             </div>
-                            <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
+                            <a class="text-decoration-none" href="<?php echo get_permalink(); ?>"
+                                data-element="news-category-link"
+                            >
                                 <h3 class="h5 card-title u-grey-light"><?php echo the_title(); ?></h3>
                             </a>
                             <p class="card-text d-none d-md-block">
