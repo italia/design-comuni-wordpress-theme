@@ -27,13 +27,17 @@ $tipo_evento = get_the_terms($post->ID,'tipi_evento')[0];
                 <div class="category-top cmp-list-card-img__body">
                     <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title"
                         href="<?php echo get_term_link($tipo_evento->term_id); ?>"
-                        data-element="live-category-link"
                     >
                         <?php echo $tipo_evento->name; ?>
                     </a>
                 </div>
                 <h3 class="cmp-list-card-img__body-title u-main-primary">
-                    <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title ?></a>
+                    <a class="text-decoration-none"
+                        href="<?php echo get_permalink($post->ID); ?>"
+                        data-element="live-category-link"
+                    >
+                        <?php echo $post->post_title ?>
+                    </a>
                 </h3>
                 <p class="cmp-list-card-img__body-description">
                     <?php echo $descrizione; ?>

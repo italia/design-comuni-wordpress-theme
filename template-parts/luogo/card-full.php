@@ -27,16 +27,18 @@ $tipi_luogo = get_the_terms($post->ID,'tipi_luogo');
                         <?php echo $count == 1 ? '' : ' - '; ?>
                         <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title"
                             href="<?php echo get_term_link($tipo_luogo->term_id); ?>"
-                            data-element="live-category-link"
                         >
-                            <?php 
-                                echo $tipo_luogo->name; 
-                            ?>
+                            <?php echo $tipo_luogo->name;?>
                         </a>
                     <?php ++$count; }} ?>
                 </div>
                 <h3 class="cmp-list-card-img__body-title u-main-primary">
-                    <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title ?></a>
+                    <a class="text-decoration-none"
+                        href="<?php echo get_permalink($post->ID); ?>"
+                        data-element="live-category-link"
+                    >
+                        <?php echo $post->post_title ?>
+                    </a>
                 </h3>
                 <p class="cmp-list-card-img__body-description">
                     <?php echo $descrizione; ?>
