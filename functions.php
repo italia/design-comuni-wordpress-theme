@@ -253,3 +253,7 @@ add_filter("wp_nav_menu_objects","max_nav_items",10,2);
 function console_log ($output, $msg = "log") {
     echo '<script> console.log("'. $msg .'",'. json_encode($output) .')</script>';
 };
+
+function get_parent_template () {
+	return end(explode('/', get_page_template_slug(wp_get_post_parent_id(get_the_id()))));
+}
