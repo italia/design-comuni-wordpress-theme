@@ -7,31 +7,48 @@
  * @package Design_Comuni_Italia
  */
 
+global $obj, $title, $tipo_documento;
+$obj = get_queried_object();
 $class = "petrol";
+
+if ( $obj->name=="documento_pubblico" ){
+    $title = "Documenti pubblici";
+	get_template_part( "archive-documento" );
+    return;
+}
+else
+	get_template_part("archive");
+
 
 get_header();
 ?>
 
     <main id="main-container" class="main-container <?php echo $class; ?>">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+	                <?php get_template_part("template-parts/common/breadcrumb"); ?>
+                </div>
 
-        <section class="section bg-white py-2 py-lg-3 py-xl-5">
+            </div>
             <div class="container">
+                <section>
+
                 <div class="row variable-gutters">
-                    <div class="col-lg-5 col-md-8 offset-lg-3">
+                    <div class="col-lg-9 col-md-8">
                         <div class="section-title">
 							<?php the_archive_title( '<h2 class="mb-0">', '</h2>' ); ?>
 							<?php the_archive_description("<p>","</p>"); ?>
                         </div><!-- /title-section -->
                     </div><!-- /col-lg-5 col-md-8 offset-lg-2 -->
 
-                    <div class="col-lg-3 col-md-4 offset-lg-1">
+                    <div class="col-lg-3 col-md-4">
 						<?php get_template_part("template-parts/single/actions"); ?>
                     </div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
                 </div><!-- /row -->
-            </div><!-- /container -->
-        </section><!-- /section -->
 
+        </section><!-- /section -->
+            </div><!-- /container -->
 
 
         <section class="section bg-white border-top border-bottom d-block d-lg-none">
@@ -72,6 +89,7 @@ get_header();
                 </div><!-- /row -->
             </div><!-- /container -->
         </section>
+        </div>
     </main>
 
 <?php

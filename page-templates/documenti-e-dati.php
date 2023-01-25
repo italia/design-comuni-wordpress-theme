@@ -27,7 +27,7 @@ get_header();
 				get_template_part("template-parts/hero/hero"); 
 			?>
 			<?php get_template_part("template-parts/documento/evidenza"); ?>
-			<?php get_template_part("template-parts/documento/tutti-documenti"); ?>
+			<?php // get_template_part("template-parts/documento/tutti-documenti"); ?>
 			<?php get_template_part("template-parts/documento/categorie"); ?>
 			<?php get_template_part("template-parts/common/valuta-servizio"); ?>
 			<?php get_template_part("template-parts/common/assistenza-contatti"); ?>
