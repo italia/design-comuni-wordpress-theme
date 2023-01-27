@@ -252,25 +252,25 @@ get_header();
                         <div class="it-page-sections-container">
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="who-needs">A chi è rivolto</h2>
-                                <div class="richtext-wrapper lora">
+                                <div class="richtext-wrapper lora" data-element="service-addressed">
                                     <?php echo $destinatari ?>
                                 </div>
                             </section>
                             <?php if ($descrizione) { ?>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="description">Descrizione</h2>
-                                <div class="richtext-wrapper lora"><?php echo $descrizione ?></div>
+                                <div class="richtext-wrapper lora" data-element="service-extended-description"><?php echo $descrizione ?></div>
                             </section>
                             <?php } ?>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="how-to">Come fare</h2>
-                                <div class="richtext-wrapper lora">
+                                <div class="richtext-wrapper lora" data-element="service-how-to">
                                     <?php echo $come_fare ?>
                                 </div>
                             </section>
                             <section class="it-page-section mb-30 has-bg-grey p-3">
                                 <h2 class="title-xxlarge mb-3" id="needed">Cosa serve</h2>
-                                <div class="richtext-wrapper lora">
+                                <div class="richtext-wrapper lora" data-element="service-needed">
                                     <?php echo $cosa_serve_intro ?>
                                     <ul >
                                         <?php foreach ($cosa_serve_list as $cosa_serve_item) { ?>
@@ -281,7 +281,7 @@ get_header();
                             </section>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="obtain">Cosa si ottiene</h2>
-                                <div class="richtext-wrapper lora"><?php echo $output ?></div>
+                                <div class="richtext-wrapper lora" data-element="service-achieved"><?php echo $output ?></div>
                             </section>
                             <?php if ( !empty($fasi_scadenze_intro) || (is_array($fasi_scadenze) && count($fasi_scadenze)) || (is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) ) { ?>
                             <section class="it-page-section mb-30">
@@ -291,7 +291,7 @@ get_header();
                                         <?php echo $fasi_scadenze_intro; ?>
                                     </p>
                                     <?php if ((is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) || (is_array($fasi_scadenze) && count($fasi_scadenze))) { ?>
-                                        <div class="calendar-vertical mb-3">
+                                        <div class="calendar-vertical mb-3" data-element="service-calendar-list">
                                             <?php if (!empty($fasi_group_simple_scadenze)) foreach ($fasi_group_simple_scadenze as $fase) {
                                                 ?>
                                                 <div class="calendar-date">
@@ -349,7 +349,7 @@ get_header();
                             <?php if ( $costi ) { ?>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="costs">Quanto costa</h2>
-                                <div class="richtext-wrapper lora"><?php echo $costi ?></div>
+                                <div class="richtext-wrapper lora" data-element="service-cost"><?php echo $costi ?></div>
                             </section>
                             <?php } ?>
                             <section class="it-page-section mb-30 has-bg-grey p-4">
@@ -390,7 +390,7 @@ get_header();
                                 <h2 class="mb-3" id="contacts">Contatti</h2>
                                 <div class="row">
                                     <div class="col-12 col-md-8 col-lg-6 mb-30">
-                                        <div class="card-wrapper rounded h-auto mt-10">
+                                        <div class="card-wrapper rounded h-auto mt-10" data-element="service-card-contacts">
                                             <?php
                                                 $with_border = true;
                                                 get_template_part("template-parts/unita-organizzativa/card");
