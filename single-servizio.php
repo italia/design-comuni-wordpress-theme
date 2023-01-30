@@ -287,9 +287,9 @@ get_header();
                             <section class="it-page-section mb-30">
                                 <div class="cmp-timeline">
                                     <h2 class="title-xxlarge mb-3" id="deadlines">Tempi e scadenze</h2>
-                                    <p class="richtext-wrapper lora">
+                                    <div class="richtext-wrapper lora" data-element="service-calendar-text">
                                         <?php echo $fasi_scadenze_intro; ?>
-                                    </p>
+                                    </div>
                                     <?php if ((is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) || (is_array($fasi_scadenze) && count($fasi_scadenze))) { ?>
                                         <div class="calendar-vertical mb-3" data-element="service-calendar-list">
                                             <?php if (!empty($fasi_group_simple_scadenze)) foreach ($fasi_group_simple_scadenze as $fase) {
@@ -352,16 +352,16 @@ get_header();
                                 <div class="richtext-wrapper lora" data-element="service-cost"><?php echo $costi ?></div>
                             </section>
                             <?php } ?>
-                            <section class="it-page-section mb-30 has-bg-grey p-4" data-element="service-access">
+                            <section class="it-page-section mb-30 has-bg-grey p-4">
                                 <h2 class="mb-3" id="submit-request">Accedi al servizio</h2>
                                 <?php if ($canale_digitale_link) { ?>
-                                <p class="text-paragraph lora mb-4"><?php echo $canale_digitale_text; ?></p>
-                                <button type="button" class="btn btn-primary mobile-full" onclick="location.href='<?php echo $canale_digitale_link; ?>';">
+                                <p class="text-paragraph lora mb-4" data-element="service-generic-access"><?php echo $canale_digitale_text; ?></p>
+                                <button type="button" class="btn btn-primary mobile-full" onclick="location.href='<?php echo $canale_digitale_link; ?>';" data-element="service-online-access">
                                     <span class=""><?php echo $canale_digitale_label; ?></span>
                                 </button>
                                 <?php } ?>
-                                <p class="text-paragraph lora mt-4"><?php echo $canale_fisico_text; ?></p>
-                                <button type="button" class="btn btn-outline-primary t-primary bg-white mobile-full" onclick="location.href='<?php echo dci_get_template_page_url('page-templates/prenota-appuntamento.php'); ?>';">
+                                <p class="text-paragraph lora mt-4" data-element="service-generic-access"><?php echo $canale_fisico_text; ?></p>
+                                <button type="button" class="btn btn-outline-primary t-primary bg-white mobile-full" onclick="location.href='<?php echo dci_get_template_page_url('page-templates/prenota-appuntamento.php'); ?>';" data-element="service-booking-access">
                                     <span class="">Prenota appuntamento</span>
                                 </button>
                             </section>

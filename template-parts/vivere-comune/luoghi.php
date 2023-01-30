@@ -25,6 +25,8 @@
                     class="btn btn-primary px-5 py-3 full-mb"
                     label="Tutti i luoghi" 
                     buttonNext=true
+                    data-element="live-button"
+                    onclick="location.href='/amministrazione/aree-amministrative/';"
                 >
                     <span class="">Tutti i luoghi</span>
                 </button>
