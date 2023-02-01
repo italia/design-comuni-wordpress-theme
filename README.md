@@ -54,11 +54,9 @@ Sul [canale Slack #design-siti-comuni](http://developersitalia.slack.com/message
 
 ## **Indice**
 
-- [Cos'è](#cosè)
-- [Cosa fa](#cosa-fa)
-- [La cura verso i contenuti](#la-cura-verso-i-contenuti)
+- [Cos'è e cosa fa](#cosè-e-cosa-fa)
+- [Le pagine del modello](#le-pagine-del-modello)
 - [Da dove iniziare](#da-dove-iniziare)
-- [Riscrivere o importare i contenuti del vecchio sito](#riscrivere-o-importare-i-contenuti-del-vecchio-sito)
 - [Relazioni tra i contenuti](#relazioni-tra-i-contenuti)
 - [I diversi content type](#i-diversi-content-type)
 - [Personalizzazione](#personalizzazione)
@@ -69,29 +67,22 @@ Sul [canale Slack #design-siti-comuni](http://developersitalia.slack.com/message
 - [Segnalazione bug](#segnalazione-bug)
 - [Come contribuire](#come-contribuire)
 
-#### **Cos'è**
+#### **Cos'è e cosa fa**
 
-Il tema Design Comuni Italia è un’applicazione di WordPress, il sistema di gestione di contenuti (CMS) che consente di creare un sito web.
+Il tema Design Comuni Italia è un’applicazione di WordPress, il sistema di gestione di contenuti (CMS), che consente di creare un sito web comunale sulla base del [modello Comuni](https://designers.italia.it/modello/comuni/), creato nell’ambito del progetto Designers Italia dal Dipartimento per la trasformazione digitale.
 
-Il tema è basato sul [modello di sito istituzionale dei Comuni Italiani](https://designers.italia.it/modello/comuni/), creato nell’ambito del progetto Designers Italia dal Dipartimento per la trasformazione digitale e il Ministero dell’Istruzione.
+Il tema WordPress è stato progettato per aderire rapidamente al modello di sito comunale. Il tema, infatti, imposta automaticamente lo stile grafico del sito, le aree del sito, i layout delle pagine e il menu di navigazione. Il compito dei redattori rimane, quindi, quello di curare i contenuti delle pagine, risparmiando così tempo e risorse nella progettazione e realizzazione del sito.
 
-#### **Cosa fa**
+#### **Le pagine del modello**
 
-Il tema WordPress è stato progettato per adottare rapidamente il modello di sito istituzionale dei Comuni Italiani. Il tema imposta automaticamente lo stile grafico del sito, i layout delle pagine e il menu di navigazione, permettendo di velocizzare l’adozione tecnica del modello e di focalizzarsi sulla creazione dei contenuti sulle pagine.
+Tramite il tema WordPress, è possibile creare automaticamente le seguenti pagine:
 
-[Progettazione del modello](https://docs.italia.it/italia/designers-italia/design-comuni-docs/it/v2022.1/index.html).
-Oltre alle metodologie di progettazione dell”user centred design, l’aggiornamento del modello ha preso in considerazione le indicazioni dell’eGovernment Benchmark method paper 2020-2023, ovvero lo standard europeo di comparazione della qualità dei servizi digitali erogati dalla pubbliche amministrazioni.
-Il tema Wordpress è pronto all’uso.
+- _Homepage_, pagine di primo livello (_Amministrazione_, _Novità_, _Servizi_ e _Vivere il Comune_), _Documenti e dati_ e pagina _Argomenti_, tramite il menu Configurazione;
 
-[Scaricalo gratuitamente da GitHub](https://github.com/italia/design-comuni-wordpress-theme)
+- Notizia, 
 
-#### **La cura verso i contenuti**
+- Per le pagine _Documento pubblico_, _Unità organizzativa_, _Persona pubblica_, _Luogo_ e le _pagine lista_, è possibile l'inserimento dei contenuti, ma la resa grafica della pagina non apparirà in automatico. È necessario creare un template .php manualmente.
 
-Il tema imposta automaticamente le aree del sito, le voci di menù e la struttura delle pagine.
-
-Inserendo i contenuti negli appositi campi predisposti per le varie tipologie di contenuto (content type), il tema comporrà automaticamente le diverse pagine del sito. Il compito dei redattori è quindi quello di curare i contenuti, senza doversi preoccupare di come verranno presentati a livello visivo sulle pagine.
-
-É così possibile risparmiare tempo nella progettazione e realizzazione del proprio sito e dedicare più tempo a comunicare con precisione e semplicità le informazioni.
 
 #### **Da dove iniziare**
 
@@ -111,9 +102,6 @@ Una volta iniziato il lavoro sulle prime 4 tipologie di contenuto suggerite, si 
 - fasi;
 - servizi;
 
-#### **Riscrivere o importare i contenuti del vecchio sito**
-
-L’aggiornamento di un sito è un’ottima opportunità per riscrivere, riorganizzare ed aggiornare tutti i contenuti relativi ai luoghi, alle notizie, ai servizi, alle persone e agli eventi del comune.
 
 #### **Relazioni tra i contenuti**
 
@@ -122,11 +110,12 @@ I siti WordPress presentano una serie di tipologie di contenuto (content type) c
 Questa impostazione permette di combinare i vari elementi per la creazione delle pagine, così che i contenuti vengano creati soltanto una volta e poi riutilizzati, se necessario, in varie parti del sito. Una volta comprese le relazioni tra le tipologie di contenuti, sarà facile creare le pagine del sito.
 
 Alcune relazioni tra tipologie di contenuti, sono:
-Unità Organizzative - Persone Pubbliche;
-Unità Organizzative - Luoghi;
-Eventi - Luoghi;
-Eventi - Persone Pubbliche;
-Eventi - Unità Organizzative
+
+- Unità Organizzative - Persone Pubbliche;
+- Unità Organizzative - Luoghi;
+- Eventi - Luoghi;
+- Eventi - Persone Pubbliche;
+- Eventi - Unità Organizzative.
 
 Questo significa, ad esempio, che ogni pagina di un Evento può presentare una relazione con contenuti come i luoghi e le persone pubbliche.
 
@@ -136,12 +125,12 @@ Per collegare tra loro diverse tipologie di contenuto, quindi:
 
 1. crea la scheda o le schede dei contenuti di dettaglio;
 2. crea la scheda del contenuto contenitore;
-3. Associa, tramite l’apposito campo, le schede contenuto di dettaglio alla scheda contenuto.
+3. associa, tramite l’apposito campo, le schede contenuto di dettaglio alla scheda contenuto.
 
 Per associare nuovi contenuti di dettaglio ad altri già esistenti:
 
-1. Crea la nuova scheda di contenuto di dettaglio.
-2. Entra nella scheda del contenuto contenitore e, tramite l’apposito campo, associa la scheda del contenuto di dettaglio.
+1. crea la nuova scheda di contenuto di dettaglio;
+2. entra nella scheda del contenuto contenitore e, tramite l’apposito campo, associa la scheda del contenuto di dettaglio.
 
 #### **Personalizzazione**
 
@@ -152,7 +141,7 @@ L’area di configurazione è divisa in tab per le diverse aree del sito.
 Cliccando su `Configurazione`, è possibile definire:
 
 - **Configurazione Comune**: le impostazioni di base del Comune, come il nome, lo stemma, il link alla regione di apartenenza;
-- **Home Page**: i contenuti e gli argomenti in evidenza in homepage ;
+- **Home Page**: i contenuti e gli argomenti in evidenza in homepage;
 - **Socialmedia**: i link ai canali social del Comune, che compariranno nell'header e nel footer;
 - **Footer**: la sezione contatti presente nel footer e i link alla privacy policy e alla media policy;
 - **Amministrazione**: i contenuti in evidenza nella pagina Amministrazione;
@@ -164,6 +153,8 @@ Cliccando su `Configurazione`, è possibile definire:
 - **Assistenza e Contatti**: le informazioni utili per contattare il comune, come il numero verde;
 - **Link Utili**: i link utili che compaiono in homepage nella sezione di ricerca;
 - **Ricerca**: i contenuti suggeriti nella pagina di ricerca globale.
+
+È possibile personalizzare i colori del sito, tramite file CSS. Invece di modificare il file css originale del tema, si consiglia di creare un file CSS in sovrascrittura (esempio: comini-custom.css) che contiene la personalizzazione dei colori. In questo modo, le modifiche verranno mantenute nel tempo con gli aggiornamenti del tema.
 
 #### **Servizi esterni**
 
