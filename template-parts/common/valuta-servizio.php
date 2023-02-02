@@ -48,7 +48,7 @@
                                 <h3
                                 class="step-title d-flex align-items-center justify-content-between drop-shadow"
                                 >
-                                <legend class="d-block d-lg-inline" data-element="feedback-question"
+                                <legend class="d-block d-lg-inline" data-element="feedback-rating-question"
                                     >Quali sono stati gli aspetti che hai preferito? </legend
                                 ><span class="step">1/2</span>
                                 </h3>
