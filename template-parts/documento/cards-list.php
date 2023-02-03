@@ -1,7 +1,16 @@
 <?php 
-    global $posts;
+    global $post;
 
         $description = dci_get_meta('descrizione_breve');
+        if ($post->post_type == 'documento_pubblico') {
+	        $ufficio_id = dci_get_meta('ufficio_responsabile', '_dci_documento_pubblico_', $post->ID)[0] ?? '';
+	        $ufficio = get_post($ufficio_id);
+
+	        $url_documento = dci_get_meta('url_documento', '_dci_documento_pubblico_', $post->ID) ?? '';
+            $file_documento = dci_get_meta('file_documento', '_dci_documento_pubblico_', $post->ID);
+            $link_documento = ($url_documento!='') ? $url_documento : $file_documento;
+            //var_dump($link_documento);
+        }
         if ($post->post_type == 'dataset') {
             $tipo = '';
             $arrdata = explode( '-', date('d-m-Y', dci_get_meta("data_modifica")));
@@ -24,9 +33,9 @@
                 <div class="col-8 order-1 order-md-2">
                 <div class="card-body">
                     <div class="category-top cmp-list-card-img__body">
-                        <?php if ($tipo) { ?> 
+                        <?php if ($tipo) { ?>
                             <span class="category cmp-list-card-img__body-heading-title underline"><?php echo $tipo->name ? $tipo->name : 'DATASET'; ?></span>
-                        <?php } ?>                    
+                        <?php } ?>
                     <span class="data"><?php echo $arrdata[0].' '.$monthName.' '.$arrdata[2] ?></span>
                     </div>
                     <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
@@ -67,3 +76,15 @@
         </div>
     </div>
 <?php } ?>
+<!--
+<a href="<?php /*echo get_permalink(); */?>" class="list-group-item" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1"><?php /*the_title() */?></h6>
+        <small><span class="data"><?php /*echo $ufficio->post_title ?? ''; */?> | <?php /*echo $arrdata[0].' '.$monthName.' '.$arrdata[2] */?></span></small>
+    </div>
+    <div class="d-flex w-100 justify-content-between">
+        <p><?php /*echo $description; */?></p>
+        <small><span class="data"></span></small>
+    </div>
+
+</a>-->
