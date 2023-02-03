@@ -25,7 +25,6 @@
 
 <div class="bg-grey-card py-5">
     <form role="search" id="search-form" method="get" class="search-form">
-<!--        <button type="submit" class="d-none"></button>-->
         <div class="container">
             <h2 class="title-xxlarge mb-4">
                 Esplora tutti i servizi
@@ -92,7 +91,6 @@
                         </li>
                         <?php } ?>
                     </ul>
-                    </div>
                 </div>
             </div>
             <?php } ?>
