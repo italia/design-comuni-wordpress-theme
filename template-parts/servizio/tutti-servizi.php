@@ -23,17 +23,13 @@
     $servizi_evidenza = dci_get_option('servizi_evidenziati','servizi');
 ?>
 
-<div class="bg-grey-card">
+<div class="bg-grey-card py-5">
     <form role="search" id="search-form" method="get" class="search-form">
-        <button type="submit" class="d-none"></button>
+<!--        <button type="submit" class="d-none"></button>-->
         <div class="container">
-            <div class="row">
-            <div class="col-12">
-                <h2 class="title-xxlarge mb-4 mt-5 mb-lg-10">
+            <h2 class="title-xxlarge mb-4">
                 Esplora tutti i servizi
-                </h2>
-            </div>
-            <div class="col-12 col-lg-8 pt-lg-50 pb-lg-50">
+            </h2>
                 <div class="cmp-input-search">
                     <div class="form-group autocomplete-wrapper mb-2 mb-lg-4">
                         <div class="input-group">
@@ -69,14 +65,16 @@
                     <strong><?php echo $the_query->found_posts; ?> </strong>servizi trovati in ordine alfabetico
                     </p>
                 </div>
+
                 <div id="load-more">
+                    <div class="row">
                     <?php foreach ($posts as $servizio) { 
                         $load_card_type = "servizio";
-                        get_template_part("template-parts/servizio/card");    
+                        get_template_part("template-parts/servizio/cards-list");
                     } ?>
+                    </div>
                 </div>
                 <?php get_template_part("template-parts/search/more-results"); ?>
-            </div>
             <?php if (is_array($servizi_evidenza) && count($servizi_evidenza)) { ?>
             <div class="col-12 col-lg-4 pt-30 pt-lg-5 ps-lg-5 order-first order-md-last">
                 <div class="link-list-wrap">
