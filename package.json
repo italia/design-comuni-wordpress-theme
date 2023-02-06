@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/italia/design-comuni-wordpress-theme#readme",
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "bootstrap-italia": "^2.0.9"
   },
   "devDependencies": {
