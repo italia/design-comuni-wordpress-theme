@@ -25,7 +25,7 @@
                     class="btn btn-primary px-5 py-3 full-mb"
                     label="Tutti gli eventi" 
                     buttonNext=true
-                    data-element="live-button"
+                    data-element="live-button-events"
                     onclick="location.href='/servizi-categoria/cultura-e-tempo-libero/';"
                 >
                     <span class="">Tutti gli eventi</span>
