@@ -23,7 +23,6 @@
                     <div class="card shadow-sm rounded">
                         <div class="card-body">
                             <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>"
-                                data-element="management-category-link"
                             >
                                 <h3 class="card-title t-primary title-xlarge">
                                     <?php echo $post->post_title; ?>
