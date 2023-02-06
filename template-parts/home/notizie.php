@@ -28,6 +28,7 @@ $schede  = array( $scheda1, $scheda2, $scheda3 );
 
 ?>
 <!-- Tag section is opened in home.php -->
+<section id="notizie">
 <div class="container">
 	<?php if ( $post_id ) { ?>
         <div class="row">
