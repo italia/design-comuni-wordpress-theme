@@ -28,7 +28,7 @@ if($the_query->post_count < $the_query->found_posts) {
     <?php if(get_parent_template() === 'servizi.php') {
         ?><button type="button"
             class="<?php echo $classes; ?>" onclick='handleOnClick(`<?php echo $query_params; ?>`)'
-            data-element="load-other-services"
+            data-element="load-other-cards"
         >
     <?php } else {
         ?><button type="button"
