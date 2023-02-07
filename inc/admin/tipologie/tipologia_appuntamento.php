@@ -80,7 +80,7 @@ function dci_add_appuntamento_metaboxes()
     $cmb_dati->add_field( array(
         'id' => $prefix . 'email_richiedente',
         'desc' => __( 'Email del richiedente' , 'design_comuni_italia' ),
-        'name'  => __( 'Richiedente *', 'design_comuni_italia' ),
+        'name'  => __( 'Email Richiedente *', 'design_comuni_italia' ),
         'type' => 'text_email',
         'attributes'    => array(
             'required'    => 'required',
