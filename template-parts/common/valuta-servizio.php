@@ -19,9 +19,9 @@
                                 type="radio"
                                 id="<?php echo 'star'.$c.'a' ?>"
                                 name="ratingA"
-                                value="<?php echo $c; ?>" data-element="feedback-star"
+                                value="<?php echo $c; ?>"
                             />
-                            <label class="full rating-star" for="<?php echo 'star'.$c.'a' ?>">
+                            <label class="full rating-star" for="<?php echo 'star'.$c.'a' ?>" data-element="<?php echo 'feedback-rate-'.$c ?>">
                                 <svg class="icon icon-sm" role="img" aria-labelledby="<?php echo $c; ?>-star">
                                     <use href="#it-star-full"></use>
                                 </svg>
@@ -108,7 +108,7 @@
                                         </div>
                                         <div class="radio-body border-bottom border-light cmp-radio-list__item">
                                             <input name="rating1" type="radio" id="radio-5">
-                                            <label for="radio-5">
+                                            <label for="radio-5" data-element="feedback-rating-answer">
                                                 Altro
                                             </label>
                                         </div>
@@ -183,7 +183,7 @@
                                         </div>
                                         <div class="radio-body border-bottom border-light cmp-radio-list__item">
                                             <input name="rating2" type="radio" id="radio-10">
-                                            <label for="radio-10">Altro</label>
+                                            <label for="radio-10" data-element="feedback-rating-answer">Altro</label>
                                         </div>
                                     </div>
                                     </div>
