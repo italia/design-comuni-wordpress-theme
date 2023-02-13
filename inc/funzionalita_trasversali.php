@@ -289,6 +289,9 @@ function dci_save_appuntamento(){
 
     update_post_meta($postId, '_dci_appuntamento_data_ora_prenotazione',  $data);
 
+    if(array_key_exists("email", $params) && $params['email'] != "null") {
+        update_post_meta($postId, '_dci_appuntamento_email_richiedente',  $params['email']);
+    }
 
     if(array_key_exists("moreDetails", $params) && $params['moreDetails'] != "null") {
         update_post_meta($postId, '_dci_appuntamento_dettaglio_richiesta',  $params['moreDetails']);
