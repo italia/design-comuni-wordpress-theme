@@ -26,5 +26,5 @@ jobs:
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
           channel_id: ${{ secrets.SLACK_CHANNEL }}
-          project_name: Tema Wordpress - Design Scuole
-          repo_name: italia/design-scuole-wordpress-theme
+          project_name: Tema Wordpress - Design Comuni
+          repo_name: italia/design-comuni-wordpress-theme
