@@ -3,7 +3,7 @@
     <?php
 
     if(trim($message['testo_message']) == "") continue;
-    $message_date = strtotime($message['data_message']);
+    $message_date = strtotime($message['data_message'] ?? '');
     $now = strtotime("now");
     $color = $message['colore_message'] == 'yellow' ? 'black' : 'white';
     if (($message_date != "") && ($message_date <= $now)) continue; ?>
