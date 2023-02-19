@@ -5,7 +5,7 @@
         $arrdata = dci_get_data_pubblicazione_arr("data_pubblicazione", '_dci_notizia_', $post->ID);
         $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10));
         $img = dci_get_meta('immagine');
-        $tipo = get_the_terms($post->term_id, 'tipi_notizia')[0];
+        $tipo = get_the_terms($post->term_id, 'tipi_notizia')[0]??null;
         if ($img) {
 ?>
     <div class="col-md-6 col-xl-4">

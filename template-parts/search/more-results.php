@@ -1,6 +1,6 @@
 
 <?php 
-global $the_query, $load_posts, $wp_the_query, $load_card_type, $additional_filter,  $label, $label_no_more, $classes;
+global $the_query, $load_posts, $wp_the_query, $load_card_type, $additional_filter,  $label, $label_no_more, $classes, $tax_query;
 
 if (!$the_query) $the_query = $wp_query;
 if (!$load_posts) $load_posts = 10;
@@ -18,9 +18,10 @@ $post_types = isset($query['post_type']) ? $query['post_type'] : null;
 if ( !$post_types ) $post_types = dci_get_sercheable_tipologie();
 
 $post_types = json_encode( $post_types );
+$tax_query = json_encode( $tax_query );
 
 $query_search = isset($_GET['search']) ? $_GET['search'] : null;
-$query_params = '?post_count='.$the_query->post_count.'&load_posts='.$load_posts.'&search='.$query_search.'&post_types='.$post_types.'&load_card_type='.$load_card_type.'&query_params='.$query_params.'&additional_filter='.$additional_filter;
+$query_params = '?post_count='.$the_query->post_count.'&load_posts='.$load_posts.'&search='.$query_search.'&post_types='.$post_types.'&tax_query='.$tax_query.'&load_card_type='.$load_card_type.'&query_params='.$query_params.'&additional_filter='.$additional_filter;
 
 if($the_query->post_count < $the_query->found_posts) {
 ?> 

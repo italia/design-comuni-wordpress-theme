@@ -29,7 +29,7 @@
         <use xlink:href="#it-pa"></use>
     </svg>
     <div class="card-body">
-        <h3 class="card-title h5">
+        <h5 class="card-title h5">
             <a class="text-decoration-none" href="<?php echo get_permalink($ufficio->ID); ?>">
                 <?php echo $ufficio->post_title; ?>
             </a>
@@ -90,7 +90,7 @@
                 <use xlink:href="#it-pa"></use>
             </svg>
             <div class="card-body pe-3">
-                <h3 class="card-title h5">
+                <h5 class="card-title h5">
                     <a href="<?php echo get_permalink($ufficio->ID); ?>">
                         <?php echo $ufficio->post_title; ?>
                     </a>

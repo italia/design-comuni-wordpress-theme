@@ -490,7 +490,7 @@ function dci_add_servizi_metaboxes() {
 
     $cmb_condizioni_servizio = new_cmb2_box( array(
         'id'           => $prefix . 'box_condizioni_servizio',
-        'title'        => __( 'Condizioni di servizio *', 'design_comuni_italia' ),
+        'title'        => __( 'Condizioni di servizio', 'design_comuni_italia' ),
         'object_types' => array( 'servizio' ),
         'context'      => 'normal',
         'priority'     => 'high',
@@ -501,9 +501,9 @@ function dci_add_servizi_metaboxes() {
             'desc' => __( 'file contenente i termini e le condizioni del servizio' , 'design_comuni_italia' ),
             'id'             => $prefix . 'condizioni_servizio',
             'type' => 'file',
-            'attributes' => array(
-                'required' => 'required'
-            )
+//            'attributes' => array(
+//                'required' => 'required'
+//            )
         )
     );
 
