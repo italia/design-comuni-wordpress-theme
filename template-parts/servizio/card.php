@@ -7,8 +7,8 @@ $descrizione_breve = dci_get_meta('descrizione_breve', $prefix, $servizio->ID);
 
 if($servizio->post_status == "publish") {
     ?>
-        <div class="cmp-card-latest-messages mb-3 mb-30" data-bs-toggle="modal" data-bs-target="#" id="">
-            <div class="card shadow-sm px-4 pt-4 pb-4 rounded">
+        <div class="cmp-card-latest-messages mb-3 mb-30  h-100" data-bs-toggle="modal" data-bs-target="#" id="">
+            <div class="card shadow-sm px-4 pt-4 pb-4 rounded  h-100">
                 <?php if (!$hide_categories) { ?>
                 <span class="visually-hidden">Categoria:</span>
                 <div class="card-header border-0 p-0">
