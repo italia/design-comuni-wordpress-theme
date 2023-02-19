@@ -35,30 +35,27 @@ function load_more(){
     // prepare our arguments for the query
 	$load_card_type = $_POST['load_card_type'];
 	$post_types = json_decode( stripslashes( $_POST['post_types'] ), true );
-	$tax_query = json_decode( stripslashes( $_POST['tax_query'] ), true );
 	$url_query_params =  json_decode( stripslashes( $_POST['query_params'] ), true );
 	$additional_filter =  json_decode( stripslashes( $_POST['additional_filter'] ), true );
-
 
 	$args = array(
         's' => $_POST['search'],
         'posts_per_page' => $_POST['post_count'] + $_POST['load_posts'],
         'post_type'      => $post_types,
-        'post_status' 	 => 'publish',
         'orderby'        => 'post_title',
         'order'          => 'ASC'
     );
 
 	if ( isset($url_query_params["post_terms"]) ) {
-		$args['tax_query'] = array(
+		$taxquery = array(
 			array(
 				'taxonomy' => 'argomenti',
 				'field' => 'id',
 				'terms' => $url_query_params["post_terms"]
 			)
 		);
-	} elseif ( $tax_query ) {
-		$args['tax_query'] =  $tax_query;
+	
+		$args['tax_query'] = $taxquery;
 	}
 	if ( isset($url_query_params["post_types"]) ) $args['post_type'] = $url_query_params["post_types"];
 	if ( isset($url_query_params["s"]) ) $args['s'] = $url_query_params["s"];
@@ -96,10 +93,7 @@ function load_more(){
 		}	
 		if ($load_card_type == "domanda-frequente"){
 			$out .= load_template_part("template-parts/domanda-frequente/item");  
-		}
-		if ($load_card_type == "unita-organizzativa"){
-			$out .= load_template_part("template-parts/unita-organizzativa/cards-list");
-		}
+		}	
  
 		endwhile;
  

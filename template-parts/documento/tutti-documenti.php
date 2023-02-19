@@ -1,45 +1,19 @@
 <?php
-global $the_query, $load_posts, $load_card_type, $tipo_documento;
+global $the_query, $load_posts, $load_card_type;
 
-$max_posts = $_GET['max_posts'] ?? 50;
-$load_posts = 50;
-$query = $_GET['search'] ?? '';
-
-
-$order = 'DESC';
-$orderBy = 'data_modifica';
-
-if ($tipo_documento ?? null) {
-    if ($tipo_documento->taxonomy == 'documento_pubblico' || $tipo_documento->taxonomy == 'documento') {
-        $orderBy = 'data_protocollo';
-    }
-
+    $max_posts = isset($_GET['max_posts']) ? $_GET['max_posts'] : 3;
+    $load_posts = 3;
+    $query = isset($_GET['search']) ? $_GET['search'] : null;
     $args = array(
-        's'              => $query,
+        's' => $query,
         'posts_per_page' => $max_posts,
-        'post_type'      => array('documento_pubblico', 'documento', 'dataset'),
-        'orderby'        => $orderBy,
-        'order'          => $order,
-        'tax_query' => array(
-            array (
-                'taxonomy' => $tipo_documento->taxonomy,
-                'field' => 'term_id',
-                'terms' => $tipo_documento->term_id,
-            )
-        ),
-    );
-} else {
-    $args = array(
-        's'              => $query,
-        'posts_per_page' => $max_posts,
-        'post_type'      => array( 'documento_pubblico', 'documento', 'dataset' ),
-        'orderby'        => $orderBy,
-        'order'          => $order,
-    );
-}
-$the_query = new WP_Query( $args );
+        'post_type'      => array('documento_pubblico', 'dataset'),
+        'orderby'        => 'post_title',
+        'order'          => 'ASC'
+     );
+     $the_query = new WP_Query( $args );
 
-$posts = $the_query->posts;
+     $posts = $the_query->posts;
 ?>
 
 
@@ -85,7 +59,7 @@ $posts = $the_query->posts;
                         id="autocomplete-label"
                         class="u-grey-light text-paragraph-card mt-2 mb-4 mt-lg-3 mb-lg-40"
                         >
-                        <?php echo $the_query->found_posts; ?> documenti trovati in ordine cronologico decrescente
+                        <?php echo $the_query->found_posts; ?> documenti trovati in ordine alfabetico
                         </p>
                     </div>
                 </div>

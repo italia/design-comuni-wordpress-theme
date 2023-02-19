@@ -33,7 +33,6 @@ get_header();
             $fasi_group_simple_scadenze = dci_get_meta("scadenze");
             $fasi_scadenze = dci_get_meta("fasi");
             $costi = dci_get_wysiwyg_field("costi");
-            $procedure_collegate = dci_get_wysiwyg_field("procedure_collegate");
             //canali di prenotazione
             $canale_digitale_text = dci_get_meta("canale_digitale_text");
             $canale_digitale_label = dci_get_meta("canale_digitale_label");
@@ -45,8 +44,6 @@ get_header();
             $condizioni_servizio = dci_get_meta("condizioni_servizio");     
             $uo_id = intval(dci_get_meta("unita_responsabile"));
             $argomenti = get_the_terms($post, 'argomenti');
-
-            $punti_contatto = dci_get_meta("punti_contatto");
 
             // valori per metatag
             $categorie = get_the_terms($post, 'categorie_servizio');
@@ -179,14 +176,6 @@ get_header();
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
-	                                                            <?php if ( $copertura_geografica ) { ?>
-                                                                    <li class="nav-item">
-                                                                        <a class="nav-link" href="#copertura_geografica">
-                                                                            <span class="title-medium">Copertura geografica</span>
-                                                                        </a>
-                                                                    </li>
-	                                                            <?php } ?>
-
                                                                 <?php if ( $come_fare ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#how-to">
@@ -222,14 +211,6 @@ get_header();
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
-	                                                            <?php if ( $procedure_collegate ) { ?>
-                                                                    <li class="nav-item">
-                                                                        <a class="nav-link" href="#procedure_collegate">
-                                                                            <span class="title-medium">Procedure collegate</span>
-                                                                        </a>
-                                                                    </li>
-	                                                            <?php } ?>
-
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#submit-request">
                                                                         <span class="title-medium">Accedi al servizio</span>
@@ -281,12 +262,6 @@ get_header();
                                 <div class="richtext-wrapper lora"><?php echo $descrizione ?></div>
                             </section>
                             <?php } ?>
-	                        <?php if ($copertura_geografica) { ?>
-                                <section class="it-page-section mb-30">
-                                    <h2 class="title-xxlarge mb-3" id="copertura_geografica">Copertura geografica</h2>
-                                    <div class="richtext-wrapper lora"><?php echo $copertura_geografica ?></div>
-                                </section>
-	                        <?php } ?>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="how-to">Come fare</h2>
                                 <div class="richtext-wrapper lora">
@@ -298,11 +273,9 @@ get_header();
                                 <div class="richtext-wrapper lora">
                                     <?php echo $cosa_serve_intro ?>
                                     <ul >
-                                        <?php
-                                        if ($cosa_serve_list) {
-                                        foreach ($cosa_serve_list as $cosa_serve_item) { ?>
+                                        <?php foreach ($cosa_serve_list as $cosa_serve_item) { ?>
                                             <li><span><?php echo $cosa_serve_item ?></span></li>
-                                        <?php } } ?>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </section>
@@ -379,12 +352,6 @@ get_header();
                                 <div class="richtext-wrapper lora"><?php echo $costi ?></div>
                             </section>
                             <?php } ?>
-	                        <?php if ( $procedure_collegate ) { ?>
-                                <section class="it-page-section mb-30">
-                                    <h2 class="title-xxlarge mb-3" id="procedure_collegate">Procedure collegate</h2>
-                                    <div class="richtext-wrapper lora"><?php echo $procedure_collegate ?></div>
-                                </section>
-	                        <?php } ?>
                             <section class="it-page-section mb-30 has-bg-grey p-4">
                                 <h2 class="mb-3" id="submit-request">Accedi al servizio</h2>
                                 <?php if ($canale_digitale_link) { ?>
@@ -401,6 +368,7 @@ get_header();
                             <?php if ( $more_info ) {  ?>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="more-info">Ulteriori informazioni</h2>
+                                <h3 class="mb-3 subtitle-medium">Graduatorie di accesso</h3>
                                 <div class="richtext-wrapper lora">
                                     <?php echo $more_info ?>
                                 </div>
@@ -421,7 +389,7 @@ get_header();
                             <section class="it-page-section">
                                 <h2 class="mb-3" id="contacts">Contatti</h2>
                                 <div class="row">
-                                    <div class="col-lg-8 col-sm-12 mb-30">
+                                    <div class="col-12 col-md-8 col-lg-6 mb-30">
                                         <div class="card-wrapper rounded h-auto mt-10">
                                             <?php
                                                 $with_border = true;
@@ -429,34 +397,21 @@ get_header();
                                             ?>
                                         </div>
                                     </div>
-                                </div>
-                                <?php if ($punti_contatto && is_array($punti_contatto) && count($punti_contatto) > 0) { ?>
-                                    <div class="row">
-                                        <?php foreach ($punti_contatto as $pc_id) { ?>
-                                            <div class="col-lg-6 col-md-12">
-                                                <?php
-                                                $with_border = true;
-                                                get_template_part("template-parts/unita-organizzativa/card-appuntamento"); ?>
-                                            </div>
-                                        <?php  } ?>
-                                    </div>
-                                <?php } ?>
-                            </section>
-                            <section>
-                                <div class="col-12 mb-30">
-                                    <span class="text-paragraph-small">Argomenti:</span>
-                                    <ul class="d-flex flex-wrap gap-2 mt-10 mb-30">
-			                            <?php foreach ( $argomenti as $item ) { ?>
-                                            <li>
-                                                <a href="<?php echo get_term_link($item); ?>" class="chip chip-simple" data-element="service-topic">
+                                    <div class="col-12 mb-30">
+                                        <span class="text-paragraph-small">Argomenti:</span>
+                                        <ul class="d-flex flex-wrap gap-2 mt-10 mb-30">
+                                            <?php foreach ( $argomenti as $item ) { ?>
+                                                <li>
+                                                    <a href="<?php echo get_term_link($item); ?>" class="chip chip-simple" data-element="service-topic">
                                                         <span class="chip-label">
                                                             <?php echo $item->name; ?>
                                                         </span>
-                                                </a>
-                                            </li>
-			                            <?php } ?>
-                                    </ul>
-		                            <?php get_template_part('template-parts/single/page_bottom',"simple"); ?>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                        </ul>
+                                        <?php get_template_part('template-parts/single/page_bottom',"simple"); ?>
+                                    </div>
                                 </div>
                             </section>
                         </div>
