@@ -254,9 +254,8 @@ get_header();
         ?>
     </main>
     <script>
-        const descText = document.querySelector('#descrizione')?.innerText;
+        const descText = document.querySelector('#descrizione')?.closest('article').innerText;
         const wordsNumber = descText.split(' ').length
-
         document.querySelector('#readingTime').innerHTML = `${Math.ceil(wordsNumber / 200)} min`;
     </script>
 <?php
