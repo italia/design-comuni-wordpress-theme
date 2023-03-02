@@ -13,7 +13,11 @@
             <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
               <div class="card shadow-sm rounded">
                 <div class="card-body">
-                    <a class="text-decoration-none" href="<?php echo get_term_link($argomento->term_id); ?>"><h3 class="card-title t-primary title-xlarge"><?php echo ucfirst($argomento->name); ?></h3></a>
+                    <a class="text-decoration-none" href="<?php echo get_term_link($argomento->term_id); ?>"
+                        data-element="news-category-link"
+                    >
+                        <h3 class="card-title t-primary title-xlarge"><?php echo ucfirst($argomento->name); ?></h3>
+                    </a>
                     <p class="titillium text-paragraph mb-0 description">
                         <?php echo $argomento->description; ?>
                     </p>

@@ -15,39 +15,42 @@ $tipo_evento = get_the_terms($post->ID,'tipi_evento')[0];
             <div class="img-responsive-wrapper cmp-list-card-img__wrapper">
                 <div class="img-responsive img-responsive-panoramic h-100">
                     <figure class="img-wrapper">
-                    <?php dci_get_img($img, 'rounded-top img-fluid'); ?>
+                        <?php dci_get_img($img, 'rounded-top img-fluid'); ?>
                     </figure>
-                    <div
-                    class="card-calendar d-flex flex-column justify-content-center"
-                    >
-                    <span class="card-date"><?php echo $arrdata[0]; ?></span>
-                    <span class="card-day"><?php echo $arrdata[1]; ?></span>
+                    <div class="card-calendar d-flex flex-column justify-content-center">
+                        <span class="card-date"><?php echo $arrdata[0]; ?></span>
+                        <span class="card-day"><?php echo $arrdata[1]; ?></span>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="category-top cmp-list-card-img__body">
-                    <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title" href="<?php echo get_term_link($tipo_evento->term_id); ?>">
+                    <a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title"
+                        href="<?php echo get_term_link($tipo_evento->term_id); ?>"
+                    >
                         <?php echo $tipo_evento->name; ?>
                     </a>
                 </div>
                 <h3 class="cmp-list-card-img__body-title u-main-primary">
-                    <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title ?></a>
+                    <a class="text-decoration-none"
+                        href="<?php echo get_permalink($post->ID); ?>"
+                        data-element="live-category-link"
+                    >
+                        <?php echo $post->post_title ?>
+                    </a>
                 </h3>
                 <p class="cmp-list-card-img__body-description">
                     <?php echo $descrizione; ?>
                 </p>
-                <a
-                    class="read-more t-primary text-uppercase cmp-list-card-img__body-link"
-                    href="<?php echo get_permalink($post->ID); ?>" aria-label="Leggi di più sulla pagina di <?php echo $post->post_title ?>"
-                    ><span class="text">Leggi di più</span>
-                    <span class="visually-hidden"
-                    ></span
-                    >
+                <a class="read-more t-primary text-uppercase cmp-list-card-img__body-link"
+                    href="<?php echo get_permalink($post->ID); ?>"
+                    aria-label="Leggi di più sulla pagina di <?php echo $post->post_title ?>"
+                >
+                    <span class="text">Leggi di più</span>
+                    <span class="visually-hidden"></span>
                     <svg class="icon icon-primary icon-xs ml-10">
-                    <use
-                        href="#it-arrow-right"
-                    ></use></svg>
+                        <use href="#it-arrow-right"></use>
+                    </svg>
                 </a>
             </div>
         </div>
