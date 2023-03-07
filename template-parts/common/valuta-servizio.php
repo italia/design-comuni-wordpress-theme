@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center bg-primary">
         <div class="col-12 col-lg-6 p-lg-0 px-3">
-            <div class="cmp-rating pt-lg-80 pb-lg-80" id="">
+            <div class="cmp-rating pt-lg-80 pb-lg-80" id="rating">
             <div class="card shadow card-wrapper" data-element="feedback">
                 <div class="cmp-rating__card-first">
                 <div class="card-header border-0">
@@ -44,15 +44,15 @@
                 <div class="d-none rating-shadow" data-step="1">
                     <div class="cmp-steps-rating">
                         <fieldset class="fieldset-rating-one d-none" data-element="feedback-rating-positive">
-                            <div class="iscrizioni-header w-100">
+                            <legend class="iscrizioni-header w-100">
                                 <h3
                                 class="step-title d-flex align-items-center justify-content-between drop-shadow"
                                 >
-                                <legend class="d-block d-lg-inline" data-element="feedback-rating-question"
-                                    >Quali sono stati gli aspetti che hai preferito? </legend
+                                <span class="d-block d-lg-inline" data-element="feedback-rating-question"
+                                    >Quali sono stati gli aspetti che hai preferito? </span
                                 ><span class="step">1/2</span>
                                 </h3>
-                            </div>
+                            </legend>
                             <div class="cmp-steps-rating__body">
                                 <div class="cmp-radio-list">
                                 <div class="card-teaser shadow-rating">
@@ -119,15 +119,15 @@
                             </div>
                         </fieldset>
                         <fieldset class="fieldset-rating-two d-none"  data-element="feedback-rating-negative">
-                            <div class="iscrizioni-header w-100">
+                            <legend class="iscrizioni-header w-100">
                                 <h3
                                 class="step-title d-flex align-items-center justify-content-between drop-shadow"
                                 >
-                                <legend class="d-block d-lg-inline" data-element="feedback-rating-question"
-                                    >Dove hai incontrato le maggiori difficoltà?</legend
+                                <span class="d-block d-lg-inline" data-element="feedback-rating-question"
+                                    >Dove hai incontrato le maggiori difficoltà?</span
                                 ><span class="step">1/2</span>
                                 </h3>
-                            </div>
+                            </legend>
                             <div class="cmp-steps-rating__body">
                                 <div class="cmp-radio-list">
                                 <div class="card-teaser shadow-rating">
@@ -196,15 +196,15 @@
                 <div class="d-none" data-step="2">
                     <div class="cmp-steps-rating">
                         <fieldset>
-                            <div class="iscrizioni-header w-100">
+                            <legend class="iscrizioni-header w-100">
                                 <h3
                                 class="step-title d-flex align-items-center justify-content-between drop-shadow mb-4"
                                 >
-                                <legend class="d-block d-lg-inline"
-                                    >Vuoi aggiungere altri dettagli? </legend
+                                <span class="d-block d-lg-inline"
+                                    >Vuoi aggiungere altri dettagli? </span
                                 ><span class="step">2/2</span>
                                 </h3>
-                            </div>
+                            </legend>
                             <div class="cmp-steps-rating__body">
                                 <div class="form-group shadow-rating">
                                 <label for="formGroupExampleInputWithHelp"

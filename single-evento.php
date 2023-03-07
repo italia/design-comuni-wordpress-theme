@@ -220,8 +220,8 @@ get_header();
               <div class="point-list-wrapper my-4">
                 <div class="point-list">
                     <h3 class="point-list-aside point-list-primary fw-normal">
-                        <div class="point-date font-monospace"><?php echo $start_date_arr[0]; ?></div>
-                        <div class="point-month font-monospace"><?php echo $start_date_arr[1]; ?></div>
+                        <span class="point-date font-monospace"><?php echo $start_date_arr[0]; ?></span>
+                        <span class="point-month font-monospace"><?php echo $start_date_arr[1]; ?></span>
                     </h3>
                   <div class="point-list-content">
                       <div class="card card-teaser shadow rounded">
