@@ -34,10 +34,10 @@ aria-labelledby="modalrightTitle"
             </div>
             <div class="modal-body">
                 <fieldset>
+                    <legend class="h6 text-uppercase category-list__title">
+                        Tipologie
+                    </legend>
                     <div class="categoy-list pb-4">
-                        <legend class="h6 text-uppercase category-list__title">
-                            Tipologie
-                        </legend>
                         <ul>
                             <?php 
                                 foreach ($tipologie as $type_slug) {
@@ -68,10 +68,10 @@ aria-labelledby="modalrightTitle"
                     </div>
                 </fieldset>
                 <fieldset>
+                    <legend class="h6 text-uppercase category-list__title">
+                        Argomenti
+                    </legend>
                     <div class="categoy-list pb-4">
-                        <legend class="h6 text-uppercase category-list__title">
-                            Argomenti
-                        </legend>
                         <ul>
                             <?php 
                                 foreach ($arr_ids as $arg_id) {

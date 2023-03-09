@@ -30,9 +30,9 @@
                             </div>
                         </div>
                     </div>
-                    <span class="it-griditem-text-wrapper">
+                    <div class="it-griditem-text-wrapper">
                         <h3><?php echo $argomento->name; ?></h3>
-                    </span>
+                    </div>
                     </a>
                 </div>
             </div>
