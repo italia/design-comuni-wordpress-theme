@@ -935,7 +935,7 @@ if(!function_exists("dci_get_data_pubblicazione_arr")) {
  * @return string
  */
 if(!function_exists("dci_get_data_pubblicazione_ts")) {
-    function dci_get_data_pubblicazione_ts($post_id, $key = '', $prefix = '') {
+    function dci_get_data_pubblicazione_ts( $key = '', $prefix = '', $post_id) {
         global $post;
         if (!$post) $post = get_post($post_id);
 
