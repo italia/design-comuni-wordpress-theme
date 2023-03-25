@@ -18,7 +18,9 @@
                 <div class="col-8 order-1 order-md-2">
                 <div class="card-body">
                     <div class="category-top cmp-list-card-img__body">
-                    <span class="category cmp-list-card-img__body-heading-title underline"><?php echo strtoupper($tipo->name); ?></span>
+                    <span class="category cmp-list-card-img__body-heading-title underline">
+                        <?php echo strtoupper($tipo->name); ?>
+                    </span>
                     <span class="data"><?php echo $arrdata[0].' '.strtoupper($monthName).' '.$arrdata[2] ?></span>
                     </div>
                     <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">

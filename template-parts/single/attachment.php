@@ -37,7 +37,7 @@ $extension = strtoupper( wp_check_filetype($file_url)['ext'] );
 ?>
 
 <div class="cmp-icon-link">
-    <a class="list-item icon-left d-inline-block" href="<?php echo $file_url; ?>" aria-label="Scarica Termini e condizioni di servizio (<?php echo $extension.' '.$size; ?>)">
+    <a class="list-item icon-left d-inline-block" href="<?php echo $file_url; ?>" aria-label="Scarica Termini e condizioni di servizio (<?php echo $extension.' '.$size; ?>)" data-element="service-file">
     <span class="list-item-title-icon-wrapper">
         <svg class="icon icon-primary icon-sm me-1" aria-hidden="true">
         <use href="#it-clip"></use>

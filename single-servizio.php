@@ -252,25 +252,25 @@ get_header();
                         <div class="it-page-sections-container">
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="who-needs">A chi è rivolto</h2>
-                                <div class="richtext-wrapper lora">
+                                <div class="richtext-wrapper lora" data-element="service-addressed">
                                     <?php echo $destinatari ?>
                                 </div>
                             </section>
                             <?php if ($descrizione) { ?>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="description">Descrizione</h2>
-                                <div class="richtext-wrapper lora"><?php echo $descrizione ?></div>
+                                <div class="richtext-wrapper lora" data-element="service-extended-description"><?php echo $descrizione ?></div>
                             </section>
                             <?php } ?>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="how-to">Come fare</h2>
-                                <div class="richtext-wrapper lora">
+                                <div class="richtext-wrapper lora" data-element="service-how-to">
                                     <?php echo $come_fare ?>
                                 </div>
                             </section>
                             <section class="it-page-section mb-30 has-bg-grey p-3">
                                 <h2 class="title-xxlarge mb-3" id="needed">Cosa serve</h2>
-                                <div class="richtext-wrapper lora">
+                                <div class="richtext-wrapper lora" data-element="service-needed">
                                     <?php echo $cosa_serve_intro ?>
                                     <ul >
                                         <?php foreach ($cosa_serve_list as $cosa_serve_item) { ?>
@@ -281,17 +281,17 @@ get_header();
                             </section>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="obtain">Cosa si ottiene</h2>
-                                <div class="richtext-wrapper lora"><?php echo $output ?></div>
+                                <div class="richtext-wrapper lora" data-element="service-achieved"><?php echo $output ?></div>
                             </section>
                             <?php if ( !empty($fasi_scadenze_intro) || (is_array($fasi_scadenze) && count($fasi_scadenze)) || (is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) ) { ?>
                             <section class="it-page-section mb-30">
                                 <div class="cmp-timeline">
                                     <h2 class="title-xxlarge mb-3" id="deadlines">Tempi e scadenze</h2>
-                                    <p class="richtext-wrapper lora">
+                                    <div class="richtext-wrapper lora" data-element="service-calendar-text">
                                         <?php echo $fasi_scadenze_intro; ?>
-                                    </p>
+                                    </div>
                                     <?php if ((is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) || (is_array($fasi_scadenze) && count($fasi_scadenze))) { ?>
-                                        <div class="calendar-vertical mb-3">
+                                        <div class="calendar-vertical mb-3" data-element="service-calendar-list">
                                             <?php if (!empty($fasi_group_simple_scadenze)) foreach ($fasi_group_simple_scadenze as $fase) {
                                                 ?>
                                                 <div class="calendar-date">
@@ -349,19 +349,19 @@ get_header();
                             <?php if ( $costi ) { ?>
                             <section class="it-page-section mb-30">
                                 <h2 class="title-xxlarge mb-3" id="costs">Quanto costa</h2>
-                                <div class="richtext-wrapper lora"><?php echo $costi ?></div>
+                                <div class="richtext-wrapper lora" data-element="service-cost"><?php echo $costi ?></div>
                             </section>
                             <?php } ?>
                             <section class="it-page-section mb-30 has-bg-grey p-4">
                                 <h2 class="mb-3" id="submit-request">Accedi al servizio</h2>
                                 <?php if ($canale_digitale_link) { ?>
-                                <p class="text-paragraph lora mb-4"><?php echo $canale_digitale_text; ?></p>
-                                <button type="button" class="btn btn-primary mobile-full" onclick="location.href='<?php echo $canale_digitale_link; ?>';">
+                                <p class="text-paragraph lora mb-4" data-element="service-generic-access"><?php echo $canale_digitale_text; ?></p>
+                                <button type="button" class="btn btn-primary mobile-full" onclick="location.href='<?php echo $canale_digitale_link; ?>';" data-element="service-online-access">
                                     <span class=""><?php echo $canale_digitale_label; ?></span>
                                 </button>
                                 <?php } ?>
-                                <p class="text-paragraph lora mt-4"><?php echo $canale_fisico_text; ?></p>
-                                <button type="button" class="btn btn-outline-primary t-primary bg-white mobile-full" onclick="location.href='<?php echo dci_get_template_page_url('page-templates/prenota-appuntamento.php'); ?>';">
+                                <p class="text-paragraph lora mt-4" data-element="service-generic-access"><?php echo $canale_fisico_text; ?></p>
+                                <button type="button" class="btn btn-outline-primary t-primary bg-white mobile-full" onclick="location.href='<?php echo dci_get_template_page_url('page-templates/prenota-appuntamento.php'); ?>';" data-element="service-booking-access">
                                     <span class="">Prenota appuntamento</span>
                                 </button>
                             </section>

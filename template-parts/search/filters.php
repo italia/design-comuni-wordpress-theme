@@ -17,8 +17,8 @@ if(isset($_GET["post_terms"]))
 <div class="col-lg-3 d-none d-lg-block scroll-filter-wrapper">
     <h2 class="visually-hidden" id="filter">filtri da applicare</h2>
     <fieldset>
+        <legend class="h6 text-uppercase category-list__title">Tipologie</legend>
         <div class="categoy-list pb-4">
-            <legend class="h6 text-uppercase category-list__title">Tipologie</legend>
             <ul>
                 <?php 
                     foreach ($tipologie as $type_slug) {
@@ -48,8 +48,8 @@ if(isset($_GET["post_terms"]))
         </div>
     </fieldset>    
     <fieldset>
+        <legend class="h6 text-uppercase category-list__title">Argomenti</legend>
         <div class="categoy-list pb-4">
-            <legend class="h6 text-uppercase category-list__title">Argomenti</legend>
             <ul>
                 <?php 
                     foreach ($arr_ids as $arg_id) {
