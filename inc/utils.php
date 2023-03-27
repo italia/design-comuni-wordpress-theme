@@ -910,7 +910,7 @@ if (!function_exists("dci_truncate")) {
  * @return array
  */
 if(!function_exists("dci_get_data_pubblicazione_arr")) {
-    function dci_get_data_pubblicazione_arr($post_id, $key = '', $prefix = '') {
+    function dci_get_data_pubblicazione_arr($key = '', $prefix = '', $post_id = null) {
         global $post;
         $arrdata = array();
         if (!$post) $post = get_post($post_id);
@@ -935,7 +935,7 @@ if(!function_exists("dci_get_data_pubblicazione_arr")) {
  * @return string
  */
 if(!function_exists("dci_get_data_pubblicazione_ts")) {
-    function dci_get_data_pubblicazione_ts($post_id, $key = '', $prefix = '') {
+    function dci_get_data_pubblicazione_ts($key = '', $prefix = '', $post_id = null) {
         global $post;
         if (!$post) $post = get_post($post_id);
 
