@@ -27,6 +27,7 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
 		if ( $item->title == 'Segnalazione disservizio' ) $data_element="data-element='report-inefficiency'";
 		if ( $item->title == 'Informativa privacy' ) $data_element="data-element='privacy-policy-link'";
 		if ( $item->title == 'Dichiarazione di accessibilità' ) $data_element="data-element='accessibility-link'";
+		if ( $item->title == 'Note legali' ) $data_element="data-element='legal-notes'";
 
 		$output .= '<a href="' . $item->url . '" '.$data_element.'>';
 		$output .= $item->title;		
