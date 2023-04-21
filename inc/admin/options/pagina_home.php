@@ -32,7 +32,7 @@ function dci_register_pagina_home_options(){
 
     $home_options->add_field( array(
             'name' => __('<h5>Selezione notizia in evidenza</h5>', 'design_comuni_italia'),
-            'desc' => __('Seleziona una notizia da mostrare in homepage ', 'design_comuni_italia'),
+            'desc' => __('Seleziona una notizia da mostrare in homepage', 'design_comuni_italia'),
             'id' => $prefix . 'notizia_evidenziata',
             'type'    => 'custom_attached_posts',
             'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
@@ -49,6 +49,22 @@ function dci_register_pagina_home_options(){
             ),
         )
     );
+
+    $home_options->add_field(array(
+        'id' => $prefix . 'notizie_in_home',
+        'name' => __('Numero di notizie in homepage', 'design_comuni_italia'),
+        'desc' => __('Seleziona il numero di notizie da mostrare in homepage.', 'design_comuni_italia'),
+        'type' => 'radio_inline',
+        'default' => 0,
+        'options' => array(
+            0 => __(0, 'design_comuni_italia'),
+            3 => __(3, 'design_comuni_italia'),
+            6 => __(6, 'design_comuni_italia'),
+        ),
+        'attributes' => array(
+            'data-conditional-value' => "false",
+        ),
+    ));
 
     $schede_group_id = $home_options->add_field( array(
         'id'           => $prefix . 'schede_evidenziate_1',
