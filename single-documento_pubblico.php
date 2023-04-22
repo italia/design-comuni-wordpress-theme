@@ -21,7 +21,6 @@ get_header();
             $prefix= '_dci_documento_pubblico_';
             $identificativo = dci_get_meta("identificativo", $prefix, $post->ID);
             $numero_protocollo = dci_get_meta("numero_protocollo", $prefix, $post->ID);
-            $data_protocollo = dci_get_meta("data_protocollo", $prefix, $post->ID);
             $tipo_documento = wp_get_post_terms( $post->ID, array( 'tipi_documento', 'tipi_doc_albo_pretorio' ) );
             $descrizione_breve = dci_get_meta("descrizione_breve", $prefix, $post->ID);
             $url_documento = dci_get_meta("url_documento", $prefix, $post->ID);
@@ -158,10 +157,9 @@ get_header();
                         <h3>Descrizione</h3>
                         <div class="richtext-wrapper lora">
                             <?php echo $descrizione; ?>
-                            <div class="table">
-                                <table>
+                            <div class="table-responsive">
+                                <table class="table">
                                     <tbody>
-
                                         <tr>
                                             <td><b>Tipo documento</b></td>
                                             <td>                                
