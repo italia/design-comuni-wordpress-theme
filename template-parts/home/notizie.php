@@ -27,13 +27,7 @@ $monthName         = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10));
 $descrizione_breve = dci_get_meta("descrizione_breve", '_dci_notizia_', $post->ID);
 $argomenti         = dci_get_meta("argomenti", '_dci_notizia_', $post->ID);
 
-$schede = array();
-$scheda1 = dci_get_option('schede_evidenziate_1', 'homepage')[0]['scheda_1_contenuto'][0] ?? null;
-if ($scheda1) array_push($schede, $scheda1);
-$scheda2 = dci_get_option('schede_evidenziate_2', 'homepage', true)[0]['scheda_2_contenuto'][0] ?? null;
-if ($scheda2) array_push($schede, $scheda2);
-$scheda3 = dci_get_option('schede_evidenziate_3', 'homepage', true)[0]['scheda_3_contenuto'][0] ?? null;
-if ($scheda3) array_push($schede, $scheda3);
+$schede = dci_get_option('schede_evidenziate', 'homepage') ?? null;
 
 $overlapping = "";
 ?>
@@ -59,9 +53,9 @@ $overlapping = "";
                                     <?php } ?>
                                 </div>
                                 <a href="<?php echo get_permalink($post->ID); ?>" class="text-decoration-none">
-                                    <h3 class="h4 card-title title-xlarge">
+                                    <h4 class="h4 card-title title-xlarge">
                                         <?php echo $post->post_title ?>
-                                    </h3>
+                                    </h4>
                                 </a>
                                 <p class="mb-4 subtitle-small pt-3 lora">
                                     <?php echo $descrizione_breve ?>
@@ -97,7 +91,7 @@ $overlapping = "";
                         ?>
                     </div>
                 </div>
-                <div class="d-flex mt-4 justify-content-md-center">
+                <div class="row my-4 justify-content-md-center">
                     <a class="read-more pb-3" href="<?php echo dci_get_template_page_url("page-templates/novita.php"); ?>">
                         <button type="button" class="btn btn-outline-primary">Tutte le novità
                             <svg class="icon">
