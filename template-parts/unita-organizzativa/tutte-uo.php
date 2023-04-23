@@ -7,7 +7,7 @@ $query = $_GET['search'] ?? null;
 switch ($post->post_name){
 	case 'aree-amministrative': $tipo_uo = 'area'; $descrizione = 'tutte le aree'; $max_posts = $_GET['max_posts'] ?? null;  $load_posts = null; break;
 	case 'uffici': $tipo_uo = 'ufficio'; $descrizione = 'tutti gli uffici';  $max_posts = $_GET['max_posts'] ?? 10;  $load_posts = 10; break;
-    case 'organi-di-governo': $tipo_uo = 'struttura politicao'; $descrizione = 'tutti gli organi di governo';  $max_posts = $_GET['max_posts'] ?? 10;  $load_posts = 10; break;
+    case 'organi-di-governo': $tipo_uo = 'struttura politica'; $descrizione = 'tutti gli organi di governo';  $max_posts = $_GET['max_posts'] ?? 10;  $load_posts = 10; break;
 }
 
 $query = isset($_GET['search']) ? $_GET['search'] : null;

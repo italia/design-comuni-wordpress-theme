@@ -18,7 +18,6 @@ foreach ($contatti ?? null as $punto_contatto_id) {
 	}
 }
 
-if($with_border) {
 ?>
 
 
