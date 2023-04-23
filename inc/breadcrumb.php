@@ -354,6 +354,27 @@ class Breadcrumb_Trail {
 
             if ( is_singular() ) {
 
+				if (get_post_type() == 'unita_organizzativa') {
+					$this->items[] =  "<a href='".home_url("amministrazione")."'>".__("Amministrazione", "design_comuni_italia")."</a>";
+					$terms = get_the_terms(get_the_ID(),'tipi_unita_organizzativa');
+					if($terms){
+					  foreach ($terms as $term) {
+						switch ($term->name){
+							case 'area': $this->items[] = sprintf( '<a href="%s">Aree amministrative</a>', esc_url(  get_permalink( get_page_by_path( 'amministrazione/aree-amministrative/' ) ) ) ); break;
+							case 'ufficio': $this->items[] = sprintf( '<a href="%s">Uffici</a>', esc_url(  get_permalink( get_page_by_path( 'amministrazione/uffici/' ) ) ) ); break;
+							case 'struttura politica': $this->items[] = sprintf( '<a href="%s">Organi di governo</a>', esc_url(  get_permalink( get_page_by_path( 'amministrazione/organi-di-governo/' ) ) ) ); break;
+							default: {
+								if ( $term->parent == 'struttura politica') {
+									$this->items[] = sprintf( '<a href="%s">Organi di governo</a>', esc_url(  get_permalink( get_page_by_path( 'amministrazione/organi-di-governo/' ) ) ) ); break;
+								}
+							}; break;
+						}
+					  }
+					}
+					$this->items[] = get_the_title();
+					return;
+				}
+
 				if (get_post_type() == 'servizio') {
 					$this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_comuni_italia")."</a>";
 					$terms = get_the_terms(get_the_ID(),'categorie_servizio');
