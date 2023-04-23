@@ -7,7 +7,7 @@ $query = $_GET['search'] ?? null;
 switch ($post->post_name){
 	case 'aree-amministrative': $tipo_uo = 'area'; $descrizione = 'tutte le aree'; $max_posts = $_GET['max_posts'] ?? null;  $load_posts = null; break;
 	case 'uffici': $tipo_uo = 'ufficio'; $descrizione = 'tutti gli uffici';  $max_posts = $_GET['max_posts'] ?? 10;  $load_posts = 10; break;
-    case 'organi-di-governo': $tipo_uo = 'struttura politica'; $descrizione = 'tutti gli organi di governo';  $max_posts = $_GET['max_posts'] ?? 10;  $load_posts = 10; break;
+    case 'organi-di-governo': $tipo_uo = 'struttura politicao'; $descrizione = 'tutti gli organi di governo';  $max_posts = $_GET['max_posts'] ?? 10;  $load_posts = 10; break;
 }
 
 $query = isset($_GET['search']) ? $_GET['search'] : null;
@@ -101,27 +101,6 @@ $the_query = new WP_Query( $args );
 			<?php
 			get_template_part("template-parts/search/more-results");
 			?>
-            <!--            --><?php //if (is_array($servizi_evidenza) && count($servizi_evidenza)) { ?>
-            <!--            <div class="col-12 col-lg-4 pt-30 pt-lg-5 ps-lg-5 order-first order-md-last">-->
-            <!--                <div class="link-list-wrap">-->
-            <!--                    <h2 class="title-xsmall-semi-bold">-->
-            <!--                        <span>SERVIZI IN EVIDENZA</span>-->
-            <!--                    </h2>-->
-            <!--                    <ul class="link-list t-primary">-->
-            <!--                        --><?php //foreach ($servizi_evidenza as $servizio_id) {
-			//                            $post = get_post($servizio_id);
-			//                        ?>
-            <!--                        <li class="mb-3 mt-3">-->
-            <!--                            <a class="list-item ps-0 title-medium underline" href="--><?php //echo get_permalink($post->ID); ?><!--">-->
-            <!--                                <span>--><?php //echo $post->post_title; ?><!--</span>-->
-            <!--                            </a>-->
-            <!--                        </li>-->
-            <!--                        --><?php //} ?>
-            <!--                    </ul>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            --><?php //} ?>
         </div>
     </form>
 </div>
