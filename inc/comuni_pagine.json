@@ -24,7 +24,7 @@
           "title": "Organi di Governo",
           "slug": "organi-di-governo",
           "description": "Le informazioni sulla Giunta e il Consiglio comunale, incluse le convocazioni, le registrazioni delle sedute e i verbali.",
-          "template_name": "",
+          "template_name": "unita-organizzative",
           "children": {}
         },
         "Personale amministrativo": {
