@@ -113,7 +113,7 @@
                             <p class="footer-info">
                                 <?php echo dci_get_option("nome_comune"); ?>
                                 <br /><?php echo dci_get_option("contatti_indirizzo",'footer'); ?>
-                                <br /><?php if(dci_get_option("contatti_CF_PIVA",'footer')) echo 'Codice fiscale / P. IVA:' . dci_get_option("contatti_CF_PIVA",'footer'); ?>
+                                <br /><?php if(dci_get_option("contatti_CF_PIVA",'footer')) echo 'Codice fiscale / P. IVA: ' . dci_get_option("contatti_CF_PIVA",'footer'); ?>
                                 <br /><br />
                                 <?php
                                     $ufficio_id = dci_get_option("contatti_URP",'footer');

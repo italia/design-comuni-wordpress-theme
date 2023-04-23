@@ -10,7 +10,7 @@
           "title": "Aree amministrative",
           "slug": "aree-amministrative",
           "description": "La struttura organizzativa è suddivisa in aree di competenze che gestiscono i servizi erogati alla comunità.",
-          "template_name": "",
+          "template_name": "unita-organizzative",
           "children": {}
         },
         "Enti e Fondazioni": {
@@ -45,7 +45,7 @@
           "title": "Uffici",
           "slug": "uffici",
           "description": "Le informazioni e i contatti degli Uffici di Città, gli uffici aperti al pubblico e gli uffici assistenziali.",
-          "template_name": "",
+          "template_name": "unita-organizzative",
           "children": {}
         },
         "Documenti e Dati": {

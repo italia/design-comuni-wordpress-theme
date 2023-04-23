@@ -16,11 +16,21 @@ foreach ($luoghi as $luogo) {
 }
 
 if($c) { ?>
-    <div class="map-wrapper map-column mt-4">
-        <div class="map-wrapper">
-            <div class="map" id="map_all"></div>
+        <div class="row">
+            <div class="map-wrapper">
+                <div class="map-column my-3">
+                    <div class="map" id="map_all"></div>
+                </div>
+            </div>
         </div>
-    </div>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+          crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+            integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+            crossorigin=""></script>
     <script>
         jQuery(function() {
             var mymap = L.map('map_all', {

@@ -55,8 +55,10 @@ function force_post_title( $post )  {
                         '_dci_servizio_come_fare',
                         '_dci_servizio_cosa_serve_introduzione',
                         '_dci_servizio_output',
-                        '_dci_servizio_procedure_collegate',
+                        // '_dci_servizio_procedure_collegate',
                         '_dci_servizio_tempi_text',
+                        '_dci_servizio_unita_responsabile',
+                        '_dci_servizio_punti_contatto',
                     ]
                     for (const field_id of required_dci_cmb2_wysiwyg_fields) {
                         if ( jQuery( "#"+field_id ).val() !== undefined && !jQuery( "#"+field_id ).val()) {
