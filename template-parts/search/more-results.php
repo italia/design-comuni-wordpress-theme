@@ -3,7 +3,7 @@
 global $the_query, $load_posts, $wp_the_query, $load_card_type, $additional_filter,  $label, $label_no_more, $classes;
 
 if (!$the_query) $the_query = $wp_query;
-if (!$load_posts) $load_posts = 10;
+if (!$load_posts) $load_posts = 12;
 
 //set default labels & classes
 if (!$label) $label = 'Carica altri risultati';

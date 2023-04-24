@@ -18,9 +18,9 @@ get_header();
 			$with_shadow = true;
 			?>
 			<?php get_template_part("template-parts/hero/hero"); ?>
-			<?php get_template_part("template-parts/novita/evidenza"); ?>
-			<?php get_template_part("template-parts/novita/tutte-novita"); ?>
-			<?php get_template_part("template-parts/novita/argomenti"); ?>
+			<?php get_template_part("template-parts/notizia/evidenza"); ?>
+			<?php get_template_part("template-parts/notizia/tutte-novita"); ?>
+			<?php get_template_part("template-parts/notizia/argomenti"); ?>
 			<?php get_template_part("template-parts/common/valuta-servizio"); ?>
 			<?php get_template_part("template-parts/common/assistenza-contatti"); ?>
 		<?php 
