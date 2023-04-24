@@ -49,17 +49,18 @@ function dci_register_pagina_novita_options(){
         )
         )
     );
-    $novita_options->add_field( array(
-        'id' => $prefix . 'novita_argomenti',
-        'name'        => __( 'Sezione Argomenti', 'design_comuni_italia' ),
-        'desc' => __( 'Configurazione della Sezione Argomenti' , 'design_comuni_italia' ),
-        'type' => 'title',
-    ) );
-    $novita_options->add_field( array(
-        'id' => $prefix . 'argomenti',
-        'name'        => __( 'Argomenti ', 'design_comuni_italia' ),
-        'desc' => __( 'Seleziona e ordina gli argomenti.' , 'design_comuni_italia' ),
-        'type'    => 'pw_multiselect',
-        'options' => dci_get_terms_options('argomenti'),
-    ) );
+    // Todo: Commentata la sezione perchè causa problemi nella rimozione dei post selezionati
+    // $novita_options->add_field( array(
+    //     'id' => $prefix . 'novita_argomenti',
+    //     'name'        => __( 'Sezione Argomenti', 'design_comuni_italia' ),
+    //     'desc' => __( 'Configurazione della Sezione Argomenti' , 'design_comuni_italia' ),
+    //     'type' => 'title',
+    // ) );
+    // $novita_options->add_field( array(
+    //     'id' => $prefix . 'argomenti',
+    //     'name'        => __( 'Argomenti ', 'design_comuni_italia' ),
+    //     'desc' => __( 'Seleziona e ordina gli argomenti.' , 'design_comuni_italia' ),
+    //     'type'    => 'pw_multiselect',
+    //     'options' => dci_get_terms_options('argomenti'),
+    // ) );
 }
