@@ -208,8 +208,9 @@ get_header();
           <article id="luogo" class="it-page-section mb-5">
             <h2 class="mb-3">Luogo</h2>
             <?php
-                $luogo = $luogo_evento;
-                get_template_part("template-parts/single/luogo");
+                $post_id = $luogo_evento_id;
+                $with_map = true;
+                get_template_part("template-parts/luogo/card-ico");
             ?>
           </article>
           <?php } ?>
@@ -325,7 +326,7 @@ get_header();
           <?php if( is_array($punti_contatto) && count($punti_contatto) ) { ?>
             <h2 class="mb-3">Contatti</h2>
             <?php foreach ($punti_contatto as $pc_id) {
-                get_template_part('template-parts/single/punto-contatto');
+                get_template_part('template-parts/punto-contatto/card-ico');
             } ?>
           <?php } ?>
           <?php if( is_array($organizzatori) && count($organizzatori) ) { ?>
