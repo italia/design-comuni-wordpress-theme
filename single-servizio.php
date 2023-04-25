@@ -33,6 +33,7 @@ get_header();
             $fasi_group_simple_scadenze = dci_get_meta("scadenze");
             $fasi_scadenze = dci_get_meta("fasi");
             $costi = dci_get_wysiwyg_field("costi");
+            $procedure_collegate = dci_get_wysiwyg_field("procedure_collegate");
             //canali di prenotazione
             $canale_digitale_text = dci_get_meta("canale_digitale_text");
             $canale_digitale_label = dci_get_meta("canale_digitale_label");
@@ -40,14 +41,19 @@ get_header();
             $canale_fisico_text = dci_get_meta("canale_fisico_text");
             $canale_fisico_uffici = dci_get_meta("canale_fisico_uffici");
 
+	        $servizi_correlati = dci_get_meta("elenco_servizi_correlati");
+
             $more_info = dci_get_wysiwyg_field("ulteriori_informazioni");
             $condizioni_servizio = dci_get_meta("condizioni_servizio");     
             $uo_id = intval(dci_get_meta("unita_responsabile"));
-            $argomenti = get_the_terms($post, 'argomenti');
+            $argomenti = get_the_terms($post, "argomenti");
+
+            $punti_contatto = dci_get_meta("punti_contatto");
+	        $allegati = dci_get_meta("documenti");
 
             // valori per metatag
             $categorie = get_the_terms($post, 'categorie_servizio');
-            $categoria_servizio = $categorie[0]->name;
+            $categoria_servizio = $categorie[0]->name ?? null ;
             $ipa = dci_get_meta('codice_ente_erogatore');
             $copertura_geografica = dci_get_wysiwyg_field("copertura_geografica");
             if ($canale_fisico_uffici[0]??null) {
@@ -135,8 +141,9 @@ get_header();
                             </div>
                         </div>
                     </div>
-                    <hr class="d-none d-lg-block mt-2"/>
                 </div>
+            </div>
+            <div class="border-top border-light row-column-border">
             </div>
             <div class="container">
                 <div class="row row-column-menu-left mt-4 mt-lg-80 pb-lg-80 pb-40">
@@ -176,6 +183,14 @@ get_header();
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
+	                                                            <?php if ( $copertura_geografica ) { ?>
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" href="#copertura_geografica">
+                                                                            <span class="title-medium">Copertura geografica</span>
+                                                                        </a>
+                                                                    </li>
+	                                                            <?php } ?>
+
                                                                 <?php if ( $come_fare ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#how-to">
@@ -206,16 +221,38 @@ get_header();
                                                                 <?php } ?>
                                                                 <?php if ( $costi ) { ?>
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link" href="#costs">
-                                                                        <span class="title-medium">Quanto costa</span>
+                                                                    <a class="nav-link" href="#costi">
+                                                                        <span class="title-medium">Costi</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
+	                                                            <?php if ( $procedure_collegate ) { ?>
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" href="#procedure_collegate">
+                                                                            <span class="title-medium">Procedure collegate</span>
+                                                                        </a>
+                                                                    </li>
+	                                                            <?php } ?>
+
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#submit-request">
                                                                         <span class="title-medium">Accedi al servizio</span>
                                                                     </a>
                                                                 </li>
+	                                                            <?php if ($allegati && is_array($allegati) && count($allegati) > 0) { ?>
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" href="#allegati">
+                                                                            <span class="title-medium">Documenti</span>
+                                                                        </a>
+                                                                    </li>
+	                                                            <?php } ?>
+	                                                            <?php if ( $servizi_correlati ) { ?>
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" href="#servizi-correlati">
+                                                                            <span class="title-medium">Servizi correlati</span>
+                                                                        </a>
+                                                                    </li>
+	                                                            <?php } ?>
                                                                 <?php if ( $more_info ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#more-info">
@@ -251,44 +288,50 @@ get_header();
                     <div class="col-12 col-lg-8 offset-lg-1">
                         <div class="it-page-sections-container">
                             <section class="it-page-section mb-30">
-                                <h2 class="title-xxlarge mb-3" id="who-needs">A chi è rivolto</h2>
+                                <h2 class="mb-3" id="who-needs">A chi è rivolto</h2>
                                 <div class="richtext-wrapper lora" data-element="service-addressed">
                                     <?php echo $destinatari ?>
                                 </div>
                             </section>
                             <?php if ($descrizione) { ?>
                             <section class="it-page-section mb-30">
-                                <h2 class="title-xxlarge mb-3" id="description">Descrizione</h2>
+                                <h2 class="mb-3" id="description">Descrizione</h2>
                                 <div class="richtext-wrapper lora" data-element="service-extended-description"><?php echo $descrizione ?></div>
                             </section>
                             <?php } ?>
+	                        <?php if ($copertura_geografica) { ?>
+                                <section class="it-page-section mb-30">
+                                    <h2 class="mb-3" id="copertura_geografica">Copertura geografica</h2>
+                                    <div class="richtext-wrapper lora"><?php echo $copertura_geografica ?></div>
+                                </section>
+	                        <?php } ?>
                             <section class="it-page-section mb-30">
-                                <h2 class="title-xxlarge mb-3" id="how-to">Come fare</h2>
+                                <h2 class="mb-3" id="how-to">Come fare</h2>
                                 <div class="richtext-wrapper lora" data-element="service-how-to">
                                     <?php echo $come_fare ?>
                                 </div>
                             </section>
                             <section class="it-page-section mb-30 has-bg-grey p-3">
-                                <h2 class="title-xxlarge mb-3" id="needed">Cosa serve</h2>
+                                <h2 class="mb-3" id="needed">Cosa serve</h2>
                                 <div class="richtext-wrapper lora" data-element="service-needed">
                                     <?php echo $cosa_serve_intro ?>
                                     <ul >
-                                        <?php 
-                                        if ($cosa_serve_list && is_array($cosa_serve_list) & count($cosa_serve_list)){
+                                        <?php
+                                        if ($cosa_serve_list) {
                                         foreach ($cosa_serve_list as $cosa_serve_item) { ?>
                                             <li><span><?php echo $cosa_serve_item ?></span></li>
-                                        <?php }} ?>
+                                        <?php } } ?>
                                     </ul>
                                 </div>
                             </section>
                             <section class="it-page-section mb-30">
-                                <h2 class="title-xxlarge mb-3" id="obtain">Cosa si ottiene</h2>
+                                <h2 class="mb-3" id="obtain">Cosa si ottiene</h2>
                                 <div class="richtext-wrapper lora" data-element="service-achieved"><?php echo $output ?></div>
                             </section>
                             <?php if ( !empty($fasi_scadenze_intro) || (is_array($fasi_scadenze) && count($fasi_scadenze)) || (is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) ) { ?>
                             <section class="it-page-section mb-30">
                                 <div class="cmp-timeline">
-                                    <h2 class="title-xxlarge mb-3" id="deadlines">Tempi e scadenze</h2>
+                                    <h2 class="mb-3" id="deadlines">Tempi e scadenze</h2>
                                     <div class="richtext-wrapper lora" data-element="service-calendar-text">
                                         <?php echo $fasi_scadenze_intro; ?>
                                     </div>
@@ -349,13 +392,19 @@ get_header();
                             </section>
                             <?php } ?>
                             <?php if ( $costi ) { ?>
-                            <section class="it-page-section mb-30">
-                                <h2 class="title-xxlarge mb-3" id="costs">Quanto costa</h2>
+                            <section id="costi" class="it-page-section mb-30">
+                                <h2 class="mb-3">Quanto costa</h2>
                                 <div class="richtext-wrapper lora" data-element="service-cost"><?php echo $costi ?></div>
                             </section>
                             <?php } ?>
-                            <section class="it-page-section mb-30 has-bg-grey p-4">
-                                <h2 class="mb-3" id="submit-request">Accedi al servizio</h2>
+	                        <?php if ( $procedure_collegate ) { ?>
+                                <section id="procedure_collegate" class="it-page-section mb-30">
+                                    <h2 class="mb-3">Procedure collegate</h2>
+                                    <div class="richtext-wrapper lora"><?php echo $procedure_collegate ?></div>
+                                </section>
+	                        <?php } ?>
+                            <section id="submit-request" class="it-page-section mb-30 has-bg-grey p-4">
+                                <h2 class="mb-3">Accedi al servizio</h2>
                                 <?php if ($canale_digitale_link) { ?>
                                 <p class="text-paragraph lora mb-4" data-element="service-generic-access"><?php echo $canale_digitale_text; ?></p>
                                 <button type="button" class="btn btn-primary mobile-full" onclick="location.href='<?php echo $canale_digitale_link; ?>';" data-element="service-online-access">
@@ -367,10 +416,39 @@ get_header();
                                     <span class="">Prenota appuntamento</span>
                                 </button>
                             </section>
+	                        <?php if ($allegati && is_array($allegati) && count($allegati) > 0) { ?>
+                                <section id="allegati" class="it-page-section mb-4">
+                                    <h3 class="my-2">Documenti</h2>
+                                    <div class="row">
+				                        <?php foreach ($allegati as $allegato_id) { ?>
+                                            <div class="col-md-6 col-sm-12 ">
+						                        <?php
+						                        $documento = get_post($allegato_id);
+						                        $with_border = true;
+						                        get_template_part("template-parts/documento/card"); ?>
+                                            </div>
+				                        <?php  } ?>
+                                    </div>
+                                </section>
+	                        <?php } ?>
+	                        <?php if ($servizi_correlati &&  is_array($servizi_correlati) && count($servizi_correlati)) { ?>
+                                <section id="servizi-correlati" class="it-page-section mb-4">
+                                    <h3 class="my-2">Servizi correlati</h2>
+                                    <div class="row g-2">
+				                        <?php foreach ($servizi_correlati as $servizio_id) { ?>
+                                            <div class="col-lg-6 col-md-12">
+						                        <?php
+						                        $post = get_post($servizio_id);
+						                        $with_map = false;
+						                        get_template_part("template-parts/servizio/cards-list");?>
+                                            </div>
+				                        <?php } ?>
+                                    </div>
+                                </section>
+	                        <?php } ?>
                             <?php if ( $more_info ) {  ?>
-                            <section class="it-page-section mb-30">
-                                <h2 class="title-xxlarge mb-3" id="more-info">Ulteriori informazioni</h2>
-                                <h3 class="mb-3 subtitle-medium">Graduatorie di accesso</h3>
+                            <section id="more-info" class="it-page-section mb-30">
+                                <h2 class="mb-3" >Ulteriori informazioni</h2>
                                 <div class="richtext-wrapper lora">
                                     <?php echo $more_info ?>
                                 </div>
@@ -379,8 +457,8 @@ get_header();
                             <?php if ( $condizioni_servizio ) {
                                 $file_url = $condizioni_servizio;
                             ?>
-                            <section class="it-page-section mb-30">
-                                <h2 class="title-xxlarge mb-3" id="conditions">Condizioni di servizio</h2>
+                            <section id="conditions" class="it-page-section mb-30">
+                                <h2 class="mb-3">Condizioni di servizio</h2>
                                 <div class="richtext-wrapper lora">Per conoscere i dettagli di
                                     scadenze, requisiti e altre informazioni importanti, leggi i termini e le condizioni di servizio.
                                 </div>
@@ -388,22 +466,49 @@ get_header();
                             </section>
                             <?php } ?>
 
-                            <section class="it-page-section">
-                                <h2 class="mb-3" id="contacts">Contatti</h2>
-                                <div class="row">
-                                    <div class="col-12 col-md-8 col-lg-6 mb-30">
-                                        <div class="card-wrapper rounded h-auto mt-10">
-                                            <?php
-                                                $with_border = true;
-                                                get_template_part("template-parts/unita-organizzativa/card");
-                                            ?>
+                            <?php if ($uo_id) { ?>
+                                <section class="it-page-section mb-30" id="area">
+                                    <h2 class="mb-3">Ufficio di riferimento</h2>
+                                    <div class="richtext-wrapper" data-element="uo-area">
+                                        <?php $post_id = $uo_id; ?>
+                                        <div class="col-lg-6 col-md-12">
+                                            <?php get_template_part("template-parts/unita-organizzativa/card-ico"); ?>
                                         </div>
                                     </div>
+                                </section>
+                            <?php } ?>
+
+                            <?php if ($punti_contatto && is_array($punti_contatto) && count($punti_contatto) > 0) { ?>
+                                <section class="it-page-section mb-30" id="contatti">
+                                    <h2 class="mb-3">Contatti</h2>
+                                    <div class="richtext-wrapper" data-element="uo-contatti">
+                                        <?php foreach ($punti_contatto as $post_id) { ?>
+                                            <div class="col-lg-6 col-md-12">
+                                                <?php get_template_part("template-parts/punto-contatto/card-ico"); ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </section>
+                            <?php } ?>
+
+
+                            <section class="mt-5">
+                                <div class="row">
                                     <div class="col-12 mb-30">
                                         <span class="text-paragraph-small">Argomenti:</span>
-                                        <?php get_template_part("template-parts/single/argomenti"); ?>
+                                        <ul class="d-flex flex-wrap gap-2 mt-10 mb-30">
+			                                <?php foreach ( $argomenti as $item ) { ?>
+                                                <li>
+                                                    <a href="<?php echo get_term_link($item); ?>" class="chip chip-simple" data-element="service-topic">
+                                                        <span class="chip-label">
+                                                            <?php echo $item->name; ?>
+                                                        </span>
+                                                    </a>
+                                                </li>
+			                                <?php } ?>
+                                        </ul>
+		                                <?php get_template_part('template-parts/single/page_bottom',"simple"); ?>
                                     </div>
-                                    <?php get_template_part('template-parts/single/page_bottom',"simple"); ?>
                                 </div>
                             </section>
                         </div>
