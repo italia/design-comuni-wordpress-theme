@@ -954,9 +954,9 @@ if(!function_exists("dci_get_data_pubblicazione_ts")) {
  * @return array
  */
 if(!function_exists("dci_get_full_punto_contatto")) {
-    function dci_get_full_punto_contatto($pc_id) {
+    function dci_get_full_punto_contatto($post_id) {
         $prefix = '_dci_punto_contatto_';
-        $voci = dci_get_meta('voci', $prefix, $pc_id);
+        $voci = dci_get_meta('voci', $prefix, $post_id);
         $arrdata = array();
 
         foreach ($voci as $voce) {

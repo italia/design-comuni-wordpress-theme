@@ -7,7 +7,7 @@
  * @package Design_Comuni_Italia
  */
 
-global $show_calendar, $gallery, $video, $trascrizione, $luogo, $pc_id, $uo_id, $appuntamento, $inline;
+global $show_calendar, $gallery, $video, $trascrizione, $luogo, $post_id, $uo_id, $appuntamento, $inline;
 
 get_header();
 ?>
@@ -325,14 +325,14 @@ get_header();
           <article id="contatti" class="it-page-section mb-5">
           <?php if( is_array($punti_contatto) && count($punti_contatto) ) { ?>
             <h2 class="mb-3">Contatti</h2>
-            <?php foreach ($punti_contatto as $pc_id) {
+            <?php foreach ($punti_contatto as $post_id) {
                 get_template_part('template-parts/punto-contatto/card-ico');
             } ?>
           <?php } ?>
           <?php if( is_array($organizzatori) && count($organizzatori) ) { ?>
             <h4 class="h5 mt-4">Con il supporto di:</h4>
-            <?php foreach ($organizzatori as $uo_id) {
-                get_template_part("template-parts/unita-organizzativa/card-full");
+            <?php foreach ($organizzatori as $post_id) {
+                get_template_part("template-parts/unita-organizzativa/card-full-ico");
             } ?>
           <?php } ?>
           </article>
