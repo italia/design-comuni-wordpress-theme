@@ -71,8 +71,8 @@
             "prefix" : "_dci_documento_pubblico_",
             "singular_name" : "Documento Pubblico",
             "plural_name" : "Documenti Pubblici",
-            "group_id": "amministrazione",
-            "group_name" : "Amministrazione",
+            "group_id": "amministrazione/documenti-e-dati/",
+            "group_name" : "Documenti",
             "taxonomy" : [
                 "tipi_documento",
                 "argomenti"

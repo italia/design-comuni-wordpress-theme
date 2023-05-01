@@ -240,7 +240,7 @@ class WDS_CMB2_Attached_Posts_Field {
      *
      * @param  array  $attached Array of attached posts/users.
      *
-     * @return void
+     * @return array
      */
     protected function display_attached( $attached ) {
         $ids = array();
@@ -256,12 +256,13 @@ class WDS_CMB2_Attached_Posts_Field {
 
         // Loop through and build our existing display items
         foreach ( $attached as $id ) {
-            $object = $this->get_object( $id );
-            $id     = $this->get_id( $object );
+			$object = $this->get_object( $id );
 
-            if ( empty( $object ) ) {
-                continue;
-            }
+//            $id     = $this->get_id( $object );
+
+//            if ( empty( $object ) ) {
+//                continue;
+//            }
 
             // Set our zebra stripes
             $class = ++$count % 2 == 0 ? 'even' : 'odd';
@@ -330,7 +331,7 @@ class WDS_CMB2_Attached_Posts_Field {
      * @return int            The object ID.
      */
     public function get_id( $object ) {
-        return $object->ID;
+        return $object->ID ?? null;
     }
 
     /**
@@ -343,6 +344,8 @@ class WDS_CMB2_Attached_Posts_Field {
      * @return string         The object title.
      */
     public function get_title( $object ) {
+		if (!$object)
+			return "*** DELETED ***";
         return $this->field->options( 'query_users' )
             ? $object->data->display_name
             : get_the_title( $object );
