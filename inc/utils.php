@@ -1133,3 +1133,13 @@ if(!function_exists("dci_get_img")) {
         echo $img;
     }
 }
+
+//Fix relativo issue #262
+//Ad ogni invio del form lo "slash" viene moltiplicato (es. primo invio: /, secondo invio: //, terzo invio: ////, quarto invio: ////////), fino al raggiungimento del limite massimo previsto dal webserver per il metodo GET.
+
+if(!function_exists("dci_removeslashes")) {
+    function dci_removeslashes($string) { 
+        $string=implode("",explode("\\",$string)); 
+        return stripslashes(trim($string)); 
+    }
+}
