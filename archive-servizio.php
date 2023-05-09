@@ -11,7 +11,7 @@ global $obj, $the_query, $load_posts, $load_card_type, $servizio, $additional_fi
 
 $max_posts = isset($_GET['max_posts']) ? $_GET['max_posts'] : 3;
 $load_posts = 3;
-$query = isset($_GET['search']) ? $_GET['search'] : null;
+$query = isset($_GET['search']) ? dci_removeslashes($_GET['search']) : null;
 $args = array(
     's' => $query,
     'posts_per_page' => $max_posts,
