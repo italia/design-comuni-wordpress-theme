@@ -23,7 +23,7 @@ $other_contacts = array(
     </svg>
     <div class="card-body">
         <h3 class="card-title h5">
-            <a class="text-decoration-none" href="#">
+            <a class="text-decoration-none" href="<?php echo get_permalink($contatto->ID)?>">
             <?php echo $contatto->post_title; ?>
             </a>
         </h3>
