@@ -14,15 +14,18 @@ if ( $post->post_type == 'documento_pubblico' ) {
 	//var_dump($link_documento);
 }
 
-var_dump(dci_get_meta( "data_protocollo" ) );
+
+$data_documento = dci_get_meta( "data_protocollo", '_dci_documento_pubblico_', $post->ID ) != "" ?
+	dci_get_meta( "data_protocollo", '_dci_documento_pubblico_', $post->ID ) :
+	dci_get_meta( "data_modifica", '_dci_documento_pubblico_', $post->ID );
+$arrdata        = explode( '-', date( 'd-m-Y', strtotime( $data_documento ) ) );
 
 if ( $post->post_type == 'dataset' ) {
-	$tipo    = '';
-	$arrdata = explode( '-', date( 'd-m-Y', dci_get_meta( "data_modifica" ) ) );
+	$tipo = '';
 } else {
-	$arrdata = explode( '-', dci_get_meta( "data_protocollo" ) );
-	$tipo    = get_the_terms( $post_id, 'tipi_doc_albo_pretorio' )[0] ?? get_the_terms( $post_id, 'tipi_documento' )[0];
+	$tipo = get_the_terms( $post_id, 'tipi_doc_albo_pretorio' )[0] ?? get_the_terms( $post_id, 'tipi_documento' )[0];
 }
+
 $monthName = date_i18n( 'M', mktime( 0, 0, 0, $arrdata[1], 10 ) );
 $img       = dci_get_meta( 'immagine' );
 ?>
@@ -52,13 +55,12 @@ $img       = dci_get_meta( 'immagine' );
 								<span
 									class="category cmp-list-card-img__body-heading-title underline"><?php echo $tipo->name ? $tipo->name : 'DATASET'; ?></span>
 							<?php } ?>
-							<span class="data"><?php echo $arrdata[0] . ' ' . $monthName . ' ' . $arrdata[2] ?></span>
+							<span class="data"><?php echo $arrdata[0] . ' ' . $monthName . ' ' . $arrdata[1] ?></span>
 						</div>
 						<a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
 							<h3 class="h5 card-title">
 								<?php
 								if ( ! $excerpt ?? null ) {
-									echo 'VERO';
 									echo the_title();
 								} else {
 									echo wp_trim_words( get_the_title( $post_id ), 30 );
