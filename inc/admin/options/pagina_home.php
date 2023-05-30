@@ -24,15 +24,15 @@ function dci_register_pagina_home_options(){
     $home_options = new_cmb2_box( $args );
 
     $home_options->add_field( array(
-        'id' => $prefix . 'schde_evidenziate_title',
-        'name'        => __( 'Sezione Schede in Evidenza', 'design_comuni_italia' ),
-        'desc' => __( 'Configurazione sezione Schede in Evidenza.' , 'design_comuni_italia' ),
+        'id' => $prefix . 'contenuti_evidenziati_title',
+        'name'        => __( 'Sezione Contenuti in Evidenza', 'design_comuni_italia' ),
+        'desc' => __( 'Configurazione Contenuti in Evidenza.' , 'design_comuni_italia' ),
         'type' => 'title',
     ) );
 
     $home_options->add_field( array(
-            'name' => __('<h5>Selezione notizia in evidenza</h5>', 'design_comuni_italia'),
-            'desc' => __('Seleziona una notizia da mostrare in homepage ', 'design_comuni_italia'),
+            'name' => __('Notizia in evidenza', 'design_comuni_italia'),
+            'desc' => __('Seleziona una notizia da mostrare in homepage', 'design_comuni_italia'),
             'id' => $prefix . 'notizia_evidenziata',
             'type'    => 'custom_attached_posts',
             'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
@@ -50,21 +50,27 @@ function dci_register_pagina_home_options(){
         )
     );
 
-    $schede_group_id = $home_options->add_field( array(
-        'id'           => $prefix . 'schede_evidenziate_1',
-        'type'        => 'group',
-        'name'        => 'Schede in evidenza',
-        'desc' => __( 'Definisci il contenuto delle Schede in evidenza' , 'design_comuni_italia' ),
-        'repeatable'  => false,
-        'options'     => array(
-            'group_title'       => 'Scheda 1:',
-    )
-    ) );
-    //scheda1
-    $home_options->add_group_field( $schede_group_id, array(
-            'name' => __('<h5>Selezione contenuto</h5>', 'design_comuni_italia'),
-            'desc' => __('Seleziona il contenuto da mostrare nella Scheda. ', 'design_comuni_italia'),
-            'id' => $prefix . 'scheda_1_contenuto',
+    $home_options->add_field(array(
+        'id' => $prefix . 'notizie_in_home',
+        'name' => __('Notizie in homepage', 'design_comuni_italia'),
+        'desc' => __('Seleziona il numero di notizie da mostrare in homepage.', 'design_comuni_italia'),
+        'type' => 'radio_inline',
+        'default' => 0,
+        'options' => array(
+            0 => __(0, 'design_comuni_italia'),
+            3 => __(3, 'design_comuni_italia'),
+            6 => __(6, 'design_comuni_italia'),
+        ),
+        'attributes' => array(
+            'data-conditional-value' => "false",
+        ),
+    ));
+
+
+    $home_options->add_field( array(
+		    'name'        => __('Schede in evidenza', 'design_comuni_italia'),
+		    'desc' => __( 'Definisci il contenuto delle Schede in evidenza' , 'design_comuni_italia' ),
+            'id' => $prefix . 'schede_evidenziate',
             'type'    => 'custom_attached_posts',
             'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
             'options' => array(
@@ -76,67 +82,8 @@ function dci_register_pagina_home_options(){
                 ), // override the get_posts args
             ),
             'attributes' => array(
-                'data-max-items' => 1, //change the value here to how many posts may be attached.
+                'data-max-items' => 6, //change the value here to how many posts may be attached.
             ),
-        )
-    );
-
-
-    //scheda 2
-    $schede_group_id = $home_options->add_field( array(
-        'id'           => $prefix . 'schede_evidenziate_2',
-        'type'        => 'group',
-        'repeatable'  => false,
-        'options'     => array(
-            'group_title'       => 'Scheda 2:',
-    )
-    ) );
-    $home_options->add_group_field( $schede_group_id, array(
-            'name' => __('<h5>Selezione contenuto</h5>', 'design_comuni_italia'),
-            'desc' => __('Seleziona il contenuto da mostrare nella Scheda. ', 'design_comuni_italia'),
-            'id' => $prefix . 'scheda_2_contenuto',
-            'type'    => 'custom_attached_posts',
-            'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-            'options' => array(
-                'show_thumbnails' => false, // Show thumbnails on the left
-                'filter_boxes'    => true, // Show a text box for filtering the results
-                'query_args'      => array(
-                    'posts_per_page' => -1,
-                    'post_type'      => array('evento','luogo','unita_organizzativa','documento_pubblico','servizio','notizia','dataset'),
-                ), // override the get_posts args
-            ),
-            'attributes' => array(
-                'data-max-items' => 1, //change the value here to how many posts may be attached.
-            ),
-        )
-    );
-
-    //scheda 3
-    $schede_group_id = $home_options->add_field( array(
-        'id'           => $prefix . 'schede_evidenziate_3',
-        'type'        => 'group',
-        'repeatable'  => false,
-        'options'     => array(
-            'group_title'       => 'Scheda 3:',
-       )
-    ) );
-    $home_options->add_group_field( $schede_group_id, array(
-            'name' => __('<h5>Selezione contenuto</h5>', 'design_comuni_italia'),
-            'desc' => __('Seleziona il contenuto da mostrare nella Scheda. ', 'design_comuni_italia'),
-            'id' => $prefix . 'scheda_3_contenuto',
-            'type'    => 'custom_attached_posts',
-            'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-            'options' => array(
-                'show_thumbnails' => false, // Show thumbnails on the left
-                'filter_boxes'    => true, // Show a text box for filtering the results
-                'query_args'      => array(
-                    'posts_per_page' => -1,
-                    'post_type'      => array('evento','luogo','unita_organizzativa','documento_pubblico','servizio','notizia','dataset'),
-                ), // override the get_posts args
-            ),
-            'attributes' => array(
-		        'data-max-items' => 1, //change the value here to how many posts may be attached.
-		    ),
         )
     );
 
