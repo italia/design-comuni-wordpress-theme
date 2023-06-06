@@ -29,8 +29,7 @@ $last_notification = get_user_meta($current_user->ID,"_dci_last_notification", t
             <?php echo dci_get_display_name($current_user->ID); ?>
         </span>
         <svg class="icon icon-white d-none d-lg-block">
-        <use
-            xlink:href="#it-expand"></use>
+        <use xlink:href="#it-expand"></use>
         </svg>
     </a>
     <div class="dropdown-menu">
