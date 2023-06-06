@@ -48,8 +48,8 @@
           "template_name": "",
           "children": {}
         },
-        "Documenti e Dati": {
-          "title": "Documenti e Dati",
+        "Documenti e dati": {
+          "title": "Documenti e dati",
           "slug": "documenti-e-dati",
           "description": "Bandi di concorso, avvisi, graduatorie, statistiche e documenti pubblici.",
           "template_name": "documenti-e-dati",

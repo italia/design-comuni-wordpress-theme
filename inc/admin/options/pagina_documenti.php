@@ -4,14 +4,14 @@ function dci_register_pagina_documenti_options(){
     $prefix = '';
 
     /**
-     * Opzioni Documenti e Dati
+     * Opzioni Documenti e dati
      */
     $args = array(
         'id'           => 'dci_options_documenti',
-        'title'        => esc_html__( 'Documenti e Dati', 'design_comuni_italia' ),
+        'title'        => esc_html__( 'Documenti e dati', 'design_comuni_italia' ),
         'object_types' => array( 'options-page' ),
         'option_key'   => 'documenti',
-        'tab_title'    => __('Documenti e Dati', "design_comuni_italia"),
+        'tab_title'    => __('Documenti e dati', "design_comuni_italia"),
         'parent_slug'  => 'dci_options',
         'tab_group'    => 'dci_options',
         'capability'    => 'manage_options',
@@ -24,8 +24,8 @@ function dci_register_pagina_documenti_options(){
     $documenti_options = new_cmb2_box( $args );
     $documenti_options->add_field( array(
         'id' => $prefix . 'documenti_options',
-        'name'        => __( 'Documenti e Dati', 'design_comuni_italia' ),
-        'desc' => __( 'Configurazione della pagina Documenti e Dati' , 'design_comuni_italia' ),
+        'name'        => __( 'Documenti e dati', 'design_comuni_italia' ),
+        'desc' => __( 'Configurazione della pagina Documenti e dati' , 'design_comuni_italia' ),
         'type' => 'title',
     ) );
     $documenti_options->add_field(array(
