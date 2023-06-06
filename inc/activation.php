@@ -323,7 +323,7 @@ function createMenu()
     dci_create_page_menu_item(__( 'Enti e fondazioni', 'design_comuni_italia'),$menu_amministrazione);
     dci_create_page_menu_item(__( 'Politici', 'design_comuni_italia'),$menu_amministrazione);
     dci_create_page_menu_item(__( 'Personale amministrativo', 'design_comuni_italia'),$menu_amministrazione);
-    dci_create_page_menu_item(__( 'Documenti e Dati', 'design_comuni_italia'),$menu_amministrazione);
+    dci_create_page_menu_item(__( 'Documenti e dati', 'design_comuni_italia'),$menu_amministrazione);
     //assegno menu prima colonna footer
     dci_add_menu_to_location($menu_amministrazione,'menu-footer-col-1');
 
