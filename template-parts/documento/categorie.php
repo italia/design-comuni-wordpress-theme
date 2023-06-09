@@ -16,7 +16,7 @@
             <a class="text-decoration-none" href="<?php echo get_term_link($categoria->term_id); ?>">
               <h3 class="card-title t-primary title-xlarge"><?php echo $categoria->name; ?></h3>
             </a>
-            <p class="mb-0">
+            <p class="text-secondary mb-0">
               <?php echo $categoria->description; ?>
             </p>
           </div>
