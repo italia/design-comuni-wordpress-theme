@@ -9,7 +9,7 @@
   <div class="row g-4">
     <?php foreach ($categorie as $categoria) { 
         ?>
-    <div class="col-md-6 col-xl-4">
+    <div class="col-md-6 col-lg-4">
       <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
         <div class="card shadow-sm rounded">
           <div class="card-body">
