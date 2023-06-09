@@ -30,7 +30,7 @@
                     <span class="data"><?php echo $arrdata[0].' '.$monthName.' '.$arrdata[2] ?></span>
                     </div>
                     <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
-                        <h3 class="h5 card-title"><?php echo the_title(); ?></h3>
+                        <h3 class="card-title h4"><?php echo the_title(); ?></h3>
                     </a>
                     <p class="card-text d-none d-md-block">
                         <?php echo $description; ?>
