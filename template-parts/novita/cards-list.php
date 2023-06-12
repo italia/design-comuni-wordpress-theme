@@ -54,7 +54,7 @@
             <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
               <h3 class="card-title"><?php echo the_title(); ?></h3>
             </a>
-            <p class="card-text">
+            <p class="card-text text-secondary">
               <?php echo $description; ?>
             </p>
           </div>
