@@ -70,10 +70,10 @@ get_header();
 
                 </article>
             </div>
+        <?php get_template_part("template-parts/common/valuta-servizio"); ?>
 
         <?php
         endwhile; // End of the loop.
         ?>
     </main>
-<?php
-get_footer();
+<?php get_footer(); ?>
