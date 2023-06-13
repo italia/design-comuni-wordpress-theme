@@ -35,7 +35,7 @@ $overlapping = "";
 <section id="notizie" aria-describedby="novita-in-evidenza">
     <div class="section-content">
         <div class="container">
-            <h3 id="novita-in-evidenza" class="visually-hidden">Novità in evidenza</h3>
+            <h2 id="novita-in-evidenza" class="visually-hidden">Novità in evidenza</h2>
             <?php if ($post_id) {
                 $overlapping = "card-overlapping";
             ?>
@@ -53,11 +53,11 @@ $overlapping = "";
                                     <?php } ?>
                                 </div>
                                 <a href="<?php echo get_permalink($post->ID); ?>" class="text-decoration-none">
-                                    <h4 class="h4 card-title title-xlarge">
+                                    <h3 class="card-title">
                                         <?php echo $post->post_title ?>
-                                    </h4>
+                                    </h3>
                                 </a>
-                                <p class="mb-4 subtitle-small pt-3 lora">
+                                <p class="mb-4 font-serif pt-3">
                                     <?php echo $descrizione_breve ?>
                                 </p>
                                 <?php get_template_part("template-parts/common/badges-argomenti"); ?>
@@ -76,7 +76,7 @@ $overlapping = "";
                 <?php if (!$post_id) { ?>
                     <div class="row row-title pt-lg-60 pb-3">
                         <div class="col-12 d-lg-flex justify-content-between">
-                            <h3 id="ultime-news" class="mb-lg-0">Ultime news</h3>
+                            <h2 id="ultime-news" class="mb-lg-0">Ultime news</h2>
                         </div>
                     </div>
                 <?php } ?>
@@ -112,7 +112,7 @@ if ($schede && count($schede) > 0) { ?>
                 <div class="container">
                     <div class="row row-title pt-5 pt-lg-60 pb-3">
                         <div class="col-12 d-lg-flex justify-content-between">
-                            <h3 id="contenuti_evidenza" class="mb-lg-0">Contenuti in evidenza</h3>
+                            <h2 id="contenuti_evidenza" class="mb-lg-0">Contenuti in evidenza</h2>
                         </div>
                     </div>
                     <div class="row mb-2">
