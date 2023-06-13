@@ -22,13 +22,12 @@
                 <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
                     <div class="card shadow-sm rounded">
                         <div class="card-body">
-                            <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>"
-                            >
-                                <h3 class="card-title t-primary title-xlarge">
+                            <a class="text-decoration-none" href="<?php echo get_permalink($post->ID); ?>">
+                                <h3 class="card-title t-primary">
                                     <?php echo $post->post_title; ?>
                                 </h3>
                             </a>
-                            <p class="titillium text-paragraph mb-0">
+                            <p class="text-paragraph mb-0">
                                 <?php echo dci_get_meta('descrizione_breve'); ?>
                             </p>
                         </div>
