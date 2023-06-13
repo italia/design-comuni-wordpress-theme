@@ -5,8 +5,8 @@
 <section id="novita" class="useful-links-section">
     <div class="section section-muted p-0 py-5">
         <div class="container">
-            <div class="row">
-                <div class="col col-sm-10 offset-sm-1 col-md-8 offset-md-2 px-0">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 col-lg-6">
                 <form role="search" id="search-form" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <div class="cmp-input-search">
                         <div class="form-group autocomplete-wrapper mb-2 mb-lg-4">
