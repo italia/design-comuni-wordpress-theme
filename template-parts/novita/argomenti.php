@@ -17,7 +17,7 @@
               data-element="news-category-link">
               <h3 class="card-title t-primary title-xlarge"><?php echo ucfirst($argomento->name); ?></h3>
             </a>
-            <p class="titillium text-paragraph mb-0 description">
+            <p class="text-secondary mb-0">
               <?php echo $argomento->description; ?>
             </p>
           </div>
