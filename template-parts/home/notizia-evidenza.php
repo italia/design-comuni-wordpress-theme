@@ -20,10 +20,10 @@ $page_macro = get_page_by_path($page_macro_slug);
             <!-- <svg class="icon">
                 <use xlink:href="#<?php #echo $icon ?>"></use>
             </svg> -->
-            <span class="category title-xsmall-semi-bold fw-semibold" ><?php echo $page->post_title ?></span>
+            <span class="category fw-semibold" ><?php echo $page->post_title ?></span>
             </div>
-            <p class="card-title text-paragraph-medium u-grey-light"><?php echo $post->post_title ?></p>
-            <p class="text-paragraph-card u-grey-light m-0" style="margin-bottom: 40px!important;"><?php echo $descrizione_breve ?></p>
+            <h3 class="card-title h5"><?php echo $post->post_title ?></h4>
+            <p class="card-text text-secondary" style="margin-bottom: 40px!important;"><?php echo $descrizione_breve ?></p>
         </div>
         <div class="card-image card-image-rounded pb-5">            
             <?php dci_get_img($img); ?>
@@ -42,7 +42,7 @@ $page_macro = get_page_by_path($page_macro_slug);
     </a>
 </div>
 <?php } else { ?>
-    <div class="card card-teaser no-after rounded shadow-sm mb-0">
+    <div class="card card-teaser no-after rounded border border-light shadow-sm mb-0">
         <div class="card-body pb-5">
         <div class="category-top">
             <!-- <svg class="icon">
@@ -50,10 +50,10 @@ $page_macro = get_page_by_path($page_macro_slug);
             </svg> -->
             <span class="category title-xsmall-semi-bold fw-semibold"><?php echo $page->post_title ?></span>
         </div>
-        <p class="card-title text-paragraph-medium u-grey-light">
+        <h3 class="card-title h5">
             <?php echo $post->post_title ?>
-        </p>
-        <p class="text-paragraph-card u-grey-light m-0">
+        </h3>
+        <p class="card-text text-secondary">
             <?php echo $descrizione_breve ?>
         </p>
         </div>
