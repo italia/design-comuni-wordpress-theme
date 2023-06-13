@@ -20,7 +20,7 @@
                 }
             ?>
             <div class="d-flex justify-content-end">
-                <a href="#" class="btn btn-outline-primary full-mb" aria-label="aria-label" data-element="btn-data-element">
+                <a href="#" class="btn btn-outline-primary full-mb" aria-label="aria-label" data-element="live-button-events">
                     Tutti gli eventi 
                     <svg class="icon icon-primary icon-xs ml-10">
                       <use href="#it-arrow-right"></use>
