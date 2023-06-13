@@ -40,6 +40,18 @@ get_header();
                                 <?php
                                 the_content();
                                 ?>
+                                <div class="callout note">
+                                    <div class="callout-inner">
+                                        <div class="callout-title">
+                                            <svg class="icon"><use href="#it-info-circle"></use></svg>
+                                            <span class="visually-hidden">Attenzione</span> 
+                                            <span class="text">Attenzione</span>
+                                        </div>
+                                        <p><strong>Il template di questa pagina non è ancora disponibile.</strong></p>
+                                        <p>Nel frattempo, puoi controllare se è disponibile la <a href="https://italia.github.io/design-comuni-pagine-statiche/">versione statica</a> oppure il <a href="https://www.figma.com/file/FHlE0r9lhfvDR0SgkDRmVi/%5BComuni%5D-Modello-sito-e-servizi?type=design&node-id=1%3A1310&t=T24nHc1gRJzlJ7GH-1">layout hi-fi</a> su Figma.</p>
+                                        <p><a href="https://docs.google.com/spreadsheets/d/1D4KbaA__xO9x_iBm08KvZASjrrFLYLKX/edit#gid=335720294">Consulta il documento di architettura dell'informazione</a> per costruire il template in autonomia.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row variable-gutters">
@@ -61,6 +73,8 @@ get_header();
                 </div>
 
             </div>
+            <?php get_template_part("template-parts/common/valuta-servizio"); ?>
+            
         <?php
         endwhile; // End of the loop.
         ?>
