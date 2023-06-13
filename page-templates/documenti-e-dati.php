@@ -1,5 +1,5 @@
 <?php
-/* Template Name: documenti-e-dati
+/* Template Name: Documenti e dati
  *
  * Documenti template file
  *

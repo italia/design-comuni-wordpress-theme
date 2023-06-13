@@ -1,5 +1,5 @@
 <?php
-/* Template Name: domande-frequenti
+/* Template Name: Domande frequenti
  *
  * Domande frequenti template file
  *
