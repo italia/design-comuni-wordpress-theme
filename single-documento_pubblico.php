@@ -332,7 +332,7 @@ get_header();
                     </section>
                 </div>
             </div>
-
+            <?php get_template_part("template-parts/common/valuta-servizio"); ?>
 
         <?php
         endwhile; // End of the loop.
