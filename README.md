@@ -10,7 +10,7 @@
 
 ## **Installazione e supporto**
 
-#### **Come scaricare il tema**
+### **Come scaricare il tema**
 
 Per scaricare il progetto esegui il seguente comando git:
 
@@ -20,17 +20,20 @@ Se già usi una vecchia versione del tema e vuoi aggiornarla, esegui il comando:
 
 - git pull.
 
-#### Come inserire il tema all'interno di un'installazione WordPress
+### Come inserire il tema all'interno di un'installazione WordPress
 
 Una volta scaricato il repository, inserisci la cartella all'interno del progetto WordPress al seguente percorso:
 
 - `wp-content > themes `.
 
+> È raccomandata l'installazione del tema come _"child"_ in modo tale da poterlo aggiornare facilmente senza compromettere le personalizzazioni locali. [Vedi la guida ufficiale](https://developer.wordpress.org/themes/advanced-topics/child-themes/#1-create-a-child-theme-folder) su come installare un tema _"child"_.
+
+
 Se il tema viene scaricato come file `.zip` puoi estrarre l'archivio e inserirlo allo stesso percorso oppure caricare direttamente il file `.zip` da backoffice al seguente percorso:
 
 - `Aspetto > Temi > Aggiungi nuovo > Carica tema` (o apri la seguente url: {{host}}/wp-admin/theme-install.php).
 
-#### Aggiornamento libreria Bootstrap Italia
+### Aggiornamento libreria Bootstrap Italia
 
 Se si desidera aggiornare la libreria Bootstrap Italia è possibile lanciare il seguente comando nella folder di installazione del tema (è necessario avere installato una versione di node >= 14.18.0):
 
@@ -38,7 +41,7 @@ Se si desidera aggiornare la libreria Bootstrap Italia è possibile lanciare il 
  npm install
 ```
 
-#### Come abilitare il tema
+### Come abilitare il tema
 
 Una volta inserita la cartella o caricato file `.zip`come descritto al punto precedente, apri il backoffice e naviga al seguente percorso:
 
@@ -46,7 +49,7 @@ Una volta inserita la cartella o caricato file `.zip`come descritto al punto pre
 
 Abilita poi il tema **Design Comuni Italia** cliccando sul bottone `Attiva`.
 
-#### **Supporto tecnico ed editoriale**
+### **Supporto tecnico ed editoriale**
 
 Sul [canale Slack #design-siti-comuni](http://developersitalia.slack.com/messages/design-siti-comuni/) puoi confrontarti sulle risorse e trovare le risposte a tutte le domande riguardo problemi tecnici o l’architettura dei contenuti.
 
@@ -67,13 +70,13 @@ Sul [canale Slack #design-siti-comuni](http://developersitalia.slack.com/message
 - [Segnalazione bug](#segnalazione-bug)
 - [Come contribuire](#come-contribuire)
 
-#### **Cos'è e cosa fa**
+### **Cos'è e cosa fa**
 
 Il tema Design Comuni Italia è un’applicazione di WordPress, il sistema di gestione di contenuti (CMS), che consente di creare un sito web comunale sulla base del [modello Comuni](https://designers.italia.it/modello/comuni/), creato nell’ambito del progetto Designers Italia dal Dipartimento per la trasformazione digitale.
 
 Il tema WordPress è stato progettato per aderire rapidamente al modello di sito comunale. Il tema, infatti, imposta automaticamente lo stile grafico del sito, le aree del sito, i layout delle pagine e il menu di navigazione. Il compito dei redattori rimane, quindi, quello di curare i contenuti delle pagine, risparmiando così tempo e risorse nella progettazione e realizzazione del sito.
 
-#### **Le pagine del modello**
+### **Le pagine del modello**
 
 Tramite il tema WordPress, è possibile creare automaticamente le seguenti pagine:
 
@@ -84,7 +87,7 @@ Tramite il tema WordPress, è possibile creare automaticamente le seguenti pagin
 **Attenzione:** Per le pagine _Documento pubblico_, _Unità organizzativa_, _Persona pubblica_, _Luogo_ e le _pagine lista_, è possibile l'inserimento dei contenuti, ma la resa grafica della pagina non apparirà in automatico. È necessario creare un template .php manualmente e inserirlo nella root del tema.
 
 
-#### **Da dove iniziare**
+### **Da dove iniziare**
 
 Consigliamo di cominciare a creare i diversi contenuti in questo ordine:
 
@@ -103,7 +106,7 @@ Una volta iniziato il lavoro sulle prime 4 tipologie di contenuto suggerite, si 
 - servizi;
 
 
-#### **Relazioni tra i contenuti**
+### **Relazioni tra i contenuti**
 
 I siti WordPress presentano una serie di tipologie di contenuto (content type) che sono in relazione tra loro. Ogni tipologia di contenuto viene creata attraverso una “scheda” nel backend di WordPress, che presenta i vari campi dove aggiungere i contenuti per creare la pagina.
 
@@ -132,7 +135,7 @@ Per associare nuovi contenuti di dettaglio ad altri già esistenti:
 1. crea la nuova scheda di contenuto di dettaglio;
 2. entra nella scheda del contenuto contenitore e, tramite l’apposito campo, associa la scheda del contenuto di dettaglio.
 
-#### **Personalizzazione**
+### **Personalizzazione**
 
 Nell’area di configurazione è possibile (e talvolta necessario) personalizzare alcuni caratteristiche del sito, come i contenuti da mostrare in evidenza o nella homepage.
 
@@ -156,7 +159,7 @@ Cliccando su `Configurazione`, è possibile definire:
 
 È possibile personalizzare i colori del sito, tramite file CSS. Invece di modificare il file css originale del tema, si consiglia di creare un file CSS in sovrascrittura (esempio: comini-custom.css) che contiene la personalizzazione dei colori. In questo modo, le modifiche verranno mantenute nel tempo con gli aggiornamenti del tema.
 
-#### **Servizi esterni**
+### **Servizi esterni**
 
 Il tema Wordpress è realizzato per supportare il collegamento a API esterne per quel che concerne le funzionalità di valutazione, prenotazione appuntamento e richiesta di assistenza. Ogni amministrazione comunale dovrà quindi provvedere ad integrare i form forniti con il tema con un servizio esterno realizzato a propria discrezione andando a modificare i file che andremo ad elencare di seguito. Per l'effettivo inserimento dei file all'interno del progetto si può agire in due modi
 
@@ -267,7 +270,7 @@ Il file da mofificare per integrare un servizio esterno si trova all'interno del
 
 - `assets-src > js > assistenza.js `.
 
-#### **La community di riferimento**
+### **La community di riferimento**
 
 Scopri i canali della community dove confrontarti sulle risorse del modello:
 
@@ -275,7 +278,7 @@ Scopri i canali della community dove confrontarti sulle risorse del modello:
 - [Canale Slack](http://developersitalia.slack.com/) - dialoga e collabora in tempo reale con la community di Designers Italia;
 - [GitHub](https://github.com/italia/design-comuni-wordpress-theme) - il repository GitHub del tema WordPress “Design Comuni Italia”.
 
-#### **F.A.Q**
+### **F.A.Q**
 
 ➔ **Chi gestisce il sito?**
 
@@ -304,7 +307,7 @@ WordPress permette di aggiungere innumerevoli funzionalità, per far fronte alle
 
 È sconsigliato apportare modifiche strutturali al sito, come modificare la classificazione delle informazioni o la struttura di navigazione. Modifiche di questo tipo possono impedire di beneficiare di evoluzioni future del prodotto, a cause di problematiche di aggiornamento del tema. Puoi segnalare necessità di questo tipo direttamente alla community di Designers Italia tramite i vari canali di contatto. I feedback ricevuti verranno raccolti e considerati per le successive evoluzioni del modello.
 
-#### **Bootstrap Italia**
+### **Bootstrap Italia**
 
 Design Comuni Italia rispetta le nuove linee guida di design dell’Agenzia per l’Italia digitale rilasciare dal [**Team per la Trasformazione Digitale**](https://teamdigitale.governo.it/) e le caratteristiche per i servizi web della Pubblica Amministrazione contenute nel Piano triennale per l’informatica nella Pubblica Amministrazione 2017/2019.
 
