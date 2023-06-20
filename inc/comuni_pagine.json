@@ -4,7 +4,7 @@
       "title": "Amministrazione",
       "slug": "amministrazione",
       "description": "Tutte le informazioni sulla struttura amministrativa del Comune. Scopri gli organi politici, gli uffici e il personale e consulta i documenti pubblici, le statistiche e i bandi di gara.",
-      "template_name": "amministrazione",
+      "template_name": "Amministrazione",
       "children": {
         "Aree amministrative": {
           "title": "Aree amministrative",
@@ -13,8 +13,8 @@
           "template_name": "",
           "children": {}
         },
-        "Enti e Fondazioni": {
-          "title": "Enti e Fondazioni",
+        "Enti e fondazioni": {
+          "title": "Enti e fondazioni",
           "slug": "enti-e-fondazioni",
           "description": "I consorzi, gli enti e le società partecipate di cui il Comune fa parte per rappresentare al meglio gli interessi della comunità.",
           "template_name": "",
@@ -48,11 +48,11 @@
           "template_name": "",
           "children": {}
         },
-        "Documenti e Dati": {
-          "title": "Documenti e Dati",
+        "Documenti e dati": {
+          "title": "Documenti e dati",
           "slug": "documenti-e-dati",
           "description": "Bandi di concorso, avvisi, graduatorie, statistiche e documenti pubblici.",
-          "template_name": "documenti-e-dati",
+          "template_name": "Documenti e dati",
           "children": {}
         }
       }
@@ -60,28 +60,28 @@
     "Novità": {
       "title": "Novità",
       "slug": "novita",
-      "description": "Tutte le novità comunali per i cittadini per restare aggiornati.",
-      "template_name": "novita",
+      "description": "Le notizie, i comunicati e gli avvisi per restare aggiornati sulle ultime novità, opportunità e cosa succede nel territorio comunale.",
+      "template_name": "Novità",
       "children": {}
     },
     "Servizi": {
       "title": "Servizi",
       "slug": "servizi",
       "description": "Tutti i servizi comunali per i cittadini, disponibili online o a sportello, per richiedere documenti e permessi, iscriversi a graduatorie ed effettuare pagamenti.",
-      "template_name": "servizi",
+      "template_name": "Servizi",
       "children": {
         "Assistenza": {
           "title": "Assistenza",
           "slug": "assistenza",
           "description": "I campi contraddistinti dal simbolo asterisco sono obbligatori.",
-          "template_name": "assistenza",
+          "template_name": "Assistenza",
           "children": {}
         },
         "Prenotazioni": {
           "title": "Prenotazioni",
           "slug": "prenotazioni",
           "description": "",
-          "template_name": "prenota-appuntamento",
+          "template_name": "Prenota appuntamento",
           "children": {}
         }
       }
@@ -90,21 +90,21 @@
       "title": "Vivere il Comune",
       "slug": "vivere-il-comune",
       "description": "Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.",
-      "template_name": "vivere-il-comune",
+      "template_name": "Vivere il comune",
       "children": {}
     },
     "Argomenti": {
       "title": "Argomenti",
       "slug": "argomenti",
       "description": "Gli argomenti rispondono a un'esigenza di organizzazione dei contenuti del sito istituzionale per temi e rappresentano le principali categorie di contenuti, informazioni e documenti specifici.",
-      "template_name": "argomenti",
+      "template_name": "Argomenti",
       "children": {}
     },
     "Domande frequenti": {
       "title": "Domande frequenti",
       "slug": "domande-frequenti",
       "description": "Elenco di risposte alle domande più frequenti raccolte dalle richieste di assistenza dei cittadini.",
-      "template_name": "domande-frequenti",
+      "template_name": "Domande frequenti",
       "children": {}
     }
   }

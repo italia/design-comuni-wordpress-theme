@@ -20,16 +20,12 @@
                 }
             ?>
             <div class="d-flex justify-content-end">
-                <button
-                    type="button"
-                    class="btn btn-primary px-5 py-3 full-mb"
-                    label="Tutti i luoghi" 
-                    buttonNext=true
-                    data-element="live-button-locations"
-                    onclick="location.href='/amministrazione/aree-amministrative/';"
-                >
-                    <span class="">Tutti i luoghi</span>
-                </button>
+                <a href="#" class="btn btn-outline-primary full-mb" aria-label="aria-label" data-element="live-button-locations">
+                    Tutti i luoghi 
+                    <svg class="icon icon-primary icon-xs ml-10">
+                      <use href="#it-arrow-right"></use>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>

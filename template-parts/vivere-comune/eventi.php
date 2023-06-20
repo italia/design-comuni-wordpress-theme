@@ -20,16 +20,12 @@
                 }
             ?>
             <div class="d-flex justify-content-end">
-                <button
-                    type="button"
-                    class="btn btn-primary px-5 py-3 full-mb"
-                    label="Tutti gli eventi" 
-                    buttonNext=true
-                    data-element="live-button-events"
-                    onclick="location.href='/servizi-categoria/cultura-e-tempo-libero/';"
-                >
-                    <span class="">Tutti gli eventi</span>
-                </button>
+                <a href="#" class="btn btn-outline-primary full-mb" aria-label="aria-label" data-element="live-button-events">
+                    Tutti gli eventi 
+                    <svg class="icon icon-primary icon-xs ml-10">
+                      <use href="#it-arrow-right"></use>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>

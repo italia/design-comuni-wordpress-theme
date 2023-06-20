@@ -402,9 +402,9 @@ if(!function_exists("dci_stati_pratica_array")){
 if(!function_exists("dci_tipi_notizia_array")){
     function dci_tipi_notizia_array() {
         $tipi_notizia_arr = [
-            'news',
-            'comunicato stampa',
-            'avviso'
+            'Notizie',
+            'Comunicati',
+            'Avvisi'
         ];
         return $tipi_notizia_arr;
     }

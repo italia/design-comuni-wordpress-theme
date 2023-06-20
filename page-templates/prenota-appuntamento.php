@@ -1,5 +1,5 @@
 <?php
-/* Template Name: prenota-appuntamento
+/* Template Name: Prenota appuntamento
  *
  * Prenota appuntamento template file
  *

@@ -1,5 +1,5 @@
 <?php
-/* Template Name: argomenti
+/* Template Name: Argomenti
  *
  * Argomenti template file
  *

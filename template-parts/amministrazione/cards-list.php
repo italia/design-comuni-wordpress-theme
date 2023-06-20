@@ -13,12 +13,10 @@
             <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
             <div class="card shadow-sm rounded">
                 <div class="card-body">
-                <a class="text-decoration-none" href="<?php echo $page['link']; ?>"
-                    data-element="management-category-link"
-                >
-                    <h3 class="card-title t-primary title-xlarge"><?php echo $page_name; ?></h3>
+                <a class="text-decoration-none" href="<?php echo $page['link']; ?>" data-element="management-category-link">
+                    <h3 class="card-title t-primary"><?php echo $page_name; ?></h3>
                 </a>
-                <p class="titillium text-paragraph mb-0">
+                <p class="text-paragraph mb-0">
                     <?php echo $page['description']; ?>
                 </p>
                 </div>
