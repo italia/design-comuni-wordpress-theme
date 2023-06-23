@@ -26,7 +26,7 @@
               <?php if ($tipo) { ?>
               <span class="text fw-semibold">
                 <?php if ($post->post_type == "documento_pubblico") { ?>
-                    <a class="text-decoration-none" href="<?php echo get_term_link($tipo_documento->term_id); ?>"><?php echo $tipo_documento->name; ?></a>
+                    <a class="text-decoration-none" href="<?php echo get_term_link($tipo->term_id); ?>"><?php echo $tipo->name; ?></a>
                 <?php } else { ?>
                     <a href="<?php echo get_post_type_archive_link( 'dataset' ); ?>">Dataset</a>
                 <?php } ?>
