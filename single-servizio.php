@@ -71,21 +71,27 @@ get_header();
                     "serviceOperator": {
                         "name": "<?php echo esc_js($ipa); ?>"
                     },
+                    <?php if ( !empty($copertura_geografica) ) : ?>
                     "areaServed": {
                         "name": "<?php echo convertToPlain($copertura_geografica); ?>"
                     },
+                    <?php endif; ?>
                     "audience": {
                         "name": "<?php echo convertToPlain($destinatari); ?>"
                     },
                     "availableChannel": {
+                        <?php if ( !empty($canale_digitale_link) ) : ?>
                         "serviceUrl": "<?php echo esc_js($canale_digitale_link); ?>",
+                        <?php endif; ?>
                         <?php if ( !empty($ufficio) ) : ?>
                         "serviceLocation": {
                             "name": "<?php echo esc_js($ufficio->post_title); ?>",
                             "address": {
-                            "streetAddress": "<?php echo esc_js($indirizzo); ?>",
-                            "postalCode": "<?php echo esc_js($cap); ?>",
-                            "addressLocality": "<?php echo esc_js($quartiere); ?>"
+                                "streetAddress": "<?php echo esc_js($indirizzo); ?>",
+                                "postalCode": "<?php echo esc_js($cap); ?>"
+                                <?php if ( !empty($quartiere) ) : ?>,
+                                "addressLocality": "<?php echo esc_js($quartiere); ?>"
+                                <?php endif; ?>
                             }
                         }
                         <?php endif; ?>
