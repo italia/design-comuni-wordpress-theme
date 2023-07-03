@@ -49,7 +49,7 @@ get_header();
                                         </div>
                                         <p><strong>Il template di questa pagina non è ancora disponibile.</strong></p>
                                         <p>Nel frattempo, puoi controllare se è disponibile la <a href="https://italia.github.io/design-comuni-pagine-statiche/">versione statica</a> oppure il <a href="https://www.figma.com/file/FHlE0r9lhfvDR0SgkDRmVi/%5BComuni%5D-Modello-sito-e-servizi?type=design&node-id=1%3A1310&t=T24nHc1gRJzlJ7GH-1">layout hi-fi</a> su Figma.</p>
-                                        <p><a href="https://docs.google.com/spreadsheets/d/1D4KbaA__xO9x_iBm08KvZASjrrFLYLKX/edit#gid=335720294">Consulta il documento di architettura dell'informazione</a> per costruire il template in autonomia.</p>
+                                        <p><a href="https://governoit.sharepoint.com/:x:/r/sites/DTD-prjDesignersItalia/Shared%20Documents/_Materiali%20online%202021/01_Modelli/02_Comuni/01_Sito/Architettura-informazione-sito-Comuni.ods?d=wb1fb937f59d0407a8b2d5bfeda38c8fc&csf=1&web=1&e=0DYXHQ">Consulta il documento di architettura dell'informazione</a> per costruire il template in autonomia.</p>
                                     </div>
                                 </div>
                             </div>
