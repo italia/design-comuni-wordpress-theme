@@ -340,7 +340,7 @@ Prima di tutto assicurati che sia un problema relativo al tema WordPress e non a
 
 Vorresti dare una mano contribuendo allo sviluppo del tema?
 
-Se non l'hai già fatto, inizia spendendo qualche minuto per approfondire la tua conoscenza su l'[Architettura dell'Informazione dei siti web dei Comuni Italiani](https://docs.google.com/spreadsheets/d/1D4KbaA__xO9x_iBm08KvZASjrrFLYLKX/edit#gid=1529184526) e fai riferimento alle [indicazioni su come contribuire](https://github.com/italia/design-comuni-wordpress-theme/blob/main/CONTRIBUTING.md).
+Se non l'hai già fatto, inizia spendendo qualche minuto per approfondire la tua conoscenza su l'[Architettura dell'Informazione dei siti web dei Comuni Italiani (ODS 65KB)](https://designers.italia.it/files/resources/modelli/comuni/adotta-il-modello-di-sito-comunale/definisci-architettura-e-contenuti/Architettura-informazione-sito-Comuni.ods) e fai riferimento alle [indicazioni su come contribuire](https://github.com/italia/design-comuni-wordpress-theme/blob/main/CONTRIBUTING.md).
 
 A questo punto, è necessario scaricare una copia in locale del tema tramite il comando `git fork https://github.com/italia/design-comuni-wordpress-theme.git` da terminale o cliccando sul pulsante Fork <br>
 ![fork](https://user-images.githubusercontent.com/69706/188419656-21fa5b0e-c52a-4168-a1d1-8ea9a149da6a.png)
