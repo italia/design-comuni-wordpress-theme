@@ -8,8 +8,8 @@ $tipi_luogo = get_the_terms($post->ID,'tipi_luogo');
 ?>
 
 <div class="col-lg-6 col-xl-4">
-    <div class="card-wrapper shadow-sm rounded  border border-lightcmp-list-card-img">
-        <div class="card card-img no-after rounded">
+    <div class="card-wrapper shadow-sm rounded border border-light">
+        <div class="card no-after rounded">
             <div class="img-responsive-wrapper">
                 <div class="img-responsive img-responsive-panoramic">
                     <figure class="img-wrapper">
@@ -18,7 +18,7 @@ $tipi_luogo = get_the_terms($post->ID,'tipi_luogo');
                 </div>
             </div>
             <div class="card-body">
-                <div class="category-top ">
+                <div class="category-top">
                     <?php 
                         $count = 1;
                         if ( is_array($tipi_luogo) && count($tipi_luogo) ) {
