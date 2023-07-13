@@ -84,8 +84,8 @@ get_header();
                         <div class="container p-0">
                             <div class="row flex-column-reverse flex-lg-row">
                                 <div class="col-12 pt-3">
+                                <?php if ( have_posts() ) : ?>
                                     <div id="load-more">
-                                        <?php if ( have_posts() ) : ?>
                                             <?php
                                             /* Start the Loop */
                                             while ( have_posts() ) :
