@@ -255,5 +255,5 @@ function console_log ($output, $msg = "log") {
 };
 
 function get_parent_template () {
-	return end(explode('/', get_page_template_slug(wp_get_post_parent_id(get_the_id()))));
+	return basename( get_page_template_slug( wp_get_post_parent_id() ) );
 }
