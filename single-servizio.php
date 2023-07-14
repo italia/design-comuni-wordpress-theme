@@ -66,27 +66,35 @@ get_header();
             };
             ?>
             <script type="application/ld+json" data-element="metatag">{
-                    "name": "<?= $post->post_title; ?>",
-                    "serviceType": "<?= $categoria_servizio; ?>",
+                    "name": "<?php echo esc_js($post->post_title); ?>",
+                    "serviceType": "<?php echo esc_js($categoria_servizio); ?>",
                     "serviceOperator": {
-                        "name": "<?= $ipa; ?>"
+                        "name": "<?php echo esc_js($ipa); ?>"
                     },
+                    <?php if ( !empty($copertura_geografica) ) : ?>
                     "areaServed": {
-                        "name": "<?= convertToPlain($copertura_geografica); ?>"
+                        "name": "<?php echo convertToPlain($copertura_geografica); ?>"
                     },
+                    <?php endif; ?>
                     "audience": {
-                        "name": "<?= convertToPlain($destinatari); ?>"
+                        "name": "<?php echo convertToPlain($destinatari); ?>"
                     },
                     "availableChannel": {
-                        "serviceUrl": "<?= $canale_digitale_link; ?>",
+                        <?php if ( !empty($canale_digitale_link) ) : ?>
+                        "serviceUrl": "<?php echo esc_js($canale_digitale_link); ?>",
+                        <?php endif; ?>
+                        <?php if ( !empty($ufficio) ) : ?>
                         "serviceLocation": {
-                            "name": "<?= $ufficio->post_title; ?>",
+                            "name": "<?php echo esc_js($ufficio->post_title); ?>",
                             "address": {
-                            "streetAddress": "<?= $indirizzo; ?>",
-                            "postalCode": "<?= $cap; ?>",
-                            "addressLocality": "<?= $quartiere; ?>"
+                                "streetAddress": "<?php echo esc_js($indirizzo); ?>",
+                                "postalCode": "<?php echo esc_js($cap); ?>"
+                                <?php if ( !empty($quartiere) ) : ?>,
+                                "addressLocality": "<?php echo esc_js($quartiere); ?>"
+                                <?php endif; ?>
                             }
                         }
+                        <?php endif; ?>
                     }
             }</script>
             <div class="container" id="main-container">
