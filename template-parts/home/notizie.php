@@ -81,7 +81,7 @@ $overlapping = "";
                     </div>
                 <?php } ?>
                 <div class="row mb-2">
-                    <div class="card-wrapper px-0 <?= $overlapping ?> card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3">
+                    <div class="card-wrapper px-0 <?php echo $overlapping; ?> card-teaser-wrapper card-teaser-wrapper-equal card-teaser-block-3">
                         <?php
                         foreach ($posts as $post) {
                             if ($post) {
