@@ -48,12 +48,14 @@ global $the_query, $load_posts, $load_card_type;
         </div>
       </div>
       <div class="row g-4" id="load-more">
-        <?php 
-                    $load_card_type = 'documento';
-                    foreach ($posts as $post) {get_template_part('template-parts/documento/cards-list');
-                }?>
+          <?php
+          $load_card_type = 'documento';
+          foreach ( $posts as $post ) { get_template_part('template-parts/documento/cards-list'); }
+          wp_reset_postdata();
+          ?>
       </div>
       <?php get_template_part("template-parts/search/more-results"); ?>
     </div>
   </form>
 </div>
+<?php wp_reset_query(); ?>

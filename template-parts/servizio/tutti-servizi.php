@@ -101,3 +101,4 @@
         </div>
     </form>
 </div>
+<?php wp_reset_query(); ?>

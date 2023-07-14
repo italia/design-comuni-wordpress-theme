@@ -93,7 +93,9 @@ get_header();
                                     foreach ($faqs as $post) {
                                         ++$i;
                                         get_template_part("template-parts/domanda-frequente/item");
-                                    } ?>
+                                    }
+                                    wp_reset_postdata();
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -110,6 +112,7 @@ get_header();
             </div>     
         </form>
 
+        <?php wp_reset_query(); ?>
         <?php get_template_part("template-parts/common/assistenza-contatti"); ?>
       </main>
 <?php
