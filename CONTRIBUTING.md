@@ -35,11 +35,12 @@ Il repository di Bootstrap Italia usa alcune label per identificare le issue (cr
 - `design` - Criticità riguardanti il design dei componenti e la loro conformità alle [linee guida di design per i servizi web delle Pubbliche Amministrazioni](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/).
 - `docs` - Criticità riguardanti la documentazione dei componenti.
 - `duplicate` - Criticità o pull request duplicata.
-- `enhancement` - Criticità che possono riguardare nuovi componenti o nuove funzionalità.
+- `enhancement` - Richieste di nuove funzionalità-
 - `good first issue` - Criticità particolarmente semplici da prendere in carico per chi non ha conoscenza approfondita del progetto.
 - `help wanted` - Criticità pronte per ricevere contributi da parte della comunità e di nuovi aspiranti sviluppatori.
 - `invalid` - Criticità considerata invalida.
-- `question` - Indica una criticità o pull request per la quale si ha bisogno di maggiori informazioni.
+- `next` - Indica una criticità o funzionalità che saranno sviluppate in futuro.
+- `question` - Indica una criticità o _pull request_ per la quale si ha bisogno di maggiori informazioni.
 - `wontfix` - Indica che la criticità o la pull request viene chiusa senza alcun lavoro aggiuntivo.
 
 ## Licenza
