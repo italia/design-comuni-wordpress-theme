@@ -1,5 +1,4 @@
 <?php
-global $obj;
 $obj = get_queried_object();
 
 if ($obj->taxonomy == "categorie_servizio")
