@@ -115,7 +115,7 @@ get_header();
                                     </h1>
                                     <ul class="d-flex flex-wrap gap-1 my-3">
                                         <li>
-                                            <div class="chip chip-simple text-button" data-element="service-status">
+                                            <div class="chip chip-simple <?php echo $stato == 'true'? 'chip-success' : 'chip-danger'; ?>" data-element="service-status">
                                                 <span class="chip-label">
                                                 <?php if ( $stato == 'true' ) {
                                                     echo 'Servizio attivo';
