@@ -3,26 +3,6 @@
 require get_template_directory() . '/inc/lib/parsedown.php';
 
 /**
- * Welcome page
- */
-remove_action('welcome_panel', 'wp_welcome_panel');
-add_action( 'welcome_panel', 'dci_welcome_panel' );
-function dci_welcome_panel(){
-    ?>
-    <div class="welcome-panel-content" style="padding-bottom:30px;">
-        <img src="<?php echo get_template_directory_uri() . '/assets/img/designers-italia-wordpress-dashboard.png'?>"  style="float:left; margin:0px 0px 20px 0px;" />
-        <h2><?php _e( 'Design Comuni Italia: il tema di Developers Italia per i Comuni Italiani', "design_comuni_italia" ); ?></h2>
-    </div>
-    <?php
-}
-
-function dci_welcome_init() {
-    global $wpdb;
-    $wpdb->update($wpdb->usermeta,array('meta_value'=>1),array('meta_key'=>'show_welcome_panel'));
-}
-add_action('after_switch_theme','dci_welcome_init');
-
-/**
  * Gestione widget dashboard admin
  *
  */
