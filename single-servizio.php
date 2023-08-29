@@ -65,26 +65,34 @@ get_header();
                 return trim(strip_tags($text));
             };
             ?>
-            <script type="application/ld+json" data-element="metatag">{
+            <script type="application/ld+json" data-element="metatag">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "GovernmentService",
                     "name": <?php echo json_encode($post->post_title); ?>,
                     "serviceType": <?php echo json_encode($categoria_servizio); ?>,
                     "serviceOperator": {
+                        "@type": "GovernmentOrganization",
                         "name": <?php echo json_encode($ipa); ?>
                     },
                     <?php if ( !empty($copertura_geografica) ) : ?>
                     "areaServed": {
+                        "@type": "AdministrativeArea",
                         "name": "<?php echo convertToPlain($copertura_geografica); ?>"
                     },
                     <?php endif; ?>
                     "audience": {
+                        "@type": "Audience",
                         "audienceType": "<?php echo convertToPlain($destinatari); ?>"
                     },
                     "availableChannel": {
+                        "@type": "ServiceChannel",
+                        "name": "Dove rivolgersi"
                         <?php if ( !empty($canale_digitale_link) ) : ?>
-                        "serviceUrl": <?php echo json_encode($canale_digitale_link) . (!empty($ufficio) ? ',' : ''); ?>
+                        ,"serviceUrl": <?php echo json_encode($canale_digitale_link); ?>
                         <?php endif; ?>
                         <?php if ( !empty($ufficio) ) : ?>
-                        "serviceLocation": {
+                        ,"serviceLocation": {
                             "name": <?php echo json_encode($ufficio->post_title); ?>,
                             "address": {
                                 "streetAddress": <?php echo json_encode($indirizzo); ?>,
@@ -96,7 +104,8 @@ get_header();
                         }
                         <?php endif; ?>
                     }
-            }</script>
+                }
+            </script>
             <div class="container" id="main-container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10">
