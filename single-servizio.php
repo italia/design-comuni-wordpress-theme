@@ -66,10 +66,10 @@ get_header();
             };
             ?>
             <script type="application/ld+json" data-element="metatag">{
-                    "name": "<?php echo esc_js($post->post_title); ?>",
-                    "serviceType": "<?php echo esc_js($categoria_servizio); ?>",
+                    "name": <?php echo json_encode($post->post_title); ?>,
+                    "serviceType": <?php echo json_encode($categoria_servizio); ?>,
                     "serviceOperator": {
-                        "name": "<?php echo esc_js($ipa); ?>"
+                        "name": <?php echo json_encode($ipa); ?>
                     },
                     <?php if ( !empty($copertura_geografica) ) : ?>
                     "areaServed": {
@@ -81,16 +81,16 @@ get_header();
                     },
                     "availableChannel": {
                         <?php if ( !empty($canale_digitale_link) ) : ?>
-                        "serviceUrl": "<?php echo esc_js($canale_digitale_link); ?>",
+                        "serviceUrl": <?php echo json_encode($canale_digitale_link) . (!empty($ufficio) ? ',' : ''); ?>
                         <?php endif; ?>
                         <?php if ( !empty($ufficio) ) : ?>
                         "serviceLocation": {
-                            "name": "<?php echo esc_js($ufficio->post_title); ?>",
+                            "name": <?php echo json_encode($ufficio->post_title); ?>,
                             "address": {
-                                "streetAddress": "<?php echo esc_js($indirizzo); ?>",
-                                "postalCode": "<?php echo esc_js($cap); ?>"
+                                "streetAddress": <?php echo json_encode($indirizzo); ?>,
+                                "postalCode": <?php echo json_encode((string)$cap); ?>
                                 <?php if ( !empty($quartiere) ) : ?>,
-                                "addressLocality": "<?php echo esc_js($quartiere); ?>"
+                                "addressLocality": <?php echo json_encode($quartiere); ?>
                                 <?php endif; ?>
                             }
                         }
