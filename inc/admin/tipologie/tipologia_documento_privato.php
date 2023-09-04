@@ -84,7 +84,6 @@ function dci_add_documento_privato_metaboxes()
         'type' => 'text',
         'attributes' => array(
             'maxlength' => '255',
-            'required' => 'required'
         )
     ) );
 
@@ -96,10 +95,7 @@ function dci_add_documento_privato_metaboxes()
         'date_format' => 'd-m-Y',
         'data-datepicker' => json_encode( array(
             'yearRange' => '-100:+0',
-        ) ),
-        'attributes' => array(
-            'required' => 'required'
-        )
+        ) )
     ) );
 
     //APERTURA
