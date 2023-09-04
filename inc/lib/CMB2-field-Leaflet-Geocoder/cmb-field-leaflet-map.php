@@ -137,7 +137,7 @@ class CMB2_Field_Leaflet {
      *
      * @internal param array $args
      */
-    protected function render_input( $field_name = '', CMB2_Field $field, $field_escaped_value, CMB2_Types $field_type_object ) {
+    protected function render_input( $field_name, CMB2_Field $field, $field_escaped_value, CMB2_Types $field_type_object ) {
         $attrs = $field_type_object->concat_attrs( [
             'id'    => "{$field->args( 'id' )}_{$field_name}",
             'type'  => 'hidden',
