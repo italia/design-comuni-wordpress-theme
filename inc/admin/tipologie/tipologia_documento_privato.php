@@ -83,7 +83,7 @@ function dci_add_documento_privato_metaboxes()
         'desc' => __('Numero di protocollo del documento', 'design_comuni_italia'),
         'type' => 'text',
         'attributes' => array(
-            'maxlength' => '255',
+            'maxlength' => '255'
         )
     ) );
 
