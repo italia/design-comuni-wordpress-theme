@@ -249,10 +249,6 @@ get_header();
                   </div>
               </div>
               </div>
-              <p class="font-serif">
-                  Per informazioni sul programma dettagliato degli appuntamenti religiosi e civili, consultare il programma
-                  nella sezione documenti.
-              </p>
               <?php
               $data_inizio = date_i18n("Ymd\THi00", date($start_timestamp));
               $data_fine = date_i18n("Ymd\THi00", date($end_timestamp));
