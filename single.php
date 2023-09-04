@@ -56,7 +56,7 @@ get_header();
                                   <span class="text">Attenzione</span>
                                 </div>
                                 <p><strong>Il template di questa pagina non è ancora disponibile.</strong></p>
-                                <p>Nel frattempo, puoi controllare se è stato rilasciata la <a href="https://italia.github.io/design-comuni-pagine-statiche/">versione statica</p>
+                                <p>Nel frattempo, puoi controllare se è stata rilasciata la <a href="https://italia.github.io/design-comuni-pagine-statiche/">versione statica</p>
                               </div>
                             </div>
                         </div>
