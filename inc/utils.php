@@ -1086,12 +1086,12 @@ if(!function_exists("dci_get_related_unita_amministrative")) {
             );
         }
 
-        $servizi =  get_posts( $args );
+        $id_servizi =  get_posts( $args );
 
         $unita_organizzative = array();
 
-        foreach ($servizi as $servizio) {
-            $id = dci_get_meta('unita_responsabile', '_dci_servizio_', $servizio -> ID);
+        foreach ($id_servizi as $id_servizio) {
+            $id = dci_get_meta('unita_responsabile', '_dci_servizio_', $id_servizio);
 
             if (!dci_contains_element_with($unita_organizzative, $key= 'id', $value = $id)){
                 $unita_organizzative [] = array(
