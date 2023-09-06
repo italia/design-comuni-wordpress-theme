@@ -181,6 +181,11 @@
             "prefix" : "_dci_domanda_frequente_",
             "singular_name" : "Domanda Frequente",
             "plural_name" : "FAQ"
+        },
+        "page": {
+            "name" : "page",
+            "singular_name" : "Pagina",
+            "plural_name" : "Pagine"
         }
     }
 }

@@ -135,7 +135,9 @@ function dci_get_sercheable_tipologie() {
         'notizia',
         'servizio',
         'persona_pubblica',
-        'dataset'
+        'dataset',
+        'page',
+        'post'
     );
     if ( post_type_exists( 'amm-trasparente' ) ) { // Compatibilità plugin amministrazione-trasparente
         $arrayTipologie[] = 'amm-trasparente';
