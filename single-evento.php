@@ -308,7 +308,7 @@ get_header();
 
           <?php if( is_array($appuntamenti) && count($appuntamenti) ) { ?>
           <article id="appuntamenti" class="it-page-section mb-5">
-              <h2 class="mb-3>Appuntamenti</h2>
+              <h2 class="mb-3">Appuntamenti</h2>
               <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
                   <?php foreach ($appuntamenti as $appuntamento) {
                       get_template_part('template-parts/single/appuntamento');
