@@ -186,6 +186,6 @@
             "name" : "page",
             "singular_name" : "Pagina",
             "plural_name" : "Pagine"
-        },
+        }
     }
 }
