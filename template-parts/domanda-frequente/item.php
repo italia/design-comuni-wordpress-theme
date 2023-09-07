@@ -1,7 +1,7 @@
 <?php
 global $i;
 
-$description = dci_get_meta('risposta'); 
+$description = dci_get_meta('risposta', '_dci_domanda_frequente_', $post->ID);
 ?>
 
 
