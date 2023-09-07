@@ -54,11 +54,7 @@ function dci_get_tipologie_related_to_taxonomy($taxonomy) {
  * restituisce tutti i nomi delle tipologie del Sito dei Comuni
  */
 function dci_get_tipologie_names() {
-    $result = array();
-    foreach (COMUNI_TIPOLOGIE as $tipologia) {
-        $result[] = $tipologia['name'];
-    }
-    return $result;
+    return array_column(COMUNI_TIPOLOGIE, 'name');
 }
 
 /**
@@ -66,11 +62,7 @@ function dci_get_tipologie_names() {
  */
 
 function dci_get_tipologie_prefixes(){
-    $result = array();
-    foreach (COMUNI_TIPOLOGIE as $tipologia) {
-        $result[$tipologia['name']] = $tipologia['prefix'];
-    }
-    return $result;
+    return array_column(COMUNI_TIPOLOGIE, 'prefix', 'name');
 }
 
 
@@ -79,11 +71,7 @@ function dci_get_tipologie_prefixes(){
  * restituisce tuttle capability dei custom types del Sito dei Comuni
  */
 function dci_get_tipologie_capabilities(){
-    $result = array();
-    foreach (COMUNI_TIPOLOGIE as $tipologia) {
-        $result[] = $tipologia['capability'];
-    }
-    return $result;
+    return array_column(COMUNI_TIPOLOGIE, 'capability', 'name');
 }
 
 /**
