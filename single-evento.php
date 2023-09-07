@@ -249,10 +249,6 @@ get_header();
                   </div>
               </div>
               </div>
-              <p class="font-serif">
-                  Per informazioni sul programma dettagliato degli appuntamenti religiosi e civili, consultare il programma
-                  nella sezione documenti.
-              </p>
               <?php
               $data_inizio = date_i18n("Ymd\THi00", date($start_timestamp));
               $data_fine = date_i18n("Ymd\THi00", date($end_timestamp));
@@ -312,7 +308,7 @@ get_header();
 
           <?php if( is_array($appuntamenti) && count($appuntamenti) ) { ?>
           <article id="appuntamenti" class="it-page-section mb-5">
-              <h2 class="mb-3>Appuntamenti</h2>
+              <h2 class="mb-3">Appuntamenti</h2>
               <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
                   <?php foreach ($appuntamenti as $appuntamento) {
                       get_template_part('template-parts/single/appuntamento');

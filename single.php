@@ -48,16 +48,16 @@ get_header();
                             the_content();
                             ?>
 
-                            <div class="callout warning">
-                              <div class="callout-inner">
-                                <div class="callout-title">
-                                  <svg class="icon"><use href="#it-help-circle"></use></svg>
-                                  <span class="visually-hidden">Attenzione</span> 
-                                  <span class="text">Attenzione</span>
+                            <div class="callout note">
+                                <div class="callout-inner">
+                                    <div class="callout-title">
+                                        <svg class="icon"><use href="#it-info-circle"></use></svg>
+                                        <span class="visually-hidden">Attenzione</span> 
+                                        <span class="text">Attenzione</span>
+                                    </div>
+                                    <p><strong>Questo è un sito demo e il template di questa pagina non è ancora disponibile.</strong></p>
+                                    <p>Controlla se è disponibile il <a href="https://www.figma.com/file/FHlE0r9lhfvDR0SgkDRmVi/Comuni---Modello-sito-e-servizi?type=design&node-id=1-1310&mode=design&t=YdmJ4xaUeMkCzJQc-0">layout su Figma</a>, il <a href="https://italia.github.io/design-comuni-pagine-statiche/">template HTML</a> tra le risorse del modello o consulta il <a href="https://designers.italia.it/files/resources/modelli/comuni/adotta-il-modello-di-sito-comunale/definisci-architettura-e-contenuti/Architettura-informazione-sito-Comuni.ods">documento di architettura (OSD 65kb)</a> per costruire il template in autonomia.</p>
                                 </div>
-                                <p><strong>Il template di questa pagina non è ancora disponibile.</strong></p>
-                                <p>Nel frattempo, puoi controllare se è stata rilasciata la <a href="https://italia.github.io/design-comuni-pagine-statiche/">versione statica</p>
-                              </div>
                             </div>
                         </div>
                     </div>
