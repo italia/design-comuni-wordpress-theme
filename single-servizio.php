@@ -54,7 +54,7 @@ get_header();
                 $ufficio = get_post($canale_fisico_uffici[0]);
                 $luogo_id = dci_get_meta('sede_principale', '_dci_unita_organizzativa_', $ufficio->ID);
                 $indirizzo = dci_get_meta('indirizzo', '_dci_luogo_', $luogo_id);
-                $quartiere = dci_get_meta('quartiere', '_dci_luogo_', $luogo_id);
+                $locality = dci_get_meta('locality', '_dci_luogo_', $luogo_id);
                 $cap = dci_get_meta('cap', '_dci_luogo_', $luogo_id);
             }
             function convertToPlain($text) {
@@ -89,8 +89,8 @@ get_header();
                             "address": {
                                 "streetAddress": "<?php echo esc_js($indirizzo); ?>",
                                 "postalCode": "<?php echo esc_js($cap); ?>"
-                                <?php if ( !empty($quartiere) ) : ?>,
-                                "addressLocality": "<?php echo esc_js($quartiere); ?>"
+                                <?php if ( !empty($locality) ) : ?>,
+                                "addressLocality": "<?php echo esc_js($locality); ?>"
                                 <?php endif; ?>
                             }
                         }

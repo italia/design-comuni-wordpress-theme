@@ -280,9 +280,9 @@ function dci_add_luogo_metaboxes() {
     ) );
 
     $cmb_dove->add_field( array(
-        'id'         => $prefix . 'quartiere',
-        'name'       => __( 'Quartiere  ', 'design_comuni_italia' ),
-        'desc'       => __( 'Se il territorio è mappato in quartieri, riportare il Quartiere dove è situato il luogo.', 'design_comuni_italia' ),
+        'id'         => $prefix . 'locality',
+        'name'       => __( 'Località  ', 'design_comuni_italia' ),
+        'desc'       => __( 'Se il territorio è mappato in zone o quartieri, riportare la località dove è situato il luogo.', 'design_comuni_italia' ),
         'type'       => 'text',
         'attributes'    => array(
             'maxlength'  => '255',
