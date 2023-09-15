@@ -79,7 +79,7 @@ function dci_add_documento_privato_metaboxes()
     ) );
     $cmb_protocollo->add_field( array(
         'id' => $prefix . 'numero_protocollo',
-        'name'        => __( 'Numero di protocollo *', 'design_comuni_italia' ),
+        'name'        => __( 'Numero di protocollo', 'design_comuni_italia' ),
         'desc' => __('Numero di protocollo del documento', 'design_comuni_italia'),
         'type' => 'text',
         'attributes' => array(
@@ -89,7 +89,7 @@ function dci_add_documento_privato_metaboxes()
 
     $cmb_protocollo->add_field( array(
         'id' => $prefix . 'data_protocollo',
-        'name'        => __( 'Data protocollo *', 'design_comuni_italia' ),
+        'name'        => __( 'Data protocollo', 'design_comuni_italia' ),
         'desc' => __('Data di protocollo del documento', 'design_comuni_italia'),
         'type' => 'text_date',
         'date_format' => 'd-m-Y',
