@@ -1,14 +1,16 @@
 <?php
 /**
- * The template for displaying archive
+ * Archivio Tassonomia Argomento
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#archive
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#custom-taxonomies
+ * @link https://italia.github.io/design-comuni-pagine-statiche/sito/argomento.html
  *
  * @package Design_Comuni_Italia
  */
-global $obj, $argomento, $with_border, $uo_id, $custom_class;
 
-$argomento = get_term_by('id', $obj->term_id, 'argomenti');
+global $argomento, $with_border, $uo_id, $custom_class;
+
+$argomento = get_queried_object();
 $img = dci_get_term_meta('immagine', "dci_term_", $argomento->term_id);
 $aree_appartenenza = dci_get_term_meta('area_appartenenza', "dci_term_", $argomento->term_id);
 $assessorati_riferimento = dci_get_term_meta('assessorato_riferimento', "dci_term_", $argomento->term_id);
@@ -28,9 +30,9 @@ get_header();
       <?php } ?>
       <div class="container">
         <div class="row">
-          <div class="col-12 px-0 px-lg-2 drop-shadow">
+          <div class="col-12 px-0 px-lg-2">
             <div
-              class="it-hero-card it-hero-bottom-overlapping rounded hero-p pb-lg-80"
+              class="it-hero-card it-hero-bottom-overlapping rounded hero-p pb-lg-80 drop-shadow <?php echo ($img? '' : 'mt-0'); ?>"
             >
   
                 <div class="row justify-content-center">

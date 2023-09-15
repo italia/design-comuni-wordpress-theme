@@ -8,9 +8,6 @@ function load_more_script() {
     wp_enqueue_script( 'dci-load_more', get_template_directory_uri() . '/assets/js/load_more.js', array('jquery'), null, true );
     $variables = array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
-        'wp_query' => json_encode( $wp_query ), 
-        'the_query' => json_encode( $the_query ), 
-        'wp_the_query' => json_encode( $wp_the_query ), 
         'posts' => json_encode( $wp_query->query_vars ), 
 		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
 		'max_page' => $wp_query->max_num_pages,

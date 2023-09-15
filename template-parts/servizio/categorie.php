@@ -25,9 +25,9 @@ $categorie_servizio_names = dci_categorie_servizio_array();
                 <div class="card shadow-sm rounded">
                     <div class="card-body">
                         <a class="text-decoration-none" href="<?php echo $url; ?>" data-element="service-category-link">
-                            <h3 class="card-title t-primary title-xlarge"><?php echo $categoria->name; ?></h3>
+                            <h3 class="card-title t-primary"><?php echo $categoria->name; ?></h3>
                         </a>
-                        <p class="titillium text-paragraph mb-0">
+                        <p class="text-secondary mb-0">
                             <?php echo $categoria->description; ?>
                         </p>
                     </div>

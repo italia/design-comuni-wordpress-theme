@@ -168,7 +168,7 @@ get_header();
                                                 <?php foreach($tipo_documento as $tipo) { 
                                                     $url = get_term_link($tipo->slug, $tipo->taxonomy);
                                                     ?>
-                                                    <a class="text-decoration-none" href="<?= $url ?>" aria-label="Vai all'archivio <?php echo $tipo->name; ?>" title="Vai all'archivio <?php echo $tipo->name; ?>">
+                                                    <a class="text-decoration-none" href="<?php echo $url; ?>" aria-label="Vai all'archivio <?php echo esc_attr($tipo->name); ?>" title="Vai all'archivio <?php echo esc_attr($tipo->name); ?>">
                                                         <?php echo $tipo->name; ?>
                                                     </a>, 
                                                 <?php }  ?>
@@ -176,26 +176,26 @@ get_header();
                                         </tr>
                                         <tr>
                                             <td><b>Numero e data</b></td>
-                                            <td>n. <?= $numero_protocollo ?> del <?= $data_protocollo ?></td>
+                                            <td>n. <?php echo $numero_protocollo; ?> del <?php echo $data_protocollo; ?></td>
                                         </tr>
                                         <tr>
                                             <td><b>Data di pubblicazione</b></td>
-                                            <td><?= the_date() ?></td>
+                                            <td><?php the_date() ?></td>
                                         </tr>
                                         <tr>
                                             <td><b>Oggetto</b></td>
-                                            <td><?= $descrizione_breve ?></td>
+                                            <td><?php echo $descrizione_breve; ?></td>
                                         </tr>
                                         <?php if ($autori) { ?>
                                             <tr>
                                                 <td><b>Autori</b></td>
-                                                <td><?= $autori ?></td>
+                                                <td><?php echo $autori; ?></td>
                                             </tr>
                                         <?php } ?>
                                         <?php if ($formati) { ?>
                                             <tr>
                                                 <td><b>Formati</b></td>
-                                                <td><?= $formati ?></td>
+                                                <td><?php echo $formati; ?></td>
                                             </tr>
                                         <?php } ?>
                                         <?php if ($licenza) { ?>
@@ -332,7 +332,7 @@ get_header();
                     </section>
                 </div>
             </div>
-
+            <?php get_template_part("template-parts/common/valuta-servizio"); ?>
 
         <?php
         endwhile; // End of the loop.

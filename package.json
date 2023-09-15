@@ -1,6 +1,6 @@
 {
   "name": "design-comuni-wordpress-theme",
-  "version": "1.6.2",
+  "version": "1.7.3",
   "description": "Tema Wordpress dei Comuni Italiani",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/italia/design-comuni-wordpress-theme#readme",
   "dependencies": {
-    "bootstrap-italia": "^2.3.5"
+    "bootstrap-italia": "^2.5.1"
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.1",

@@ -36,9 +36,9 @@
                                 </span>
                             </div>
                             <a class="text-decoration-none" href="<?php echo get_permalink(); ?>">
-                            <h3 class="card-title h5"><?php echo the_title(); ?></h3>
+                                <h3 class="card-title h4"><?php echo the_title(); ?></h3>
                             </a>
-                            <p class="card-text"><?php echo $description; ?></p>
+                            <p class="text-secondary mb-0"><?php echo $description; ?></p>
                         </div>
                     </div>
                 </div>

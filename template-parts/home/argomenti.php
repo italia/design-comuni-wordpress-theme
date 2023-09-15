@@ -62,7 +62,7 @@ $altri_argomenti = dci_get_option('argomenti_altri','homepage');
             </div>
         </div>
         <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 text-center">
-            <a href="<?php echo dci_get_template_page_url("page-templates/argomenti.php"); ?>" class="btn btn-primary mt-40">Vedi tutti</a>
+            <a href="<?php echo dci_get_template_page_url("page-templates/argomenti.php"); ?>" class="btn btn-primary mt-40">Mostra tutti</a>
         </div>
     </div>
     <?php } ?>
