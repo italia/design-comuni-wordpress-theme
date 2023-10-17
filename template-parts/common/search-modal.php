@@ -12,7 +12,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content perfect-scrollbar">
       <div class="modal-body">
-        <form role="search" id="search-form" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+        <form role="search" id="search-form-modal" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
           <div class="container">
             <div class="row variable-gutters">
               <div class="col">
@@ -67,10 +67,7 @@
                         value="<?php echo get_search_query(); ?>"
                       />
                     </div>
-                    <button
-                      type="submit"
-                      class="btn btn-primary"
-                    >
+                    <button type="submit" class="btn btn-primary">
                       <span class="">Cerca</span>
                     </button>
                   </div>
