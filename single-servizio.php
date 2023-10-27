@@ -65,38 +65,47 @@ get_header();
                 return trim(strip_tags($text));
             };
             ?>
-            <script type="application/ld+json" data-element="metatag">{
-                    "name": "<?php echo esc_js($post->post_title); ?>",
-                    "serviceType": "<?php echo esc_js($categoria_servizio); ?>",
+            <script type="application/ld+json" data-element="metatag">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "GovernmentService",
+                    "name": <?php echo json_encode($post->post_title); ?>,
+                    "serviceType": <?php echo json_encode($categoria_servizio); ?>,
                     "serviceOperator": {
-                        "name": "<?php echo esc_js($ipa); ?>"
+                        "@type": "GovernmentOrganization",
+                        "name": <?php echo json_encode($ipa); ?>
                     },
                     <?php if ( !empty($copertura_geografica) ) : ?>
                     "areaServed": {
+                        "@type": "AdministrativeArea",
                         "name": "<?php echo convertToPlain($copertura_geografica); ?>"
                     },
                     <?php endif; ?>
                     "audience": {
+                        "@type": "Audience",
                         "audienceType": "<?php echo convertToPlain($destinatari); ?>"
                     },
                     "availableChannel": {
+                        "@type": "ServiceChannel",
+                        "name": "Dove rivolgersi"
                         <?php if ( !empty($canale_digitale_link) ) : ?>
-                        "serviceUrl": "<?php echo esc_js($canale_digitale_link); ?>",
+                        ,"serviceUrl": <?php echo json_encode($canale_digitale_link); ?>
                         <?php endif; ?>
                         <?php if ( !empty($ufficio) ) : ?>
-                        "serviceLocation": {
-                            "name": "<?php echo esc_js($ufficio->post_title); ?>",
+                        ,"serviceLocation": {
+                            "name": <?php echo json_encode($ufficio->post_title); ?>,
                             "address": {
-                                "streetAddress": "<?php echo esc_js($indirizzo); ?>",
-                                "postalCode": "<?php echo esc_js($cap); ?>"
+                                "streetAddress": <?php echo json_encode($indirizzo); ?>,
+                                "postalCode": <?php echo json_encode((string)$cap); ?>
                                 <?php if ( !empty($quartiere) ) : ?>,
-                                "addressLocality": "<?php echo esc_js($quartiere); ?>"
+                                "addressLocality": <?php echo json_encode($quartiere); ?>
                                 <?php endif; ?>
                             }
                         }
                         <?php endif; ?>
                     }
-            }</script>
+                }
+            </script>
             <div class="container" id="main-container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10">
@@ -115,7 +124,7 @@ get_header();
                                     </h1>
                                     <ul class="d-flex flex-wrap gap-1 my-3">
                                         <li>
-                                            <div class="chip chip-simple text-button" data-element="service-status">
+                                            <div class="chip chip-simple <?php echo $stato == 'true'? 'chip-success' : 'chip-danger'; ?>" data-element="service-status">
                                                 <span class="chip-label">
                                                 <?php if ( $stato == 'true' ) {
                                                     echo 'Servizio attivo';
