@@ -209,6 +209,9 @@
 .cmb2-options-box .radio-color.yellow {
     background-color: #FFCC00;
 }
+.cmb2-options-box .radio-color.orange {
+    background-color: #FF8000;
+}
 
 #spinner-overlayer {
     position: fixed;

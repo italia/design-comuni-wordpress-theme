@@ -929,3 +929,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
   color: #333 !important;
   fill: #333 !important;
 }
+.home-message.orange,
+.home-message.orange .msg svg {
+  background-color: #FF8000;
+  color: #333 !important;
+  fill: #333 !important;
+}
