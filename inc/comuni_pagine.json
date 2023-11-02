@@ -4,7 +4,7 @@
       "title": "Amministrazione",
       "slug": "amministrazione",
       "description": "Tutte le informazioni sulla struttura amministrativa del Comune. Scopri gli organi politici, gli uffici e il personale e consulta i documenti pubblici, le statistiche e i bandi di gara.",
-      "template_name": "Amministrazione",
+      "template_name": "amministrazione",
       "children": {
         "Aree amministrative": {
           "title": "Aree amministrative",
@@ -52,7 +52,7 @@
           "title": "Documenti e dati",
           "slug": "documenti-e-dati",
           "description": "Bandi di concorso, avvisi, graduatorie, statistiche e documenti pubblici.",
-          "template_name": "Documenti e dati",
+          "template_name": "documenti-e-dati",
           "children": {}
         }
       }
@@ -61,27 +61,27 @@
       "title": "Novità",
       "slug": "novita",
       "description": "Le notizie, i comunicati e gli avvisi per restare aggiornati sulle ultime novità, opportunità e cosa succede nel territorio comunale.",
-      "template_name": "Novità",
+      "template_name": "novita",
       "children": {}
     },
     "Servizi": {
       "title": "Servizi",
       "slug": "servizi",
       "description": "Tutti i servizi comunali per i cittadini, disponibili online o a sportello, per richiedere documenti e permessi, iscriversi a graduatorie ed effettuare pagamenti.",
-      "template_name": "Servizi",
+      "template_name": "servizi",
       "children": {
         "Assistenza": {
           "title": "Assistenza",
           "slug": "assistenza",
           "description": "I campi contraddistinti dal simbolo asterisco sono obbligatori.",
-          "template_name": "Assistenza",
+          "template_name": "assistenza",
           "children": {}
         },
         "Prenotazioni": {
           "title": "Prenotazioni",
           "slug": "prenotazioni",
           "description": "",
-          "template_name": "Prenota appuntamento",
+          "template_name": "prenota-appuntamento",
           "children": {}
         }
       }
@@ -90,21 +90,21 @@
       "title": "Vivere il Comune",
       "slug": "vivere-il-comune",
       "description": "Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.",
-      "template_name": "Vivere il comune",
+      "template_name": "vivere-il-comune",
       "children": {}
     },
     "Argomenti": {
       "title": "Argomenti",
       "slug": "argomenti",
       "description": "Gli argomenti rispondono a un'esigenza di organizzazione dei contenuti del sito istituzionale per temi e rappresentano le principali categorie di contenuti, informazioni e documenti specifici.",
-      "template_name": "Argomenti",
+      "template_name": "argomenti",
       "children": {}
     },
     "Domande frequenti": {
       "title": "Domande frequenti",
       "slug": "domande-frequenti",
       "description": "Elenco di risposte alle domande più frequenti raccolte dalle richieste di assistenza dei cittadini.",
-      "template_name": "Domande frequenti",
+      "template_name": "domande-frequenti",
       "children": {}
     }
   }
