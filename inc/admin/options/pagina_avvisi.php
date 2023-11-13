@@ -50,6 +50,7 @@ function dci_register_pagina_avvisi_options(){
         'type'    => 'radio_inline',
         'options' => array(
             'red'   => __( '<span class="radio-color red"></span>Rosso', 'design_comuni_italia' ),
+            'orange'   => __( '<span class="radio-color orange"></span>Arancione', 'design_comuni_italia' ),
             'yellow' => __( '<span class="radio-color yellow"></span>Giallo', 'design_comuni_italia' ),
             'green'     => __( '<span class="radio-color green"></span>Verde', 'design_comuni_italia' ),
             'blue'     => __( '<span class="radio-color blue"></span>Blu', 'design_comuni_italia' ),
