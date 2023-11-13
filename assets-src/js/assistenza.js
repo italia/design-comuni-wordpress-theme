@@ -115,7 +115,7 @@
           const title = servizio?.title?.rendered;
           const option = document.createElement("option");
           option.value = title;
-          option.text = title;
+          option.innerHTML = title;
           select_servizio.add(option);
         }
   
