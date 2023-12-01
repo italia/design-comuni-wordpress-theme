@@ -377,7 +377,7 @@ class Breadcrumb_Trail {
 					$this->items[] = get_the_title();
 					return;
 				}
-
+if (get_post_type() == 'notizia') { $this->items[] =  "<a href='".home_url("notizia")."'>".__("Notizie", "design_comuni_italia")."</a>"; $terms = get_the_terms(get_the_ID(),'tipi_notizia'); if($terms){ foreach ($terms as $term) { $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, 'tipi_notizia' ) ), $term->name ); } } $this->items[] = get_the_title(); return; }
 			    $group_name = dci_get_group_name(get_post_type());
 			    //console_log($group_name);
 			    switch ($group_name) {
