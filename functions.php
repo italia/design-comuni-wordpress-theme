@@ -259,3 +259,27 @@ function console_log ($output, $msg = "log") {
 function get_parent_template () {
 	return basename( get_page_template_slug( wp_get_post_parent_id() ) );
 }
+
+
+ // Restituisce il formato e le dimensioni di un allegato
+function getFileSizeAndFormat($url) {
+    $percorso = parse_url($url);
+    $percorso = isset($percorso["path"]) ? substr($percorso["path"], 0, -strlen(pathinfo($url, PATHINFO_BASENAME))) : '';
+    $response = wp_remote_head($url);
+
+    if (is_wp_error($response)) {
+        return 'Errore nel recupero delle informazioni del file';
+    }
+
+    $headers = wp_remote_retrieve_headers($response);
+    $content_length = isset($headers['content-length']) ? intval($headers['content-length']) : 0;
+
+    $base = log($content_length, 1024);
+    $suffixes = array('', 'Kb', 'Mb', 'Gb', 'Tb');
+    $size_formatted = round(pow(1024, $base - floor($base)), 2) . ' ' . $suffixes[floor($base)];
+
+    $info_file = pathinfo($url);
+    $file_format = strtoupper(isset($info_file['extension']) ? $info_file['extension'] : '');
+
+    return $file_format . ' ' . $size_formatted;
+}

@@ -242,17 +242,18 @@ function dci_add_documento_pubblico_metaboxes()
         )
     ));
 
-    $cmb_descrizione->add_field(array(
+
+	$cmb_descrizione->add_field( array(
         'id' => $prefix . 'autori',
-        'name' => __('Autore/i', 'design_comuni_italia'),
-        'desc' => __('Persone che hanno redatto il documento', 'design_comuni_italia'),
-        'type' => 'wysiwyg',
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 10, // rows="..."
-            'teeny' => false, // output the minimal editor config used in Press This
-        ),
-    ));
+        'name'    => __( 'Autore/i', 'design_comuni_italia' ),
+        'desc' => __( 'Persone che hanno redatto il documento.' , 'design_comuni_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dci_get_posts_options('persona_pubblica'),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona le Persone Pubbliche', 'design_comuni_italia' ),
+        )
+    ) );
+	
 
     $cmb_descrizione->add_field(array(
         'id' => $prefix . 'formati',
@@ -311,21 +312,30 @@ function dci_add_documento_pubblico_metaboxes()
         'priority' => 'high',
     ));
 
+
     $cmb_tempi->add_field(array(
         'name' => __('Data inizio', 'design_comuni_italia'),
         'id' => $prefix . 'data_inizio',
         'desc' => __('Data e fase iniziale. Es data di apertura della parteciopazione a un bando".', 'design_comuni_italia'),
-        'type' => 'text_date_timestamp',
+        'type' => 'text_date',
         'date_format' => 'd-m-Y',
+        'data-datepicker' => json_encode( array(
+            'yearRange' => '-100:+0'
+        ) )
     ));
+
 
     $cmb_tempi->add_field(array(
         'name' => __('Data fine', 'design_comuni_italia'),
         'id' => $prefix . 'data_fine',
         'desc' => __('Prevedere una data di scadenza del contenuto del documento. Es. data comunicazione vincitori del bando".', 'design_comuni_italia'),
-        'type' => 'text_date_timestamp',
+        'type' => 'text_date',
         'date_format' => 'd-m-Y',
+        'data-datepicker' => json_encode( array(
+            'yearRange' => '-100:+0'
+        ) )
     ));
+
 
     //dataset
     $cmb_dataset = new_cmb2_box(array(
