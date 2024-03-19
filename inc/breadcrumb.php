@@ -352,6 +352,12 @@ class Breadcrumb_Trail {
                 }
             }
 
+		$custom_breadcrumbs = apply_filters( 'dci_get_breadcrumb_items', $this->items );
+		if ( !empty( $custom_breadcrumbs ) ) {
+			$this->items = $custom_breadcrumbs;
+			return;
+		}
+
             if ( is_singular() ) {
 
 				if (get_post_type() == 'servizio') {
