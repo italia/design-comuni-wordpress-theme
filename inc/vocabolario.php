@@ -689,7 +689,7 @@ if(!function_exists('dci_get_categorie_servizio_descriptions_array')){
             'Giustizia e sicurezza pubblica' => 'Polizia municipale, tribunale e Protezione civile.',
             'Tributi, finanze e contravvenzioni' => 'Tasse e tributi su immobili, rifiuti, affissioni e pubblicità',
             'Ambiente' => 'Aree verdi e parchi, inquinamento, igiene urbana e rifiuti.',
-            'Salute, benessere e assistenza' => 'Servizi santirari e di sostegno per minori, famiglie, anziani e persone con disabilità.',
+            'Salute, benessere e assistenza' => 'Servizi sanitari e di sostegno per minori, famiglie, anziani e persone con disabilità.',
             'Autorizzazioni' => 'Autorizzazioni, permessi, licenze, concessioni di suolo, passi carrabili e prestito di beni del Comune.',
             'Agricoltura e pesca' => 'Autorizzazioni e politiche alimentari per agricoltura e pesca.',
             'Imprese e commercio' => 'Avvio di un’attività, commercio, autorizzazioni e concessioni per attività produttive, mercati, incentivi e supporto alle imprese.'
