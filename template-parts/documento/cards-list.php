@@ -1,7 +1,16 @@
 <?php 
-    global $posts;
+    global $post;
 
         $description = dci_get_meta('descrizione_breve');
+        if ($post->post_type == 'documento_pubblico') {
+	        $ufficio_id = dci_get_meta('ufficio_responsabile', '_dci_documento_pubblico_', $post->ID)[0] ?? '';
+	        $ufficio = get_post($ufficio_id);
+
+	        $url_documento = dci_get_meta('url_documento', '_dci_documento_pubblico_', $post->ID) ?? '';
+            $file_documento = dci_get_meta('file_documento', '_dci_documento_pubblico_', $post->ID);
+            $link_documento = ($url_documento!='') ? $url_documento : $file_documento;
+            //var_dump($link_documento);
+        }
         if ($post->post_type == 'dataset') {
             $tipo = '';
             $arrdata = explode( '-', date('d-m-Y', dci_get_meta("data_modifica")));
