@@ -149,7 +149,7 @@ function dci_add_persone_metaboxes() {
     $cmb_user->add_field( array(
 		'name'    => __( 'Foto della Persona', 'design_comuni_italia' ),
 		'desc'    => __( 'Inserire una fotografia che ritrae il soggetto descritto nella scheda', 'design_comuni_italia' ),
-		'id'      => $prefix . 'foto',
+		'id'      => $prefix . 'immagine',
 		'type'    => 'file',
 	) );
 
