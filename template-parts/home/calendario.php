@@ -78,7 +78,7 @@ foreach ($date as $data) {
 					<div class="it-carousel-wrapper it-carousel-landscape-abstract-four-cols it-calendar-wrapper">
 						<div class="it-header-block">
 							<div class="it-header-block-title">
-								<h4 class="mb-0 text-center home-carousel-title"><?php echo $full_date; ?></h4>
+								<h3 class="mb-0 text-center home-carousel-title"><?php echo $full_date; ?></h3>
 							</div>
 						</div>
 					</div>
