@@ -31,7 +31,7 @@ function dci_register_pagina_luoghi_options(){
     $luoghi_options->add_field( array(
         'id' => $prefix . 'immagine',
         'name'        => __( 'Immagine', 'design_comuni_italia' ),
-        'desc' => __( 'Immagine/ banner (in alto nella pagina)' , 'design_comuni_italia' ),
+        'desc' => __( 'Immagine di copertina della pagina (opzionale)' , 'design_comuni_italia' ),
         'type' => 'file',
         'query_args' => array( 'type' => 'image' ),
     ) );
