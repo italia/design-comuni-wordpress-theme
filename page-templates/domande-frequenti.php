@@ -113,6 +113,7 @@ get_header();
         </form>
 
         <?php wp_reset_query(); ?>
+        <?php get_template_part("template-parts/common/valuta-servizio"); ?>
         <?php get_template_part("template-parts/common/assistenza-contatti"); ?>
       </main>
 <?php
