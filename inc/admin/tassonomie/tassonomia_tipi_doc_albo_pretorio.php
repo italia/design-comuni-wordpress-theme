@@ -25,7 +25,7 @@ function dci_register_taxonomy_tipi_doc_albo_pretorio() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'has_archive'           => false,    //archive page
+        'has_archive'           => true,    //archive page
         //'rewrite'           => array( 'slug' => 'tipo-doc-albo-pretorio' ),
         'capabilities'      => array(
             'manage_terms'  => 'manage_tipi_doc_albo_pretorio',
