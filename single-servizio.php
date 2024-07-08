@@ -405,7 +405,7 @@ get_header();
 
                             <section class="it-page-section">
                                 <h2 class="mb-3" id="contacts">Contatti</h2>
-                                <div class="row">
+                                <div class="row" data-element="service-area">
                                     <div class="col-12 col-md-8 col-lg-6 mb-30">
                                         <div class="card-wrapper rounded h-auto mt-10">
                                             <?php
