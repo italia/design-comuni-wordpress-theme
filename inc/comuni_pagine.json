@@ -105,15 +105,14 @@
       "slug": "domande-frequenti",
       "description": "Elenco di risposte alle domande più frequenti raccolte dalle richieste di assistenza dei cittadini.",
       "template_name": "domande-frequenti",
-      "children": {
-		  "Tutti i luoghi": {
-          "title": "I luoghi",
-          "slug": "luoghi",
-          "description": "Tutti i luoghi d’interesse per scoprire il territorio comunale.",
-          "template_name": "luoghi",
-          "children": {}
-		  
-	  }
+      "children": {}
+    },
+    "Tutti i luoghi": {
+      "title": "I luoghi",
+      "slug": "luoghi",
+      "description": "Tutti i luoghi d’interesse per scoprire il territorio comunale.",
+      "template_name": "luoghi",
+      "children": {}
     }
   }
 }
