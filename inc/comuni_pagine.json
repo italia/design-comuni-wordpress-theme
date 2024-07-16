@@ -91,7 +91,15 @@
       "slug": "vivere-il-comune",
       "description": "Tutti gli eventi, le iniziative e i luoghi d’interesse per scoprire e vivere il territorio comunale.",
       "template_name": "vivere-il-comune",
-      "children": {}
+      "children": {
+        "Tutti i luoghi": {
+          "title": "Luoghi",
+          "slug": "luoghi",
+          "description": "Tutti i luoghi d’interesse per scoprire il territorio comunale.",
+          "template_name": "luoghi",
+          "children": {}
+        }
+      }
     },
     "Argomenti": {
       "title": "Argomenti",
@@ -105,15 +113,7 @@
       "slug": "domande-frequenti",
       "description": "Elenco di risposte alle domande più frequenti raccolte dalle richieste di assistenza dei cittadini.",
       "template_name": "domande-frequenti",
-      "children": {
-		  "Tutti i luoghi": {
-          "title": "I luoghi",
-          "slug": "luoghi",
-          "description": "Tutti i luoghi d’interesse per scoprire il territorio comunale.",
-          "template_name": "luoghi",
-          "children": {}
-		  
-	  }
+      "children": {}
     }
   }
 }
