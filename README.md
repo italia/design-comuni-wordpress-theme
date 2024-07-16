@@ -14,24 +14,21 @@
 
 Per scaricare il progetto esegui il seguente comando git:
 
-- git clone https://github.com/italia/design-comuni-wordpress-theme.git
+`git clone https://github.com/italia/design-comuni-wordpress-theme.git`
 
 Se già usi una vecchia versione del tema e vuoi aggiornarla, esegui il comando:
-
-- git pull.
+`git pull`
 
 ### Come inserire il tema all'interno di un'installazione WordPress
 
 Una volta scaricato il repository, inserisci la cartella all'interno del progetto WordPress al seguente percorso:
-
-- `wp-content > themes `.
+`wp-content > themes `.
 
 > È raccomandata l'installazione del tema come _"child"_ in modo tale da poterlo aggiornare facilmente senza compromettere le personalizzazioni locali. [Vedi la guida ufficiale](https://developer.wordpress.org/themes/advanced-topics/child-themes/#1-create-a-child-theme-folder) su come installare un tema _"child"_.
 
 
 Se il tema viene scaricato come file `.zip` puoi estrarre l'archivio e inserirlo allo stesso percorso oppure caricare direttamente il file `.zip` da backoffice al seguente percorso:
-
-- `Aspetto > Temi > Aggiungi nuovo > Carica tema` (o apri la seguente url: {{host}}/wp-admin/theme-install.php).
+`Aspetto > Temi > Aggiungi nuovo > Carica tema` (o apri la seguente url: {{host}}/wp-admin/theme-install.php).
 
 ### Aggiornamento libreria Bootstrap Italia
 
@@ -45,7 +42,7 @@ Se si desidera aggiornare la libreria Bootstrap Italia è possibile lanciare il 
 
 Una volta inserita la cartella o caricato file `.zip`come descritto al punto precedente, apri il backoffice e naviga al seguente percorso:
 
-- `Aspetto > Temi ` (o apri la seguente url: {{host}}/wp-admin/themes.php).
+`Aspetto > Temi ` (o apri la seguente url: {{host}}/wp-admin/themes.php).
 
 Abilita poi il tema **Design Comuni Italia** cliccando sul bottone `Attiva`.
 
