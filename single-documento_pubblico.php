@@ -362,9 +362,8 @@ get_header();
                             <section id="documenti_collegati" class="it-page-section mb-5">
                                 <h4>Documenti collegati</h4>
                                 <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
-                                    <?php foreach ($documenti_collegati as $all_url) {
-                                        $all_id = attachment_url_to_postid($all_url);
-                                        $documento = get_post($all_id);
+                                    <?php foreach ($documenti_collegati as $documento_id) {
+                                        $documento = get_post($documento_id);
                                         $with_border = true;
                                         get_template_part("template-parts/documento/card");
                                     } ?>
