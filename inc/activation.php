@@ -485,7 +485,7 @@ function dci_create_page_template($name, $slug, $template, $parent_id = '', $con
         'post_content' => $new_page_content,
         'post_status'  => 'publish',
         'post_author'  => 1,
-        'post_slug' => $slug,
+        'post_name' => $slug,
         'post_parent' => $parent_id
     );
 
