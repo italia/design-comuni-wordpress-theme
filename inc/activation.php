@@ -476,7 +476,7 @@ function dci_create_page_template($name, $slug, $template, $parent_id = '', $con
 
     $new_page_title    = $name;
     $new_page_content  = $content;
-    $new_page_template = 'page-templates/'.$template.'.php';
+    $new_page_template = $template ? 'page-templates/'.$template.'.php' : '';
     $page_check        = get_page_by_title( $new_page_title);
 
     $new_page = array(
