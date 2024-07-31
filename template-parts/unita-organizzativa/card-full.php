@@ -95,7 +95,7 @@
                         <?php echo $ufficio->post_title; ?>
                     </a>
                 </h5>
-                <div class="card-text">
+                <div class="card-text" data-element="service-area">
                     <?php foreach ($contatti as $full_contatto) { ?>
                         <div class="card-text mb-3">
                             <?php if ( isset($full_contatto['indirizzo']) && is_array($full_contatto['indirizzo']) && count ($full_contatto['indirizzo']) ) {
