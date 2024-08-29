@@ -50,7 +50,6 @@ function dci_add_page_metaboxes() {
             return;
         }
 
-        $curr_page_id = $_GET['post'];
         $slug = get_post_field( 'post_name', $curr_page_id );
 
         // Get the name of the Page Template file.
