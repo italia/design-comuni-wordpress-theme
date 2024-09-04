@@ -354,7 +354,7 @@ if(!function_exists("dci_get_current_group")) {
             if (!empty($postTypeArray) && count($postTypeArray) === 1) {
                 $tipo_post = reset($postTypeArray);
             }
-            return  dci_get_group($tipo_post);
+            return !empty($tipo_post) ? dci_get_group($tipo_post) : null;
         }
 
         if (is_author()) {

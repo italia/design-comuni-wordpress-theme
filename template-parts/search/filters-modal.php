@@ -42,6 +42,11 @@ aria-labelledby="modalrightTitle"
                             <?php 
                                 foreach ($tipologie as $type_slug) {
                                     $tipologia = get_term_by('slug', $type_slug);
+
+                                    $plural_name = COMUNI_TIPOLOGIE[$type_slug]['plural_name'] ?? '';
+                                    if ( !$plural_name && post_type_exists( $type_slug ) ) {
+                                        $plural_name = get_post_type_object( $type_slug )->labels->name;
+                                    }
                             ?>
                             <li>
                                 <div class="form-check">
@@ -57,7 +62,7 @@ aria-labelledby="modalrightTitle"
                                     <label
                                         for="mobile-<?php echo $type_slug; ?>" 
                                         class="subtitle-small_semi-bold mb-0 category-list__list"
-                                        ><?php echo COMUNI_TIPOLOGIE[$type_slug]['plural_name']; ?>
+                                        ><?php echo $plural_name; ?>
                                         </label
                                     >
                                     </div>
