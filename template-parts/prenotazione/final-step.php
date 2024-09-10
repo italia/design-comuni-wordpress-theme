@@ -5,7 +5,7 @@
             <section class="it-hero-wrapper bg-white align-items-start">
             <div class="it-hero-text-wrapper pt-0 ps-0 pb-40">
                 <div class="categoryicon-top d-flex">
-                <svg class="icon icon-success mr-10 icon-sm mb-1" aria-hidden="true">
+                <svg class="icon icon-success mr-10 icon-md" aria-hidden="true">
                     <use
                     href="#it-check-circle"
                     ></use>
