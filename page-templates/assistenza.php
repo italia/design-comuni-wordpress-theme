@@ -50,7 +50,7 @@ get_header();
                     </div>
                     <p class="subtitle-small pb-40 mb-0">
                         Hai un’identità digitale SPID o CIE?
-                        <a class="title-small-semi-bold t-primary text-decoration-none" href="#">Accedi</a>
+                        <a href="#">Accedi</a>
                     </p>
                 </div>
             </div>
