@@ -50,7 +50,7 @@ get_header();
                     </div>
                     <p class="subtitle-small pb-40 mb-0">
                         Hai un’identità digitale SPID o CIE?
-                        <a class="title-small-semi-bold t-primary text-decoration-none" href="#">Accedi</a>
+                        <a href="#">Accedi</a>
                     </p>
                 </div>
             </div>
@@ -87,12 +87,12 @@ get_header();
                                                         <ul class="link-list" data-element="page-index">
                                                             <li class="nav-item">
                                                                 <a class="nav-link" href="#applicant">
-                                                                    <span class="title-medium">Richiedente</span>
+                                                                    <span>Richiedente</span>
                                                                 </a>
                                                             </li>
                                                             <li class="nav-item">
                                                                 <a class="nav-link" href="#request">
-                                                                    <span class="title-medium">Richiesta</span>
+                                                                    <span>Richiesta</span>
                                                                 </a>
                                                             </li>
                                                         </ul>

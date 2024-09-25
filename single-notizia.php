@@ -96,33 +96,33 @@ get_header();
                                                             <ul class="link-list" data-element="page-index">
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#descrizione">
-                                                                    <span class="title-medium">Descrizione</span>
+                                                                    <span>Descrizione</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php if( is_array($documenti) && count($documenti) ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#documenti">
-                                                                    <span class="title-medium">Documenti</span>
+                                                                    <span>Documenti</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if( is_array($allegati) && count($allegati) ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#allegati">
-                                                                    <span class="title-medium">Allegati</span>
+                                                                    <span>Allegati</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if( is_array($datasets) && count($datasets) ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#dataset">
-                                                                    <span class="title-medium">Dataset</span>
+                                                                    <span>Dataset</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#a-cura-di">
-                                                                    <span class="title-medium">A cura di</span>
+                                                                    <span>A cura di</span>
                                                                     </a>
                                                                 </li>
                                                             </ul>

@@ -24,7 +24,7 @@
                                         <ul class="link-list" data-element="page-index">
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#office">
-                                                <span class="title-medium">Ufficio</span>
+                                                <span>Ufficio</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -64,12 +64,12 @@
                                         <ul class="link-list" data-element="page-index">
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#appointment-available">
-                                                <span class="title-medium">Appuntamenti disponibili</span>
+                                                <span>Appuntamenti disponibili</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#office-2">
-                                                <span class="title-medium">Ufficio</span>
+                                                <span>Ufficio</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -108,12 +108,12 @@
                                         <ul class="link-list" data-element="page-index">
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#reason">
-                                                <span class="title-medium">Motivo</span>
+                                                <span>Motivo</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#details">
-                                                <span class="title-medium">Dettagli</span>
+                                                <span>Dettagli</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -152,7 +152,7 @@
                                         <ul class="link-list" data-element="page-index">
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#applicant">
-                                                <span class="title-medium">Richiedente</span>
+                                                <span>Richiedente</span>
                                                 </a>
                                             </li>
                                         </ul>

@@ -182,75 +182,75 @@ get_header();
                                                                 <?php if ($destinatari ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#who-needs">
-                                                                        <span class="title-medium">A chi è rivolto</span>
+                                                                        <span>A chi è rivolto</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if ( $descrizione ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#description">
-                                                                        <span class="title-medium">Descrizione</span>
+                                                                        <span>Descrizione</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if ( $come_fare ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#how-to">
-                                                                        <span class="title-medium">Come fare</span>
+                                                                        <span>Come fare</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if ( is_array($cosa_serve_list) ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#needed">
-                                                                        <span class="title-medium">Cosa serve</span>
+                                                                        <span>Cosa serve</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if ( $output ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#obtain">
-                                                                        <span class="title-medium">Cosa si ottiene</span>
+                                                                        <span>Cosa si ottiene</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if ( !empty($fasi_scadenze_intro) || (is_array($fasi_scadenze) && count($fasi_scadenze)) || (is_array($fasi_group_simple_scadenze) && count($fasi_group_simple_scadenze)) ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#deadlines">
-                                                                        <span class="title-medium">Tempi e scadenze</span>
+                                                                        <span>Tempi e scadenze</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if ( $costi ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#costs">
-                                                                        <span class="title-medium">Quanto costa</span>
+                                                                        <span>Quanto costa</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#submit-request">
-                                                                        <span class="title-medium">Accedi al servizio</span>
+                                                                        <span>Accedi al servizio</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php if ( $more_info ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#more-info">
-                                                                        <span class="title-medium">Ulteriori informazioni</span>
+                                                                        <span>Ulteriori informazioni</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if ( $condizioni_servizio ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#conditions">
-                                                                        <span class="title-medium">Condizioni di servizio</span>
+                                                                        <span>Condizioni di servizio</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
                                                                 <?php if ( $uo_id ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#contacts">
-                                                                        <span class="title-medium">Contatti</span>
+                                                                        <span>Contatti</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>

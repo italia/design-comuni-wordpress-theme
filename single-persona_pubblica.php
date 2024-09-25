@@ -88,90 +88,90 @@ get_header();
 																<ul class="link-list" data-element="page-index">
 																	<li class="nav-item">
 																		<a class="nav-link" href="#incarico">
-																		<span class="title-medium">Incarico</span>
+																		<span>Incarico</span>
 																		</a>
 																	</li>
 																	<?php if( $organizzazioni){ ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#organizzazioni">
-																		<span class="title-medium">Organizzazioni</span>
+																		<span>Organizzazioni</span>
 																		</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $competenze ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#competenze">
-																		<span class="title-medium">Competenze</span>
+																		<span>Competenze</span>
 																		</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $deleghe ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#deleghe">
-																		<span class="title-medium">Deleghe</span>
+																		<span>Deleghe</span>
 																		</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $biografia ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#biografia">
-																		<span class="title-medium">Biografia</span>
+																		<span>Biografia</span>
 																		</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $punti_contatto ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#contatti">
-																		<span class="title-medium">Contatti</span>
+																		<span>Contatti</span>
 																	</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $curriculum_vitaerimuovere == 2 /*modificare per mostrare CV*/ ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#curriculum-vitae">
-																		<span class="title-medium">Curriculum vitae</span>
+																		<span>Curriculum vitae</span>
 																	</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $situazione_patrimoniale ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#situazione-patrimoniale">
-																		<span class="title-medium">Situazione patrimoniale</span>
+																		<span>Situazione patrimoniale</span>
 																	</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $dichiarazione_redditi ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#dichiarazione-redditi">
-																		<span class="title-medium">Dichiarazione dei redditi</span>
+																		<span>Dichiarazione dei redditi</span>
 																	</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $spese_elettorali ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#spese-elettorali">
-																		<span class="title-medium">Spese elettorali</span>
+																		<span>Spese elettorali</span>
 																	</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $variazione_situazione_patrimoniale ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#variazione-situazione-patrimoniale">
-																		<span class="title-medium">Variazione situazione patrimoniale</span>
+																		<span>Variazione situazione patrimoniale</span>
 																	</a>
 																	</li>
 																	<?php } ?>
 																	<?php if( $altre_cariche ) { ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#altre-cariche">
-																		<span class="title-medium">Altre cariche</span>
+																		<span>Altre cariche</span>
 																	</a>
 																	</li>
 																	<?php } ?>
 																	<?php if ( $more_info ) {  ?>
 																	<li class="nav-item">
 																		<a class="nav-link" href="#ulteriori-informazioni">
-																		<span class="title-medium">Ulteriori informazioni</span>
+																		<span>Ulteriori informazioni</span>
 																		</a>
 																	</li>
 																	<?php } ?>

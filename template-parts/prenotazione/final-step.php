@@ -5,7 +5,7 @@
             <section class="it-hero-wrapper bg-white align-items-start">
             <div class="it-hero-text-wrapper pt-0 ps-0 pb-40">
                 <div class="categoryicon-top d-flex">
-                <svg class="icon icon-success mr-10 icon-sm mb-1" aria-hidden="true">
+                <svg class="icon icon-success mr-10 icon-md" aria-hidden="true">
                     <use
                     href="#it-check-circle"
                     ></use>
@@ -54,17 +54,17 @@
                                                 <ul class="link-list" data-element="page-index">
                                                     <li class="nav-item">
                                                         <a class="nav-link" href="#needed">
-                                                            <span class="title-medium">Cosa serve</span>
+                                                            <span>Cosa serve</span>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link" href="#address">
-                                                            <span class="title-medium">Indirizzo</span>
+                                                            <span>Indirizzo</span>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link" href="#calendar">
-                                                            <span class="title-medium">Aggiungi al tuo calendario</span>
+                                                            <span>Aggiungi al tuo calendario</span>
                                                         </a>
                                                     </li>
                                                 </ul>

@@ -98,7 +98,7 @@ get_header();
                                                                 <?php if( $descrizione) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#descrizione">
-                                                                        <span class="title-medium">Descrizione</span>
+                                                                        <span>Descrizione</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
@@ -106,41 +106,41 @@ get_header();
                                                                 <?php if( $url_documento || $file_documento ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#documento">
-                                                                        <span class="title-medium">Documento</span>
+                                                                        <span>Documento</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
 
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#ufficio_responsabile">
-                                                                        <span class="title-medium">Ufficio responsabile</span>
+                                                                        <span>Ufficio responsabile</span>
                                                                     </a>
                                                                 </li>
 
                                                                 <?php if( $autori) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#autore">
-                                                                        <span class="title-medium">Autore/i</span>
+                                                                        <span>Autore/i</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
 
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#formati_disponibili">
-                                                                        <span class="title-medium">Formati disponibili</span>
+                                                                        <span>Formati disponibili</span>
                                                                     </a>
                                                                 </li>
 
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#licenza_distribuzione">
-                                                                        <span class="title-medium">Licenza di distribuzione</span>
+                                                                        <span>Licenza di distribuzione</span>
                                                                     </a>
                                                                 </li>																
 
                                                                 <?php if( $servizi && count($servizi) ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#servizi">
-                                                                        <span class="title-medium">Servizi collegati</span>
+                                                                        <span>Servizi collegati</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
@@ -148,7 +148,7 @@ get_header();
                                                                 <?php if( $data_inizio) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#data_inizio">
-                                                                        <span class="title-medium">Data inizio</span>
+                                                                        <span>Data inizio</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
@@ -156,7 +156,7 @@ get_header();
                                                                 <?php if( $data_fine) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#data_fine">
-                                                                        <span class="title-medium">Data fine</span>
+                                                                        <span>Data fine</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
@@ -164,7 +164,7 @@ get_header();
                                                                 <?php if( $dataset && count($dataset) ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#dataset">
-                                                                        <span class="title-medium">Dataset</span>
+                                                                        <span>Dataset</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
@@ -172,7 +172,7 @@ get_header();
                                                                 <?php if( $more_info) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#ulteriori_informazioni">
-                                                                        <span class="title-medium">Ulteriori informazioni</span>
+                                                                        <span>Ulteriori informazioni</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
@@ -180,7 +180,7 @@ get_header();
                                                                 <?php if( $riferimenti_normativi) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#riferimenti_normativi">
-                                                                        <span class="title-medium">Riferimenti normativi</span>
+                                                                        <span>Riferimenti normativi</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
@@ -188,7 +188,7 @@ get_header();
                                                                 <?php if( is_array($documenti_collegati) && count($documenti_collegati) ) { ?>
                                                                 <li class="nav-item">
                                                                     <a class="nav-link" href="#documenti_collegati">
-                                                                        <span class="title-medium">Documenti collegati</span>
+                                                                        <span>Documenti collegati</span>
                                                                     </a>
                                                                 </li>
                                                                 <?php } ?>
