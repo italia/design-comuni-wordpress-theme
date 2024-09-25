@@ -105,55 +105,55 @@ get_header();
                                                 <ul class="link-list" data-element="page-index">
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#cos-e">
-                                                    <span class="title-medium">Cos'è</span>
+                                                    <span>Cos'è</span>
                                                     </a>
                                                     </li>
                                                 <?php if( $destinatari) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#destinatari">
-                                                    <span class="title-medium">A chi è rivolto</span>
+                                                    <span>A chi è rivolto</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>  
                                                 <?php if( $luogo_evento) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#luogo">
-                                                    <span class="title-medium">Luogo</span>
+                                                    <span>Luogo</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>
                                                 <?php if ($start_timestamp && $end_timestamp) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#date-e-orari">
-                                                    <span class="title-medium">Date e orari</span>
+                                                    <span>Date e orari</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>
                                                 <?php if( is_array($costi) && count($costi) ) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#costi">
-                                                    <span class="title-medium">Costi</span>
+                                                    <span>Costi</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>
                                                 <?php if( $allegati ) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#allegati">
-                                                    <span class="title-medium">Allegati</span>
+                                                    <span>Allegati</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>
                                                 <?php if( is_array($punti_contatto) && count($punti_contatto) ) { ?>
                                                 <li class="nav-item">
                                                 <a class="nav-link" href="#contatti">
-                                                <span class="title-medium">Contatti</span>
+                                                <span>Contatti</span>
                                                 </a>
                                                 </li>
                                                 <?php } ?>
                                                 <?php if( is_array($appuntamenti) && count($appuntamenti) ) { ?>
                                                 <li class="nav-item">
                                                 <a class="nav-link" href="#appuntamenti">
-                                                <span class="title-medium">Appuntamenti</span>
+                                                <span>Appuntamenti</span>
                                                 </a>
                                                 </li>
                                                 <?php } ?>
@@ -161,7 +161,7 @@ get_header();
                                                     (is_array($sponsor) && count($sponsor)) ) {  ?>
                                                 <li class="nav-item">
                                                 <a class="nav-link" href="#ulteriori-informazioni">
-                                                <span class="title-medium">Ulteriori informazioni</span>
+                                                <span>Ulteriori informazioni</span>
                                                 </a>
                                                 </li>
                                                 <?php } ?>

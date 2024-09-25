@@ -91,55 +91,55 @@ get_header();
                                                 <ul class="link-list" data-element="page-index">
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#descrizione-estesa">
-                                                    <span class="title-medium">Descrizione</span>
+                                                    <span>Descrizione</span>
                                                     </a>
                                                     </li>
                                                 <?php if( $luoghi_collegati) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#luoghi-collegati">
-                                                    <span class="title-medium">Luoghi collegati</span>
+                                                    <span>Luoghi collegati</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>  
                                                 <?php if( $servizi) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#servizi">
-                                                    <span class="title-medium">Servizi</span>
+                                                    <span>Servizi</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>
                                                 <?php if ($modalita_accesso) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#modalita-accesso">
-                                                    <span class="title-medium">Modalità di accesso</span>
+                                                    <span>Modalità di accesso</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>
                                                 <?php if($indirizzo) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#indirizzo">
-                                                    <span class="title-medium">Indirizzo</span>
+                                                    <span>Indirizzo</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>
                                                 <?php if( $orario_pubblico ) { ?>
                                                     <li class="nav-item">
                                                     <a class="nav-link" href="#orario-pubblico">
-                                                    <span class="title-medium">Orari per il pubblico</span>
+                                                    <span>Orari per il pubblico</span>
                                                     </a>
                                                     </li>
                                                 <?php } ?>
                                                 <?php if( is_array($punti_contatto) && count($punti_contatto) ) { ?>
                                                 <li class="nav-item">
                                                 <a class="nav-link" href="#contatti">
-                                                <span class="title-medium">Contatti</span>
+                                                <span>Contatti</span>
                                                 </a>
                                                 </li>
                                                 <?php } ?>
                                                 <?php if( is_array($struttura_responsabile) && count($struttura_responsabile) ) { ?>
                                                 <li class="nav-item">
                                                 <a class="nav-link" href="#struttura-responsabile">
-                                                <span class="title-medium">Struttura responsabile</span>
+                                                <span>Struttura responsabile</span>
                                                 </a>
                                                 </li>
                                                 <?php } ?>

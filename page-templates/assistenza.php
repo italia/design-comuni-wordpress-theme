@@ -87,12 +87,12 @@ get_header();
                                                         <ul class="link-list" data-element="page-index">
                                                             <li class="nav-item">
                                                                 <a class="nav-link" href="#applicant">
-                                                                    <span class="title-medium">Richiedente</span>
+                                                                    <span>Richiedente</span>
                                                                 </a>
                                                             </li>
                                                             <li class="nav-item">
                                                                 <a class="nav-link" href="#request">
-                                                                    <span class="title-medium">Richiesta</span>
+                                                                    <span>Richiesta</span>
                                                                 </a>
                                                             </li>
                                                         </ul>
