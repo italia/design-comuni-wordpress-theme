@@ -23,12 +23,12 @@ jobs:
         run: | 
           git clone https://github.com/italia/design-comuni-pagine-statiche
           cd design-comuni-pagine-statiche && npm i && npm run build && cd ..
-          cp ./design-comuni-pagine-statiche/dist/assets/css/bootstrap-italia-comuni.css ./assets/css/comuni.css
+          cp ./design-comuni-pagine-statiche/dist/assets/css/bootstrap-italia-comuni.css ./assets/css/bootstrap-italia-comuni.min.css
           cp ./design-comuni-pagine-statiche/dist/assets/script/scripts.js ./assets/js/comuni.js
           rm -rf design-comuni-pagine-statiche
           npm i
           npm run build
-          git add assets/css/comuni.css assets/js/comuni.js
+          git add assets/css/bootstrap-italia-comuni.css assets/js/comuni.js
           git commit -m "chore(deps): update assets"
           git checkout .
       - name: Create Pull Request
