@@ -158,14 +158,8 @@ function dci_scripts() {
 
     //wp_deregister_script('jquery');
 
-	//load Bootstrap Italia latest css if exists in node_modules
-    if (file_exists(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'node_modules/bootstrap-italia/dist/css/bootstrap-italia-comuni.min.css')) {
-        wp_enqueue_style( 'dci-boostrap-italia-min', get_template_directory_uri() . '/node_modules/bootstrap-italia/dist/css/bootstrap-italia-comuni.min.css');
-    }
-    else {
-        wp_enqueue_style( 'dci-boostrap-italia-min', get_template_directory_uri() . '/assets/css/bootstrap-italia.min.css');
-    }
-    wp_enqueue_style( 'dci-comuni', get_template_directory_uri() . '/assets/css/comuni.css', array('dci-boostrap-italia-min'));
+	//load bootstrap-italia-comuni
+    wp_enqueue_style( 'dci-comuni', get_template_directory_uri() . '/assets/css/bootstrap-italia-comuni.min.css');
 
     wp_enqueue_style( 'dci-font', get_template_directory_uri() . '/assets/css/fonts.css', array('dci-comuni'));
     wp_enqueue_style( 'dci-wp-style', get_template_directory_uri()."/style.css", array('dci-comuni'));
