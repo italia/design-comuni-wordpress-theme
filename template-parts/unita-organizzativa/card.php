@@ -10,9 +10,11 @@
 
     $prefix = '_dci_luogo_';
     $contatti = array();
-    foreach ($punti_contatto as $pc_id) {
-        $contatto = dci_get_full_punto_contatto($pc_id);
-        array_push($contatti, $contatto);
+    if(isset($punti_contatto)){
+        foreach ($punti_contatto as $pc_id) {
+            $contatto = dci_get_full_punto_contatto($pc_id);
+            array_push($contatti, $contatto);
+        }
     }
     
     if($with_border) {

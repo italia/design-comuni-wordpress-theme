@@ -373,7 +373,8 @@ class Breadcrumb_Trail {
 				}
 
 				if (get_post_type() == 'documento_pubblico') {
-					$this->items[] =  "<a href='".home_url("documento_pubblico")."'>".__("Documenti pubblici", "design_comuni_italia")."</a>";
+					$this->items[] =  "<a href='".home_url("amministrazione")."'>".__("Amministrazione", "design_comuni_italia")."</a>";
+                    $this->items[] =  "<a href='".home_url("documento_pubblico")."'>".__("Documenti pubblici", "design_comuni_italia")."</a>";
 					$terms = get_the_terms(get_the_ID(),'tipi_documento');
 					if($terms){
 					  foreach ($terms as $term) {
@@ -386,10 +387,27 @@ class Breadcrumb_Trail {
 
 			    $group_name = dci_get_group_name(get_post_type());
 			    //console_log($group_name);
+				
+
 			    switch ($group_name) {
                     case 'Vivere il comune' :
                         $this->items[] =  "<a href='".home_url("vivere-il-comune")."'>".__("Vivere il Comune", "design_comuni_italia")."</a>";
-                        $this->items[] = get_the_title();
+						
+                        $type_slug = get_post_type(get_the_ID());
+
+						$plural_name = COMUNI_TIPOLOGIE[$type_slug]['plural_name'] ?? '';
+						if ( !$plural_name && post_type_exists( $type_slug ) ) {
+							$plural_name = get_post_type_object( $type_slug )->labels->name;
+						}
+						$this->items[] =  "<a href='".get_permalink( get_page_by_title($plural_name))."'>".$plural_name."</a>";
+						
+						$terms = get_the_terms(get_the_ID(),'tipi_evento');
+						if($terms){
+						foreach ($terms as $term) {
+							$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, 'tipi_evento' ) ), $term->name );
+						}
+						}
+						$this->items[] = get_the_title();
                         return;
                         break;
                     case 'Amministrazione':
@@ -403,8 +421,15 @@ class Breadcrumb_Trail {
                         return;
                         break;
                     case 'Novità':
+						$post = get_post(get_the_ID());
+						if ( is_object( $post ) ){
+							$terms = wp_get_object_terms( $post->ID, 'tipi_notizia' );
+						}
+						
                         $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_comuni_italia")."</a>";
-                        $this->items[] = get_the_title();
+						$this->items[] =  "<a href='".get_term_link($terms[0]->term_taxonomy_id)."'>".$terms[0]->name."</a>";
+
+						$this->items[] = get_the_title();
                         return;
                         break;
                 }
@@ -420,7 +445,7 @@ class Breadcrumb_Trail {
 
 			// If viewing an archive page.
 			elseif ( is_archive() ) {
-
+				
                 //if(is_post_type_archive(dci_get_post_types_grouped('vivere-il-comune')))
                     //$this->items[] =  "<a href='".home_url("vivere-il-comune")."'>".__("Vivere il Comune", "design_comuni_italia")."</a>";
 
@@ -429,7 +454,7 @@ class Breadcrumb_Trail {
 
                 }
                 elseif ( is_category() || is_tag() || is_tax() ){
-
+					
                     if (is_tax(array("categorie_servizio"))){
                         $this->items[] = "<a href='".home_url("servizi")."'>".__("Servizi", "design_comuni_italia")."</a>";
                         $this->items[] = single_term_title( '', false );
@@ -785,7 +810,7 @@ class Breadcrumb_Trail {
 			if ( ! empty( $post_type_object->rewrite['slug'] ) )
 				$this->add_path_parents( $post_type_object->rewrite['slug'] );
 		}
-
+		
 		// Add the post type [plural] name to the trail end.
 		if ( is_paged() || is_author() )
 			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), post_type_archive_title( '', false ) );
