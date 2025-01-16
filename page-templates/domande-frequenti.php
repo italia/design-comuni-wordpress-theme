@@ -67,7 +67,7 @@ get_header();
                                 placeholder="Cerca" 
                                 id="autocomplete-three" 
                                 name="search"
-                                value="<?php echo $query; ?>"
+                                value="<?php echo esc_attr($query); ?>"
                                 data-bs-autocomplete="[]">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit" id="button-3">

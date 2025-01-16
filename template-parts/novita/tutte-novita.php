@@ -40,7 +40,7 @@ global $the_query, $load_posts, $load_card_type;
                         <div class="input-group">
                             <label for="autocomplete-two" class="visually-hidden">Cerca</label>
                             <input type="search" class="autocomplete form-control" placeholder="Cerca per parola chiave"
-                                id="autocomplete-two" name="search" value="<?php echo $query; ?>"
+                                id="autocomplete-two" name="search" value="<?php echo esc_attr($query); ?>"
                                 data-bs-autocomplete="[]" />
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit" id="button-3">
