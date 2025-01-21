@@ -46,7 +46,7 @@
                         placeholder="Cerca una parola chiave"
                         id="autocomplete-two"
                         name="search"
-                        value="<?php echo $query; ?>"
+                        value="<?php echo esc_attr($query); ?>"
                         data-bs-autocomplete="[]"
                         />
                         <div class="input-group-append">
