@@ -22,11 +22,11 @@ const submitRating = () => {
     document.querySelector("#formGroupExampleInputWithHelp")?.value || null;
 
   const payload = {
-    title,
-    star,
-    radioResponse,
-    freeText,
-    page,
+    title: escapeHTML(title),
+    star: escapeHTML(star),
+    radioResponse: escapeHTML(radioResponse),
+    freeText: escapeHTML(freeText),
+    page: escapeHTML(page),
   };
 
   // modificare l'url se si vuole integrare con un servizio esterno
