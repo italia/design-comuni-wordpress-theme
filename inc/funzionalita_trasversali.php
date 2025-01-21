@@ -149,7 +149,7 @@ function dci_save_rating(){
     if((array_key_exists("title", $params)) && ($params['title']!= null)) {
         $postId = wp_insert_post(array(
             'post_type' => 'rating',
-            'post_title' =>  $params['title']
+            'post_title' =>  htmlspecialchars($params['title'])
         ));
     }
 
@@ -165,16 +165,15 @@ function dci_save_rating(){
 
     if(array_key_exists("star", $params) && $params['star'] != "null") {
         wp_set_object_terms($postId, $params['star'], "stars");
-        update_post_meta($postId, '_dci_rating_stelle',  $params['star']);
-
+        update_post_meta($postId, '_dci_rating_stelle',  htmlspecialchars($params['star']));
     }
 
     if(array_key_exists("radioResponse", $params) && $params['radioResponse'] != "null") {
-        update_post_meta($postId, '_dci_rating_risposta_chiusa',  $params['radioResponse']);
+        update_post_meta($postId, '_dci_rating_risposta_chiusa',  htmlspecialchars($params['radioResponse']));
     }
 
     if(array_key_exists("freeText", $params) && $params['freeText'] != "null") {
-        update_post_meta($postId, '_dci_rating_risposta_aperta',  $params['freeText']);
+        update_post_meta($postId, '_dci_rating_risposta_aperta',  htmlspecialchars($params['freeText']));
     }
 
     if(array_key_exists("page", $params) && $params['page'] != "null") {
@@ -223,15 +222,15 @@ function dci_save_richiesta_assistenza(){
     }
 
     if(array_key_exists("nome", $params) && $params['nome'] != "null") {
-        update_post_meta($postId, '_dci_richiesta_assistenza_nome',  $params['nome']);
+        update_post_meta($postId, '_dci_richiesta_assistenza_nome',  htmlspecialchars($params['nome']));
     }
 
     if(array_key_exists("cognome", $params) && $params['cognome'] != "null") {
-        update_post_meta($postId, '_dci_richiesta_assistenza_cognome',  $params['cognome']);
+        update_post_meta($postId, '_dci_richiesta_assistenza_cognome',  htmlspecialchars($params['cognome']));
     }
 
     if(array_key_exists("email", $params) && $params['email'] != "null") {
-        update_post_meta($postId, '_dci_richiesta_assistenza_email',  $params['email']);
+        update_post_meta($postId, '_dci_richiesta_assistenza_email',  htmlspecialchars($params['email']));
     }
 
     if(array_key_exists("categoria_servizio", $params) && $params['categoria_servizio'] != "null") {
@@ -240,11 +239,11 @@ function dci_save_richiesta_assistenza(){
     }
 
     if(array_key_exists("servizio", $params) && $params['servizio'] != "null") {
-        update_post_meta($postId, '_dci_richiesta_assistenza_servizio',  $params['servizio']);
+        update_post_meta($postId, '_dci_richiesta_assistenza_servizio',  htmlspecialchars($params['servizio']));
     }
 
     if(array_key_exists("dettagli", $params) && $params['dettagli'] != "null") {
-        update_post_meta($postId, '_dci_richiesta_assistenza_dettagli',  $params['dettagli']);
+        update_post_meta($postId, '_dci_richiesta_assistenza_dettagli',  htmlspecialchars($params['dettagli']));
     }
 
     echo json_encode(array(
@@ -274,7 +273,7 @@ function dci_save_appuntamento(){
 
         $postId = wp_insert_post(array(
             'post_type' => 'appuntamento',
-            'post_title' =>  $appuntamento_title
+            'post_title' =>  htmlspecialchars($appuntamento_title)
         ));
     }
 
@@ -291,17 +290,17 @@ function dci_save_appuntamento(){
     update_post_meta($postId, '_dci_appuntamento_data_ora_prenotazione',  $data);
 
     if(array_key_exists("email", $params) && $params['email'] != "null") {
-        update_post_meta($postId, '_dci_appuntamento_email_richiedente',  $params['email']);
+        update_post_meta($postId, '_dci_appuntamento_email_richiedente',  htmlspecialchars($params['email']));
     }
 
     if(array_key_exists("moreDetails", $params) && $params['moreDetails'] != "null") {
-        update_post_meta($postId, '_dci_appuntamento_dettaglio_richiesta',  $params['moreDetails']);
+        update_post_meta($postId, '_dci_appuntamento_dettaglio_richiesta',  htmlspecialchars($params['moreDetails']));
     }
 
     if(array_key_exists("service", $params) && $params['service'] != "null") {
         $service_obj = json_decode(stripslashes($params['service']), true);
         //$service_id = $service_obj['id'];
-        update_post_meta($postId, '_dci_appuntamento_servizio',$service_obj['name']);
+        update_post_meta($postId, '_dci_appuntamento_servizio', $service_obj['name']);
     }
 
     if(array_key_exists("office", $params) && $params['office'] != "null") {
