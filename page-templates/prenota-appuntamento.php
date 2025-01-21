@@ -8,6 +8,7 @@
 global $post;
 
 function dci_enqueue_dci_booking_script()  {
+    wp_enqueue_script( 'dci-utils', get_template_directory_uri() . '/assets/js/utils.js', array(), false, true);
     wp_enqueue_script( 'dci-booking', get_template_directory_uri() . '/assets/js/booking.js', array(), false, true);
     wp_localize_script('dci-booking', "url", [get_template_directory_uri() . '/assets/json/calendar.json']);
     wp_localize_script('dci-booking', "urlConfirm", [admin_url( 'admin-ajax.php' )]);

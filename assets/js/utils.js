@@ -1,0 +1,1 @@
+const escapeHTML=function(e){return e.toString().replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/'/g,"&#39;").replace(/"/g,"&#34;")};

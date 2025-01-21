@@ -7,6 +7,7 @@
  */
 
 function dci_enqueue_dci_assistence_script()  {
+    wp_enqueue_script( 'dci-utils', get_template_directory_uri() . '/assets/js/utils.js', array(), false, true);
     wp_enqueue_script( 'dci-assistenza', get_template_directory_uri() . '/assets/js/assistenza.js', array('jquery'), null, true );
     $variables = array(
         'url' => admin_url( 'admin-ajax.php' )

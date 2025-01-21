@@ -130,6 +130,7 @@ function dci_get_servizi_ufficio(WP_REST_Request $request) {
  * enqueue script dci-rating
  */
 function dci_enqueue_dci_rating_script() {
+    wp_enqueue_script( 'dci-utils', get_template_directory_uri() . '/assets/js/utils.js', array(), false, true);
     wp_enqueue_script( 'dci-rating', get_template_directory_uri() . '/assets/js/rating.js', array('jquery'), null, true );
     $variables = array(
         'ajaxurl' => admin_url( 'admin-ajax.php' )
