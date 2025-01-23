@@ -1,6 +1,6 @@
 {
   "name": "design-comuni-wordpress-theme",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "description": "Tema Wordpress dei Comuni Italiani",
   "main": "index.js",
   "scripts": {
