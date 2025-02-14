@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Plugin Name: CMB2 Field Type: Attached Posts
  * Plugin URI: https://github.com/WebDevStudios/cmb2-attached-posts
  * Description: Attached posts field type for CMB2.
- * Version: 1.2.7
+ * Version: 1.2.10
  * Author: WebDevStudios
  * Author URI: http://webdevstudios.com
  * License: GPLv2+
@@ -46,7 +47,7 @@
  * Loader versioning: http://jtsternberg.github.io/wp-lib-loader/
  */
 
-if ( ! class_exists( 'WDS_CMB2_Attached_Posts_Field_127', false ) ) {
+if (!class_exists('WDS_CMB2_Attached_Posts_Field_127', false))	{
 
 	/**
 	 * Versioned loader class-name
@@ -68,7 +69,7 @@ if ( ! class_exists( 'WDS_CMB2_Attached_Posts_Field_127', false ) ) {
 		 * @var   string
 		 * @since 1.2.3
 		 */
-		const VERSION = '1.2.7';
+		const VERSION = '1.2.9';
 
 		/**
 		 * Current version hook priority.
@@ -90,8 +91,9 @@ if ( ! class_exists( 'WDS_CMB2_Attached_Posts_Field_127', false ) ) {
 		 *
 		 * @since 1.2.3
 		 */
-		public function __construct() {
-			if ( ! defined( 'CMB2_ATTACHED_POSTS_FIELD_LOADED' ) ) {
+		public function __construct()
+		{
+			if (!defined('CMB2_ATTACHED_POSTS_FIELD_LOADED')) {
 				/**
 				 * A constant you can use to check if WDS_CMB2_Attached_Posts_Field is loaded
 				 * for your plugins/themes with WDS_CMB2_Attached_Posts_Field dependency.
@@ -99,14 +101,14 @@ if ( ! class_exists( 'WDS_CMB2_Attached_Posts_Field_127', false ) ) {
 				 * Can also be used to determine the priority of the hook
 				 * in use for the currently loaded version.
 				 */
-				define( 'CMB2_ATTACHED_POSTS_FIELD_LOADED', self::PRIORITY );
+				define('CMB2_ATTACHED_POSTS_FIELD_LOADED', self::PRIORITY);
 			}
 
 			// Use the hook system to ensure only the newest version is loaded.
-			add_action( 'cmb2_attached_posts_field_load', array( $this, 'include_lib' ), self::PRIORITY );
+			add_action('cmb2_attached_posts_field_load', array($this, 'include_lib'), self::PRIORITY);
 
 			// Use the hook system to ensure only the newest version is loaded.
-			add_action( 'after_setup_theme', array( $this, 'do_hook' ) );
+			add_action('after_setup_theme', array($this, 'do_hook'));
 		}
 
 		/**
@@ -115,9 +117,10 @@ if ( ! class_exists( 'WDS_CMB2_Attached_Posts_Field_127', false ) ) {
 		 *
 		 * @since 1.2.3
 		 */
-		public function do_hook() {
+		public function do_hook()
+		{
 			// Then fire our hook.
-			do_action( 'cmb2_attached_posts_field_load' );
+			do_action('cmb2_attached_posts_field_load');
 		}
 
 		/**
@@ -129,23 +132,24 @@ if ( ! class_exists( 'WDS_CMB2_Attached_Posts_Field_127', false ) ) {
 		 *
 		 * @since  1.2.3
 		 */
-		public function include_lib() {
-			if ( class_exists( 'WDS_CMB2_Attached_Posts_Field', false ) ) {
+		public function include_lib()
+		{
+			if (class_exists('WDS_CMB2_Attached_Posts_Field', false)) {
 				return;
 			}
 
-			if ( ! defined( 'CMB2_ATTACHED_POSTS_FIELD_VERSION' ) ) {
+			if (!defined('CMB2_ATTACHED_POSTS_FIELD_VERSION')) {
 				/**
 				 * Defines the currently loaded version of WDS_CMB2_Attached_Posts_Field.
 				 */
-				define( 'CMB2_ATTACHED_POSTS_FIELD_VERSION', self::VERSION );
+				define('CMB2_ATTACHED_POSTS_FIELD_VERSION', self::VERSION);
 			}
 
-			if ( ! defined( 'CMB2_ATTACHED_POSTS_FIELD_DIR' ) ) {
+			if (!defined('CMB2_ATTACHED_POSTS_FIELD_DIR')) {
 				/**
 				 * Defines the directory of the currently loaded version of WDS_CMB2_Attached_Posts_Field.
 				 */
-				define( 'CMB2_ATTACHED_POSTS_FIELD_DIR', dirname( __FILE__ ) . '/' );
+				define('CMB2_ATTACHED_POSTS_FIELD_DIR', dirname(__FILE__) . '/');
 			}
 
 			// Include and initiate WDS_CMB2_Attached_Posts_Field.
