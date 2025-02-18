@@ -937,7 +937,13 @@ if(!function_exists("dci_get_data_pubblicazione_arr")) {
 if(!function_exists("dci_get_data_pubblicazione_ts")) {
     function dci_get_data_pubblicazione_ts($key = '', $prefix = '', $post_id = null) {
         global $post;
-        if (!$post) $post = get_post($post_id);
+
+        $data_pubblicazione = dci_get_meta($key, $prefix , $post_id);
+
+        /*if (!$post) $post = get_post($post_id);*/
+
+        $post = get_post($post_id);
+        if (!$post) return 0;
 
         $data_pubblicazione = dci_get_meta($key, $prefix , $post_id);
         if (!$data_pubblicazione) {
