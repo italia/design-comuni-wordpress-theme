@@ -33,6 +33,9 @@ function dci_register_pagina_documenti_options(){
             'desc' => __('Seleziona i documenti e i dataset da mostrare nella sezione In Evidenza. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_comuni_italia'),
             'id' => $prefix . 'contenuti_evidenziati',
             'type'    => 'custom_attached_posts',
+            'sanitization_cb' => function($value, $field_args, $field){
+                return explode(",",$value);
+            },
             'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
             'options' => array(
                 'show_thumbnails' => false, // Show thumbnails on the left

@@ -33,6 +33,9 @@ function dci_register_pagina_novita_options(){
             'desc' => __('Seleziona le notizie da mostrare nella sezione In Evidenza.', 'design_comuni_italia'),
             'id' => $prefix . 'contenuti_evidenziati',
             'type'    => 'custom_attached_posts',
+            'sanitization_cb' => function($value, $field_args, $field){
+                    return explode(",",$value);
+            },
             'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
             'options' => array(
                 'show_thumbnails' => false, // Show thumbnails on the left
