@@ -4,7 +4,7 @@
 
 ## **Un sito per i Comuni Italiani**
 
-### I primi passi con il tema Wordpress (1.11.2)
+### I primi passi con il tema Wordpress (1.12.0)
 
 **Design Comuni Italia** è il tema WordPress che permette di aderire al [modello di sito istituzionale dei Comuni Italiani](https://designers.italia.it/modello/comuni/), progettato dal Dipartimento per la trasformazione digitale.
 
