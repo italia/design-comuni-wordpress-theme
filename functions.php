@@ -277,3 +277,34 @@ function getFileSizeAndFormat($url) {
 
     return $file_format . ' ' . $size_formatted;
 }
+
+
+
+function my_custom_one_time_function() {
+    // Controlla se l'opzione è già stata impostata
+    if (!get_option('my_custom_function_executed')) {
+        
+		$args = array(
+			'post_type' => 'notizia', 
+			'post_status' => 'publish', 
+			'posts_per_page'   => -1 
+		);
+		$posts = get_posts($args);
+		foreach ( $posts as $post ) {
+			
+			$meta_valore = get_post_meta($post->ID, '_dci_notizia_data_pubblicazione', true);
+			
+			if (empty($meta_valore)) {
+				// Recupera la data di pubblicazione del post
+				$data_pubblicazione = strtotime(get_the_date('d-m-Y', $post->ID));
+				
+				// Aggiorna il campo personalizzato con la data di pubblicazione
+				update_post_meta($post->ID, '_dci_notizia_data_pubblicazione', $data_pubblicazione);
+			}
+		}
+
+        // Imposta l'opzione per segnare che la funzione è stata eseguita
+        update_option('my_custom_function_executed', 1);
+    }
+}
+add_action('init', 'my_custom_one_time_function');

@@ -40,8 +40,14 @@ function load_more(){
         'posts_per_page' => $_POST['post_count'] + $_POST['load_posts'],
         'post_type'      => $post_types,
 		'post_status'    => 'publish',
-        'orderby'        => 'date',
-        'order'          => 'DESC'
+        'order'          => 'DESC',
+		'meta_query' => array(
+            array(
+                'key' => '_dci_notizia_data_pubblicazione',
+            )
+        ),
+        'meta_type' => 'text_date_timestamp',
+        'orderby'   => 'meta_value_num',
     );
 	
 	if ( $post_types != "notizia" ) {
