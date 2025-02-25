@@ -15,6 +15,12 @@
         console.error(e);
       }
     }
+
+    function decodeHtmlEntities(str) {
+      const parser = new DOMParser();
+      const decodedString = parser.parseFromString(str, "text/html").documentElement.textContent;
+      return escapeHTML(decodedString);
+  }
   
     async function postNode() {
       try {
@@ -23,7 +29,9 @@
         const cognome = $wrapper.querySelector('[name="surname"]').value;
         const email = $wrapper.querySelector('[name="email"]').value;
         const categoria_servizio = $wrapper.querySelector("#category").value;
-        const servizio = $wrapper.querySelector("#service").value;
+        const servizio = decodeHtmlEntities($wrapper.querySelector("#service").value);
+
+       // const servizio = $wrapper.querySelector("#service").value;
         const dettagli = $wrapper.querySelector("#description").value;
         const privacyChecked = $wrapper.querySelector("#privacy").checked;
   
