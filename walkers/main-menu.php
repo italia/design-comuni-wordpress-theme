@@ -25,6 +25,9 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 		if ($item->attr_title == $group) {
 			$active_class = 'active';
 		}
+		if (!empty($group) && str_contains($item->url, $group)) { 
+			$active_class = 'active'; 
+		}
 
 		// set data-element for crawler
 		$data_element = '';
