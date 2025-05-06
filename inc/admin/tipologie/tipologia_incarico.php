@@ -100,12 +100,12 @@ function dci_add_incarico_metaboxes()
 
     $cmb_dati->add_field( array(
         'id' => $prefix . 'persona',
-        'name'    => __( 'Persona *', 'design_comuni_italia' ),
+        'name'    => __( 'Persona', 'design_comuni_italia' ),
         'desc' => __( 'La persona che ha la carica e l\'incarico' , 'design_comuni_italia' ),
         'type'    => 'pw_select',
         'options' => dci_get_posts_options('persona_pubblica'),
         'attributes'    => array(
-            'required'    => 'required',
+          //  'required'    => 'required',
             'placeholder' =>  __( 'Seleziona una Persona Pubblica', 'design_comuni_italia' ),
         ),
     ) );
