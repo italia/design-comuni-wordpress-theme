@@ -364,6 +364,7 @@ get_header();
                                 <div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
                                     <?php foreach ($documenti_collegati as $documento_id) {
                                         $documento = get_post($documento_id);
+										$file_documento = dci_get_meta("file_documento","",$documento_id);
                                         $with_border = true;
                                         get_template_part("template-parts/documento/card");
                                     } ?>
