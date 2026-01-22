@@ -300,7 +300,7 @@ WordPress è un ambiente pensato per modificare con semplicità ogni aspetto del
 
 Il tema WordPress copre già tutte le esigenze di base.
 
-WordPress permette di aggiungere innumerevoli funzionalità, per far fronte alle esigneze dei singoli Comuni. Quando si sviluppa una nuova funzionalità, è opportuno condividerla con il resto della comunità tramite [Forum Italia](https://forum.italia.it/), [GitHub](https://github.com/italia/design-comuni-wordpress-theme) o il [progetto Porte Aperte sul Web](https://www.porteapertesulweb.it/).
+WordPress permette di aggiungere innumerevoli funzionalità, per far fronte alle esigenze dei singoli Comuni. Quando si sviluppa una nuova funzionalità, è opportuno condividerla con il resto della comunità tramite [Forum Italia](https://forum.italia.it/), [GitHub](https://github.com/italia/design-comuni-wordpress-theme) o il [progetto Porte Aperte sul Web](https://www.porteapertesulweb.it/).
 
 È sconsigliato apportare modifiche strutturali al sito, come modificare la classificazione delle informazioni o la struttura di navigazione. Modifiche di questo tipo possono impedire di beneficiare di evoluzioni future del prodotto, a cause di problematiche di aggiornamento del tema. Puoi segnalare necessità di questo tipo direttamente alla community di Designers Italia tramite i vari canali di contatto. I feedback ricevuti verranno raccolti e considerati per le successive evoluzioni del modello.
 
