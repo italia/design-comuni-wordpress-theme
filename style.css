@@ -491,7 +491,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   background: #fff;
   background: rgba(255, 255, 255, 0.7);
   margin: 0;
-  display: none;
+  display: block;
 }
 
 .leaflet-control-attribution,
