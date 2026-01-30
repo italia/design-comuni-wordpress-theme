@@ -390,7 +390,7 @@ class Breadcrumb_Trail {
 				
 
 			    switch ($group_name) {
-                    case 'Vivere il comune' :
+                    case 'Vivere il Comune' :
                         $this->items[] =  "<a href='".home_url("vivere-il-comune")."'>".__("Vivere il Comune", "design_comuni_italia")."</a>";
 						
                         $type_slug = get_post_type(get_the_ID());
