@@ -185,26 +185,6 @@ function dci_get_group_ids() {
 }
 
 /**
- * restituisce label per costruzione breadcrumb
- * @param $name
- * @param string $type
- * @return mixed|string
- */
-function dci_get_breadcrumb_label($name , $type = 'term') {
-    $terms = array(
-        'comunicato stampa' => 'Comunicati',
-        'news' => 'Notizie',
-        'avviso' => 'Avvisi'
-    );
-
-    if ($terms[$name]) {
-        return $terms[$name];
-    }
-
-    return ucfirst($name);
-}
-
-/**
  * restituisce l'array per ordinare le voci del menu admin di wordpress
  * @return string[]
  */
