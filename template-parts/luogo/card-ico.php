@@ -1,43 +1,24 @@
 <?php
-global $luogo, $struttura, $c, $locations;
-$card_title = $luogo->post_title;
-$id = 0;
-// controllo se è un parent, in caso recupero i dati del genitore
-if($luogo->post_parent == 0){
-    $id = $luogo->ID;
-    $posizione_gps = dci_get_meta("posizione_gps", '_dci_luogo_', $luogo->ID);
-    $indirizzo = dci_get_meta("indirizzo", '', $luogo->ID);
-}else{
-    $parent = get_post($luogo->post_parent);
-    $id = $parent->ID;
-    $posizione_gps = dci_get_meta("posizione_gps", "_dci_luogo_", $luogo->post_parent);
-    $indirizzo = dci_get_meta("indirizzo", "", $luogo->post_parent);
-}
+  global $luogo_id;
+  $luogo = get_post( $luogo_id );
+  $img = dci_get_meta('immagine', '_dci_luogo_', $luogo->ID);
 
-/*$locations[$posizione_gps['lat']."|".$posizione_gps['lng']][] = [
-    'title' => $card_title,
-    'lat' => $posizione_gps['lat'],
-    'lng' => $posizione_gps['lng'],
-    'indirizzo' => $indirizzo,
-    'permalink' => get_permalink($luogo)
-];*/
-
-$locations[$id][] = [
-    'title' => $card_title,
-    'lat' => $posizione_gps['lat'],
-    'lng' => $posizione_gps['lng'],
-    'indirizzo' => $indirizzo,
-    'permalink' => get_permalink($luogo)
-];
 ?>
-<div class="card card-bg card-icon rounded mb-3">
-    <a href="<?php echo get_permalink($luogo); ?>">
-        <div class="card-body">
-            <svg class="icon svg-marker-simple"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker-simple"></use></svg>
-            <div class="card-icon-content">
-                <p><strong><?php echo $card_title; ?></strong></p>
-                <small><?php echo $indirizzo; ?></small>
-            </div><!-- /card-icon-content -->
+<div class="col-lg-4 col-xl-2">
+  <div class="card-wrapper shadow-sm rounded border border-light">
+    <div class="card no-after rounded">
+      <a href="<?php echo get_permalink($luogo); ?>">
+        <div class="card-body" style="padding: 6px 18px">
+          <div class="card-icon-content">
+            <?php if ($img) { ?>
+            <div class="avatar size-xl" style="margin: 0 auto; display: block;">
+              <?php dci_get_img($img); ?>
+            </div>
+            <?php } ?>
+            <p style="text-align: center;"><strong><?php echo $luogo->post_title; ?></strong></p>
+          </div><!-- /card-icon-content -->
         </div><!-- /card-body -->
-    </a>
+      </a>
+    </div>
+  </div>
 </div>
