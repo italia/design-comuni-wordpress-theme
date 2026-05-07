@@ -28,7 +28,7 @@ aria-labelledby="modalrightTitle"
                 <h2 class="modal-title h5 no_toc" id="modalrightTitle">
                     <?php echo $wp_query->found_posts; ?> Risultati
                 </h2>
-                <button type="button" onclick="location.href='?s=<?php echo get_search_query(); ?>'">
+                <button type="button" onclick="location.href='?s=<?php echo esc_js( get_search_query() ); ?>'">
                 Rimuovi tutti i filtri
                 </button>
             </div>
@@ -140,7 +140,7 @@ aria-labelledby="modalrightTitle"
     };
 
     const goToResults = () => {
-        let newQuery = '?s=<?php echo get_search_query(); ?>';
+        let newQuery = '?s=<?php echo esc_js( get_search_query() ); ?>';
         for (const type of queryParams?.postTypes) {
             newQuery += `&post_types[]=${type}`;
         }

@@ -212,15 +212,15 @@ add_filter( 'manage_appuntamento_posts_columns', 'dci_filter_appuntamento_column
 function dci_manage_appuntamento_posts_custom_column( $column, $post_id ) {
 
     if ( 'email_richiedente' === $column ) {
-        echo get_post_meta($post_id, '_dci_appuntamento_email_richiedente', true );
+        echo esc_html( get_post_meta($post_id, '_dci_appuntamento_email_richiedente', true ) );
     }
 
     if ( 'servizio' === $column ) {
-        echo get_post_meta($post_id, '_dci_appuntamento_servizio', true );
+        echo esc_html( get_post_meta($post_id, '_dci_appuntamento_servizio', true ) );
     }
 
     if ( 'ufficio' === $column ) {
-        echo get_post_meta($post_id, '_dci_appuntamento_unita_organizzativa', true );
+        echo esc_html( get_post_meta($post_id, '_dci_appuntamento_unita_organizzativa', true ) );
     }
 
     if ( 'data_ora_inizio' === $column ) {
@@ -228,7 +228,7 @@ function dci_manage_appuntamento_posts_custom_column( $column, $post_id ) {
         if (is_numeric($data_ora_inizio)){
             echo date('Y-m-d\TH:i', $data_ora_inizio);
         } else {
-            echo  $data_ora_inizio;
+            echo esc_html( $data_ora_inizio );
         }
     }
 
@@ -237,7 +237,7 @@ function dci_manage_appuntamento_posts_custom_column( $column, $post_id ) {
         if (is_numeric($data_ora_fine)){
             echo date('Y-m-d\TH:i', $data_ora_fine);;
         } else {
-            echo  $data_ora_fine;
+            echo esc_html( $data_ora_fine );
         }
     }
 

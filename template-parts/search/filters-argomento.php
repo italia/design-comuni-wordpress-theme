@@ -1,7 +1,7 @@
 <?php
 $post_type = get_query_var("post_type");
 if(isset($_REQUEST["archive"]))
-    $archive = $_REQUEST["archive"];
+    $archive = sanitize_text_field( $_REQUEST['archive'] );
 ?>
 <aside class="aside-list sticky-sidebar search-results-filters">
     <form role="search" method="get" class="search-form" action="<?php echo home_url(""); ?>">
@@ -10,7 +10,7 @@ if(isset($_REQUEST["archive"]))
         <?php } ?>
 
         <?php if(isset($archive) && $archive != ""){ ?>
-            <input type="hidden" name="archive" value="<?php echo $archive; ?>">
+            <input type="hidden" name="archive" value="<?php echo esc_attr( $archive ); ?>">
         <?php } ?>
         <h3 class="h6 text-uppercase"><strong><?php _e("Argomenti", "design_comuni_italia"); ?></strong></h3>
         <ul>

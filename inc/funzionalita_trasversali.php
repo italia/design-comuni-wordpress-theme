@@ -300,13 +300,13 @@ function dci_save_appuntamento(){
     if(array_key_exists("service", $params) && $params['service'] != "null") {
         $service_obj = json_decode(stripslashes($params['service']), true);
         //$service_id = $service_obj['id'];
-        update_post_meta($postId, '_dci_appuntamento_servizio', $service_obj['name']);
+        update_post_meta($postId, '_dci_appuntamento_servizio', sanitize_text_field($service_obj['name']));
     }
 
     if(array_key_exists("office", $params) && $params['office'] != "null") {
         $office_obj = json_decode(stripslashes($params['office']), true);
         //$office_id = $office_obj['id'];
-        update_post_meta($postId, '_dci_appuntamento_unita_organizzativa', $office_obj['name']);
+        update_post_meta($postId, '_dci_appuntamento_unita_organizzativa', sanitize_text_field($office_obj['name']));
     }
 
     if(array_key_exists("appointment", $params) && $params['appointment'] != "null") {
@@ -315,8 +315,8 @@ function dci_save_appuntamento(){
         $startDate = $appointment_obj['startDate'];
         $endDate = $appointment_obj['endDate'];
 
-        update_post_meta($postId, '_dci_appuntamento_data_ora_inizio_appuntamento',  $startDate );
-        update_post_meta($postId, '_dci_appuntamento_data_ora_fine_appuntamento',  $endDate);
+        update_post_meta($postId, '_dci_appuntamento_data_ora_inizio_appuntamento', sanitize_text_field($startDate));
+        update_post_meta($postId, '_dci_appuntamento_data_ora_fine_appuntamento', sanitize_text_field($endDate));
     }
 
     echo json_encode(array(

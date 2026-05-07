@@ -76,7 +76,7 @@ get_header();
                             data-bs-toggle="modal"
                             data-bs-target="#"
                             class="btn p-0 pe-2 d-none d-lg-block"
-                            onclick="location.href='?s=<?php echo get_search_query(); ?>'"
+                            onclick="location.href='?s=<?php echo esc_js( get_search_query() ); ?>'"
                             >
                             <span class="title-xsmall-semi-bold ms-1">Rimuovi tutti filtri</span>
                             </button>
