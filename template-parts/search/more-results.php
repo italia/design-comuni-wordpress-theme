@@ -20,31 +20,39 @@ if ( !$post_types ) $post_types = dci_get_sercheable_tipologie();
 $post_types = json_encode( $post_types );
 
 $query_search = isset($_GET_sanitized['search']) ? dci_removeslashes($_GET_sanitized['search']) : null;
-$query_params = '?post_count='.$the_query->post_count.'&load_posts='.$load_posts.'&search='.$query_search.'&post_types='.$post_types.'&load_card_type='.$load_card_type.'&query_params='.$query_params.'&additional_filter='.$additional_filter;
+$query_params = http_build_query(array(
+    'post_count' => absint($the_query->post_count),
+    'load_posts' => absint($load_posts),
+    'search' => sanitize_text_field($query_search),
+    'post_types' => $post_types,
+    'load_card_type' => sanitize_key($load_card_type),
+    'query_params' => $query_params,
+    'additional_filter' => $additional_filter,
+), '', '&', PHP_QUERY_RFC3986);
 
 if($the_query->post_count < $the_query->found_posts) {
 ?> 
 <div class="d-flex justify-content-center mt-4" id="load-more-btn">
     <?php if(get_parent_template() === 'servizi.php') {
         ?><button type="button"
-            class="<?php echo $classes; ?>" onclick='handleOnClick(`<?php echo esc_js($query_params); ?>`)'
+            class="<?php echo esc_attr($classes); ?>" onclick='handleOnClick(`<?php echo esc_js($query_params); ?>`)'
             data-element="load-other-cards"
         >
     <?php } else {
         ?><button type="button"
-            class="<?php echo $classes; ?>" onclick='handleOnClick(`<?php echo esc_js($query_params); ?>`)'
+            class="<?php echo esc_attr($classes); ?>" onclick='handleOnClick(`<?php echo esc_js($query_params); ?>`)'
         >
     <?php } ?>
 
-    <span class=""><?php echo $label; ?></span>
+    <span class=""><?php echo esc_html($label); ?></span>
     </button> 
 </div>
 <p class="text-center text-paragraph-regular-medium mt-4 mb-0 d-none" id="no-more-results">
-    <?php echo $label_no_more; ?>
+    <?php echo esc_html($label_no_more); ?>
 </p>
 <?php } else { ?>
 <p class="text-center text-paragraph-regular-medium mt-4 mb-0" id="no-more-results">
-    <?php echo $label_no_more; ?>
+    <?php echo esc_html($label_no_more); ?>
 </p>
 <?php } ?>
 
