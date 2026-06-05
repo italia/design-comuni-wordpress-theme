@@ -17,7 +17,7 @@ $query = $the_query->query;
 $post_types = isset($query['post_type']) ? $query['post_type'] : null;
 if ( !$post_types ) $post_types = dci_get_sercheable_tipologie();
 
-$post_types = json_encode( $post_types );
+$post_types = json_encode( (array)$post_types );
 
 $query_search = isset($_GET_sanitized['search']) ? dci_removeslashes($_GET_sanitized['search']) : null;
 $query_params = http_build_query(array(
