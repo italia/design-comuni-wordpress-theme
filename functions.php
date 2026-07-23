@@ -175,7 +175,10 @@ if ( ! function_exists( 'dci_disable_wp_emojis' ) ) :
 		// impedisce anche il DNS-prefetch di s.w.org iniettato in
 		// wp_resource_hints: la sola remove_action sopra non basta a
 		// rimuovere `<link rel="dns-prefetch" href="//s.w.org">`.
-		add_filter( 'wp_resource_hints', 'dci_remove_s_w_org_prefetch', 10, 2 );
+		// Priority 999 per assicurare che il filter giri per ultimo,
+		// anche se un plugin di terze parti aggiunge s.w.org con
+		// priority superiore al default 10.
+		add_filter( 'wp_resource_hints', 'dci_remove_s_w_org_prefetch', 999, 2 );
 	}
 endif;
 add_action( 'init', 'dci_disable_wp_emojis' );
