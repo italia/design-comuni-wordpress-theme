@@ -152,6 +152,47 @@ function dci_widgets_init() {
 add_action( 'widgets_init', 'dci_widgets_init' );
 
 /**
+ * Disabilita il caricamento remoto degli emoji di default di WordPress
+ * (s.w.org/images/core/emoji/...), che sarebbe altrimenti eseguito al
+ * primo pixel di ogni pagina pubblica e comporterebbe un trasferimento
+ * di dati personali (indirizzo IP del visitatore) verso Automattic Inc.
+ * (USA) senza informativa e senza consenso.
+ *
+ * Gli emoji restano supportati nativamente da tutti i browser moderni:
+ * la rimozione del polyfill non ha impatto sull'esperienza utente.
+ *
+ * @see https://developer.wordpress.org/reference/functions/wp_head/
+ */
+if ( ! function_exists( 'dci_disable_wp_emojis' ) ) :
+	function dci_disable_wp_emojis() {
+		remove_action( 'wp_head',             'print_emoji_detection_script', 7 );
+		remove_action( 'admin_print_scripts', 'print_emoji_detection_script'    );
+		remove_action( 'wp_print_styles',     'print_emoji_styles'              );
+		remove_action( 'admin_print_styles',  'print_emoji_styles'              );
+		remove_filter( 'the_content_feed',    'wp_staticize_emoji'              );
+		remove_filter( 'comment_text_rss',    'wp_staticize_emoji'              );
+		remove_filter( 'wp_mail',             'wp_staticize_emoji_for_email'    );
+		// impedisce anche il DNS-prefetch di s.w.org iniettato in
+		// wp_resource_hints: la sola remove_action sopra non basta a
+		// rimuovere `<link rel="dns-prefetch" href="//s.w.org">`.
+		add_filter( 'wp_resource_hints', 'dci_remove_s_w_org_prefetch', 10, 2 );
+	}
+	add_action( 'init', 'dci_disable_wp_emojis' );
+endif;
+
+if ( ! function_exists( 'dci_remove_s_w_org_prefetch' ) ) :
+	function dci_remove_s_w_org_prefetch( $urls, $relation_type ) {
+		if ( 'dns-prefetch' !== $relation_type ) {
+			return $urls;
+		}
+		return array_values( array_filter( $urls, function ( $u ) {
+			$href = is_array( $u ) ? ( isset( $u['href'] ) ? $u['href'] : '' ) : $u;
+			return strpos( $href, 's.w.org' ) === false;
+		} ) );
+	}
+endif;
+
+/**
  * Enqueue scripts and styles.
  */
 function dci_scripts() {
