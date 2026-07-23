@@ -161,7 +161,7 @@ add_action( 'widgets_init', 'dci_widgets_init' );
  * Gli emoji restano supportati nativamente da tutti i browser moderni:
  * la rimozione del polyfill non ha impatto sull'esperienza utente.
  *
- * @see https://developer.wordpress.org/reference/functions/wp_head/
+ * @see https://developer.wordpress.org/reference/functions/print_emoji_detection_script/
  */
 if ( ! function_exists( 'dci_disable_wp_emojis' ) ) :
 	function dci_disable_wp_emojis() {
@@ -177,8 +177,8 @@ if ( ! function_exists( 'dci_disable_wp_emojis' ) ) :
 		// rimuovere `<link rel="dns-prefetch" href="//s.w.org">`.
 		add_filter( 'wp_resource_hints', 'dci_remove_s_w_org_prefetch', 10, 2 );
 	}
-	add_action( 'init', 'dci_disable_wp_emojis' );
 endif;
+add_action( 'init', 'dci_disable_wp_emojis' );
 
 if ( ! function_exists( 'dci_remove_s_w_org_prefetch' ) ) :
 	function dci_remove_s_w_org_prefetch( $urls, $relation_type ) {
